@@ -1,0 +1,19 @@
+/**
+ * @file.
+ * Relates to all the z-index's of the site, complete, can be used to change
+ * z-index problems in scope
+ */
+
+/*============= Navigation =============*/
+$nav-zindex: 30;
+$nav-more-zindex: 35;
+$nav-reveal-z-index: 35;
+$nav-submenu-zindex: 45;
+
+/*============= Sidevar =============*/
+$sidebar-zindex: 20;
+
+/*============= Multiple Posts =============*/
+$multiple-post-not-background-zindex: 2;
+$multiple-post-background-zindex: 1;
+$multiple-post-header-z-index: 5;

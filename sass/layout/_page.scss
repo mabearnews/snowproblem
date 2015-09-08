@@ -1,0 +1,46 @@
+body, html {
+    overflow: hidden;
+}
+
+#page {
+    background-color: $page-bgcolor;
+
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    top: 0;
+    left: 0;
+
+// Disabled in order to allow a more full site look
+//    padding: 0 $page-padding;
+
+    // Remove the scrollbar (webkit only)
+    &::-webkit-scrollbar { display:none; }
+}
+
+/* Set up the content to allow for lack of overlap of the content. */
+#content-nav-bar-padding {
+    width: 100%;
+    height: $nav-screen-height;
+    margin: 0;
+    padding: 0;
+}
+
+/* The base wrapper encomapasses the entire site, it is the element directly after the body element. */
+#base-wrapper {
+    // Allow for smoth 3d transitions.
+    @include transform-style(preserve-3d);
+    @include transition(transform $sidebar-display-transition-duration);
+
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+
+    position: fixed;
+}

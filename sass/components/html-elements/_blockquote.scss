@@ -1,0 +1,34 @@
+blockquote {
+    font-family: $font-blockquote;
+    font-size: $blockquote-font-size;
+    font-style: italic;
+
+    margin: 0.25em 0;
+    padding: 0.25em 40px;
+    line-height: 1.45;
+    position: relative;
+    color: $blockquote-text-color;
+}
+
+blockquote::before {
+    display: block;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    left: 3px;
+    top: -20px;
+    color: $blockquote-border-color;
+}
+
+cite {
+    font-family: $font-headings;
+    color: $blockquote-light-text-color;
+    font-size: $blockquote-author-font-size;
+    display: block;
+    margin-top: 5px;
+    margin-left: 30px;
+}
+
+cite:before {
+    content: "\2014 \2009";
+}

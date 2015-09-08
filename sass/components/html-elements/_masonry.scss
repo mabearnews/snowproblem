@@ -1,0 +1,7 @@
+/**
+ * Shows a masonry element as position relative in order to allow children
+ * to be postioned absolutly by javascript.
+ */
+.masonry-grid {
+    position: relative;
+}

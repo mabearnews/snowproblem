@@ -1,0 +1,37 @@
+/**
+ * @file.
+ * Defines some basic ovverride styles for parts of the page to improve the
+ * overall design and normalize appearences.
+ */
+
+body {
+    font-family: $font-casual;
+}
+
+#{headings()} {
+    @extend %heading-font;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+    cursor: pointer;
+    font-family: $font-headings;
+
+    &:visited {
+        color: inherit;
+    }
+
+    &:hover {
+        color: inherit;
+    }
+}
+
+/* Styling to change the color of the currently selected element. */
+*[class*="current"] {
+    color: $current-element-color;
+}
+
+input {
+    background-color: transparent;
+}

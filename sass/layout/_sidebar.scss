@@ -1,0 +1,54 @@
+/**
+ * @file.
+ * Creates the sidebar and also dicates its layout in terms of the
+ * page content and the sidebar.
+ */
+
+/* Sets up the sidebar to allow toggling. */
+#sidebar {
+    overflow: visible;
+
+    // Hide for mobile.
+    display: none;
+
+    // Allow for transition to show the sidebar.
+    @include transition(all $sidebar-display-transition-duration);
+}
+
+@media (min-width: #{$standard-breakpoint}) {
+    /* Make the sidebar be hidden and show the icon.  */
+    #sidebar {
+        display: block;
+
+        // Will have a zindex that allowes the sidebar to preceede all but the nav.
+        z-index: $sidebar-zindex;
+
+        // Will not scroll with window.
+        position: fixed;
+        top: 0;
+
+        // Position the sidebar to allow the dispaly of the border.
+        right: 0;
+        @include transform(translateX($sidebar-width));
+
+
+        width: $sidebar-width;
+
+        // Make sure the sidebar takes up the apropriate space.
+        height: 100vh;
+
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        padding-top: 10px;
+    }
+
+    /* Perform all animations for the display of the sidebar. */
+    #base-wrapper.sidebar-display {
+        @include transform(translateX(-$sidebar-width));
+    }
+
+    #sidebar.sidebar-display {
+         @include transform(translateX(0));
+    }
+}

@@ -1,0 +1,85 @@
+/**
+ * @file.
+ * This file concnerns the layout of various elements on the page. It should be
+ * noted that not all of these variables should be changed, if the variables are
+ * relative then include that definition in the definition of the variable.
+ */
+/*============= Navigation bar =============*/
+$nav-screen-rotation: 30deg;
+
+$nav-screen-height: 100px;
+
+$nav-toggle-height: 20px;
+$nav-toggle-width: 20px;
+
+$nav-min-padding: 5px;
+
+$nav-toggle-margin: 40px;
+
+$nav-mobile-width: 70%;
+$nav-mobile-max-width: 320px;
+
+$nav-primary-menu-max-width: 400px;
+$nav-primary-menu-item-min-width: 50px;
+
+$nav-submenu-current-page-size: 120px;
+$nav-submenu-current-page-right: 30px;
+
+$nav-submenu-item-width: 200px;
+$nav-submenu-padding-vertical: 5px;
+$nav-submenu-space-between: 4px;
+
+
+/*============= Sidebar =============*/
+$sidebar-width: 320px;
+$sidebar-border-width: 13px;
+
+/*============= Widgets =============*/
+$widget-margin-bottom: 10px;
+
+/*============= Gallery =============*/
+$gallery-image-width: 250px;
+$gallery-image-caption-height: 100px;
+
+/*============= Content =============*/
+$content-min-width: 420px;
+$page-max-width: 1120px;
+$page-padding: 60px;
+
+/*============= Posts =============*/
+$post-width: 700px;
+
+/*============= Single Post =============*/
+$single-post-navigation-link-size: 200px;
+
+/*============= Multiple Posts =============*/
+$multiple-post-background-rotation: 4deg;
+$multiple-post-padding-vertical: 50px;
+
+/*============= Breakpoints =============*/
+$standard-breakpoint: $sidebar-width + $content-min-width;
+$mobile-breakpoint: 420px;
+$nav-hide-breakpoint: 900px;
+$nav-site-title-change-font-breakpoint: 500px;
+$nav-height-breakpoint: 700px;
+
+/*============= Front Page Grid =============*/
+$front-page-grid-post-width: 300px;
+$front-page-grid-post-gap: 20px;
+
+/*============= Footer =============*/
+$footer-widget-width: $front-page-grid-post-width;
+$footer-column-container-width: 95%;
+$footer-widget-gap: $front-page-grid-post-gap;
+
+/*============= Footer =============*/
+$body-default-bgcolor: $grey;
+
+/*============= Featured =============*/
+$featured-post-width: 250px;
+$featured-post-height: 80px;
+$featured-image-height: 80vh;
+
+$featured-post-mobile-height: 120px;
+
+$featured-image-entry-content-width: 50%;

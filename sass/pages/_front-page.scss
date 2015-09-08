@@ -1,0 +1,44 @@
+body.home #content {
+    // Specified float fixes some problems using columns for webkit and moz.
+    float: right;
+
+}
+
+body.home #recent-posts  {
+    width: $footer-column-container-width;
+    $footer-column-container-margin: (100% - $footer-column-container-width) / 2;
+    margin-left: $footer-column-container-margin;
+    margin-right: $footer-column-container-margin;
+
+    // Specified float fixes some problems using columns for webkit and moz.
+    float: right;
+
+    // Specify the sizes of the columns.
+    @include column-count(auto);
+    @include column-gap($footer-widget-gap);
+    @include column-width($footer-widget-width);
+    @include break-inside(avoid);
+
+
+    padding: 0;
+}
+
+body.home #recent-posts article.post {
+    display: inline-block;
+    background-color: $footer-text-color;
+    margin-bottom: $footer-widget-gap;
+
+    padding: $footer-widget-paddding;
+
+    overflow: hidden;
+    position: relative;
+
+
+}
+/* Remove whitespace from bottom of page. */
+body.home #recent-posts * {
+    display: block;
+    position: relative;
+}
+
+body.home #recent-posts img { display: block;}

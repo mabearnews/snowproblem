@@ -1,0 +1,126 @@
+nav#site-navigation {
+    // Implement universal transitions and such.
+    @include transition(all $nav-transition-duration);
+
+    background-color: $nav-bgcolor;
+    border-bottom: $nav-border;
+
+    /* Style basic elements in the navigation bar */
+    a {
+        @extend %heading-font;
+        @include transition(color $nav-transition-color-duration);
+        &:hover {
+            color: $nav-hovered-link;
+        }
+    }
+}
+
+/* Ensures only limeted navigation bar links are shown */
+nav#site-navigation .menu {
+    max-width: $nav-primary-menu-max-width;
+}
+
+/* Hide the nested levels of navigation */
+nav#site-navigation .menu ul ul, #site-navigation-more ul ul {
+    display: none;
+}
+
+/* Style the manner of the dispaly of hte primary navigation bar. */
+nav#site-navigation .menu li {
+    min-width: $nav-primary-menu-item-min-width;
+    margin: $nav-primary-menu-item-margin 0 ;
+
+    a { @include nowrap; }
+
+    &:nth-child(n + #{$nav-bar-primary-numb-elems + 1}) {
+        display: none;
+    }
+
+}
+
+/* Styles the toggle of the navigation bar. */
+nav#site-navigation .menu-toggle .toggle {
+    cursor: pointer;
+
+    /* Show default 3 bar state. */
+    .row {
+        @include transition(all $nav-toggle-transition-time);
+
+        position: absolute;
+        width: 100%;
+
+        height: $nav-toggle-line-height;
+        background-color: $nav-toggle-line-color;
+    }
+
+    @for $i from 1 through 3 {
+        .row:nth-child(#{$i}) {
+            top: ($i - 1) * 100% / 3;
+        }
+    }
+}
+
+/* On click show as an exit button */
+nav#site-navigation .menu-toggle.clicked > .toggle {
+    .row:first-child {
+        @include transform-origin(0, top);
+        @include transform(rotate(45deg));
+    }
+
+    .row:last-child {
+        @include transform-origin(0, bottom);
+        @include transform(rotate(-45deg));
+    }
+
+    .row:nth-child(2) {
+        left: 150%; opacity: 0;
+    }
+}
+
+
+#site-navigation-more {
+    @include transition(all $nav-transition-duration);
+
+    background-color: $nav-base-background-color;
+
+    /* Add in the colors for the given site. */
+    @for $i from 1 through 10 {
+
+        // Only ten types are allowed, less or more are optional.
+        $index : length($nav-colors) % $i;
+
+        // Ensure no zero index.
+        @if $index == 0 { $index: 1}
+
+        &[data-color='#{$i}'] {
+            background-color: nth($nav-colors, $index);
+        }
+    }
+}
+
+
+
+
+#site-title-wrapper .site-title {
+    font-size: $nav-site-title-font-small;
+}
+
+
+/* Changes the font size of the title on shrinking */
+@media (min-width: $nav-site-title-change-font-breakpoint) {
+    #site-title-wrapper .site-title {
+        font-size: $nav-site-title-font-medium;
+    }
+}
+
+@media (min-width: $page-max-width) {
+    #site-title-wrapper .site-title {
+        font-size: $nav-site-title-font-large;
+    }
+}
+
+@include mobile-breakpoint {
+    #site-title-wrapper .site-title {
+        font-size: $nav-site-title-font-mobile;
+    }
+}

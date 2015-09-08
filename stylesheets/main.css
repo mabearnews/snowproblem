@@ -1,0 +1,2193 @@
+@charset "UTF-8";
+/**
+ * @file.
+ * This file contians information about the colors for this websites. All
+ * these colors are specified in two phases, the first is the colorscheme
+ * and the second is the individual colors of indiviudal items, this also
+ * applies to text though typically with the -text- modifier in the varaible
+ * name.
+ */
+/*============= COLOR SCHEME =============*/
+/*============= General =============*/
+/*============= Page =============*/
+/*============= Navigation Bar =============*/
+/* Relates to the allways visual side of the site */
+/* Relates to the revealable side of the site. */
+/* Relates to the submenu displayed in the revealable navigation bar. */
+/* Relates to the more burger menu icon. */
+/* Relates to the menu on mobile devices and the colors for these devices. */
+/*============= Sidebar =============*/
+/*============= Widgets =============*/
+/*============= Gallery =============*/
+/*============= Blockquote =============*/
+/*============= Table =============*/
+/*============= Multiple Posts =============*/
+/*============= Single Post =============*/
+/*============= Footer =============*/
+/*============= Featured =============*/
+/*============= Featured =============*/
+/*============= General =============*/
+/**
+ * @file.
+ * Defines two variables which are used to determine fonts across the site.
+ * Headings is used for anything that is not a large block of text. Casual
+ * is used for anything else.
+ */
+@import url(http://fonts.googleapis.com/css?family=Bitter:400,700);
+@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700|Rokkitt:400,700);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Inconsolata);
+/* line 11, ../sass/additions/_font-variables.scss */
+h1, h2, h3, h4, h5, h6, #site-navigation-more .current-page a, nav#site-navigation a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+/*============= Navigation bar =============*/
+/* Allow for responseve design. */
+/*============= Social Menu =============*/
+/*============= Widgets =============*/
+/*============= Gallery =============*/
+/*============= Blockquote =============*/
+/*============= Table =============*/
+/*============= Single Post =============*/
+/*============= Featured =============*/
+/*============= General =============*/
+/**
+ * @file.
+ * This file relates to the general elements of appearence that do not conform
+ * to other parts of the site.
+ */
+/*============= Navigation =============*/
+/*============= Sidebar =============*/
+/*============= Widgets =============*/
+/*============= Images =============*/
+/*============= Table =============*/
+/*============= Posts =============*/
+/*============= Footer =============*/
+/*============= Featured =============*/
+/**
+ * @file.
+ * This file concnerns the layout of various elements on the page. It should be
+ * noted that not all of these variables should be changed, if the variables are
+ * relative then include that definition in the definition of the variable.
+ */
+/*============= Navigation bar =============*/
+/*============= Sidebar =============*/
+/*============= Widgets =============*/
+/*============= Gallery =============*/
+/*============= Content =============*/
+/*============= Posts =============*/
+/*============= Single Post =============*/
+/*============= Multiple Posts =============*/
+/*============= Breakpoints =============*/
+/*============= Front Page Grid =============*/
+/*============= Footer =============*/
+/*============= Footer =============*/
+/*============= Featured =============*/
+/**
+ * @file.
+ * Relates to all the various timing that is essential to the flow of the
+ * sites animations and other features.
+ */
+/*============= Navigation =============*/
+/*============= Gallery =============*/
+/*============= Table =============*/
+/*============= Sidebar =============*/
+/*============= Animated =============*/
+/*============= Multiple Posts =============*/
+/*============= Posts =============*/
+/*============= Featured =============*/
+/**
+ * @file.
+ * Relates to various elements conncerning miscelanious styling for things
+ */
+/*============= Navigation bar =============*/
+/*============= Featured =============*/
+/**
+ * @file.
+ * Relates to all the z-index's of the site, complete, can be used to change
+ * z-index problems in scope
+ */
+/*============= Navigation =============*/
+/*============= Sidevar =============*/
+/*============= Multiple Posts =============*/
+/**
+ * @file.
+ * Contains information about the various fonts and font types that are to
+ * be imported into the given site.
+ */
+/**
+ * @file.
+ * All styles relating to all images.
+ */
+/* CSS arrows in various direction. */
+/**
+ * @file.
+ * Defines some basic ovverride styles for parts of the page to improve the
+ * overall design and normalize appearences.
+ */
+/* line 7, ../sass/base/_styles.scss */
+body {
+  font-family: "Inconsolata";
+}
+
+/* line 15, ../sass/base/_styles.scss */
+a {
+  color: inherit;
+  text-decoration: inherit;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+}
+/* line 21, ../sass/base/_styles.scss */
+a:visited {
+  color: inherit;
+}
+/* line 25, ../sass/base/_styles.scss */
+a:hover {
+  color: inherit;
+}
+
+/* Styling to change the color of the currently selected element. */
+/* line 31, ../sass/base/_styles.scss */
+*[class*="current"] {
+  color: #bdc3c7;
+}
+
+/* line 35, ../sass/base/_styles.scss */
+input {
+  background-color: transparent;
+}
+
+/* Shows the content in the center of the screen for most posts and such. */
+/* line 2, ../sass/layout/_content.scss */
+.content-container, .single article.post,
+.single article.page,
+.single-post article.post,
+.single-post article.page,
+.page article.post,
+.page article.page {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+/* line 8, ../sass/layout/_content.scss */
+.element-content, .single article.post section.post-content,
+.single article.page section.post-content,
+.single-post article.post section.post-content,
+.single-post article.page section.post-content,
+.page article.post section.post-content,
+.page article.page section.post-content, .content-element {
+  width: 700px;
+}
+
+/* Style the layout between the left and the right side of the page.*/
+/* line 13, ../sass/layout/_content.scss */
+#content {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* line 22, ../sass/layout/_content.scss */
+#primary {
+  -webkit-flex: 1;
+  flex: 1;
+  order: 0;
+  overflow: hidden;
+}
+
+@media (min-width: 420px) {
+  /* The content should scale to show the sidebar border. */
+  /* line 32, ../sass/layout/_content.scss */
+  #content {
+    width: 100%;
+    float: left;
+  }
+}
+/**
+ * @file.
+ * Styles and positions the bottom footer to look properly.
+ */
+/* line 1, ../sass/layout/_navigation.scss */
+nav#site-navigation {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  width: 100%;
+  height: 100px;
+}
+/* line 8, ../sass/layout/_navigation.scss */
+nav#site-navigation > .wrapper {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+/* line 18, ../sass/layout/_navigation.scss */
+nav#site-navigation > .wrapper > * {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Style the ul elements shown to display horizontally and without style. */
+/* line 38, ../sass/layout/_navigation.scss */
+nav#site-navigation ul {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+/* line 49, ../sass/layout/_navigation.scss */
+nav#site-navigation ul li {
+  padding: 0 5px;
+}
+
+/* line 55, ../sass/layout/_navigation.scss */
+nav#site-navigation .menu-toggle .toggle {
+  position: relative;
+  margin-left: 40px;
+  width: 20px;
+  height: 20px;
+}
+
+/* Showes the contents of the navigation sub menues. */
+/* line 65, ../sass/layout/_navigation.scss */
+#site-navigation-more ul {
+  display: block;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  z-index: 45;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 0;
+  -moz-transform-origin: right bottom;
+  -ms-transform-origin: right bottom;
+  -webkit-transform-origin: right bottom;
+  transform-origin: right bottom;
+  -moz-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);
+  width: 100%;
+  left: 10px;
+  /* Hide Sub Menues */
+  /* Styling the individual elements. */
+  /* Transitions added to the creation of elements */
+}
+/* line 93, ../sass/layout/_navigation.scss */
+#site-navigation-more ul ul {
+  display: none;
+}
+/* line 98, ../sass/layout/_navigation.scss */
+#site-navigation-more ul li {
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-color: rgba(189, 195, 199, 0.5);
+  text-align: left;
+  padding: 5px;
+  margin: 4px;
+  width: 200px;
+  -moz-transform: translateX(-150%);
+  -ms-transform: translateX(-150%);
+  -webkit-transform: translateX(-150%);
+  transform: translateX(-150%);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  /* Style the text */
+  text-overflow: elipses;
+}
+/* line 118, ../sass/layout/_navigation.scss */
+#site-navigation-more ul li:nth-last-child(1) {
+  -moz-transition-delay: 0.8s;
+  -o-transition-delay: 0.8s;
+  -webkit-transition-delay: 0.8s;
+  transition-delay: 0.8s;
+}
+/* line 118, ../sass/layout/_navigation.scss */
+#site-navigation-more ul li:nth-last-child(2) {
+  -moz-transition-delay: 1s;
+  -o-transition-delay: 1s;
+  -webkit-transition-delay: 1s;
+  transition-delay: 1s;
+}
+/* line 118, ../sass/layout/_navigation.scss */
+#site-navigation-more ul li:nth-last-child(3) {
+  -moz-transition-delay: 1.2s;
+  -o-transition-delay: 1.2s;
+  -webkit-transition-delay: 1.2s;
+  transition-delay: 1.2s;
+}
+/* line 118, ../sass/layout/_navigation.scss */
+#site-navigation-more ul li:nth-last-child(4) {
+  -moz-transition-delay: 1.4s;
+  -o-transition-delay: 1.4s;
+  -webkit-transition-delay: 1.4s;
+  transition-delay: 1.4s;
+}
+/* line 118, ../sass/layout/_navigation.scss */
+#site-navigation-more ul li:nth-last-child(5) {
+  -moz-transition-delay: 1.6s;
+  -o-transition-delay: 1.6s;
+  -webkit-transition-delay: 1.6s;
+  transition-delay: 1.6s;
+}
+/* line 118, ../sass/layout/_navigation.scss */
+#site-navigation-more ul li:nth-last-child(6) {
+  -moz-transition-delay: 1.8s;
+  -o-transition-delay: 1.8s;
+  -webkit-transition-delay: 1.8s;
+  transition-delay: 1.8s;
+}
+/* line 118, ../sass/layout/_navigation.scss */
+#site-navigation-more ul li:nth-last-child(7) {
+  -moz-transition-delay: 2s;
+  -o-transition-delay: 2s;
+  -webkit-transition-delay: 2s;
+  transition-delay: 2s;
+}
+/* line 118, ../sass/layout/_navigation.scss */
+#site-navigation-more ul li:nth-last-child(8) {
+  -moz-transition-delay: 2.2s;
+  -o-transition-delay: 2.2s;
+  -webkit-transition-delay: 2.2s;
+  transition-delay: 2.2s;
+}
+/* line 118, ../sass/layout/_navigation.scss */
+#site-navigation-more ul li:nth-last-child(9) {
+  -moz-transition-delay: 2.4s;
+  -o-transition-delay: 2.4s;
+  -webkit-transition-delay: 2.4s;
+  transition-delay: 2.4s;
+}
+/* line 118, ../sass/layout/_navigation.scss */
+#site-navigation-more ul li:nth-last-child(10) {
+  -moz-transition-delay: 2.6s;
+  -o-transition-delay: 2.6s;
+  -webkit-transition-delay: 2.6s;
+  transition-delay: 2.6s;
+}
+/* line 118, ../sass/layout/_navigation.scss */
+#site-navigation-more ul li:nth-last-child(11) {
+  -moz-transition-delay: 2.8s;
+  -o-transition-delay: 2.8s;
+  -webkit-transition-delay: 2.8s;
+  transition-delay: 2.8s;
+}
+/* line 118, ../sass/layout/_navigation.scss */
+#site-navigation-more ul li:nth-last-child(12) {
+  -moz-transition-delay: 3.0s;
+  -o-transition-delay: 3.0s;
+  -webkit-transition-delay: 3.0s;
+  transition-delay: 3.0s;
+}
+/* line 118, ../sass/layout/_navigation.scss */
+#site-navigation-more ul li:nth-last-child(13) {
+  -moz-transition-delay: 3.2s;
+  -o-transition-delay: 3.2s;
+  -webkit-transition-delay: 3.2s;
+  transition-delay: 3.2s;
+}
+/* line 118, ../sass/layout/_navigation.scss */
+#site-navigation-more ul li:nth-last-child(14) {
+  -moz-transition-delay: 3.4s;
+  -o-transition-delay: 3.4s;
+  -webkit-transition-delay: 3.4s;
+  transition-delay: 3.4s;
+}
+/* line 118, ../sass/layout/_navigation.scss */
+#site-navigation-more ul li:nth-last-child(15) {
+  -moz-transition-delay: 3.6s;
+  -o-transition-delay: 3.6s;
+  -webkit-transition-delay: 3.6s;
+  transition-delay: 3.6s;
+}
+/* line 118, ../sass/layout/_navigation.scss */
+#site-navigation-more ul li:nth-last-child(16) {
+  -moz-transition-delay: 3.8s;
+  -o-transition-delay: 3.8s;
+  -webkit-transition-delay: 3.8s;
+  transition-delay: 3.8s;
+}
+/* line 118, ../sass/layout/_navigation.scss */
+#site-navigation-more ul li:nth-last-child(17) {
+  -moz-transition-delay: 4s;
+  -o-transition-delay: 4s;
+  -webkit-transition-delay: 4s;
+  transition-delay: 4s;
+}
+/* line 118, ../sass/layout/_navigation.scss */
+#site-navigation-more ul li:nth-last-child(18) {
+  -moz-transition-delay: 4.2s;
+  -o-transition-delay: 4.2s;
+  -webkit-transition-delay: 4.2s;
+  transition-delay: 4.2s;
+}
+/* line 118, ../sass/layout/_navigation.scss */
+#site-navigation-more ul li:nth-last-child(19) {
+  -moz-transition-delay: 4.4s;
+  -o-transition-delay: 4.4s;
+  -webkit-transition-delay: 4.4s;
+  transition-delay: 4.4s;
+}
+/* line 118, ../sass/layout/_navigation.scss */
+#site-navigation-more ul li:nth-last-child(20) {
+  -moz-transition-delay: 4.6s;
+  -o-transition-delay: 4.6s;
+  -webkit-transition-delay: 4.6s;
+  transition-delay: 4.6s;
+}
+/* line 128, ../sass/layout/_navigation.scss */
+#site-navigation-more ul.come-in li {
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+
+/* Style the identifier of the current page. */
+/* Position the current page of the website for increased naviation */
+/* line 136, ../sass/layout/_navigation.scss */
+#site-navigation-more .current-page {
+  position: absolute;
+  width: 100vh;
+  right: 2px;
+  bottom: 10px;
+  -moz-transform-origin: right top;
+  -ms-transform-origin: right top;
+  -webkit-transform-origin: right top;
+  transform-origin: right top;
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  text-align: right;
+}
+/* line 148, ../sass/layout/_navigation.scss */
+#site-navigation-more .current-page a {
+  font-size: 2.5em;
+  letter-spacing: 0.5em;
+  font-weight: 400;
+  text-align: right;
+}
+
+/* line 160, ../sass/layout/_navigation.scss */
+#site-navigation-more {
+  position: fixed;
+  right: 100vw;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  /* Ensures that the nav does not show as a glitch on mobile */
+  overflow: hidden;
+  /* Ensures that the rotate element is above the page. */
+  z-index: 35;
+}
+
+/* Could be wraped in a media query... Handels the navigation side of things.*/
+/* line 176, ../sass/layout/_navigation.scss */
+#site-navigation-more {
+  -moz-transform-origin: right top;
+  -ms-transform-origin: right top;
+  -webkit-transform-origin: right top;
+  transform-origin: right top;
+  /**
+   * Ensure the nav bar fills out the screen.
+   */
+  width: 57.73503vh;
+  height: 115.47005vh;
+  right: auto;
+  left: -57.73503vh;
+}
+/* line 192, ../sass/layout/_navigation.scss */
+#site-navigation-more.visible {
+  -moz-transform: rotate(-30deg);
+  -ms-transform: rotate(-30deg);
+  -webkit-transform: rotate(-30deg);
+  transform: rotate(-30deg);
+}
+
+/* line 197, ../sass/layout/_navigation.scss */
+#base-wrapper.nav-visible #page {
+  -moz-transform: rotate(-30deg);
+  -ms-transform: rotate(-30deg);
+  -webkit-transform: rotate(-30deg);
+  transform: rotate(-30deg);
+  /**
+   * Ensure the page fills out the screen
+   */
+  height: 200vh;
+}
+
+/**
+ * Allow the page to transform with the current navigation bar.
+ */
+/* line 209, ../sass/layout/_navigation.scss */
+#page {
+  -moz-transition: -moz-transform 1.2s;
+  -o-transition: -o-transform 1.2s;
+  -webkit-transition: -webkit-transform 1.2s;
+  transition: transform 1.2s;
+  -moz-transform-origin: top left;
+  -ms-transform-origin: top left;
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
+}
+
+/* Hide the ul elements of the navigation bar in a certain width. */
+@media (max-width: 900px) {
+  /* line 216, ../sass/layout/_navigation.scss */
+  nav#site-navigation ul {
+    display: none;
+  }
+
+  /* line 220, ../sass/layout/_navigation.scss */
+  #sidebar {
+    display: none !important;
+  }
+}
+/* Makes the navigation menu size to the maximum width of the page  */
+@media (min-width: 1120px) {
+  /* line 225, ../sass/layout/_navigation.scss */
+  nav#site-navigation > .wrapper {
+    width: 1120px;
+  }
+
+  /* line 229, ../sass/layout/_navigation.scss */
+  nav#site-navigation .toggle {
+    margin-left: 0 !important;
+  }
+}
+/* Changes the navigation to a more mobile view. */
+@media screen and (max-width: 420px), screen and (max-height: 700px) {
+  /* line 237, ../sass/layout/_navigation.scss */
+  #site-navigation-more.visible {
+    -moz-transform: rotate(0) translateX(57.73503vh);
+    -ms-transform: rotate(0) translateX(57.73503vh);
+    -webkit-transform: rotate(0) translateX(57.73503vh);
+    transform: rotate(0) translateX(57.73503vh);
+    width: 70%;
+    max-width: 320px;
+  }
+  /* line 239, ../sass/layout/_navigation.scss */
+  #site-navigation-more.visible ul {
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    height: 95%;
+    height: calc(100% - 2.5em);
+    position: absolute;
+    bottom: 1.25em;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+  }
+  /* line 249, ../sass/layout/_navigation.scss */
+  #site-navigation-more.visible ul li {
+    width: 90%;
+    left: 5%;
+    right: 5%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: white;
+    font-size: 1.25em;
+    background-color: transparent;
+  }
+
+  /* Include the navigation transition time for seamless transitioning. */
+  /* line 271, ../sass/layout/_navigation.scss */
+  #base-wrapper {
+    -moz-transition: all 1.2s !important;
+    -o-transition: all 1.2s !important;
+    -webkit-transition: all 1.2s !important;
+    transition: all 1.2s !important;
+  }
+
+  /* line 273, ../sass/layout/_navigation.scss */
+  #base-wrapper.nav-visible {
+    -moz-transform: translateX(320px);
+    -ms-transform: translateX(320px);
+    -webkit-transform: translateX(320px);
+    transform: translateX(320px);
+  }
+  /* line 274, ../sass/layout/_navigation.scss */
+  #base-wrapper.nav-visible #page {
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+}
+@media screen and (max-width: 420px) and (max-width: 457.14286px), screen and (max-height: 700px) and (max-width: 457.14286px) {
+  /* line 273, ../sass/layout/_navigation.scss */
+  #base-wrapper.nav-visible {
+    -moz-transform: translateX(70%);
+    -ms-transform: translateX(70%);
+    -webkit-transform: translateX(70%);
+    transform: translateX(70%);
+  }
+}
+
+/* line 1, ../sass/layout/_page.scss */
+body, html {
+  overflow: hidden;
+}
+
+/* line 5, ../sass/layout/_page.scss */
+#page {
+  background-color: white;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  top: 0;
+  left: 0;
+}
+/* line 21, ../sass/layout/_page.scss */
+#page::-webkit-scrollbar {
+  display: none;
+}
+
+/* Set up the content to allow for lack of overlap of the content. */
+/* line 25, ../sass/layout/_page.scss */
+#content-nav-bar-padding {
+  width: 100%;
+  height: 100px;
+  margin: 0;
+  padding: 0;
+}
+
+/* The base wrapper encomapasses the entire site, it is the element directly after the body element. */
+/* line 33, ../sass/layout/_page.scss */
+#base-wrapper {
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -moz-transition: -moz-transform 0.8s ease-out;
+  -o-transition: -o-transform 0.8s ease-out;
+  -webkit-transition: -webkit-transform 0.8s ease-out;
+  transition: transform 0.8s ease-out;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+}
+
+/**
+ * @file.
+ * Creates the sidebar and also dicates its layout in terms of the
+ * page content and the sidebar.
+ */
+/* Sets up the sidebar to allow toggling. */
+/* line 8, ../sass/layout/_sidebar.scss */
+#sidebar {
+  overflow: visible;
+  display: none;
+  -moz-transition: all 0.8s ease-out;
+  -o-transition: all 0.8s ease-out;
+  -webkit-transition: all 0.8s ease-out;
+  transition: all 0.8s ease-out;
+}
+
+@media (min-width: 740px) {
+  /* Make the sidebar be hidden and show the icon.  */
+  /* line 20, ../sass/layout/_sidebar.scss */
+  #sidebar {
+    display: block;
+    z-index: 20;
+    position: fixed;
+    top: 0;
+    right: 0;
+    -moz-transform: translateX(320px);
+    -ms-transform: translateX(320px);
+    -webkit-transform: translateX(320px);
+    transform: translateX(320px);
+    width: 320px;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-top: 10px;
+  }
+
+  /* Perform all animations for the display of the sidebar. */
+  /* line 47, ../sass/layout/_sidebar.scss */
+  #base-wrapper.sidebar-display {
+    -moz-transform: translateX(-320px);
+    -ms-transform: translateX(-320px);
+    -webkit-transform: translateX(-320px);
+    transform: translateX(-320px);
+  }
+
+  /* line 51, ../sass/layout/_sidebar.scss */
+  #sidebar.sidebar-display {
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+/* line 1, ../sass/components/_breaking.scss */
+#breaking {
+  width: 100%;
+  float: left;
+  background-color: #f4f5f6;
+}
+
+/**
+ * @file.
+ * The editing of comments to display in the proper format and to show with
+ * the right pazazz.
+ */
+/* line 6, ../sass/components/_comments.scss */
+#comments {
+  width: 100%;
+}
+
+/* line 1, ../sass/components/_featured.scss */
+#featured {
+  width: 100%;
+  position: relative;
+}
+
+/* line 7, ../sass/components/_featured.scss */
+#featured #featured-image {
+  margin: 0;
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 320px;
+  max-height: calc(100vh - 100px);
+  /* Show the background image to take up the entire site. */
+  /* Show the entry content above the image. */
+}
+/* line 18, ../sass/components/_featured.scss */
+#featured #featured-image .background-image {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-postion: center center;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+/* line 34, ../sass/components/_featured.scss */
+#featured #featured-image .entry-content {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  left: calc(50% - 25%);
+  top: 0;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+/* line 47, ../sass/components/_featured.scss */
+#featured #featured-image .entry-content * {
+  color: white;
+  font-size: 1.25em;
+}
+
+/* line 55, ../sass/components/_featured.scss */
+#featured-posts, #breaking #breaking-posts {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 250px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  border-left: 0 solid transparent;
+  border-right: 0 solid transparent;
+}
+/* line 70, ../sass/components/_featured.scss */
+#featured-posts .post, #breaking #breaking-posts .post {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  position: relative;
+  width: 250px;
+  min-height: 80px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-bottom: 0 solid transparent;
+  margin: 0;
+  padding: 0 20px;
+  padding-bottom: 1.6em;
+}
+/* line 90, ../sass/components/_featured.scss */
+#featured-posts .post .post-featured-image, #breaking #breaking-posts .post .post-featured-image {
+  display: none;
+}
+/* line 92, ../sass/components/_featured.scss */
+#featured-posts .post:first-child, #breaking #breaking-posts .post:first-child {
+  border-top: 0 solid transparent;
+}
+/* line 96, ../sass/components/_featured.scss */
+#featured-posts .post .entry-header .entry-title, #breaking #breaking-posts .post .entry-header .entry-title {
+  font-size: 1.3em;
+  text-align: center;
+  width: 100%;
+}
+/* line 105, ../sass/components/_featured.scss */
+#featured-posts .post .entry-meta, #breaking #breaking-posts .post .entry-meta {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+/* Relates to the currently selected post and the change that entails */
+/* line 117, ../sass/components/_featured.scss */
+#featured-posts .post.selected, #breaking #breaking-posts .post.selected {
+  background-color: rgba(0, 0, 0, 0.67);
+}
+
+/* line 121, ../sass/components/_featured.scss */
+#featured-image .post-featured-image {
+  -moz-transition: all 2s;
+  -o-transition: all 2s;
+  -webkit-transition: all 2s;
+  transition: all 2s;
+}
+
+/* line 125, ../sass/components/_featured.scss */
+#featured-image .post-featured-image.selected {
+  z-index: 2;
+  opacity: 1;
+}
+
+/* line 130, ../sass/components/_featured.scss */
+#featured-image .post-featured-image:not(.selected) {
+  opacity: 0;
+  z-index: 1;
+}
+
+/* Media query to change appearence based off of screen size. */
+@media screen and (max-width: 740px) {
+  /* line 137, ../sass/components/_featured.scss */
+  #featured #featured-image {
+    display: none;
+  }
+
+  /* line 139, ../sass/components/_featured.scss */
+  #featured-posts, #breaking #breaking-posts {
+    position: relative;
+    width: 100%;
+    margin: 0;
+  }
+  /* line 144, ../sass/components/_featured.scss */
+  #featured-posts .post, #breaking #breaking-posts .post {
+    width: 100%;
+    height: 120px;
+    color: white;
+  }
+  /* line 150, ../sass/components/_featured.scss */
+  #featured-posts .post .entry-meta, #breaking #breaking-posts .post .entry-meta {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Add the background colors to be more colorful for the mobile site. */
+  /* line 159, ../sass/components/_featured.scss */
+  #featured-posts .post:nth-child(1), #breaking #breaking-posts .post:nth-child(1) {
+    background-color: #e74c3c;
+  }
+
+  /* line 159, ../sass/components/_featured.scss */
+  #featured-posts .post:nth-child(2), #breaking #breaking-posts .post:nth-child(2) {
+    background-color: #e67e22;
+  }
+
+  /* line 159, ../sass/components/_featured.scss */
+  #featured-posts .post:nth-child(3), #breaking #breaking-posts .post:nth-child(3) {
+    background-color: #f1c40f;
+  }
+
+  /* line 159, ../sass/components/_featured.scss */
+  #featured-posts .post:nth-child(4), #breaking #breaking-posts .post:nth-child(4) {
+    background-color: #3498db;
+  }
+
+  /* line 159, ../sass/components/_featured.scss */
+  #featured-posts .post:nth-child(5), #breaking #breaking-posts .post:nth-child(5) {
+    background-color: #34495e;
+  }
+
+  /* line 159, ../sass/components/_featured.scss */
+  #featured-posts .post:nth-child(6), #breaking #breaking-posts .post:nth-child(6) {
+    background-color: #27ae60;
+  }
+}
+/**
+ * @file.
+ * Relates to all the visual elements of hte sidebar, the layout not included
+ * in this file but is ../layout/_sidebar.scss.
+ */
+/* line 6, ../sass/components/_sidebar.scss */
+#sidebar {
+  padding: 0 30px;
+  padding-top: 40px;
+  background-color: #e74c3c;
+  color: white;
+}
+
+/* line 15, ../sass/components/_sidebar.scss */
+#sidebar ul {
+  list-style-type: none;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 28, ../sass/components/_sidebar.scss */
+#sidebar ul li {
+  width: 100%;
+  text-align: left;
+}
+
+/* The sidebar toggle in the navigation. It resembels in dimensions the navigation. */
+/* line 35, ../sass/components/_sidebar.scss */
+#sidebar-toggle .container {
+  position: relative;
+  margin-left: 40px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  /* Show default 3 bar state. */
+}
+/* line 46, ../sass/components/_sidebar.scss */
+#sidebar-toggle .container .row {
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+}
+/* line 54, ../sass/components/_sidebar.scss */
+#sidebar-toggle .container .row .dot, #sidebar-toggle .container .row .dash {
+  position: absolute;
+}
+/* line 58, ../sass/components/_sidebar.scss */
+#sidebar-toggle .container .row:nth-child(1) {
+  top: 0%;
+}
+/* line 58, ../sass/components/_sidebar.scss */
+#sidebar-toggle .container .row:nth-child(2) {
+  top: 33.33333%;
+}
+/* line 58, ../sass/components/_sidebar.scss */
+#sidebar-toggle .container .row:nth-child(3) {
+  top: 66.66667%;
+}
+/* line 63, ../sass/components/_sidebar.scss */
+#sidebar-toggle .container .row .dot {
+  height: 3px;
+  width: 3px;
+  background-color: #34495e;
+  left: 0;
+  top: 0;
+}
+/* line 73, ../sass/components/_sidebar.scss */
+#sidebar-toggle .container .row .dash {
+  width: 19px;
+  height: 3px;
+  background-color: #34495e;
+  left: 6px;
+  top: 0;
+}
+/* line 83, ../sass/components/_sidebar.scss */
+#sidebar-toggle .container .row:nth-child(2) .dash {
+  width: 14px;
+}
+
+/* line 88, ../sass/components/_sidebar.scss */
+#sidebar-toggle .container {
+  display: none;
+}
+
+@media (min-width: 740px) {
+  /* line 90, ../sass/components/_sidebar.scss */
+  #sidebar-toggle .container {
+    display: block;
+  }
+}
+/**
+ * @file.
+ * Styles all the widgets in the site and does so with base styles as well as
+ * more specific styles dictated in the widgets/ directory.
+ */
+/* line 6, ../sass/components/_widgets.scss */
+.widget {
+  width: 100%;
+}
+/* line 9, ../sass/components/_widgets.scss */
+.widget .widget-title {
+  border-bottom: 1px solid #34495e;
+}
+
+/* Adds styling for an icon to precede some text. */
+/* Including the specialized widgets is done in main.scss. */
+/**
+ * @file.
+ * The styling for the footer of the page, the footer being a widget area.
+ * Overlapping widget styles from widgets should be overwrittern.
+ */
+/* line 7, ../sass/components/footer/_footer.scss */
+footer#primary-footer {
+  padding-bottom: 15px;
+  padding-top: 15px;
+  background-color: whitesmoke;
+  width: 100%;
+  float: right;
+}
+/* line 17, ../sass/components/footer/_footer.scss */
+footer#primary-footer .widget-container {
+  width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  float: right;
+  -moz-column-count: auto;
+  -webkit-column-count: auto;
+  column-count: auto;
+  -moz-column-gap: 20px;
+  -webkit-column-gap: 20px;
+  column-gap: 20px;
+  -moz-column-width: 300px;
+  -webkit-column-width: 300px;
+  column-width: 300px;
+  -moz-page-break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  break-inside: avoid;
+  padding: 0;
+}
+/* line 36, ../sass/components/footer/_footer.scss */
+footer#primary-footer article.widget {
+  display: inline-block;
+  background-color: white;
+  margin-bottom: 20px;
+  padding: 10px;
+  overflow: hidden;
+  position: relative;
+}
+/* line 47, ../sass/components/footer/_footer.scss */
+footer#primary-footer * {
+  display: inline-block;
+}
+/* line 49, ../sass/components/footer/_footer.scss */
+footer#primary-footer img {
+  display: block;
+}
+
+/* Animates text when visible, works primarily off of the .animated class. */
+@-moz-keyframes draw-text {
+  100% {
+    stroke-dashoffset: 0;
+    fill-opacity: 1;
+  }
+}
+@-webkit-keyframes draw-text {
+  100% {
+    stroke-dashoffset: 0;
+    fill-opacity: 1;
+  }
+}
+@keyframes draw-text {
+  100% {
+    stroke-dashoffset: 0;
+    fill-opacity: 1;
+  }
+}
+@-moz-keyframes fill-text {
+  0% {
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 1;
+  }
+}
+@-webkit-keyframes fill-text {
+  0% {
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 1;
+  }
+}
+@keyframes fill-text {
+  0% {
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 1;
+  }
+}
+/* line 10, ../sass/components/html-elements/_animated-text.scss */
+svg.draw-text {
+  width: 100%;
+}
+/* line 13, ../sass/components/html-elements/_animated-text.scss */
+svg.draw-text text {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  fill-opacity: 0;
+}
+
+/* line 19, ../sass/components/html-elements/_animated-text.scss */
+svg.draw-text.animated text, .animated svg.draw-text text {
+  -moz-animation: draw-text 5.4s forwards;
+  -webkit-animation: draw-text 5.4s forwards;
+  animation: draw-text 5.4s forwards;
+}
+
+/* line 1, ../sass/components/html-elements/_blockquote.scss */
+blockquote {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+  margin: 0.25em 0;
+  padding: 0.25em 40px;
+  line-height: 1.45;
+  position: relative;
+  color: #333333;
+}
+
+/* line 13, ../sass/components/html-elements/_blockquote.scss */
+blockquote::before {
+  display: block;
+  content: "\201C";
+  font-size: 80px;
+  position: absolute;
+  left: 3px;
+  top: -20px;
+  color: #ccc;
+}
+
+/* line 23, ../sass/components/html-elements/_blockquote.scss */
+cite {
+  font-family: "Montserrat", sans-serif;
+  color: #999999;
+  font-size: 12px;
+  display: block;
+  margin-top: 5px;
+  margin-left: 30px;
+}
+
+/* line 32, ../sass/components/html-elements/_blockquote.scss */
+cite:before {
+  content: "\2014 \2009";
+}
+
+/**
+ * Style the entry meta, somewhat basically for the entire site.
+ */
+/* line 4, ../sass/components/html-elements/_entry-meta.scss */
+.entry-meta {
+  font-size: 0.8em;
+  color: #95a5a6;
+}
+/* line 8, ../sass/components/html-elements/_entry-meta.scss */
+.entry-meta .author::before {
+  content: ' – ';
+}
+
+/**
+ * Shows a masonry element as position relative in order to allow children
+ * to be postioned absolutly by javascript.
+ */
+/* line 5, ../sass/components/html-elements/_masonry.scss */
+.masonry-grid {
+  position: relative;
+}
+
+/* line 1, ../sass/components/html-elements/_read-more.scss */
+.post-content .read-more {
+  color: #f39c12;
+  opacity: 0;
+  -moz-transform: translateX(-2em);
+  -ms-transform: translateX(-2em);
+  -webkit-transform: translateX(-2em);
+  transform: translateX(-2em);
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+/* Show the read more link on hover. */
+/* line 14, ../sass/components/html-elements/_read-more.scss */
+.post-content:hover .read-more {
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Show the read more link by default on mobile. */
+@media only screen and (max-width: 420px) {
+  /* line 21, ../sass/components/html-elements/_read-more.scss */
+  .post-content .read-more {
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+/* line 1, ../sass/components/html-elements/_tables.scss */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+  display: block;
+  font-size: 0.9em;
+}
+/* line 10, ../sass/components/html-elements/_tables.scss */
+table *, table *::before, table *::after {
+  -moz-transition: all 1.2s;
+  -o-transition: all 1.2s;
+  -webkit-transition: all 1.2s;
+  transition: all 1.2s;
+}
+/* line 15, ../sass/components/html-elements/_tables.scss */
+table thead {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+}
+/* line 20, ../sass/components/html-elements/_tables.scss */
+table thead::after {
+  content: '';
+  height: 1px;
+  background-color: black;
+  margin-left: 0;
+  margin-right: 0;
+  display: block;
+  width: 0;
+}
+/* line 31, ../sass/components/html-elements/_tables.scss */
+table tr {
+  height: 2.25em;
+}
+/* line 35, ../sass/components/html-elements/_tables.scss */
+table tr > * {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+/* line 42, ../sass/components/html-elements/_tables.scss */
+table.animated thead::after {
+  width: 100%;
+}
+
+/**
+ * @file.
+ * Defines the styling for the social menu, including the display, through sass
+ * of social media icons.
+ */
+/* line 25, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="facebook"] {
+  /* Hides all the contnet of the div. */
+}
+/* line 28, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="facebook"] span {
+  display: none;
+}
+/* line 30, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="facebook"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 1.2em;
+}
+
+/* line 25, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="github"] {
+  /* Hides all the contnet of the div. */
+}
+/* line 28, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="github"] span {
+  display: none;
+}
+/* line 30, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="github"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 1.2em;
+}
+
+/* line 25, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="tumblr"] {
+  /* Hides all the contnet of the div. */
+}
+/* line 28, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="tumblr"] span {
+  display: none;
+}
+/* line 30, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="tumblr"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 1.2em;
+}
+
+/* line 25, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="vine"] {
+  /* Hides all the contnet of the div. */
+}
+/* line 28, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="vine"] span {
+  display: none;
+}
+/* line 30, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="vine"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 1.2em;
+}
+
+/* line 25, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="yelp"] {
+  /* Hides all the contnet of the div. */
+}
+/* line 28, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="yelp"] span {
+  display: none;
+}
+/* line 30, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="yelp"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 1.2em;
+}
+
+/* line 25, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="youtube"] {
+  /* Hides all the contnet of the div. */
+}
+/* line 28, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="youtube"] span {
+  display: none;
+}
+/* line 30, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="youtube"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 1.2em;
+}
+
+/* line 25, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="twitter"] {
+  /* Hides all the contnet of the div. */
+}
+/* line 28, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="twitter"] span {
+  display: none;
+}
+/* line 30, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="twitter"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 1.2em;
+}
+
+/* line 25, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="vimeo"] {
+  /* Hides all the contnet of the div. */
+}
+/* line 28, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="vimeo"] span {
+  display: none;
+}
+/* line 30, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="vimeo"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 1.2em;
+}
+
+/* line 25, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="slack"] {
+  /* Hides all the contnet of the div. */
+}
+/* line 28, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="slack"] span {
+  display: none;
+}
+/* line 30, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="slack"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 1.2em;
+}
+
+/* line 25, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="rebel"] {
+  /* Hides all the contnet of the div. */
+}
+/* line 28, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="rebel"] span {
+  display: none;
+}
+/* line 30, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="rebel"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 1.2em;
+}
+
+/* line 25, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="pinterest"] {
+  /* Hides all the contnet of the div. */
+}
+/* line 28, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="pinterest"] span {
+  display: none;
+}
+/* line 30, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="pinterest"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 1.2em;
+}
+
+/* line 25, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="linkedin"] {
+  /* Hides all the contnet of the div. */
+}
+/* line 28, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="linkedin"] span {
+  display: none;
+}
+/* line 30, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="linkedin"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 1.2em;
+}
+
+/* line 25, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="google"] {
+  /* Hides all the contnet of the div. */
+}
+/* line 28, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="google"] span {
+  display: none;
+}
+/* line 30, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="google"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 1.2em;
+}
+
+/* line 1, ../sass/components/navigation/_navigation.scss */
+nav#site-navigation {
+  -moz-transition: all 1.2s;
+  -o-transition: all 1.2s;
+  -webkit-transition: all 1.2s;
+  transition: all 1.2s;
+  background-color: white;
+  border-bottom: 1px solid rgba(189, 195, 199, 0.6);
+  /* Style basic elements in the navigation bar */
+}
+/* line 9, ../sass/components/navigation/_navigation.scss */
+nav#site-navigation a {
+  -moz-transition: color 0.4s;
+  -o-transition: color 0.4s;
+  -webkit-transition: color 0.4s;
+  transition: color 0.4s;
+}
+/* line 12, ../sass/components/navigation/_navigation.scss */
+nav#site-navigation a:hover {
+  color: #7f8c8d;
+}
+
+/* Ensures only limeted navigation bar links are shown */
+/* line 19, ../sass/components/navigation/_navigation.scss */
+nav#site-navigation .menu {
+  max-width: 400px;
+}
+
+/* Hide the nested levels of navigation */
+/* line 24, ../sass/components/navigation/_navigation.scss */
+nav#site-navigation .menu ul ul, #site-navigation-more ul ul {
+  display: none;
+}
+
+/* Style the manner of the dispaly of hte primary navigation bar. */
+/* line 29, ../sass/components/navigation/_navigation.scss */
+nav#site-navigation .menu li {
+  min-width: 50px;
+  margin: 10px 0;
+}
+/* line 33, ../sass/components/navigation/_navigation.scss */
+nav#site-navigation .menu li a {
+  white-space: nowrap;
+}
+/* line 35, ../sass/components/navigation/_navigation.scss */
+nav#site-navigation .menu li:nth-child(n + 5) {
+  display: none;
+}
+
+/* Styles the toggle of the navigation bar. */
+/* line 42, ../sass/components/navigation/_navigation.scss */
+nav#site-navigation .menu-toggle .toggle {
+  cursor: pointer;
+  /* Show default 3 bar state. */
+}
+/* line 46, ../sass/components/navigation/_navigation.scss */
+nav#site-navigation .menu-toggle .toggle .row {
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #34495e;
+}
+/* line 57, ../sass/components/navigation/_navigation.scss */
+nav#site-navigation .menu-toggle .toggle .row:nth-child(1) {
+  top: 0%;
+}
+/* line 57, ../sass/components/navigation/_navigation.scss */
+nav#site-navigation .menu-toggle .toggle .row:nth-child(2) {
+  top: 33.33333%;
+}
+/* line 57, ../sass/components/navigation/_navigation.scss */
+nav#site-navigation .menu-toggle .toggle .row:nth-child(3) {
+  top: 66.66667%;
+}
+
+/* On click show as an exit button */
+/* line 65, ../sass/components/navigation/_navigation.scss */
+nav#site-navigation .menu-toggle.clicked > .toggle .row:first-child {
+  -moz-transform-origin: 0 top;
+  -ms-transform-origin: 0 top;
+  -webkit-transform-origin: 0 top;
+  transform-origin: 0 top;
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/* line 70, ../sass/components/navigation/_navigation.scss */
+nav#site-navigation .menu-toggle.clicked > .toggle .row:last-child {
+  -moz-transform-origin: 0 bottom;
+  -ms-transform-origin: 0 bottom;
+  -webkit-transform-origin: 0 bottom;
+  transform-origin: 0 bottom;
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+/* line 75, ../sass/components/navigation/_navigation.scss */
+nav#site-navigation .menu-toggle.clicked > .toggle .row:nth-child(2) {
+  left: 150%;
+  opacity: 0;
+}
+
+/* line 81, ../sass/components/navigation/_navigation.scss */
+#site-navigation-more {
+  -moz-transition: all 1.2s;
+  -o-transition: all 1.2s;
+  -webkit-transition: all 1.2s;
+  transition: all 1.2s;
+  background-color: #34495e;
+  /* Add in the colors for the given site. */
+}
+/* line 95, ../sass/components/navigation/_navigation.scss */
+#site-navigation-more[data-color='1'] {
+  background-color: #e67e22;
+}
+/* line 95, ../sass/components/navigation/_navigation.scss */
+#site-navigation-more[data-color='2'] {
+  background-color: #e67e22;
+}
+/* line 95, ../sass/components/navigation/_navigation.scss */
+#site-navigation-more[data-color='3'] {
+  background-color: #e67e22;
+}
+/* line 95, ../sass/components/navigation/_navigation.scss */
+#site-navigation-more[data-color='4'] {
+  background-color: #f1c40f;
+}
+/* line 95, ../sass/components/navigation/_navigation.scss */
+#site-navigation-more[data-color='5'] {
+  background-color: #3498db;
+}
+/* line 95, ../sass/components/navigation/_navigation.scss */
+#site-navigation-more[data-color='6'] {
+  background-color: #e67e22;
+}
+/* line 95, ../sass/components/navigation/_navigation.scss */
+#site-navigation-more[data-color='7'] {
+  background-color: #e67e22;
+}
+/* line 95, ../sass/components/navigation/_navigation.scss */
+#site-navigation-more[data-color='8'] {
+  background-color: #34495e;
+}
+/* line 95, ../sass/components/navigation/_navigation.scss */
+#site-navigation-more[data-color='9'] {
+  background-color: #34495e;
+}
+/* line 95, ../sass/components/navigation/_navigation.scss */
+#site-navigation-more[data-color='10'] {
+  background-color: #34495e;
+}
+
+/* line 104, ../sass/components/navigation/_navigation.scss */
+#site-title-wrapper .site-title {
+  font-size: 1.3rem;
+}
+
+/* Changes the font size of the title on shrinking */
+@media (min-width: 500px) {
+  /* line 111, ../sass/components/navigation/_navigation.scss */
+  #site-title-wrapper .site-title {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 1120px) {
+  /* line 117, ../sass/components/navigation/_navigation.scss */
+  #site-title-wrapper .site-title {
+    font-size: 1.7rem;
+  }
+}
+@media only screen and (max-width: 420px) {
+  /* line 123, ../sass/components/navigation/_navigation.scss */
+  #site-title-wrapper .site-title {
+    font-size: 1.2rem;
+  }
+}
+/**
+ * @file.
+ * Styles an image gallery and allows for an image to show properly.
+ */
+/* line 5, ../sass/components/posts/_gallery.scss */
+.gallery {
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+  line-height: 0;
+  -moz-column-width: 250px;
+  -webkit-column-width: 250px;
+  column-width: 250px;
+  -moz-column-gap: 0;
+  -webkit-column-gap: 0;
+  column-gap: 0;
+}
+
+/* line 16, ../sass/components/posts/_gallery.scss */
+.gallery figure.gallery-item {
+  width: 100%;
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+/* line 26, ../sass/components/posts/_gallery.scss */
+.gallery figure.gallery-item * {
+  margin: 0;
+  padding: 0;
+}
+/* line 31, ../sass/components/posts/_gallery.scss */
+.gallery figure.gallery-item img {
+  width: 100%;
+  height: auto;
+}
+/* line 36, ../sass/components/posts/_gallery.scss */
+.gallery figure.gallery-item figcaption {
+  -moz-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+  background-color: rgba(255, 255, 255, 0.7);
+  height: 100px;
+  line-height: 1em;
+  padding: 8px;
+  text-align: left;
+  font-size: 0.8em;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  position: absolute;
+  top: 120%;
+  width: 100%;
+}
+/* line 8, ../sass/base/_images.scss */
+.gallery figure.gallery-item figcaption::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 25px solid rgba(255, 255, 255, 0.7);
+  position: absolute;
+  top: -25px;
+}
+/* line 56, ../sass/components/posts/_gallery.scss */
+.gallery figure.gallery-item:hover figcaption {
+  top: calc(100% - 100px);
+  bottom: 0;
+}
+
+/**
+ * @file.
+ * Sets up a grid class meant to interact with some javscript that will ensure
+ * the grids functionality. It is bassed lossly off of the grid displayed in the
+ * loading of the TV show last week tonight.
+ */
+/* line 8, ../sass/components/posts/_grid.scss */
+.direction-column {
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+/* line 12, ../sass/components/posts/_grid.scss */
+.direction-row {
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+/* line 16, ../sass/components/posts/_grid.scss */
+.size-small {
+  width: 200px;
+}
+
+/* line 20, ../sass/components/posts/_grid.scss */
+.size-medium {
+  width: 400px;
+}
+
+/* line 24, ../sass/components/posts/_grid.scss */
+.size-large {
+  width: 600px;
+}
+
+/**
+ * @file.
+ * Styles whenever multiple posts are on the same page, such as on a
+ * search result.
+ */
+/* line 7, ../sass/components/posts/_multiple-posts.scss */
+header.page-header {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+}
+/* line 14, ../sass/components/posts/_multiple-posts.scss */
+header.page-header, header.page-header * {
+  z-index: 5;
+}
+
+/* line 23, ../sass/components/posts/_multiple-posts.scss */
+.search-results .post,
+.search-results .page {
+  width: 100%;
+  position: relative;
+  padding: 50px 0;
+  /*============= Background =============*/
+  /* Background color alternates based off of section. */
+  /*============= Content =============*/
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+/* line 35, ../sass/components/posts/_multiple-posts.scss */
+.search-results .post *,
+.search-results .page * {
+  z-index: 2;
+}
+/* line 39, ../sass/components/posts/_multiple-posts.scss */
+.search-results .post .background,
+.search-results .page .background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 100%;
+  z-index: 1;
+  -moz-transform-origin: bottom left;
+  -ms-transform-origin: bottom left;
+  -webkit-transform-origin: bottom left;
+  transform-origin: bottom left;
+  -moz-transform: rotate(-4deg);
+  -ms-transform: rotate(-4deg);
+  -webkit-transform: rotate(-4deg);
+  transform: rotate(-4deg);
+}
+/* line 57, ../sass/components/posts/_multiple-posts.scss */
+.search-results .post:nth-child(2n) .background,
+.search-results .page:nth-child(2n) .background {
+  background-color: white;
+}
+/* line 60, ../sass/components/posts/_multiple-posts.scss */
+.search-results .post:nth-child(2n+1) .background,
+.search-results .page:nth-child(2n+1) .background {
+  background-color: #F3F3F3;
+}
+/* line 73, ../sass/components/posts/_multiple-posts.scss */
+.search-results .post .post-content,
+.search-results .page .post-content {
+  width: 700px;
+}
+
+/* line 1, ../sass/components/posts/_post.scss */
+.post {
+  padding: 0 30px;
+}
+
+/**
+ * @file.
+ * Styles for a single post of the website as bassed on the site navigation.
+ */
+/*============= Post =============*/
+/* line 7, ../sass/components/posts/_single-page-post.scss */
+.single,
+.single-post,
+.page {
+  /*============= Post Navigation =============*/
+  /* Show the navigation for mobile browsers as typical links. */
+}
+/* line 10, ../sass/components/posts/_single-page-post.scss */
+.single article.post,
+.single article.page,
+.single-post article.post,
+.single-post article.page,
+.page article.post,
+.page article.page {
+  /* Show the the header inforamation to the side if possible. */
+  /* Show the title as a big item on the top page. */
+}
+/* line 23, ../sass/components/posts/_single-page-post.scss */
+.single article.post header.entry-header,
+.single article.page header.entry-header,
+.single-post article.post header.entry-header,
+.single-post article.page header.entry-header,
+.page article.post header.entry-header,
+.page article.page header.entry-header {
+  width: 100%;
+  text-align: center;
+}
+/* line 27, ../sass/components/posts/_single-page-post.scss */
+.single article.post header.entry-header .entry-title,
+.single article.page header.entry-header .entry-title,
+.single-post article.post header.entry-header .entry-title,
+.single-post article.page header.entry-header .entry-title,
+.page article.post header.entry-header .entry-title,
+.page article.page header.entry-header .entry-title {
+  position: relative;
+  width: auto;
+  display: inline-block;
+}
+/* line 34, ../sass/components/posts/_single-page-post.scss */
+.single article.post header.entry-header .entry-title::after,
+.single article.page header.entry-header .entry-title::after,
+.single-post article.post header.entry-header .entry-title::after,
+.single-post article.page header.entry-header .entry-title::after,
+.page article.post header.entry-header .entry-title::after,
+.page article.page header.entry-header .entry-title::after {
+  content: '';
+  -moz-transition: all 1.5s ease-in;
+  -o-transition: all 1.5s ease-in;
+  -webkit-transition: all 1.5s ease-in;
+  transition: all 1.5s ease-in;
+  position: absolute;
+  bottom: -2px;
+  height: 2px;
+  left: 50%;
+  width: 0;
+  background-color: #95a5a6;
+}
+/* line 51, ../sass/components/posts/_single-page-post.scss */
+.single article.post header.entry-header .entry-title.animated::after,
+.single article.page header.entry-header .entry-title.animated::after,
+.single-post article.post header.entry-header .entry-title.animated::after,
+.single-post article.page header.entry-header .entry-title.animated::after,
+.page article.post header.entry-header .entry-title.animated::after,
+.page article.page header.entry-header .entry-title.animated::after {
+  left: -10%;
+  width: 120%;
+}
+@media (min-width: 1300px) {
+  /* line 64, ../sass/components/posts/_single-page-post.scss */
+  .single .post-navigation .nav-links > *,
+  .single-post .post-navigation .nav-links > *,
+  .page .post-navigation .nav-links > * {
+    position: absolute;
+    top: 45vh;
+    top: calc(50vh - 100px);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: table;
+    /* Show the icon for the next post.  */
+    /* Show everything in as a more visible style. */
+  }
+  /* line 77, ../sass/components/posts/_single-page-post.scss */
+  .single .post-navigation .nav-links > *::before,
+  .single-post .post-navigation .nav-links > *::before,
+  .page .post-navigation .nav-links > *::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 240px;
+    line-height: 200px;
+    font-family: 'fontawesome';
+    content: '\f0a9';
+    color: rgba(189, 195, 199, 0.4);
+    z-index: -1;
+    -moz-transition: color 0.2s ease;
+    -o-transition: color 0.2s ease;
+    -webkit-transition: color 0.2s ease;
+    transition: color 0.2s ease;
+  }
+  /* line 91, ../sass/components/posts/_single-page-post.scss */
+  .single .post-navigation .nav-links > *:hover::before,
+  .single-post .post-navigation .nav-links > *:hover::before,
+  .page .post-navigation .nav-links > *:hover::before {
+    color: rgba(84, 94, 100, 0.4);
+  }
+  /* line 94, ../sass/components/posts/_single-page-post.scss */
+  .single .post-navigation .nav-links > *.nav-previous::before,
+  .single-post .post-navigation .nav-links > *.nav-previous::before,
+  .page .post-navigation .nav-links > *.nav-previous::before {
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  /* line 99, ../sass/components/posts/_single-page-post.scss */
+  .single .post-navigation .nav-links > * > a,
+  .single-post .post-navigation .nav-links > * > a,
+  .page .post-navigation .nav-links > * > a {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    text-align: center;
+    padding: 0 10%;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-size: 1.2em;
+    z-index: 2;
+  }
+  /* line 115, ../sass/components/posts/_single-page-post.scss */
+  .single .post-navigation .nav-links > *.nav-previous,
+  .single-post .post-navigation .nav-links > *.nav-previous,
+  .page .post-navigation .nav-links > *.nav-previous {
+    left: 20px;
+  }
+  /* line 116, ../sass/components/posts/_single-page-post.scss */
+  .single .post-navigation .nav-links > *.nav-next,
+  .single-post .post-navigation .nav-links > *.nav-next,
+  .page .post-navigation .nav-links > *.nav-next {
+    right: 20px;
+  }
+}
+
+/* line 2, ../sass/components/widgets/_archives.scss */
+.widget_archive ul li {
+  margin-bottom: 10px;
+}
+/* line 16, ../sass/components/_widgets.scss */
+.widget_archive ul li::before {
+  display: block;
+  text-align: left;
+  font-family: "fontawesome";
+  float: left;
+  padding-top: 0;
+  font-size: 1rem;
+  margin-right: 14px;
+  content: "";
+}
+
+/* line 3, ../sass/components/widgets/_recent-comments.scss */
+.widget.widget_recent_comments ul li {
+  margin-bottom: 10px;
+}
+/* line 16, ../sass/components/_widgets.scss */
+.widget.widget_recent_comments ul li::before {
+  display: block;
+  text-align: left;
+  font-family: "fontawesome";
+  float: left;
+  padding-top: 0;
+  font-size: 1rem;
+  margin-right: 14px;
+  content: "";
+}
+
+/* line 3, ../sass/components/widgets/_recent-posts.scss */
+.widget.widget_recent_entries ul li {
+  margin-bottom: 10px;
+}
+/* line 16, ../sass/components/_widgets.scss */
+.widget.widget_recent_entries ul li::before {
+  display: block;
+  text-align: left;
+  font-family: "fontawesome";
+  float: left;
+  padding-top: 0;
+  font-size: 1rem;
+  margin-right: 14px;
+  content: "";
+}
+
+/* line 1, ../sass/components/widgets/_search.scss */
+.widget_search {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+/* line 9, ../sass/components/widgets/_search.scss */
+.widget_search::before {
+  content: "\f002";
+  margin-left: 2px;
+  font-family: "fontawesome";
+  font-size: 1em;
+  color: black;
+}
+/* line 17, ../sass/components/widgets/_search.scss */
+.widget_search input.search-field {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  width: auto;
+  border: none;
+}
+/* line 23, ../sass/components/widgets/_search.scss */
+.widget_search input.search-field:focus {
+  outline: none;
+}
+
+/* line 1, ../sass/pages/_front-page.scss */
+body.home #content {
+  float: right;
+}
+
+/* line 7, ../sass/pages/_front-page.scss */
+body.home #recent-posts {
+  width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  float: right;
+  -moz-column-count: auto;
+  -webkit-column-count: auto;
+  column-count: auto;
+  -moz-column-gap: 20px;
+  -webkit-column-gap: 20px;
+  column-gap: 20px;
+  -moz-column-width: 300px;
+  -webkit-column-width: 300px;
+  column-width: 300px;
+  -moz-page-break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  break-inside: avoid;
+  padding: 0;
+}
+
+/* line 26, ../sass/pages/_front-page.scss */
+body.home #recent-posts article.post {
+  display: inline-block;
+  background-color: white;
+  margin-bottom: 20px;
+  padding: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Remove whitespace from bottom of page. */
+/* line 39, ../sass/pages/_front-page.scss */
+body.home #recent-posts * {
+  display: block;
+  position: relative;
+}
+
+/* line 44, ../sass/pages/_front-page.scss */
+body.home #recent-posts img {
+  display: block;
+}

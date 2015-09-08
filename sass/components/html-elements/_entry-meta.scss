@@ -1,0 +1,11 @@
+/**
+ * Style the entry meta, somewhat basically for the entire site.
+ */
+.entry-meta {
+    font-size: $author-font-size;
+    color: $author-font-color;
+
+    .author::before {
+        content: ' – ';
+    }
+}

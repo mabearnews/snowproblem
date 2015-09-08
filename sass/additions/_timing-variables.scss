@@ -1,0 +1,35 @@
+/**
+ * @file.
+ * Relates to all the various timing that is essential to the flow of the
+ * sites animations and other features.
+ */
+
+/*============= Navigation =============*/
+$nav-transition-duration: 1.2s;
+$nav-transition-color-duration: 0.4s;
+$nav-toggle-transition-time: 0.5s;
+$nav-submenu-transition-duration: 1s;
+$nav-submenu-transition-delay: 0.2s;
+
+/*============= Gallery =============*/
+$gallery-image-caption-duration: 0.6s;
+
+/*============= Table =============*/
+$table-animation-time: 1.2s;
+
+/*============= Sidebar =============*/
+$sidebar-display-transition-duration: 0.8s ease-out;
+
+/*============= Animated =============*/
+$animated-delay: 0.4s;
+$draw-text-animation-duration: 6s;
+
+/*============= Multiple Posts =============*/
+$multiple-post-read-more-duration: 0.5s;
+
+/*============= Posts =============*/
+$single-post-title-underline-transition: 1.5s ease-in;
+
+/*============= Featured =============*/
+ $featured-post-transition: 1s;
+ $featured-post-image-transition: 2s;

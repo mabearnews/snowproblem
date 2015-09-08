@@ -1,0 +1,119 @@
+/**
+ * @file.
+ * Styles for a single post of the website as bassed on the site navigation.
+ */
+
+ /*============= Post =============*/
+.single,
+.single-post,
+.page {
+    article.post,
+    article.page {
+        // Configure the width of the content. And center using flexbox.
+        @extend .content-container;
+
+        section.post-content {
+            @extend .element-content;
+        }
+
+
+        /* Show the the header inforamation to the side if possible. */
+
+        /* Show the title as a big item on the top page. */
+        header.entry-header{
+            width: 100%;
+            text-align: center;
+
+            .entry-title {
+                // Allowes the ::after element to be absolutly positioned.
+                position: relative;
+                width: auto;
+                display: inline-block;
+            }
+
+            .entry-title::after {
+                content: '';
+                // Add animation for the effect
+                @include transition(all $single-post-title-underline-transition);
+
+                // Position at bottom of header, like an underline.
+                position: absolute;
+                bottom: -$single-post-title-underline-height;
+                height: $single-post-title-underline-height;
+                left: 50%;
+
+                // Show on page load.
+                width: 0;
+
+                background-color: $single-post-title-underline-color;
+            }
+
+            .entry-title.animated::after {
+                left: -($single-post-title-underline-width - 100%) / 2;
+                width: $single-post-title-underline-width;
+            }
+        }
+    }
+
+
+    /*============= Post Navigation =============*/
+    /* Show the navigation for mobile browsers as typical links. */
+    .post-navigation { }
+
+    @media (min-width: #{$post-width + $single-post-navigation-link-size * 3}) {
+        .post-navigation .nav-links > * {
+            // Show on the top and left sides of the screen.
+            position: absolute;
+            top: 45vh;
+            top: calc(50vh - #{$single-post-navigation-link-size / 2});
+
+            // Style is a circle with a background and text on top.
+            width: $single-post-navigation-link-size;
+            height: $single-post-navigation-link-size;
+            border-radius: 50%;
+            display: table;
+
+            /* Show the icon for the next post.  */
+            &::before {
+                position: absolute;
+                left: 0;
+                top: 0;
+                font-size: $single-post-navigation-link-size * 1.2;
+                line-height: $single-post-navigation-link-size;
+                font-family: 'fontawesome';
+                content: '\f0a9';
+                color: $single-post-navigation-link-bgcolor;
+                z-index: -1;
+
+                // Allow transition of the background color.
+                @include transition(color 0.2s ease);
+            }
+            &:hover::before {
+                color: darken($single-post-navigation-link-bgcolor, 40);
+            }
+            &.nav-previous::before {
+                @include transform(rotate(180deg));
+            }
+
+            /* Show everything in as a more visible style. */
+            > a {
+                // Center vertically in container.
+                display: table-cell;
+                vertical-align: middle;
+                width: 100%;
+                text-align: center;
+
+
+                // Keep the same heading font as the other.
+                padding: 0 10%;
+                @include heading-font;
+                font-size: $single-post-navigation-font-size;
+                z-index: 2;
+            }
+
+
+            &.nav-previous { left: 20px; }
+            &.nav-next { right: 20px; }
+        }
+    }
+}

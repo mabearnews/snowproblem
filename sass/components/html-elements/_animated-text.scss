@@ -1,0 +1,21 @@
+/* Animates text when visible, works primarily off of the .animated class. */
+@include keyframes(draw-text) {
+    100% { stroke-dashoffset: 0; fill-opacity: 1; }
+}
+@include keyframes(fill-text) {
+    0% { fill-opacity :0; }
+    100% { fill-opacity: 1; }
+}
+
+svg.draw-text {
+    width: 100%;
+
+    text {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        fill-opacity: 0;
+    }
+}
+svg.draw-text.animated text, .animated svg.draw-text text {
+    @include animation(draw-text #{$draw-text-animation-duration * 0.9} forwards);
+}

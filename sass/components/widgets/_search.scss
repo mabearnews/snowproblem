@@ -1,0 +1,27 @@
+.widget_search {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+
+    @include display-flex;
+    @include flex-direction(row);
+
+    &::before {
+        content: "\f002";
+        margin-left: 2px;
+        font-family: "fontawesome";
+        font-size: 1em;
+        color: black;
+    }
+
+    input.search-field {
+        @include border-radius(0);
+
+        width: auto;
+        border: none;
+
+        &:focus {
+            outline: none;
+        }
+    }
+}

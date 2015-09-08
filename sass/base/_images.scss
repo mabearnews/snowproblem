@@ -1,0 +1,47 @@
+/**
+ * @file.
+ * All styles relating to all images.
+ */
+
+/* CSS arrows in various direction. */
+@mixin caption-arrow($direction, $color: $white) {
+    &::before {
+        content: '';
+        width: 0;
+        height: 0;
+
+        border-left: $caption-arrow-size solid transparent;
+	    border-right: $caption-arrow-size solid transparent;
+
+        $border-direction: $direction;
+        @if ($direction == "top") {
+            $border-direction: "bottom";
+        } @else if ($direction == "bottom") {
+            $border-direction: "top";
+        } @else if ($direction == "left") {
+            $border-direction: "right";
+        } @else if ($direction == "right") {
+            $border-direction: "left";
+        }
+
+        border-#{$border-direction}: $caption-arrow-size solid $color;
+
+        position: absolute;
+
+        #{$direction}: -$caption-arrow-size;
+    }
+}
+
+@mixin caption-arrow-up($color: $white) {
+    @include caption-arrow("top", $color);
+}
+
+@mixin caption-arrow-down($color: $white) {
+    @include caption-arrow("bottom", $color);
+}
+@mixin caption-arrow-left($color: $white) {
+    @include caption-arrow("left", $color);
+}
+@mixin caption-arrow-right($color: $white) {
+    @include caption-arrow("right", $color);
+}

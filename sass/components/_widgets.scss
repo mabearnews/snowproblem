@@ -1,0 +1,28 @@
+/**
+ * @file.
+ * Styles all the widgets in the site and does so with base styles as well as
+ * more specific styles dictated in the widgets/ directory.
+ */
+.widget {
+    width: 100%;
+
+    .widget-title {
+        border-bottom: $widget-title-border;
+    }
+}
+
+/* Adds styling for an icon to precede some text. */
+@mixin proceded-icon-styling($icon) {
+    &::before {
+        display: block;
+        text-align: left;
+        font-family: "fontawesome";
+        float: left;
+        padding-top: 0;
+        font-size: $widget-icon-font-size;
+        margin-right: 14px;
+        content: $icon;
+    }
+}
+
+/* Including the specialized widgets is done in main.scss. */

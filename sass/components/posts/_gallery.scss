@@ -1,0 +1,61 @@
+/**
+ * @file.
+ * Styles an image gallery and allows for an image to show properly.
+ */
+.gallery {
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+    line-height: 0;
+
+    // Configure the images colums.
+    @include column-width($gallery-image-width);
+    @include column-gap(0);
+}
+
+.gallery figure.gallery-item {
+    width: 100%;
+    display: block;
+
+    position: relative;
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    figcaption {
+        @include transition(all $gallery-image-caption-duration);
+        @include caption-arrow-up(rgba($gallery-image-caption-bgcolor, 0.7));
+
+        background-color: rgba($gallery-image-caption-bgcolor, 0.7);
+        height: $gallery-image-caption-height;
+
+        line-height: 1em;
+        padding: 8px;
+        text-align: left;
+        font-size: $gallery-image-caption-font-size;
+        font-family: $font-headings;
+        font-weight: bold;
+
+        position: absolute;
+        top: 120%;
+        width: 100%;
+    }
+
+    &:hover {
+        figcaption {
+            top: calc(100% - #{$gallery-image-caption-height});
+            bottom: 0;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+#breaking {
+    width: 100%;
+    float: left;
+
+    background-color: $breaking-section-bgcolor;
+
+    #breaking-posts { @extend #featured-posts; }
+
+}

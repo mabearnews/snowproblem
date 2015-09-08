@@ -1,0 +1,76 @@
+/**
+ * @file.
+ * Styles whenever multiple posts are on the same page, such as on a
+ * search result.
+ */
+
+ header.page-header {
+     @include display-flex;
+     @include justify-content(center);
+     @include flex-direction(row);
+
+     width: 100%;
+
+     &, * { z-index: $multiple-post-header-z-index; }
+
+ }
+
+
+
+
+
+
+.search-results .post,
+.search-results .page {
+    width: 100%;
+
+    // Allow the background to be positioned absolutly.
+    position: relative;
+
+    // Allow the background enough space.
+    padding: $multiple-post-padding-vertical 0;
+
+    /*============= Background =============*/
+
+    * {
+        z-index: $multiple-post-not-background-zindex;
+    }
+
+    .background {
+        // Configure the size.
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        // Change width to acomedate gained angle element
+        width: 120%;
+
+        height: 100%;
+
+        z-index: $multiple-post-background-zindex;
+
+        @include transform-origin(bottom, left);
+        @include transform(rotate(#{-$multiple-post-background-rotation}));
+    }
+
+    /* Background color alternates based off of section. */
+    &:nth-child(2n) .background {
+        background-color: $multiple-post-background-1;
+    }
+    &:nth-child(2n+1) .background {
+        background-color: $multiple-post-background-2;
+    }
+
+
+
+    /*============= Content =============*/
+
+    // Include flexbox to properly show the content.
+    @include display-flex;
+    @include justify-content(center);
+    @include flex-direction(row);
+
+    .post-content {
+        width: $post-width;
+    }
+}

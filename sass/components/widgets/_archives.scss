@@ -1,0 +1,7 @@
+.widget_archive {
+    ul li {
+        @include proceded-icon-styling("\f187");
+
+        margin-bottom: $widget-margin-bottom;
+    }
+}

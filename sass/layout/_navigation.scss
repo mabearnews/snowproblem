@@ -1,0 +1,282 @@
+nav#site-navigation {
+    // Centers the wrapper in the middle of the page.
+    @include display-flex;
+    @include flex-direction(row);
+    @include justify-content(center);
+
+    // Allow the horizontally centering of children.
+    > .wrapper {
+        @include display-flex;
+        @include flex-direction(row);
+        @include justify-content(space-between);
+
+        width: 100%;
+        height: 100%;
+    }
+
+    // Allow the vertically centering of children.
+    > .wrapper > * {
+        @include display-flex;
+        @include flex-direction(column);
+        @include justify-content(center);
+        height: 100%;
+    }
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: $nav-zindex;
+
+    width: 100%;
+    height: $nav-screen-height;
+}
+
+
+/* Style the ul elements shown to display horizontally and without style. */
+nav#site-navigation ul {
+    // Show as flexbox.
+    @include display-flex;
+    @include flex-direction(row);
+    @include justify-content(flex-start);
+
+    // Remove automatic style and such.
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    li {
+        padding: 0 $nav-min-padding;
+    }
+}
+
+
+nav#site-navigation .menu-toggle .toggle {
+    position: relative;
+
+    margin-left: $nav-toggle-margin;
+
+    width: $nav-toggle-width;
+    height: $nav-toggle-height;
+}
+
+/* Showes the contents of the navigation sub menues. */
+#site-navigation-more ul {
+    // Display as a flex box.
+    display: block;
+    @include display-flex;
+    @include flex-direction(column);
+    @include justify-content(flex-start);
+
+    // Make visible.
+    z-index: $nav-submenu-zindex;
+
+    // Remove previous styles.
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    // Page location.
+    position: absolute;
+    // Same as nav-more height.
+    bottom: 0;
+
+    // Reset against roation.
+    @include transform-origin(right, bottom);
+    @include transform(rotate($nav-screen-rotation));
+
+    width: 100%;
+    left: 10px;
+
+    /* Hide Sub Menues */
+    ul {
+        display: none;
+    }
+
+    /* Styling the individual elements. */
+    li {
+        // Transitions.
+        @include transition(all $nav-submenu-transition-duration);
+
+        // Appearence.
+        @include border-radius($nav-submenu-border-radius);
+        background-color: $nav-submenu-bgcolor;
+        text-align: left;
+        padding: $nav-submenu-padding-vertical;
+        margin: $nav-submenu-space-between;
+
+        // Size
+        width: $nav-submenu-item-width;
+
+        // Iniitial State, to allow transtion in.
+        @include transform(translateX(-150%));
+        @include opacity(0);
+
+        // // Allow transiiton delays for each element.
+        @for $i from 1 through 20 {
+            &:nth-last-child(#{$i}) {
+                @include transition-delay($nav-transition-duration / 2 + $nav-submenu-transition-delay * $i);
+            }
+        }
+
+        /* Style the text */
+        text-overflow: elipses;
+    }
+
+    /* Transitions added to the creation of elements */
+    &.come-in li {
+        @include transform(translateX(0));
+        @include opacity(1);
+    }
+}
+
+/* Style the identifier of the current page. */
+/* Position the current page of the website for increased naviation */
+#site-navigation-more .current-page {
+    position: absolute;
+
+    width: 100vh;
+
+    right: 2px;
+    bottom: 10px;
+
+    @include transform-origin(right, top);
+    @include transform(rotate(90deg));
+
+    text-align: right;
+    a {
+        @extend %heading-font;
+
+        font-size: $nav-submenu-current-pagefont-size;
+        letter-spacing: $nav-submenu-current-letter-spacing;
+        font-weight: $nav-submenu-current-font-weight;
+        text-align: right;
+    }
+}
+
+
+
+#site-navigation-more {
+    position: fixed;
+
+    right: 100vw;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+
+    /* Ensures that the nav does not show as a glitch on mobile */
+    overflow: hidden;
+
+    /* Ensures that the rotate element is above the page. */
+    z-index: $nav-more-zindex;
+}
+
+/* Could be wraped in a media query... Handels the navigation side of things.*/
+#site-navigation-more {
+    @include transform-origin(right, top);
+
+    /**
+     * Ensure the nav bar fills out the screen.
+     */
+    $minimun-width: 100vh * tan($nav-screen-rotation);
+    width: $minimun-width;
+
+    $minimum-height: 100vh / cos($nav-screen-rotation);
+    height: $minimum-height;
+
+    // Ensure proper sizing.
+    right: auto;
+    left: -$minimun-width;
+
+    &.visible {
+        @include transform(rotate(-$nav-screen-rotation));
+    }
+}
+
+#base-wrapper.nav-visible #page {
+    @include transform(rotate(-$nav-screen-rotation));
+
+    /**
+     * Ensure the page fills out the screen
+     */
+    height: 200vh;
+}
+
+/**
+ * Allow the page to transform with the current navigation bar.
+ */
+#page {
+    @include transition(transform $nav-transition-duration);
+    @include transform-origin(top, left);
+}
+
+/* Hide the ul elements of the navigation bar in a certain width. */
+@media (max-width: $nav-hide-breakpoint) {
+    nav#site-navigation ul {
+        display: none;
+    }
+
+    #sidebar { display: none !important; }
+}
+
+/* Makes the navigation menu size to the maximum width of the page  */
+@media (min-width: #{$page-max-width}) {
+    nav#site-navigation > .wrapper {
+        width: $page-max-width;
+    }
+
+    nav#site-navigation .toggle {
+        margin-left: 0 !important;
+    }
+}
+
+
+/* Changes the navigation to a more mobile view. */
+@media screen and (max-width: $mobile-breakpoint), screen and (max-height: $nav-height-breakpoint) {
+    #site-navigation-more.visible {
+
+        ul {
+            @include transform(rotate(0));
+            height: 95%;
+            height: calc(100% - #{$nav-mobile-more-font-size * 2});
+            position: absolute;
+            bottom: $nav-mobile-more-font-size;
+
+
+            @include justify-content(space-around);
+
+            li {
+                width: 90%;
+                left: 5%;
+                right: 5%;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+
+                color: $nav-mobile-more-text-color;
+                font-size: $nav-mobile-more-font-size;
+                background-color: $nav-mobile-more-submenu-backgorund;
+            }
+        }
+
+        @include transform(rotate(0) translateX(100vh * tan($nav-screen-rotation)));
+        width: $nav-mobile-width;
+        max-width: $nav-mobile-max-width;
+
+
+    }
+
+    /* Include the navigation transition time for seamless transitioning. */
+    #base-wrapper { @include transition(all $nav-transition-duration !important); }
+
+    #base-wrapper.nav-visible {
+        #page { @include transform(rotate(0)); }
+
+        @include transform(translateX($nav-mobile-max-width));
+
+        @media screen and (max-width: #{100% / $nav-mobile-width * $nav-mobile-max-width}) {
+            @include transform(translateX($nav-mobile-width));
+        }
+    }
+}

@@ -1,0 +1,122 @@
+/**
+ * @file.
+ * Simply styles the entire 404 page.
+ */
+@import "compass";
+@import "additions/*";
+@import "base/*";
+
+$astronaut-size: 200px;
+
+#content {
+    width: 100%;
+    height: 100%;
+
+    background-color: black;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: left center;
+    @include background-size(cover);
+}
+
+@include keyframes(astronaut-move) {
+    0% {
+        @include transform(scale(1));
+        left: 60vw;
+    }
+
+    100% {
+        @include transform(scale(0.01));
+        left: 1vw;
+    }
+}
+
+#astonaut {
+    @include animation(astronaut-move 300s ease-out forwards);
+
+    position: absolute;
+    top: 40vh;
+    left: 60vw;
+
+    width: $astronaut-size;
+    height: $astronaut-size;
+
+    margin-top: -$astronaut-size;
+
+    img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+
+@include keyframes(primary-text-come-in) {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+$base-color: random-color();
+@include keyframes(pulse) {
+    0%   { color: $base-color; }
+    20%  { color: random-color(); }
+    30%  { color: random-color(); }
+    40%  { color: random-color(); }
+    50%  { color: random-color(); }
+    60%  { color: random-color(); }
+    70%  { color: random-color(); }
+    80%  { color: random-color(); }
+    90%  { color: random-color(); }
+    100% { color: $base-color; }
+}
+
+#message {
+    width: 100%;
+    left: 0;
+    padding: 16px;
+    bottom: 5vh;
+    position: absolute;
+    color: white;
+    z-index: 1000;
+    font-size: 4em;
+    text-align: center;
+
+    .primary-text {
+        overflow: hidden;
+    }
+
+    .go-home * {
+        @extend %heading-font;
+
+        cursor: pointer;
+        @include animation(pulse 16s infinite linear);
+    }
+
+    * {
+        text-align: center;
+    }
+}
+@media (max-width: 900px) {
+    #message {
+        font-size: 3em;
+    }
+}
+
+@media (max-width: 600px) {
+    #message .primary-text {
+        display: none;
+    }
+    #message {
+        width: 100%;
+
+        font-size: 2.5em;
+    }
+}

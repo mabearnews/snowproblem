@@ -1,0 +1,35 @@
+/**
+ * @file.
+ * This file relates to the general elements of appearence that do not conform
+ * to other parts of the site.
+ */
+/*============= Navigation =============*/
+$nav-toggle-line-height: 3px;
+$nav-submenu-border-radius: 0;
+
+$nav-primary-menu-item-margin: 10px;
+
+/*============= Sidebar =============*/
+$sidebar-padding-left: 30px;
+
+/*============= Widgets =============*/
+$widget-title-border: 1px solid $widget-title-border-color;
+
+/*============= Images =============*/
+$caption-arrow-size: 25px;
+
+/*============= Table =============*/
+$table-border-height: 1px;
+$table-cell-padding: 8px;
+
+/*============= Posts =============*/
+$post-padding: 30px;
+$single-post-title-underline-height: 2px;
+$single-post-title-underline-width: 120%;
+
+/*============= Footer =============*/
+$footer-widget-paddding: 10px;
+
+/*============= Featured =============*/
+$featured-post-padding: 20px;
+$featured-post-border-size: 0;
