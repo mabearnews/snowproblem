@@ -12,6 +12,8 @@
         // Configure the width of the content. And center using flexbox.
         @extend .content-container;
 
+        position: relative;
+
         section.post-content {
             @extend .element-content;
         }
@@ -53,12 +55,23 @@
                 width: $single-post-title-underline-width;
             }
         }
+
+
+        .entry-meta {
+            position: absolute;
+
+            right: 100%;
+
+            top: 10%;
+        }
     }
+
+
 
 
     /*============= Post Navigation =============*/
     /* Show the navigation for mobile browsers as typical links. */
-    .post-navigation { }
+    .post-navigation { @if ( $post-navgiation-display == false )  { display: none; } }
 
     @media (min-width: #{$post-width + $single-post-navigation-link-size * 3}) {
         .post-navigation .nav-links > * {

@@ -37,6 +37,7 @@
 @import url(http://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700|Rokkitt:400,700);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(https://fonts.googleapis.com/css?family=Inconsolata);
+@import url(https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic);
 /* line 11, ../sass/additions/_font-variables.scss */
 h1, h2, h3, h4, h5, h6, #site-navigation-more .current-page a, nav#site-navigation a {
   font-family: "Montserrat", sans-serif;
@@ -54,6 +55,7 @@ h1, h2, h3, h4, h5, h6, #site-navigation-more .current-page a, nav#site-navigati
 /*============= Featured =============*/
 /*============= General =============*/
 /*============= Footer =============*/
+/*============= Posts =============*/
 /**
  * @file.
  * This file relates to the general elements of appearence that do not conform
@@ -123,6 +125,12 @@ h1, h2, h3, h4, h5, h6, #site-navigation-more .current-page a, nav#site-navigati
  * All styles relating to all images.
  */
 /* CSS arrows in various direction. */
+/* line 1, ../sass/base/_post.scss */
+.post {
+  font-size: 0.9em;
+  font-family: "PT Serif", serif;
+}
+
 /**
  * @file.
  * Defines some basic ovverride styles for parts of the page to improve the
@@ -130,7 +138,7 @@ h1, h2, h3, h4, h5, h6, #site-navigation-more .current-page a, nav#site-navigati
  */
 /* line 7, ../sass/base/_styles.scss */
 body {
-  font-family: "Inconsolata";
+  font-family: "PT Serif", serif;
 }
 
 /* line 15, ../sass/base/_styles.scss */
@@ -773,6 +781,42 @@ body, html {
   width: 100%;
   float: left;
   background-color: #f4f5f6;
+  padding-top: 20px;
+}
+
+/* line 10, ../sass/components/_breaking.scss */
+body.home #breaking-posts {
+  width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  float: right;
+  -moz-column-count: auto;
+  -webkit-column-count: auto;
+  column-count: auto;
+  -moz-column-gap: 20px;
+  -webkit-column-gap: 20px;
+  column-gap: 20px;
+  -moz-column-width: 300px;
+  -webkit-column-width: 300px;
+  column-width: 300px;
+  -moz-page-break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  break-inside: avoid;
+  padding: 0;
+}
+/* line 19, ../sass/mixins/_column-layout.scss */
+body.home #breaking-posts article.post, body.home #breaking-posts article.widget {
+  display: inline-block;
+  background-color: white;
+  margin-bottom: 20px;
+  padding: 10px;
+  overflow: hidden;
+  position: relative;
+}
+/* line 30, ../sass/mixins/_column-layout.scss */
+body.home #breaking-posts * {
+  display: block;
+  position: relative;
 }
 
 /**
@@ -1126,8 +1170,8 @@ footer#primary-footer .widget-container {
   break-inside: avoid;
   padding: 0;
 }
-/* line 35, ../sass/components/footer/_footer.scss */
-footer#primary-footer article.widget {
+/* line 19, ../sass/mixins/_column-layout.scss */
+footer#primary-footer .widget-container article.post, footer#primary-footer .widget-container article.widget {
   display: inline-block;
   background-color: white;
   margin-bottom: 20px;
@@ -1135,17 +1179,14 @@ footer#primary-footer article.widget {
   overflow: hidden;
   position: relative;
 }
-/* line 46, ../sass/components/footer/_footer.scss */
-footer#primary-footer * {
-  display: inline-block;
-}
-/* line 48, ../sass/components/footer/_footer.scss */
-footer#primary-footer img {
+/* line 30, ../sass/mixins/_column-layout.scss */
+footer#primary-footer .widget-container * {
   display: block;
+  position: relative;
 }
 
 /* Show the credits as properly displaying */
-/* line 54, ../sass/components/footer/_footer.scss */
+/* line 24, ../sass/components/footer/_footer.scss */
 #primary-footer .credits {
   width: 100%;
   margin: 0;
@@ -1157,7 +1198,7 @@ footer#primary-footer img {
   justify-content: space-around;
   background-color: #c2c2c2;
 }
-/* line 65, ../sass/components/footer/_footer.scss */
+/* line 35, ../sass/components/footer/_footer.scss */
 #primary-footer .credits .credit {
   font-family: "Montserrat", sans-serif;
   font-size: 0.8em;
@@ -1878,7 +1919,9 @@ header.page-header, header.page-header * {
 
 /* line 23, ../sass/components/posts/_multiple-posts.scss */
 .search-results .post,
-.search-results .page {
+.search-results .page,
+body.archive .post,
+body.archive .page {
   width: 100%;
   position: relative;
   padding: 50px 0;
@@ -1892,14 +1935,18 @@ header.page-header, header.page-header * {
   -webkit-flex-direction: row;
   flex-direction: row;
 }
-/* line 35, ../sass/components/posts/_multiple-posts.scss */
+/* line 37, ../sass/components/posts/_multiple-posts.scss */
 .search-results .post *,
-.search-results .page * {
+.search-results .page *,
+body.archive .post *,
+body.archive .page * {
   z-index: 2;
 }
-/* line 39, ../sass/components/posts/_multiple-posts.scss */
+/* line 41, ../sass/components/posts/_multiple-posts.scss */
 .search-results .post .background,
-.search-results .page .background {
+.search-results .page .background,
+body.archive .post .background,
+body.archive .page .background {
   position: absolute;
   top: 0;
   left: 0;
@@ -1915,19 +1962,25 @@ header.page-header, header.page-header * {
   -webkit-transform: rotate(-4deg);
   transform: rotate(-4deg);
 }
-/* line 57, ../sass/components/posts/_multiple-posts.scss */
+/* line 59, ../sass/components/posts/_multiple-posts.scss */
 .search-results .post:nth-child(2n) .background,
-.search-results .page:nth-child(2n) .background {
+.search-results .page:nth-child(2n) .background,
+body.archive .post:nth-child(2n) .background,
+body.archive .page:nth-child(2n) .background {
   background-color: white;
 }
-/* line 60, ../sass/components/posts/_multiple-posts.scss */
+/* line 62, ../sass/components/posts/_multiple-posts.scss */
 .search-results .post:nth-child(2n+1) .background,
-.search-results .page:nth-child(2n+1) .background {
+.search-results .page:nth-child(2n+1) .background,
+body.archive .post:nth-child(2n+1) .background,
+body.archive .page:nth-child(2n+1) .background {
   background-color: #F3F3F3;
 }
-/* line 73, ../sass/components/posts/_multiple-posts.scss */
+/* line 75, ../sass/components/posts/_multiple-posts.scss */
 .search-results .post .post-content,
-.search-results .page .post-content {
+.search-results .page .post-content,
+body.archive .post .post-content,
+body.archive .page .post-content {
   width: 700px;
 }
 
@@ -1955,10 +2008,11 @@ header.page-header, header.page-header * {
 .single-post article.page,
 .page article.post,
 .page article.page {
+  position: relative;
   /* Show the the header inforamation to the side if possible. */
   /* Show the title as a big item on the top page. */
 }
-/* line 23, ../sass/components/posts/_single-page-post.scss */
+/* line 25, ../sass/components/posts/_single-page-post.scss */
 .single article.post header.entry-header,
 .single article.page header.entry-header,
 .single-post article.post header.entry-header,
@@ -1968,7 +2022,7 @@ header.page-header, header.page-header * {
   width: 100%;
   text-align: center;
 }
-/* line 27, ../sass/components/posts/_single-page-post.scss */
+/* line 29, ../sass/components/posts/_single-page-post.scss */
 .single article.post header.entry-header .entry-title,
 .single article.page header.entry-header .entry-title,
 .single-post article.post header.entry-header .entry-title,
@@ -1979,7 +2033,7 @@ header.page-header, header.page-header * {
   width: auto;
   display: inline-block;
 }
-/* line 34, ../sass/components/posts/_single-page-post.scss */
+/* line 36, ../sass/components/posts/_single-page-post.scss */
 .single article.post header.entry-header .entry-title::after,
 .single article.page header.entry-header .entry-title::after,
 .single-post article.post header.entry-header .entry-title::after,
@@ -1998,7 +2052,7 @@ header.page-header, header.page-header * {
   width: 0;
   background-color: #95a5a6;
 }
-/* line 51, ../sass/components/posts/_single-page-post.scss */
+/* line 53, ../sass/components/posts/_single-page-post.scss */
 .single article.post header.entry-header .entry-title.animated::after,
 .single article.page header.entry-header .entry-title.animated::after,
 .single-post article.post header.entry-header .entry-title.animated::after,
@@ -2008,8 +2062,25 @@ header.page-header, header.page-header * {
   left: -10%;
   width: 120%;
 }
+/* line 60, ../sass/components/posts/_single-page-post.scss */
+.single article.post .entry-meta,
+.single article.page .entry-meta,
+.single-post article.post .entry-meta,
+.single-post article.page .entry-meta,
+.page article.post .entry-meta,
+.page article.page .entry-meta {
+  position: absolute;
+  right: 100%;
+  top: 10%;
+}
+/* line 74, ../sass/components/posts/_single-page-post.scss */
+.single .post-navigation,
+.single-post .post-navigation,
+.page .post-navigation {
+  display: none;
+}
 @media (min-width: 1300px) {
-  /* line 64, ../sass/components/posts/_single-page-post.scss */
+  /* line 77, ../sass/components/posts/_single-page-post.scss */
   .single .post-navigation .nav-links > *,
   .single-post .post-navigation .nav-links > *,
   .page .post-navigation .nav-links > * {
@@ -2023,7 +2094,7 @@ header.page-header, header.page-header * {
     /* Show the icon for the next post.  */
     /* Show everything in as a more visible style. */
   }
-  /* line 77, ../sass/components/posts/_single-page-post.scss */
+  /* line 90, ../sass/components/posts/_single-page-post.scss */
   .single .post-navigation .nav-links > *::before,
   .single-post .post-navigation .nav-links > *::before,
   .page .post-navigation .nav-links > *::before {
@@ -2041,13 +2112,13 @@ header.page-header, header.page-header * {
     -webkit-transition: color 0.2s ease;
     transition: color 0.2s ease;
   }
-  /* line 91, ../sass/components/posts/_single-page-post.scss */
+  /* line 104, ../sass/components/posts/_single-page-post.scss */
   .single .post-navigation .nav-links > *:hover::before,
   .single-post .post-navigation .nav-links > *:hover::before,
   .page .post-navigation .nav-links > *:hover::before {
     color: rgba(84, 94, 100, 0.4);
   }
-  /* line 94, ../sass/components/posts/_single-page-post.scss */
+  /* line 107, ../sass/components/posts/_single-page-post.scss */
   .single .post-navigation .nav-links > *.nav-previous::before,
   .single-post .post-navigation .nav-links > *.nav-previous::before,
   .page .post-navigation .nav-links > *.nav-previous::before {
@@ -2056,7 +2127,7 @@ header.page-header, header.page-header * {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
   }
-  /* line 99, ../sass/components/posts/_single-page-post.scss */
+  /* line 112, ../sass/components/posts/_single-page-post.scss */
   .single .post-navigation .nav-links > * > a,
   .single-post .post-navigation .nav-links > * > a,
   .page .post-navigation .nav-links > * > a {
@@ -2070,13 +2141,13 @@ header.page-header, header.page-header * {
     font-size: 1.2em;
     z-index: 2;
   }
-  /* line 115, ../sass/components/posts/_single-page-post.scss */
+  /* line 128, ../sass/components/posts/_single-page-post.scss */
   .single .post-navigation .nav-links > *.nav-previous,
   .single-post .post-navigation .nav-links > *.nav-previous,
   .page .post-navigation .nav-links > *.nav-previous {
     left: 20px;
   }
-  /* line 116, ../sass/components/posts/_single-page-post.scss */
+  /* line 129, ../sass/components/posts/_single-page-post.scss */
   .single .post-navigation .nav-links > *.nav-next,
   .single-post .post-navigation .nav-links > *.nav-next,
   .page .post-navigation .nav-links > *.nav-next {
@@ -2188,9 +2259,8 @@ body.home #recent-posts {
   break-inside: avoid;
   padding: 0;
 }
-
-/* line 26, ../sass/pages/_front-page.scss */
-body.home #recent-posts article.post {
+/* line 19, ../sass/mixins/_column-layout.scss */
+body.home #recent-posts article.post, body.home #recent-posts article.widget {
   display: inline-block;
   background-color: white;
   margin-bottom: 20px;
@@ -2198,15 +2268,8 @@ body.home #recent-posts article.post {
   overflow: hidden;
   position: relative;
 }
-
-/* Remove whitespace from bottom of page. */
-/* line 39, ../sass/pages/_front-page.scss */
+/* line 30, ../sass/mixins/_column-layout.scss */
 body.home #recent-posts * {
   display: block;
   position: relative;
-}
-
-/* line 44, ../sass/pages/_front-page.scss */
-body.home #recent-posts img {
-  display: block;
 }

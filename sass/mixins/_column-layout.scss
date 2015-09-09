@@ -1,0 +1,35 @@
+@mixin column-layout {
+    width: $footer-column-container-width;
+    $footer-column-container-margin: (100% - $footer-column-container-width) / 2;
+    margin-left: $footer-column-container-margin;
+    margin-right: $footer-column-container-margin;
+
+    // Specified float fixes some problems using columns for webkit and moz.
+    float: right;
+
+    // Specify the sizes of the columns.
+    @include column-count(auto);
+    @include column-gap($footer-widget-gap);
+    @include column-width($footer-widget-width);
+    @include break-inside(avoid);
+
+
+    padding: 0;
+
+    article.post, article.widget {
+        display: inline-block;
+        background-color: $footer-text-color;
+        margin-bottom: $footer-widget-gap;
+
+        padding: $footer-widget-paddding;
+
+        overflow: hidden;
+        position: relative;
+    }
+
+    * {
+        display: block;
+        position: relative;
+    }
+
+}

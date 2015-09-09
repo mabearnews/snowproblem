@@ -25,11 +25,6 @@
 			<?php the_excerpt(); ?>
 		</div><!-- .entry-content -->
 
-		<footer class="entry-footer continue-reading">
-			<span class="read-more">
-				<?php print '<a href="' . get_permalink() . '" title="' . __('Read More', 'snowproblem') . '" rel="bookmark">— Read More</a>'; ?>
-			</span>
-		</footer><!-- .entry-footer -->
 	</section>
 	<!-- Shows the background of the site with the vertical slant as specified. -->
 	<div class="background"></div>

@@ -40,6 +40,7 @@
 @import url(http://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700|Rokkitt:400,700);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(https://fonts.googleapis.com/css?family=Inconsolata);
+@import url(https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic);
 /* line 11, ../sass/additions/_font-variables.scss */
 h1, h2, h3, h4, h5, h6, #message .go-home * {
   font-family: "Montserrat", sans-serif;
@@ -57,6 +58,7 @@ h1, h2, h3, h4, h5, h6, #message .go-home * {
 /*============= Featured =============*/
 /*============= General =============*/
 /*============= Footer =============*/
+/*============= Posts =============*/
 /**
  * @file.
  * This file relates to the general elements of appearence that do not conform
@@ -126,6 +128,12 @@ h1, h2, h3, h4, h5, h6, #message .go-home * {
  * All styles relating to all images.
  */
 /* CSS arrows in various direction. */
+/* line 1, ../sass/base/_post.scss */
+.post {
+  font-size: 0.9em;
+  font-family: "PT Serif", serif;
+}
+
 /**
  * @file.
  * Defines some basic ovverride styles for parts of the page to improve the
@@ -133,7 +141,7 @@ h1, h2, h3, h4, h5, h6, #message .go-home * {
  */
 /* line 7, ../sass/base/_styles.scss */
 body {
-  font-family: "Inconsolata";
+  font-family: "PT Serif", serif;
 }
 
 /* line 15, ../sass/base/_styles.scss */
@@ -269,98 +277,98 @@ input {
 }
 @-moz-keyframes pulse {
   0% {
-    color: #16a085;
-  }
-  20% {
-    color: white;
-  }
-  30% {
-    color: #bdc3c7;
-  }
-  40% {
-    color: #7f8c8d;
-  }
-  50% {
-    color: #34495e;
-  }
-  60% {
     color: #95a5a6;
   }
+  20% {
+    color: #f1c40f;
+  }
+  30% {
+    color: #2ecc71;
+  }
+  40% {
+    color: #bdc3c7;
+  }
+  50% {
+    color: #e74c3c;
+  }
+  60% {
+    color: #f39c12;
+  }
   70% {
-    color: #8e44ad;
+    color: #f39c12;
   }
   80% {
-    color: #9b59b6;
+    color: #e74c3c;
   }
   90% {
-    color: #16a085;
+    color: #27ae60;
   }
   100% {
-    color: #16a085;
+    color: #95a5a6;
   }
 }
 @-webkit-keyframes pulse {
   0% {
-    color: #16a085;
+    color: #95a5a6;
   }
   20% {
-    color: #16a085;
+    color: #e74c3c;
   }
   30% {
-    color: #c0392b;
+    color: #e74c3c;
   }
   40% {
-    color: white;
+    color: #d35400;
   }
   50% {
-    color: white;
+    color: #16a085;
   }
   60% {
-    color: #f1c40f;
+    color: #34495e;
   }
   70% {
-    color: #e67e22;
+    color: #d35400;
   }
   80% {
-    color: #f1c40f;
+    color: #9b59b6;
   }
   90% {
     color: #f1c40f;
   }
   100% {
-    color: #16a085;
+    color: #95a5a6;
   }
 }
 @keyframes pulse {
   0% {
-    color: #16a085;
+    color: #95a5a6;
   }
   20% {
-    color: #9b59b6;
+    color: #3498db;
   }
   30% {
-    color: #f1c40f;
+    color: #e67e22;
   }
   40% {
     color: #34495e;
   }
   50% {
-    color: #f1c40f;
-  }
-  60% {
     color: #e67e22;
   }
+  60% {
+    color: white;
+  }
   70% {
-    color: #2ecc71;
-  }
-  80% {
-    color: #2ecc71;
-  }
-  90% {
     color: #7f8c8d;
   }
+  80% {
+    color: #9b59b6;
+  }
+  90% {
+    color: #1abc9c;
+  }
   100% {
-    color: #16a085;
+    color: #95a5a6;
   }
 }
 /* line 81, ../sass/404.scss */

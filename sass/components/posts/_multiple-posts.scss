@@ -21,7 +21,9 @@
 
 
 .search-results .post,
-.search-results .page {
+.search-results .page,
+body.archive .post,
+body.archive .page {
     width: 100%;
 
     // Allow the background to be positioned absolutly.

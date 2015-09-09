@@ -4,5 +4,9 @@
 
     background-color: $breaking-section-bgcolor;
 
+    padding-top: $footer-widget-gap;
+}
 
+body.home #breaking-posts  {
+    @include column-layout;
 }

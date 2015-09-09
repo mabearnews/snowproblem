@@ -153,6 +153,15 @@ function snowproblem_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'snowproblem_scripts' );
 
+
+/**
+ * Change the default read more text from an excerpt.
+ */
+function snowproblem_excerpt_more( $more ) {
+	return '...';
+}
+add_filter('excerpt_more', 'snowproblem_excerpt_more');
+
 /**
  * Implement the Custom Header feature.
  */

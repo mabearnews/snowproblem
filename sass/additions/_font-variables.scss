@@ -5,7 +5,7 @@
  * is used for anything else.
  */
 $font-headings: 'Montserrat', sans-serif;
-$font-casual: 'Inconsolata', ;
+$font-casual: 'PT Serif', serif;
 $font-blockquote: Georgia, serif;
 
 %heading-font {
@@ -61,3 +61,6 @@ $author-font-size:  0.8em;
 /*============= Footer =============*/
 $footer-credit-font-size: $author-font-size;
 $footer-credit-font-weight: bold;
+
+/*============= Posts =============*/
+$post-font-size: 0.9em;
