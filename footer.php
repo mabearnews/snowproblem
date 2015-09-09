@@ -25,7 +25,7 @@
 			</section>
 
 			<section class="credits">
-				
+				<div class="credit"><span>Site Desing by Sequoia Snow</span></div>
 			</section>
 
 		</footer>

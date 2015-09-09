@@ -132,6 +132,9 @@ $single-post-navigation-link-bgcolor: rgba($lightgrey, 0.4);
 $footer-bgcolor: darken($white, 4);
 $footer-text-color: $white;
 
+$footer-credit-text-color: darken($darkgrey, 20);
+$footer-credit-bgcolor: darken($footer-bgcolor, 20);
+
 /*============= Featured =============*/
 $featured-post-bgcolor: rgba(black, 0.4);
 $featured-post-border-color: transparent;

@@ -53,6 +53,7 @@ h1, h2, h3, h4, h5, h6, #site-navigation-more .current-page a, nav#site-navigati
 /*============= Single Post =============*/
 /*============= Featured =============*/
 /*============= General =============*/
+/*============= Footer =============*/
 /**
  * @file.
  * This file relates to the general elements of appearence that do not conform
@@ -211,10 +212,6 @@ input {
     float: left;
   }
 }
-/**
- * @file.
- * Styles and positions the bottom footer to look properly.
- */
 /* line 1, ../sass/layout/_navigation.scss */
 nav#site-navigation {
   display: -webkit-flex;
@@ -1104,13 +1101,12 @@ body, html {
  */
 /* line 7, ../sass/components/footer/_footer.scss */
 footer#primary-footer {
-  padding-bottom: 15px;
   padding-top: 15px;
   background-color: whitesmoke;
   width: 100%;
   float: right;
 }
-/* line 17, ../sass/components/footer/_footer.scss */
+/* line 16, ../sass/components/footer/_footer.scss */
 footer#primary-footer .widget-container {
   width: 95%;
   margin-left: 2.5%;
@@ -1130,7 +1126,7 @@ footer#primary-footer .widget-container {
   break-inside: avoid;
   padding: 0;
 }
-/* line 36, ../sass/components/footer/_footer.scss */
+/* line 35, ../sass/components/footer/_footer.scss */
 footer#primary-footer article.widget {
   display: inline-block;
   background-color: white;
@@ -1139,13 +1135,36 @@ footer#primary-footer article.widget {
   overflow: hidden;
   position: relative;
 }
-/* line 47, ../sass/components/footer/_footer.scss */
+/* line 46, ../sass/components/footer/_footer.scss */
 footer#primary-footer * {
   display: inline-block;
 }
-/* line 49, ../sass/components/footer/_footer.scss */
+/* line 48, ../sass/components/footer/_footer.scss */
 footer#primary-footer img {
   display: block;
+}
+
+/* Show the credits as properly displaying */
+/* line 54, ../sass/components/footer/_footer.scss */
+#primary-footer .credits {
+  width: 100%;
+  margin: 0;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  background-color: #c2c2c2;
+}
+/* line 65, ../sass/components/footer/_footer.scss */
+#primary-footer .credits .credit {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #4e5758;
+  text-align: center;
+  margin: 0.8em 0;
 }
 
 /* Animates text when visible, works primarily off of the .animated class. */

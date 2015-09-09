@@ -56,6 +56,7 @@ h1, h2, h3, h4, h5, h6, #message .go-home * {
 /*============= Single Post =============*/
 /*============= Featured =============*/
 /*============= General =============*/
+/*============= Footer =============*/
 /**
  * @file.
  * This file relates to the general elements of appearence that do not conform
@@ -268,98 +269,98 @@ input {
 }
 @-moz-keyframes pulse {
   0% {
-    color: #f1c40f;
-  }
-  20% {
-    color: #3498db;
-  }
-  30% {
-    color: #c0392b;
-  }
-  40% {
-    color: #3498db;
-  }
-  50% {
-    color: #d35400;
-  }
-  60% {
-    color: #c0392b;
-  }
-  70% {
-    color: #1abc9c;
-  }
-  80% {
-    color: #d35400;
-  }
-  90% {
-    color: #34495e;
-  }
-  100% {
-    color: #f1c40f;
-  }
-}
-@-webkit-keyframes pulse {
-  0% {
-    color: #f1c40f;
-  }
-  20% {
-    color: #3498db;
-  }
-  30% {
-    color: #3498db;
-  }
-  40% {
-    color: #f1c40f;
-  }
-  50% {
-    color: #7f8c8d;
-  }
-  60% {
-    color: #f1c40f;
-  }
-  70% {
-    color: #e74c3c;
-  }
-  80% {
     color: #16a085;
   }
-  90% {
+  20% {
     color: white;
   }
-  100% {
-    color: #f1c40f;
-  }
-}
-@keyframes pulse {
-  0% {
-    color: #f1c40f;
-  }
-  20% {
-    color: #2ecc71;
-  }
   30% {
-    color: #e74c3c;
-  }
-  40% {
-    color: #e67e22;
-  }
-  50% {
     color: #bdc3c7;
   }
-  60% {
+  40% {
+    color: #7f8c8d;
+  }
+  50% {
     color: #34495e;
+  }
+  60% {
+    color: #95a5a6;
   }
   70% {
     color: #8e44ad;
   }
   80% {
-    color: #7f8c8d;
+    color: #9b59b6;
   }
   90% {
-    color: #3498db;
+    color: #16a085;
   }
   100% {
+    color: #16a085;
+  }
+}
+@-webkit-keyframes pulse {
+  0% {
+    color: #16a085;
+  }
+  20% {
+    color: #16a085;
+  }
+  30% {
+    color: #c0392b;
+  }
+  40% {
+    color: white;
+  }
+  50% {
+    color: white;
+  }
+  60% {
     color: #f1c40f;
+  }
+  70% {
+    color: #e67e22;
+  }
+  80% {
+    color: #f1c40f;
+  }
+  90% {
+    color: #f1c40f;
+  }
+  100% {
+    color: #16a085;
+  }
+}
+@keyframes pulse {
+  0% {
+    color: #16a085;
+  }
+  20% {
+    color: #9b59b6;
+  }
+  30% {
+    color: #f1c40f;
+  }
+  40% {
+    color: #34495e;
+  }
+  50% {
+    color: #f1c40f;
+  }
+  60% {
+    color: #e67e22;
+  }
+  70% {
+    color: #2ecc71;
+  }
+  80% {
+    color: #2ecc71;
+  }
+  90% {
+    color: #7f8c8d;
+  }
+  100% {
+    color: #16a085;
   }
 }
 /* line 81, ../sass/404.scss */

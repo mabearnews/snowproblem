@@ -5,7 +5,6 @@
  */
 
 footer#primary-footer {
-    padding-bottom: 15px;
     padding-top: 15px;
 
     background-color: $footer-bgcolor;
@@ -48,4 +47,28 @@ footer#primary-footer {
 
     img { display: block;}
 
+}
+
+
+/* Show the credits as properly displaying */
+#primary-footer .credits {
+    width: 100%;
+    margin: 0;
+
+    // Show as flexbox.
+    @include display-flex;
+    @include flex-direction(row);
+    @include justify-content(space-around);
+
+    background-color: $footer-credit-bgcolor;
+
+    .credit {
+        font-family: $font-headings;
+        font-size: $footer-credit-font-size;
+        font-weight: $footer-credit-font-weight;
+        color: $footer-credit-text-color;
+        text-align: center;
+
+        margin: $footer-credit-font-size 0;
+    }
 }
