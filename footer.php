@@ -19,6 +19,15 @@
 			<section class="widget-container masonry-grid">
 				<?php dynamic_sidebar( 'footer' ); ?>
 			</section>
+
+			<section class="contact">
+
+			</section>
+
+			<section class="credits">
+				
+			</section>
+
 		</footer>
 	<?php endif; ?>
 

@@ -268,39 +268,7 @@ input {
 }
 @-moz-keyframes pulse {
   0% {
-    color: #27ae60;
-  }
-  20% {
-    color: #7f8c8d;
-  }
-  30% {
     color: #f1c40f;
-  }
-  40% {
-    color: #d35400;
-  }
-  50% {
-    color: #f1c40f;
-  }
-  60% {
-    color: #9b59b6;
-  }
-  70% {
-    color: #95a5a6;
-  }
-  80% {
-    color: #95a5a6;
-  }
-  90% {
-    color: #8e44ad;
-  }
-  100% {
-    color: #27ae60;
-  }
-}
-@-webkit-keyframes pulse {
-  0% {
-    color: #27ae60;
   }
   20% {
     color: #3498db;
@@ -309,57 +277,89 @@ input {
     color: #c0392b;
   }
   40% {
-    color: #f1c40f;
+    color: #3498db;
   }
   50% {
-    color: #e74c3c;
+    color: #d35400;
   }
   60% {
-    color: white;
+    color: #c0392b;
   }
   70% {
-    color: #9b59b6;
+    color: #1abc9c;
   }
   80% {
     color: #d35400;
   }
   90% {
-    color: #95a5a6;
+    color: #34495e;
   }
   100% {
-    color: #27ae60;
+    color: #f1c40f;
+  }
+}
+@-webkit-keyframes pulse {
+  0% {
+    color: #f1c40f;
+  }
+  20% {
+    color: #3498db;
+  }
+  30% {
+    color: #3498db;
+  }
+  40% {
+    color: #f1c40f;
+  }
+  50% {
+    color: #7f8c8d;
+  }
+  60% {
+    color: #f1c40f;
+  }
+  70% {
+    color: #e74c3c;
+  }
+  80% {
+    color: #16a085;
+  }
+  90% {
+    color: white;
+  }
+  100% {
+    color: #f1c40f;
   }
 }
 @keyframes pulse {
   0% {
-    color: #27ae60;
+    color: #f1c40f;
   }
   20% {
-    color: #1abc9c;
+    color: #2ecc71;
   }
   30% {
-    color: #1abc9c;
+    color: #e74c3c;
   }
   40% {
-    color: #f39c12;
+    color: #e67e22;
   }
   50% {
-    color: #34495e;
+    color: #bdc3c7;
   }
   60% {
-    color: #7f8c8d;
+    color: #34495e;
   }
   70% {
-    color: #34495e;
+    color: #8e44ad;
   }
   80% {
     color: #7f8c8d;
   }
   90% {
-    color: #2980b9;
+    color: #3498db;
   }
   100% {
-    color: #27ae60;
+    color: #f1c40f;
   }
 }
 /* line 81, ../sass/404.scss */

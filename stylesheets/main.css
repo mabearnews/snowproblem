@@ -843,7 +843,7 @@ body, html {
 }
 
 /* line 55, ../sass/components/_featured.scss */
-#featured-posts, #breaking #breaking-posts {
+#featured-posts {
   position: absolute;
   right: 0;
   top: 0;
@@ -858,7 +858,7 @@ body, html {
   border-right: 0 solid transparent;
 }
 /* line 70, ../sass/components/_featured.scss */
-#featured-posts .post, #breaking #breaking-posts .post {
+#featured-posts .post {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -877,21 +877,21 @@ body, html {
   padding-bottom: 1.6em;
 }
 /* line 90, ../sass/components/_featured.scss */
-#featured-posts .post .post-featured-image, #breaking #breaking-posts .post .post-featured-image {
+#featured-posts .post .post-featured-image {
   display: none;
 }
 /* line 92, ../sass/components/_featured.scss */
-#featured-posts .post:first-child, #breaking #breaking-posts .post:first-child {
+#featured-posts .post:first-child {
   border-top: 0 solid transparent;
 }
 /* line 96, ../sass/components/_featured.scss */
-#featured-posts .post .entry-header .entry-title, #breaking #breaking-posts .post .entry-header .entry-title {
+#featured-posts .post .entry-header .entry-title {
   font-size: 1.3em;
   text-align: center;
   width: 100%;
 }
 /* line 105, ../sass/components/_featured.scss */
-#featured-posts .post .entry-meta, #breaking #breaking-posts .post .entry-meta {
+#featured-posts .post .entry-meta {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -901,7 +901,7 @@ body, html {
 
 /* Relates to the currently selected post and the change that entails */
 /* line 117, ../sass/components/_featured.scss */
-#featured-posts .post.selected, #breaking #breaking-posts .post.selected {
+#featured-posts .post.selected {
   background-color: rgba(0, 0, 0, 0.67);
 }
 
@@ -933,51 +933,51 @@ body, html {
   }
 
   /* line 139, ../sass/components/_featured.scss */
-  #featured-posts, #breaking #breaking-posts {
+  #featured-posts {
     position: relative;
     width: 100%;
     margin: 0;
   }
   /* line 144, ../sass/components/_featured.scss */
-  #featured-posts .post, #breaking #breaking-posts .post {
+  #featured-posts .post {
     width: 100%;
     height: 120px;
     color: white;
   }
   /* line 150, ../sass/components/_featured.scss */
-  #featured-posts .post .entry-meta, #breaking #breaking-posts .post .entry-meta {
+  #featured-posts .post .entry-meta {
     width: 100%;
     text-align: center;
   }
 
   /* Add the background colors to be more colorful for the mobile site. */
   /* line 159, ../sass/components/_featured.scss */
-  #featured-posts .post:nth-child(1), #breaking #breaking-posts .post:nth-child(1) {
+  #featured-posts .post:nth-child(1) {
     background-color: #e74c3c;
   }
 
   /* line 159, ../sass/components/_featured.scss */
-  #featured-posts .post:nth-child(2), #breaking #breaking-posts .post:nth-child(2) {
+  #featured-posts .post:nth-child(2) {
     background-color: #e67e22;
   }
 
   /* line 159, ../sass/components/_featured.scss */
-  #featured-posts .post:nth-child(3), #breaking #breaking-posts .post:nth-child(3) {
+  #featured-posts .post:nth-child(3) {
     background-color: #f1c40f;
   }
 
   /* line 159, ../sass/components/_featured.scss */
-  #featured-posts .post:nth-child(4), #breaking #breaking-posts .post:nth-child(4) {
+  #featured-posts .post:nth-child(4) {
     background-color: #3498db;
   }
 
   /* line 159, ../sass/components/_featured.scss */
-  #featured-posts .post:nth-child(5), #breaking #breaking-posts .post:nth-child(5) {
+  #featured-posts .post:nth-child(5) {
     background-color: #34495e;
   }
 
   /* line 159, ../sass/components/_featured.scss */
-  #featured-posts .post:nth-child(6), #breaking #breaking-posts .post:nth-child(6) {
+  #featured-posts .post:nth-child(6) {
     background-color: #27ae60;
   }
 }
