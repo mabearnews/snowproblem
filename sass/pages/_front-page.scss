@@ -7,3 +7,7 @@ body.home #content {
 body.home #recent-posts  {
     @include column-layout;
 }
+
+body.home .post img {
+    width: 100%;
+}

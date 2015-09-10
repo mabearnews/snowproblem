@@ -157,13 +157,18 @@ a:hover {
   color: inherit;
 }
 
+/* line 30, ../sass/base/_styles.scss */
+.post .entry-content a {
+  text-decoration: underline;
+}
+
 /* Styling to change the color of the currently selected element. */
-/* line 31, ../sass/base/_styles.scss */
+/* line 35, ../sass/base/_styles.scss */
 *[class*="current"] {
   color: #bdc3c7;
 }
 
-/* line 35, ../sass/base/_styles.scss */
+/* line 39, ../sass/base/_styles.scss */
 input {
   background-color: transparent;
 }
@@ -818,6 +823,14 @@ body.home #breaking-posts * {
   display: block;
   position: relative;
 }
+/* line 35, ../sass/mixins/_column-layout.scss */
+body.home #breaking-posts .entry-meta {
+  width: 100%;
+}
+/* line 38, ../sass/mixins/_column-layout.scss */
+body.home #breaking-posts .entry-meta * {
+  display: inline-block;
+}
 
 /**
  * @file.
@@ -1184,6 +1197,14 @@ footer#primary-footer .widget-container * {
   display: block;
   position: relative;
 }
+/* line 35, ../sass/mixins/_column-layout.scss */
+footer#primary-footer .widget-container .entry-meta {
+  width: 100%;
+}
+/* line 38, ../sass/mixins/_column-layout.scss */
+footer#primary-footer .widget-container .entry-meta * {
+  display: inline-block;
+}
 
 /* Show the credits as properly displaying */
 /* line 24, ../sass/components/footer/_footer.scss */
@@ -1317,7 +1338,8 @@ cite:before {
 }
 /* line 8, ../sass/components/html-elements/_entry-meta.scss */
 .entry-meta .author::before {
-  content: ' – ';
+  content: '–';
+  padding: 0 0.8em;
 }
 
 /**
@@ -2272,4 +2294,17 @@ body.home #recent-posts article.post, body.home #recent-posts article.widget {
 body.home #recent-posts * {
   display: block;
   position: relative;
+}
+/* line 35, ../sass/mixins/_column-layout.scss */
+body.home #recent-posts .entry-meta {
+  width: 100%;
+}
+/* line 38, ../sass/mixins/_column-layout.scss */
+body.home #recent-posts .entry-meta * {
+  display: inline-block;
+}
+
+/* line 11, ../sass/pages/_front-page.scss */
+body.home .post img {
+  width: 100%;
 }

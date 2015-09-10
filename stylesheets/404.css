@@ -160,13 +160,18 @@ a:hover {
   color: inherit;
 }
 
+/* line 30, ../sass/base/_styles.scss */
+.post .entry-content a {
+  text-decoration: underline;
+}
+
 /* Styling to change the color of the currently selected element. */
-/* line 31, ../sass/base/_styles.scss */
+/* line 35, ../sass/base/_styles.scss */
 *[class*="current"] {
   color: #bdc3c7;
 }
 
-/* line 35, ../sass/base/_styles.scss */
+/* line 39, ../sass/base/_styles.scss */
 input {
   background-color: transparent;
 }
@@ -277,98 +282,98 @@ input {
 }
 @-moz-keyframes pulse {
   0% {
-    color: #95a5a6;
+    color: #1abc9c;
   }
   20% {
-    color: #f1c40f;
-  }
-  30% {
     color: #2ecc71;
   }
-  40% {
-    color: #bdc3c7;
-  }
-  50% {
-    color: #e74c3c;
-  }
-  60% {
-    color: #f39c12;
-  }
-  70% {
-    color: #f39c12;
-  }
-  80% {
-    color: #e74c3c;
-  }
-  90% {
-    color: #27ae60;
-  }
-  100% {
-    color: #95a5a6;
-  }
-}
-@-webkit-keyframes pulse {
-  0% {
-    color: #95a5a6;
-  }
-  20% {
-    color: #e74c3c;
-  }
   30% {
-    color: #e74c3c;
+    color: #8e44ad;
   }
   40% {
-    color: #d35400;
+    color: #2ecc71;
   }
   50% {
-    color: #16a085;
-  }
-  60% {
-    color: #34495e;
-  }
-  70% {
     color: #d35400;
   }
-  80% {
-    color: #9b59b6;
-  }
-  90% {
+  60% {
     color: #f1c40f;
-  }
-  100% {
-    color: #95a5a6;
-  }
-}
-@keyframes pulse {
-  0% {
-    color: #95a5a6;
-  }
-  20% {
-    color: #3498db;
-  }
-  30% {
-    color: #e67e22;
-  }
-  40% {
-    color: #34495e;
-  }
-  50% {
-    color: #e67e22;
-  }
-  60% {
-    color: white;
   }
   70% {
     color: #7f8c8d;
   }
   80% {
-    color: #9b59b6;
+    color: #8e44ad;
   }
   90% {
-    color: #1abc9c;
+    color: #34495e;
   }
   100% {
-    color: #95a5a6;
+    color: #1abc9c;
+  }
+}
+@-webkit-keyframes pulse {
+  0% {
+    color: #1abc9c;
+  }
+  20% {
+    color: #e74c3c;
+  }
+  30% {
+    color: #e67e22;
+  }
+  40% {
+    color: #7f8c8d;
+  }
+  50% {
+    color: #9b59b6;
+  }
+  60% {
+    color: #f39c12;
+  }
+  70% {
+    color: #e74c3c;
+  }
+  80% {
+    color: white;
+  }
+  90% {
+    color: #9b59b6;
+  }
+  100% {
+    color: #1abc9c;
+  }
+}
+@keyframes pulse {
+  0% {
+    color: #1abc9c;
+  }
+  20% {
+    color: #c0392b;
+  }
+  30% {
+    color: #e67e22;
+  }
+  40% {
+    color: #f1c40f;
+  }
+  50% {
+    color: #e67e22;
+  }
+  60% {
+    color: #34495e;
+  }
+  70% {
+    color: #34495e;
+  }
+  80% {
+    color: #16a085;
+  }
+  90% {
+    color: #e74c3c;
+  }
+  100% {
+    color: #1abc9c;
   }
 }
 /* line 81, ../sass/404.scss */

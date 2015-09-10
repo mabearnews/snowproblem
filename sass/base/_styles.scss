@@ -27,6 +27,10 @@ a {
     }
 }
 
+.post .entry-content a {
+    text-decoration: underline;
+}
+
 /* Styling to change the color of the currently selected element. */
 *[class*="current"] {
     color: $current-element-color;

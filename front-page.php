@@ -84,10 +84,6 @@ get_header(); ?>
 				<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
 			<?php endif; ?>
-		</section>
-<?php /*
-		</main><!-- #main -->
-	</div><!-- #primary -->
+		</section><!-- #recent-posts-->
 
-	*/ ?>
 <?php get_footer(); ?>

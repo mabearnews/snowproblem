@@ -6,6 +6,8 @@
     color: $author-font-color;
 
     .author::before {
-        content: ' – ';
+        content: '–';
+
+        padding: 0 $author-font-size;
     }
 }

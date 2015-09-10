@@ -14,22 +14,29 @@
 		</div><!-- #content -->
 	</div><!-- .content-container.container -->
 
-	<?php if ( is_active_sidebar( 'footer' ) ): ?>
-		<footer id="primary-footer">
+
+	<footer id="primary-footer">
+		<?php if ( is_active_sidebar( 'footer' ) ): ?>
+
 			<section class="widget-container masonry-grid">
 				<?php dynamic_sidebar( 'footer' ); ?>
 			</section>
 
-			<section class="contact">
+		<?php endif; ?>
 
-			</section>
+		<section class="contact">
+			<div class="column">
+				<div class="location">
+					
+				</div>
+			</div>
+		</section>
 
-			<section class="credits">
-				<div class="credit"><span>Site Desing by Sequoia Snow</span></div>
-			</section>
+		<section class="credits">
+			<div class="credit"><span>Site Desing by Sequoia Snow</span></div>
+		</section>
 
-		</footer>
-	<?php endif; ?>
+	</footer>
 
 </div><!-- #page -->
 
