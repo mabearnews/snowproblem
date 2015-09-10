@@ -1,16 +1,16 @@
 @mixin column-layout {
-    width: $footer-column-container-width;
-    $footer-column-container-margin: (100% - $footer-column-container-width) / 2;
-    margin-left: $footer-column-container-margin;
-    margin-right: $footer-column-container-margin;
+    width: $column-container-width;
+    $column-container-margin: (100% - $column-container-width) / 2;
+    margin-left: $column-container-margin;
+    margin-right: $column-container-margin;
 
     // Specified float fixes some problems using columns for webkit and moz.
     float: right;
 
     // Specify the sizes of the columns.
     @include column-count(auto);
-    @include column-gap($footer-widget-gap);
-    @include column-width($footer-widget-width);
+    @include column-gap($column-widget-gap);
+    @include column-width($column-widget-width);
     @include break-inside(avoid);
 
 
@@ -18,10 +18,10 @@
 
     article.post, article.widget {
         display: inline-block;
-        background-color: $footer-text-color;
-        margin-bottom: $footer-widget-gap;
+        background-color: $column-text-color;
+        margin-bottom: $column-widget-gap;
 
-        padding: $footer-widget-paddding;
+        padding: $column-widget-paddding;
 
         overflow: hidden;
         position: relative;
