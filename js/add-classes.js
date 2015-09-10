@@ -9,7 +9,7 @@
     }
   };
 
-  scrollSelectorArray = ["table", ".home article.post", ".draw-text", ".add-animated", ".toggle-animated", ".entry-header"];
+  scrollSelectorArray = ["table", ".home article.post", ".draw-text", ".add-animated", ".toggle-animated", ".entry-header", "#comments .comment"];
 
   scrollSelectorArray.map(function(e) {
     return e + ":not(.animated)";

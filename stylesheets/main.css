@@ -842,6 +842,34 @@ body.home #breaking-posts .entry-meta * {
   width: 100%;
 }
 
+/* line 10, ../sass/components/_comments.scss */
+#comments ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* line 17, ../sass/components/_comments.scss */
+#comments .comment > article {
+  -moz-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  -webkit-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+  -moz-transform: translateX(30vw);
+  -ms-transform: translateX(30vw);
+  -webkit-transform: translateX(30vw);
+  transform: translateX(30vw);
+  opacity: 0;
+}
+/* line 23, ../sass/components/_comments.scss */
+#comments .comment.animated > article {
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 1;
+}
+
 /* line 1, ../sass/components/_featured.scss */
 #featured {
   width: 100%;
@@ -1939,12 +1967,13 @@ header.page-header, header.page-header * {
   z-index: 5;
 }
 
-/* line 23, ../sass/components/posts/_multiple-posts.scss */
+/* line 18, ../sass/components/posts/_multiple-posts.scss */
 .search-results .post,
 .search-results .page,
 body.archive .post,
 body.archive .page {
   width: 100%;
+  margin: 0;
   position: relative;
   padding: 50px 0;
   /*============= Background =============*/
@@ -1957,14 +1986,14 @@ body.archive .page {
   -webkit-flex-direction: row;
   flex-direction: row;
 }
-/* line 37, ../sass/components/posts/_multiple-posts.scss */
+/* line 33, ../sass/components/posts/_multiple-posts.scss */
 .search-results .post *,
 .search-results .page *,
 body.archive .post *,
 body.archive .page * {
   z-index: 2;
 }
-/* line 41, ../sass/components/posts/_multiple-posts.scss */
+/* line 37, ../sass/components/posts/_multiple-posts.scss */
 .search-results .post .background,
 .search-results .page .background,
 body.archive .post .background,
@@ -1984,21 +2013,21 @@ body.archive .page .background {
   -webkit-transform: rotate(-4deg);
   transform: rotate(-4deg);
 }
-/* line 59, ../sass/components/posts/_multiple-posts.scss */
+/* line 55, ../sass/components/posts/_multiple-posts.scss */
 .search-results .post:nth-child(2n) .background,
 .search-results .page:nth-child(2n) .background,
 body.archive .post:nth-child(2n) .background,
 body.archive .page:nth-child(2n) .background {
   background-color: white;
 }
-/* line 62, ../sass/components/posts/_multiple-posts.scss */
+/* line 58, ../sass/components/posts/_multiple-posts.scss */
 .search-results .post:nth-child(2n+1) .background,
 .search-results .page:nth-child(2n+1) .background,
 body.archive .post:nth-child(2n+1) .background,
 body.archive .page:nth-child(2n+1) .background {
   background-color: #F3F3F3;
 }
-/* line 75, ../sass/components/posts/_multiple-posts.scss */
+/* line 69, ../sass/components/posts/_multiple-posts.scss */
 .search-results .post .post-content,
 .search-results .page .post-content,
 body.archive .post .post-content,

@@ -282,98 +282,98 @@ input {
 }
 @-moz-keyframes pulse {
   0% {
-    color: #95a5a6;
+    color: #9b59b6;
   }
   20% {
-    color: #2ecc71;
-  }
-  30% {
-    color: #2980b9;
-  }
-  40% {
-    color: #8e44ad;
-  }
-  50% {
-    color: #27ae60;
-  }
-  60% {
-    color: #e74c3c;
-  }
-  70% {
-    color: #95a5a6;
-  }
-  80% {
-    color: #c0392b;
-  }
-  90% {
-    color: #16a085;
-  }
-  100% {
-    color: #95a5a6;
-  }
-}
-@-webkit-keyframes pulse {
-  0% {
-    color: #95a5a6;
-  }
-  20% {
-    color: #27ae60;
-  }
-  30% {
     color: #f1c40f;
-  }
-  40% {
-    color: #d35400;
-  }
-  50% {
-    color: #95a5a6;
-  }
-  60% {
-    color: #27ae60;
-  }
-  70% {
-    color: #9b59b6;
-  }
-  80% {
-    color: #2ecc71;
-  }
-  90% {
-    color: #9b59b6;
-  }
-  100% {
-    color: #95a5a6;
-  }
-}
-@keyframes pulse {
-  0% {
-    color: #95a5a6;
-  }
-  20% {
-    color: #e74c3c;
   }
   30% {
     color: #bdc3c7;
   }
   40% {
-    color: #27ae60;
+    color: #9b59b6;
   }
   50% {
-    color: #f1c40f;
+    color: #e67e22;
   }
   60% {
-    color: #e74c3c;
+    color: #2ecc71;
+  }
+  70% {
+    color: #bdc3c7;
+  }
+  80% {
+    color: #f1c40f;
+  }
+  90% {
+    color: #9b59b6;
+  }
+  100% {
+    color: #9b59b6;
+  }
+}
+@-webkit-keyframes pulse {
+  0% {
+    color: #9b59b6;
+  }
+  20% {
+    color: #f39c12;
+  }
+  30% {
+    color: #27ae60;
+  }
+  40% {
+    color: #e67e22;
+  }
+  50% {
+    color: #d35400;
+  }
+  60% {
+    color: #f1c40f;
   }
   70% {
     color: #f1c40f;
   }
   80% {
-    color: #34495e;
+    color: #2980b9;
   }
   90% {
-    color: #f39c12;
+    color: #e67e22;
   }
   100% {
+    color: #9b59b6;
+  }
+}
+@keyframes pulse {
+  0% {
+    color: #9b59b6;
+  }
+  20% {
+    color: #e74c3c;
+  }
+  30% {
     color: #95a5a6;
+  }
+  40% {
+    color: #34495e;
+  }
+  50% {
+    color: #1abc9c;
+  }
+  60% {
+    color: #f1c40f;
+  }
+  70% {
+    color: #f1c40f;
+  }
+  80% {
+    color: #f1c40f;
+  }
+  90% {
+    color: #f1c40f;
+  }
+  100% {
+    color: #9b59b6;
   }
 }
 /* line 81, ../sass/404.scss */

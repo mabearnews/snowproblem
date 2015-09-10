@@ -6,3 +6,22 @@
 #comments {
     width: 100%;
 }
+
+#comments ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+#comments .comment  {
+    > article {
+        @include transition(all 1s ease-out);
+        @include transform(translateX(30vw));
+        opacity: 0;
+    }
+
+    &.animated > article {
+        @include transform(translateX(0));
+        opacity: 1;
+    }
+}

@@ -15,16 +15,12 @@
 
  }
 
-
-
-
-
-
 .search-results .post,
 .search-results .page,
 body.archive .post,
 body.archive .page {
     width: 100%;
+    margin: 0;
 
     // Allow the background to be positioned absolutly.
     position: relative;
@@ -62,8 +58,6 @@ body.archive .page {
     &:nth-child(2n+1) .background {
         background-color: $multiple-post-background-2;
     }
-
-
 
     /*============= Content =============*/
 

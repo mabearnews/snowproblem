@@ -13,6 +13,7 @@ scrollSelectorArray = [
     ".add-animated"
     ".toggle-animated"
     ".entry-header"
+    "#comments .comment"
 ]
 
 scrollSelectorArray.map (e) -> "#{e}:not(.animated)"
