@@ -30,6 +30,7 @@
 /*============= Featured =============*/
 /*============= Featured =============*/
 /*============= General =============*/
+/*============= Comments =============*/
 /**
  * @file.
  * Defines two variables which are used to determine fonts across the site.
@@ -72,6 +73,7 @@ h1, h2, h3, h4, h5, h6, #message .go-home * {
 /*============= Posts =============*/
 /*============= Footer =============*/
 /*============= Featured =============*/
+/*============= Comments =============*/
 /**
  * @file.
  * This file concnerns the layout of various elements on the page. It should be
@@ -91,6 +93,7 @@ h1, h2, h3, h4, h5, h6, #message .go-home * {
 /*============= Footer =============*/
 /*============= Footer =============*/
 /*============= Featured =============*/
+/*============= Comments =============*/
 /**
  * @file.
  * Relates to all the various timing that is essential to the flow of the
@@ -282,98 +285,98 @@ input {
 }
 @-moz-keyframes pulse {
   0% {
-    color: #9b59b6;
+    color: #e67e22;
   }
   20% {
     color: #f1c40f;
   }
   30% {
-    color: #bdc3c7;
+    color: #1abc9c;
   }
   40% {
-    color: #9b59b6;
+    color: #8e44ad;
   }
   50% {
-    color: #e67e22;
+    color: #9b59b6;
   }
   60% {
-    color: #2ecc71;
+    color: #16a085;
   }
   70% {
-    color: #bdc3c7;
+    color: #e74c3c;
   }
   80% {
-    color: #f1c40f;
+    color: #7f8c8d;
   }
   90% {
-    color: #9b59b6;
+    color: #e74c3c;
   }
   100% {
-    color: #9b59b6;
+    color: #e67e22;
   }
 }
 @-webkit-keyframes pulse {
   0% {
-    color: #9b59b6;
-  }
-  20% {
-    color: #f39c12;
-  }
-  30% {
-    color: #27ae60;
-  }
-  40% {
     color: #e67e22;
   }
-  50% {
-    color: #d35400;
-  }
-  60% {
-    color: #f1c40f;
-  }
-  70% {
-    color: #f1c40f;
-  }
-  80% {
-    color: #2980b9;
-  }
-  90% {
-    color: #e67e22;
-  }
-  100% {
-    color: #9b59b6;
-  }
-}
-@keyframes pulse {
-  0% {
-    color: #9b59b6;
-  }
   20% {
-    color: #e74c3c;
+    color: #9b59b6;
   }
   30% {
-    color: #95a5a6;
+    color: #c0392b;
   }
   40% {
     color: #34495e;
   }
   50% {
-    color: #1abc9c;
+    color: #95a5a6;
   }
   60% {
-    color: #f1c40f;
+    color: #27ae60;
   }
   70% {
-    color: #f1c40f;
+    color: #1abc9c;
   }
   80% {
+    color: #34495e;
+  }
+  90% {
+    color: #1abc9c;
+  }
+  100% {
+    color: #e67e22;
+  }
+}
+@keyframes pulse {
+  0% {
+    color: #e67e22;
+  }
+  20% {
     color: #f1c40f;
+  }
+  30% {
+    color: #f1c40f;
+  }
+  40% {
+    color: #e74c3c;
+  }
+  50% {
+    color: #9b59b6;
+  }
+  60% {
+    color: #d35400;
+  }
+  70% {
+    color: #8e44ad;
+  }
+  80% {
+    color: #95a5a6;
   }
   90% {
     color: #f1c40f;
   }
   100% {
-    color: #9b59b6;
+    color: #e67e22;
   }
 }
 /* line 81, ../sass/404.scss */

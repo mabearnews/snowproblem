@@ -35,7 +35,7 @@
  #sidebar-toggle .container {
     position: relative;
 
-    margin-left: $nav-toggle-margin;
+    margin-right: $nav-toggle-margin;
 
     width: $nav-toggle-width;
     height: $nav-toggle-height;
@@ -71,7 +71,7 @@
     }
 
     .row .dash {
-        width: $nav-toggle-width * 1.25 - 2 * $nav-toggle-line-height;
+        width: $nav-toggle-width - 1 * $nav-toggle-line-height;
 
         height: $nav-toggle-line-height;
         background-color: $nav-toggle-line-color;

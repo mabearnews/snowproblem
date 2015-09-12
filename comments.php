@@ -33,26 +33,17 @@ if ( post_password_required() ) {
 				?>
 			</h2>
 
-			<ul class="comment-list">
+			<section class="comment-list">
 				<?php
 					wp_list_comments( array(
-						'style'      => 'ul',
+						'style'      => 'div',
 						'short_ping' => true,
+						'per_page'   => -1,
+						'max_depth'  => 1,
 					) );
 				?>
-			</ul><!-- .comment-list -->
+			</section><!-- .comment-list -->
 
-			<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
-			<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
-				<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'snowproblem' ); ?></h2>
-				<div class="nav-links">
-
-					<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'snowproblem' ) ); ?></div>
-					<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'snowproblem' ) ); ?></div>
-
-				</div><!-- .nav-links -->
-			</nav><!-- #comment-nav-below -->
-			<?php endif; // Check for comment navigation. ?>
 
 		<?php endif; // Check for have_comments(). ?>
 

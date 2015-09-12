@@ -3,25 +3,86 @@
  * The editing of comments to display in the proper format and to show with
  * the right pazazz.
  */
+$comment-bgcolor-left: $lightgrey;
+$comment-bgcolor-right: $lightgrey;
 #comments {
     width: 100%;
 }
 
 #comments ul {
     list-style-type: none;
-    padding-left: 0;
-    margin-left: 0;
+    padding: 0;
+    margin: 0;
 }
 
-#comments .comment  {
-    > article {
-        @include transition(all 1s ease-out);
-        @include transform(translateX(30vw));
-        opacity: 0;
+$comment-shape-border-radius: 20px;
+@mixin comment-shape( $direction: 'left' ) {
+    position:relative;
+
+    $this-color: $comment-bgcolor-left;
+    $this-horizontal-offset: $comment-shape-border-radius / 3;
+
+    @if ( $direction == 'right' ) {
+        $this-color: $comment-bgcolor-right;
     }
 
-    &.animated > article {
-        @include transform(translateX(0));
-        opacity: 1;
-    }
+
+	&:before {
+		content:"";
+		position: absolute;
+		z-index:2;
+		bottom:-2px;
+
+        @if ( $direction == 'left' ) {
+            left: -7px;
+        } @else {
+            right: -$this-horizontal-offset;
+        }
+
+
+		height:20px;
+		border-left:20px solid $comment-bgcolor-left;
+		border-bottom-right-radius: 16px 14px;
+		-webkit-transform:translate(0, -2px);
+	}
+
+	&:after {
+		content:"";
+		position:absolute;
+		z-index:3;
+		bottom:-2px;
+
+        @if ( $direction == 'left' ) {
+            left: 4px;
+        } @else {
+            right: 4px;
+        }
+
+
+		width:26px;
+		height:20px;
+		background:white;
+		border-bottom-right-radius: 10px;
+		-webkit-transform:translate(-30px, -2px);
+	}
 }
+
+#comments .comment {
+    padding: 0;
+
+    margin: 15px 0;
+
+    @include comment-shape(left);
+}
+
+#comments .comment-body {
+    z-index: 40;
+    padding: 5px;
+    margin: 0;
+    border-radius: $comment-shape-border-radius;
+    background-color: $comment-bgcolor-left;
+}
+
+#comments .comment-author img { display: none; }
+#comments .comment-author { display: none; }
+#comments .comment-meta { display: none; }

@@ -27,6 +27,7 @@
 /*============= Featured =============*/
 /*============= Featured =============*/
 /*============= General =============*/
+/*============= Comments =============*/
 /**
  * @file.
  * Defines two variables which are used to determine fonts across the site.
@@ -69,6 +70,7 @@ h1, h2, h3, h4, h5, h6, #site-navigation-more .current-page a, nav#site-navigati
 /*============= Posts =============*/
 /*============= Footer =============*/
 /*============= Featured =============*/
+/*============= Comments =============*/
 /**
  * @file.
  * This file concnerns the layout of various elements on the page. It should be
@@ -88,6 +90,7 @@ h1, h2, h3, h4, h5, h6, #site-navigation-more .current-page a, nav#site-navigati
 /*============= Footer =============*/
 /*============= Footer =============*/
 /*============= Featured =============*/
+/*============= Comments =============*/
 /**
  * @file.
  * Relates to all the various timing that is essential to the flow of the
@@ -285,7 +288,7 @@ nav#site-navigation ul li {
 nav#site-navigation .menu-toggle .toggle {
   position: relative;
   margin-left: 40px;
-  width: 20px;
+  width: 22px;
   height: 20px;
 }
 
@@ -837,37 +840,72 @@ body.home #breaking-posts .entry-meta * {
  * The editing of comments to display in the proper format and to show with
  * the right pazazz.
  */
-/* line 6, ../sass/components/_comments.scss */
+/* line 8, ../sass/components/_comments.scss */
 #comments {
   width: 100%;
 }
 
-/* line 10, ../sass/components/_comments.scss */
+/* line 12, ../sass/components/_comments.scss */
 #comments ul {
   list-style-type: none;
-  padding-left: 0;
-  margin-left: 0;
+  padding: 0;
+  margin: 0;
 }
 
-/* line 17, ../sass/components/_comments.scss */
-#comments .comment > article {
-  -moz-transition: all 1s ease-out;
-  -o-transition: all 1s ease-out;
-  -webkit-transition: all 1s ease-out;
-  transition: all 1s ease-out;
-  -moz-transform: translateX(30vw);
-  -ms-transform: translateX(30vw);
-  -webkit-transform: translateX(30vw);
-  transform: translateX(30vw);
-  opacity: 0;
+/* line 70, ../sass/components/_comments.scss */
+#comments .comment {
+  padding: 0;
+  margin: 15px 0;
+  position: relative;
 }
-/* line 23, ../sass/components/_comments.scss */
-#comments .comment.animated > article {
-  -moz-transform: translateX(0);
-  -ms-transform: translateX(0);
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
-  opacity: 1;
+/* line 30, ../sass/components/_comments.scss */
+#comments .comment:before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  bottom: -2px;
+  left: -7px;
+  height: 20px;
+  border-left: 20px solid #bdc3c7;
+  border-bottom-right-radius: 16px 14px;
+  -webkit-transform: translate(0, -2px);
+}
+/* line 49, ../sass/components/_comments.scss */
+#comments .comment:after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  bottom: -2px;
+  left: 4px;
+  width: 26px;
+  height: 20px;
+  background: white;
+  border-bottom-right-radius: 10px;
+  -webkit-transform: translate(-30px, -2px);
+}
+
+/* line 78, ../sass/components/_comments.scss */
+#comments .comment-body {
+  z-index: 40;
+  padding: 5px;
+  margin: 0;
+  border-radius: 20px;
+  background-color: #bdc3c7;
+}
+
+/* line 86, ../sass/components/_comments.scss */
+#comments .comment-author img {
+  display: none;
+}
+
+/* line 87, ../sass/components/_comments.scss */
+#comments .comment-author {
+  display: none;
+}
+
+/* line 88, ../sass/components/_comments.scss */
+#comments .comment-meta {
+  display: none;
 }
 
 /* line 1, ../sass/components/_featured.scss */
@@ -1099,8 +1137,8 @@ body.home #breaking-posts .entry-meta * {
 /* line 35, ../sass/components/_sidebar.scss */
 #sidebar-toggle .container {
   position: relative;
-  margin-left: 40px;
-  width: 20px;
+  margin-right: 40px;
+  width: 22px;
   height: 20px;
   cursor: pointer;
   /* Show default 3 bar state. */
@@ -1149,7 +1187,7 @@ body.home #breaking-posts .entry-meta * {
 }
 /* line 83, ../sass/components/_sidebar.scss */
 #sidebar-toggle .container .row:nth-child(2) .dash {
-  width: 14px;
+  width: 16px;
 }
 
 /* line 88, ../sass/components/_sidebar.scss */
