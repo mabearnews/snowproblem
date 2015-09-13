@@ -14,6 +14,10 @@
     width: $post-width;
 }
 
+.full-width-container {
+    @include full-width-post-content;
+}
+
 
 
 /* Style the layout between the left and the right side of the page.*/

@@ -18,13 +18,14 @@ $social-icons: (
     "rebel"    : "\f1d0",
     "pinterest": "\f231",
     "linkedin" : "\f08c",
-    "google"   : "\f0d4"
+    "google"   : "\f0d4",
+    "instagram": "\f16d"
 );
 
 @each $name, $character in $social-icons {
     #menu-social-items a[href*="#{$name}"] {
 
-        /* Hides all the contnet of the div. */
+        // Hides all the content of the div.
         span { display: none; }
 
         &::before {

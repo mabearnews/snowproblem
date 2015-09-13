@@ -205,8 +205,19 @@ input {
   width: 700px;
 }
 
+/* line 17, ../sass/layout/_content.scss */
+.full-width-container {
+  width: 100vw;
+}
+@media screen and (min-width: 700px) {
+  /* line 17, ../sass/layout/_content.scss */
+  .full-width-container {
+    margin-left: calc(-50vw + 350px);
+  }
+}
+
 /* Style the layout between the left and the right side of the page.*/
-/* line 20, ../sass/layout/_content.scss */
+/* line 24, ../sass/layout/_content.scss */
 #content {
   display: -webkit-flex;
   display: flex;
@@ -215,7 +226,7 @@ input {
   width: 100%;
 }
 
-/* line 29, ../sass/layout/_content.scss */
+/* line 33, ../sass/layout/_content.scss */
 #primary {
   -webkit-flex: 1;
   flex: 1;
@@ -225,7 +236,7 @@ input {
 
 @media (min-width: 420px) {
   /* The content should scale to show the sidebar border. */
-  /* line 39, ../sass/layout/_content.scss */
+  /* line 43, ../sass/layout/_content.scss */
   #content {
     width: 100%;
     float: left;
@@ -1452,198 +1463,157 @@ table.animated thead::after {
  * Defines the styling for the social menu, including the display, through sass
  * of social media icons.
  */
-/* line 25, ../sass/components/navigation/_navigation-social.scss */
-#menu-social-items a[href*="facebook"] {
-  /* Hides all the contnet of the div. */
-}
-/* line 28, ../sass/components/navigation/_navigation-social.scss */
+/* line 29, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="facebook"] span {
   display: none;
 }
-/* line 30, ../sass/components/navigation/_navigation-social.scss */
+/* line 31, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="facebook"]::before {
   font-family: "fontawesome";
   content: "";
   font-size: 1.2em;
 }
 
-/* line 25, ../sass/components/navigation/_navigation-social.scss */
-#menu-social-items a[href*="github"] {
-  /* Hides all the contnet of the div. */
-}
-/* line 28, ../sass/components/navigation/_navigation-social.scss */
+/* line 29, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="github"] span {
   display: none;
 }
-/* line 30, ../sass/components/navigation/_navigation-social.scss */
+/* line 31, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="github"]::before {
   font-family: "fontawesome";
   content: "";
   font-size: 1.2em;
 }
 
-/* line 25, ../sass/components/navigation/_navigation-social.scss */
-#menu-social-items a[href*="tumblr"] {
-  /* Hides all the contnet of the div. */
-}
-/* line 28, ../sass/components/navigation/_navigation-social.scss */
+/* line 29, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="tumblr"] span {
   display: none;
 }
-/* line 30, ../sass/components/navigation/_navigation-social.scss */
+/* line 31, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="tumblr"]::before {
   font-family: "fontawesome";
   content: "";
   font-size: 1.2em;
 }
 
-/* line 25, ../sass/components/navigation/_navigation-social.scss */
-#menu-social-items a[href*="vine"] {
-  /* Hides all the contnet of the div. */
-}
-/* line 28, ../sass/components/navigation/_navigation-social.scss */
+/* line 29, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="vine"] span {
   display: none;
 }
-/* line 30, ../sass/components/navigation/_navigation-social.scss */
+/* line 31, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="vine"]::before {
   font-family: "fontawesome";
   content: "";
   font-size: 1.2em;
 }
 
-/* line 25, ../sass/components/navigation/_navigation-social.scss */
-#menu-social-items a[href*="yelp"] {
-  /* Hides all the contnet of the div. */
-}
-/* line 28, ../sass/components/navigation/_navigation-social.scss */
+/* line 29, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="yelp"] span {
   display: none;
 }
-/* line 30, ../sass/components/navigation/_navigation-social.scss */
+/* line 31, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="yelp"]::before {
   font-family: "fontawesome";
   content: "";
   font-size: 1.2em;
 }
 
-/* line 25, ../sass/components/navigation/_navigation-social.scss */
-#menu-social-items a[href*="youtube"] {
-  /* Hides all the contnet of the div. */
-}
-/* line 28, ../sass/components/navigation/_navigation-social.scss */
+/* line 29, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="youtube"] span {
   display: none;
 }
-/* line 30, ../sass/components/navigation/_navigation-social.scss */
+/* line 31, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="youtube"]::before {
   font-family: "fontawesome";
   content: "";
   font-size: 1.2em;
 }
 
-/* line 25, ../sass/components/navigation/_navigation-social.scss */
-#menu-social-items a[href*="twitter"] {
-  /* Hides all the contnet of the div. */
-}
-/* line 28, ../sass/components/navigation/_navigation-social.scss */
+/* line 29, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="twitter"] span {
   display: none;
 }
-/* line 30, ../sass/components/navigation/_navigation-social.scss */
+/* line 31, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="twitter"]::before {
   font-family: "fontawesome";
   content: "";
   font-size: 1.2em;
 }
 
-/* line 25, ../sass/components/navigation/_navigation-social.scss */
-#menu-social-items a[href*="vimeo"] {
-  /* Hides all the contnet of the div. */
-}
-/* line 28, ../sass/components/navigation/_navigation-social.scss */
+/* line 29, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="vimeo"] span {
   display: none;
 }
-/* line 30, ../sass/components/navigation/_navigation-social.scss */
+/* line 31, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="vimeo"]::before {
   font-family: "fontawesome";
   content: "";
   font-size: 1.2em;
 }
 
-/* line 25, ../sass/components/navigation/_navigation-social.scss */
-#menu-social-items a[href*="slack"] {
-  /* Hides all the contnet of the div. */
-}
-/* line 28, ../sass/components/navigation/_navigation-social.scss */
+/* line 29, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="slack"] span {
   display: none;
 }
-/* line 30, ../sass/components/navigation/_navigation-social.scss */
+/* line 31, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="slack"]::before {
   font-family: "fontawesome";
   content: "";
   font-size: 1.2em;
 }
 
-/* line 25, ../sass/components/navigation/_navigation-social.scss */
-#menu-social-items a[href*="rebel"] {
-  /* Hides all the contnet of the div. */
-}
-/* line 28, ../sass/components/navigation/_navigation-social.scss */
+/* line 29, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="rebel"] span {
   display: none;
 }
-/* line 30, ../sass/components/navigation/_navigation-social.scss */
+/* line 31, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="rebel"]::before {
   font-family: "fontawesome";
   content: "";
   font-size: 1.2em;
 }
 
-/* line 25, ../sass/components/navigation/_navigation-social.scss */
-#menu-social-items a[href*="pinterest"] {
-  /* Hides all the contnet of the div. */
-}
-/* line 28, ../sass/components/navigation/_navigation-social.scss */
+/* line 29, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="pinterest"] span {
   display: none;
 }
-/* line 30, ../sass/components/navigation/_navigation-social.scss */
+/* line 31, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="pinterest"]::before {
   font-family: "fontawesome";
   content: "";
   font-size: 1.2em;
 }
 
-/* line 25, ../sass/components/navigation/_navigation-social.scss */
-#menu-social-items a[href*="linkedin"] {
-  /* Hides all the contnet of the div. */
-}
-/* line 28, ../sass/components/navigation/_navigation-social.scss */
+/* line 29, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="linkedin"] span {
   display: none;
 }
-/* line 30, ../sass/components/navigation/_navigation-social.scss */
+/* line 31, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="linkedin"]::before {
   font-family: "fontawesome";
   content: "";
   font-size: 1.2em;
 }
 
-/* line 25, ../sass/components/navigation/_navigation-social.scss */
-#menu-social-items a[href*="google"] {
-  /* Hides all the contnet of the div. */
-}
-/* line 28, ../sass/components/navigation/_navigation-social.scss */
+/* line 29, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="google"] span {
   display: none;
 }
-/* line 30, ../sass/components/navigation/_navigation-social.scss */
+/* line 31, ../sass/components/navigation/_navigation-social.scss */
 #menu-social-items a[href*="google"]::before {
   font-family: "fontawesome";
   content: "";
+  font-size: 1.2em;
+}
+
+/* line 29, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="instagram"] span {
+  display: none;
+}
+/* line 31, ../sass/components/navigation/_navigation-social.scss */
+#menu-social-items a[href*="instagram"]::before {
+  font-family: "fontawesome";
+  content: "";
   font-size: 1.2em;
 }
 
@@ -1840,9 +1810,9 @@ nav#site-navigation .menu-toggle.clicked > .toggle .row:nth-child(2) {
   margin-right: 0;
   line-height: 0;
   width: 100vw;
-  -moz-column-width: 250px;
-  -webkit-column-width: 250px;
-  column-width: 250px;
+  -moz-column-width: 350px;
+  -webkit-column-width: 350px;
+  column-width: 350px;
   -moz-column-gap: 0;
   -webkit-column-gap: 0;
   column-gap: 0;
