@@ -31,6 +31,7 @@
 /*============= Featured =============*/
 /*============= General =============*/
 /*============= Comments =============*/
+/*============= Categories =============*/
 /**
  * @file.
  * Defines two variables which are used to determine fonts across the site.
@@ -74,6 +75,7 @@ h1, h2, h3, h4, h5, h6, #message .go-home * {
 /*============= Footer =============*/
 /*============= Featured =============*/
 /*============= Comments =============*/
+/*============= Categories =============*/
 /**
  * @file.
  * This file concnerns the layout of various elements on the page. It should be
@@ -285,98 +287,98 @@ input {
 }
 @-moz-keyframes pulse {
   0% {
-    color: #7f8c8d;
-  }
-  20% {
-    color: #f1c40f;
-  }
-  30% {
-    color: #27ae60;
-  }
-  40% {
     color: #34495e;
   }
-  50% {
-    color: #f39c12;
-  }
-  60% {
-    color: #1abc9c;
-  }
-  70% {
-    color: #c0392b;
-  }
-  80% {
-    color: white;
-  }
-  90% {
-    color: #e74c3c;
-  }
-  100% {
-    color: #7f8c8d;
-  }
-}
-@-webkit-keyframes pulse {
-  0% {
-    color: #7f8c8d;
-  }
   20% {
-    color: white;
+    color: #34495e;
   }
   30% {
-    color: #e74c3c;
+    color: #d35400;
   }
   40% {
     color: #3498db;
   }
   50% {
-    color: #95a5a6;
+    color: #f39c12;
   }
   60% {
-    color: #bdc3c7;
+    color: #f1c40f;
   }
   70% {
-    color: #c0392b;
+    color: #f1c40f;
   }
   80% {
-    color: #bdc3c7;
+    color: #8e44ad;
   }
   90% {
-    color: #27ae60;
+    color: #9b59b6;
   }
   100% {
+    color: #34495e;
+  }
+}
+@-webkit-keyframes pulse {
+  0% {
+    color: #34495e;
+  }
+  20% {
+    color: #e74c3c;
+  }
+  30% {
+    color: #f1c40f;
+  }
+  40% {
     color: #7f8c8d;
+  }
+  50% {
+    color: #9b59b6;
+  }
+  60% {
+    color: #1abc9c;
+  }
+  70% {
+    color: white;
+  }
+  80% {
+    color: #f1c40f;
+  }
+  90% {
+    color: #f39c12;
+  }
+  100% {
+    color: #34495e;
   }
 }
 @keyframes pulse {
   0% {
-    color: #7f8c8d;
+    color: #34495e;
   }
   20% {
-    color: #f1c40f;
-  }
-  30% {
-    color: white;
-  }
-  40% {
     color: #2980b9;
   }
+  30% {
+    color: #d35400;
+  }
+  40% {
+    color: #9b59b6;
+  }
   50% {
-    color: #27ae60;
+    color: #f1c40f;
   }
   60% {
-    color: #c0392b;
+    color: #95a5a6;
   }
   70% {
-    color: #bdc3c7;
+    color: #27ae60;
   }
   80% {
-    color: #9b59b6;
+    color: #8e44ad;
   }
   90% {
     color: #8e44ad;
   }
   100% {
-    color: #7f8c8d;
+    color: #34495e;
   }
 }
 /* line 81, ../sass/404.scss */

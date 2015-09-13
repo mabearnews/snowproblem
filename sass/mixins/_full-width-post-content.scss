@@ -1,0 +1,10 @@
+/**
+ * Makes content inside of a post show with full width.
+ */
+@mixin full-width-post-content {
+    width: 100vw;
+
+    @media screen and (min-width: $post-width) {
+        margin-left: calc(-50vw + #{$post-width / 2});
+    }
+}

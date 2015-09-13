@@ -63,12 +63,12 @@ nav#site-navigation .menu-toggle .toggle {
 /* On click show as an exit button */
 nav#site-navigation .menu-toggle.clicked > .toggle {
     .row:first-child {
-        @include transform-origin(0, top);
+        @include transform-origin(floor($nav-toggle-line-height / 2), top);
         @include transform(rotate(45deg));
     }
 
     .row:last-child {
-        @include transform-origin(0, bottom);
+        @include transform-origin(floor($nav-toggle-line-height / 2), bottom);
         @include transform(rotate(-45deg));
     }
 

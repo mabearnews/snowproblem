@@ -11,3 +11,19 @@ body.home #recent-posts  {
 body.home .post img {
     width: 100%;
 }
+
+/* Remove extra space from header */
+body.home .post header * { margin-top: 0; }
+
+/* Show the categories the current post is linked to. */
+body.home .post {
+    border-left-width: $front-page-category-border-width;
+    border-left-style: solid;
+    border-left-color: $category-color-default;
+
+    @each $category, $color in $category-colors {
+        &[class*="category-#{$category}"] {
+            border-left-color: $color;
+        }
+    }
+}

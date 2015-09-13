@@ -28,6 +28,7 @@
 /*============= Featured =============*/
 /*============= General =============*/
 /*============= Comments =============*/
+/*============= Categories =============*/
 /**
  * @file.
  * Defines two variables which are used to determine fonts across the site.
@@ -71,6 +72,7 @@ h1, h2, h3, h4, h5, h6, #site-navigation-more .current-page a, nav#site-navigati
 /*============= Footer =============*/
 /*============= Featured =============*/
 /*============= Comments =============*/
+/*============= Categories =============*/
 /**
  * @file.
  * This file concnerns the layout of various elements on the page. It should be
@@ -118,6 +120,9 @@ h1, h2, h3, h4, h5, h6, #site-navigation-more .current-page a, nav#site-navigati
 /*============= Navigation =============*/
 /*============= Sidevar =============*/
 /*============= Multiple Posts =============*/
+/**
+ * Makes content inside of a post show with full width.
+ */
 /**
  * Makes a background image fill a container...
  */
@@ -201,7 +206,7 @@ input {
 }
 
 /* Style the layout between the left and the right side of the page.*/
-/* line 18, ../sass/layout/_content.scss */
+/* line 20, ../sass/layout/_content.scss */
 #content {
   display: -webkit-flex;
   display: flex;
@@ -210,7 +215,7 @@ input {
   width: 100%;
 }
 
-/* line 27, ../sass/layout/_content.scss */
+/* line 29, ../sass/layout/_content.scss */
 #primary {
   -webkit-flex: 1;
   flex: 1;
@@ -220,7 +225,7 @@ input {
 
 @media (min-width: 420px) {
   /* The content should scale to show the sidebar border. */
-  /* line 37, ../sass/layout/_content.scss */
+  /* line 39, ../sass/layout/_content.scss */
   #content {
     width: 100%;
     float: left;
@@ -1724,10 +1729,10 @@ nav#site-navigation .menu-toggle .toggle .row:nth-child(3) {
 /* On click show as an exit button */
 /* line 65, ../sass/components/navigation/_navigation.scss */
 nav#site-navigation .menu-toggle.clicked > .toggle .row:first-child {
-  -moz-transform-origin: 0 top;
-  -ms-transform-origin: 0 top;
-  -webkit-transform-origin: 0 top;
-  transform-origin: 0 top;
+  -moz-transform-origin: 1px top;
+  -ms-transform-origin: 1px top;
+  -webkit-transform-origin: 1px top;
+  transform-origin: 1px top;
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
@@ -1735,10 +1740,10 @@ nav#site-navigation .menu-toggle.clicked > .toggle .row:first-child {
 }
 /* line 70, ../sass/components/navigation/_navigation.scss */
 nav#site-navigation .menu-toggle.clicked > .toggle .row:last-child {
-  -moz-transform-origin: 0 bottom;
-  -ms-transform-origin: 0 bottom;
-  -webkit-transform-origin: 0 bottom;
-  transform-origin: 0 bottom;
+  -moz-transform-origin: 1px bottom;
+  -ms-transform-origin: 1px bottom;
+  -webkit-transform-origin: 1px bottom;
+  transform-origin: 1px bottom;
   -moz-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
@@ -1834,6 +1839,7 @@ nav#site-navigation .menu-toggle.clicked > .toggle .row:nth-child(2) {
   margin-left: 0;
   margin-right: 0;
   line-height: 0;
+  width: 100vw;
   -moz-column-width: 250px;
   -webkit-column-width: 250px;
   column-width: 250px;
@@ -1841,8 +1847,14 @@ nav#site-navigation .menu-toggle.clicked > .toggle .row:nth-child(2) {
   -webkit-column-gap: 0;
   column-gap: 0;
 }
+@media screen and (min-width: 700px) {
+  /* line 5, ../sass/components/posts/_gallery.scss */
+  .gallery {
+    margin-left: calc(-50vw + 350px);
+  }
+}
 
-/* line 16, ../sass/components/posts/_gallery.scss */
+/* line 19, ../sass/components/posts/_gallery.scss */
 .gallery figure.gallery-item {
   width: 100%;
   display: block;
@@ -1851,17 +1863,17 @@ nav#site-navigation .menu-toggle.clicked > .toggle .row:nth-child(2) {
   padding: 0;
   overflow: hidden;
 }
-/* line 26, ../sass/components/posts/_gallery.scss */
+/* line 29, ../sass/components/posts/_gallery.scss */
 .gallery figure.gallery-item * {
   margin: 0;
   padding: 0;
 }
-/* line 31, ../sass/components/posts/_gallery.scss */
+/* line 34, ../sass/components/posts/_gallery.scss */
 .gallery figure.gallery-item img {
   width: 100%;
   height: auto;
 }
-/* line 36, ../sass/components/posts/_gallery.scss */
+/* line 39, ../sass/components/posts/_gallery.scss */
 .gallery figure.gallery-item figcaption {
   -moz-transition: all 0.6s;
   -o-transition: all 0.6s;
@@ -1890,7 +1902,7 @@ nav#site-navigation .menu-toggle.clicked > .toggle .row:nth-child(2) {
   position: absolute;
   top: -25px;
 }
-/* line 56, ../sass/components/posts/_gallery.scss */
+/* line 59, ../sass/components/posts/_gallery.scss */
 .gallery figure.gallery-item:hover figcaption {
   top: calc(100% - 100px);
   bottom: 0;
@@ -2350,4 +2362,50 @@ body.home #recent-posts .entry-meta * {
 /* line 11, ../sass/pages/_front-page.scss */
 body.home .post img {
   width: 100%;
+}
+
+/* Remove extra space from header */
+/* line 16, ../sass/pages/_front-page.scss */
+body.home .post header * {
+  margin-top: 0;
+}
+
+/* Show the categories the current post is linked to. */
+/* line 19, ../sass/pages/_front-page.scss */
+body.home .post {
+  border-left-width: 5px;
+  border-left-style: solid;
+  border-left-color: #bdc3c7;
+}
+/* line 25, ../sass/pages/_front-page.scss */
+body.home .post[class*="category-uncategorized"] {
+  border-left-color: #95a5a6;
+}
+/* line 25, ../sass/pages/_front-page.scss */
+body.home .post[class*="category-css"] {
+  border-left-color: #3498db;
+}
+/* line 25, ../sass/pages/_front-page.scss */
+body.home .post[class*="category-featured"] {
+  border-left-color: #e74c3c;
+}
+/* line 25, ../sass/pages/_front-page.scss */
+body.home .post[class*="category-post-formats"] {
+  border-left-color: #e67e22;
+}
+/* line 25, ../sass/pages/_front-page.scss */
+body.home .post[class*="category-template-2"] {
+  border-left-color: #1abc9c;
+}
+/* line 25, ../sass/pages/_front-page.scss */
+body.home .post[class*="category-edge-case-2"] {
+  border-left-color: #e74c3c;
+}
+/* line 25, ../sass/pages/_front-page.scss */
+body.home .post[class*="category-markup"] {
+  border-left-color: #f1c40f;
+}
+/* line 25, ../sass/pages/_front-page.scss */
+body.home .post[class*="category-aciform"] {
+  border-left-color: #9b59b6;
 }

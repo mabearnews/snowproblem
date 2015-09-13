@@ -8,6 +8,9 @@
     margin-right: 0;
     line-height: 0;
 
+    // Make Gallery take up whole space.
+    @include full-width-post-content;
+
     // Configure the images colums.
     @include column-width($gallery-image-width);
     @include column-gap(0);
