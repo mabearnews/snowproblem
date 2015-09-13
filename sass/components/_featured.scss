@@ -24,10 +24,7 @@
         width: 100%;
         height: 100%;
 
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-postion: center center;
-        @include background-size(cover);
+        @include perfect-css-background;
     }
 
     /* Show the entry content above the image. */

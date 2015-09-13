@@ -24,22 +24,15 @@ if ( post_password_required() ) {
 	<section class="content-element">
 		<?php if ( have_comments() ) : ?>
 			<h2 class="comments-title">
-				<?php
-					printf( // WPCS: XSS OK.
-						esc_html( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'snowproblem' ) ),
-						number_format_i18n( get_comments_number() ),
-						'<span>' . get_the_title() . '</span>'
-					);
-				?>
+				
 			</h2>
 
 			<section class="comment-list">
 				<?php
 					wp_list_comments( array(
-						'style'      => 'div',
-						'short_ping' => true,
-						'per_page'   => -1,
-						'max_depth'  => 1,
+						'type'     => 'comment',
+						'callback' => 'snowproblem_comment',
+						'avatar_size' => 0,
 					) );
 				?>
 			</section><!-- .comment-list -->

@@ -119,6 +119,9 @@ h1, h2, h3, h4, h5, h6, #site-navigation-more .current-page a, nav#site-navigati
 /*============= Sidevar =============*/
 /*============= Multiple Posts =============*/
 /**
+ * Makes a background image fill a container...
+ */
+/**
  * @file.
  * Contains information about the various fonts and font types that are to
  * be imported into the given site.
@@ -177,13 +180,8 @@ input {
 }
 
 /* Shows the content in the center of the screen for most posts and such. */
-/* line 2, ../sass/layout/_content.scss */
-.content-container, .single article.post,
-.single article.page,
-.single-post article.post,
-.single-post article.page,
-.page article.post,
-.page article.page {
+/* line 3, ../sass/layout/_content.scss */
+.center-element, .content-container {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: row;
@@ -192,7 +190,7 @@ input {
   justify-content: center;
 }
 
-/* line 8, ../sass/layout/_content.scss */
+/* line 13, ../sass/layout/_content.scss */
 .element-content, .single article.post section.post-content,
 .single article.page section.post-content,
 .single-post article.post section.post-content,
@@ -203,7 +201,7 @@ input {
 }
 
 /* Style the layout between the left and the right side of the page.*/
-/* line 13, ../sass/layout/_content.scss */
+/* line 18, ../sass/layout/_content.scss */
 #content {
   display: -webkit-flex;
   display: flex;
@@ -212,7 +210,7 @@ input {
   width: 100%;
 }
 
-/* line 22, ../sass/layout/_content.scss */
+/* line 27, ../sass/layout/_content.scss */
 #primary {
   -webkit-flex: 1;
   flex: 1;
@@ -222,7 +220,7 @@ input {
 
 @media (min-width: 420px) {
   /* The content should scale to show the sidebar border. */
-  /* line 32, ../sass/layout/_content.scss */
+  /* line 37, ../sass/layout/_content.scss */
   #content {
     width: 100%;
     float: left;
@@ -840,72 +838,14 @@ body.home #breaking-posts .entry-meta * {
  * The editing of comments to display in the proper format and to show with
  * the right pazazz.
  */
-/* line 8, ../sass/components/_comments.scss */
+/* line 9, ../sass/components/_comments.scss */
 #comments {
   width: 100%;
 }
 
-/* line 12, ../sass/components/_comments.scss */
-#comments ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* line 70, ../sass/components/_comments.scss */
+/* line 13, ../sass/components/_comments.scss */
 #comments .comment {
-  padding: 0;
-  margin: 15px 0;
-  position: relative;
-}
-/* line 30, ../sass/components/_comments.scss */
-#comments .comment:before {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  bottom: -2px;
-  left: -7px;
-  height: 20px;
-  border-left: 20px solid #bdc3c7;
-  border-bottom-right-radius: 16px 14px;
-  -webkit-transform: translate(0, -2px);
-}
-/* line 49, ../sass/components/_comments.scss */
-#comments .comment:after {
-  content: "";
-  position: absolute;
-  z-index: 3;
-  bottom: -2px;
-  left: 4px;
-  width: 26px;
-  height: 20px;
-  background: white;
-  border-bottom-right-radius: 10px;
-  -webkit-transform: translate(-30px, -2px);
-}
-
-/* line 78, ../sass/components/_comments.scss */
-#comments .comment-body {
-  z-index: 40;
   padding: 5px;
-  margin: 0;
-  border-radius: 20px;
-  background-color: #bdc3c7;
-}
-
-/* line 86, ../sass/components/_comments.scss */
-#comments .comment-author img {
-  display: none;
-}
-
-/* line 87, ../sass/components/_comments.scss */
-#comments .comment-author {
-  display: none;
-}
-
-/* line 88, ../sass/components/_comments.scss */
-#comments .comment-meta {
-  display: none;
 }
 
 /* line 1, ../sass/components/_featured.scss */
@@ -936,13 +876,13 @@ body.home #breaking-posts .entry-meta * {
   height: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-postion: center center;
+  background-position: center center;
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
   background-size: cover;
 }
-/* line 34, ../sass/components/_featured.scss */
+/* line 31, ../sass/components/_featured.scss */
 #featured #featured-image .entry-content {
   width: 50%;
   height: 100%;
@@ -956,13 +896,13 @@ body.home #breaking-posts .entry-meta * {
   -webkit-justify-content: center;
   justify-content: center;
 }
-/* line 47, ../sass/components/_featured.scss */
+/* line 44, ../sass/components/_featured.scss */
 #featured #featured-image .entry-content * {
   color: white;
   font-size: 1.25em;
 }
 
-/* line 55, ../sass/components/_featured.scss */
+/* line 52, ../sass/components/_featured.scss */
 #featured-posts {
   position: absolute;
   right: 0;
@@ -977,7 +917,7 @@ body.home #breaking-posts .entry-meta * {
   border-left: 0 solid transparent;
   border-right: 0 solid transparent;
 }
-/* line 70, ../sass/components/_featured.scss */
+/* line 67, ../sass/components/_featured.scss */
 #featured-posts .post {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -996,21 +936,21 @@ body.home #breaking-posts .entry-meta * {
   padding: 0 20px;
   padding-bottom: 1.6em;
 }
-/* line 90, ../sass/components/_featured.scss */
+/* line 87, ../sass/components/_featured.scss */
 #featured-posts .post .post-featured-image {
   display: none;
 }
-/* line 92, ../sass/components/_featured.scss */
+/* line 89, ../sass/components/_featured.scss */
 #featured-posts .post:first-child {
   border-top: 0 solid transparent;
 }
-/* line 96, ../sass/components/_featured.scss */
+/* line 93, ../sass/components/_featured.scss */
 #featured-posts .post .entry-header .entry-title {
   font-size: 1.3em;
   text-align: center;
   width: 100%;
 }
-/* line 105, ../sass/components/_featured.scss */
+/* line 102, ../sass/components/_featured.scss */
 #featured-posts .post .entry-meta {
   position: absolute;
   bottom: 0;
@@ -1020,12 +960,12 @@ body.home #breaking-posts .entry-meta * {
 }
 
 /* Relates to the currently selected post and the change that entails */
-/* line 117, ../sass/components/_featured.scss */
+/* line 114, ../sass/components/_featured.scss */
 #featured-posts .post.selected {
   background-color: rgba(0, 0, 0, 0.67);
 }
 
-/* line 121, ../sass/components/_featured.scss */
+/* line 118, ../sass/components/_featured.scss */
 #featured-image .post-featured-image {
   -moz-transition: all 2s;
   -o-transition: all 2s;
@@ -1033,13 +973,13 @@ body.home #breaking-posts .entry-meta * {
   transition: all 2s;
 }
 
-/* line 125, ../sass/components/_featured.scss */
+/* line 122, ../sass/components/_featured.scss */
 #featured-image .post-featured-image.selected {
   z-index: 2;
   opacity: 1;
 }
 
-/* line 130, ../sass/components/_featured.scss */
+/* line 127, ../sass/components/_featured.scss */
 #featured-image .post-featured-image:not(.selected) {
   opacity: 0;
   z-index: 1;
@@ -1047,56 +987,56 @@ body.home #breaking-posts .entry-meta * {
 
 /* Media query to change appearence based off of screen size. */
 @media screen and (max-width: 740px) {
-  /* line 137, ../sass/components/_featured.scss */
+  /* line 134, ../sass/components/_featured.scss */
   #featured #featured-image {
     display: none;
   }
 
-  /* line 139, ../sass/components/_featured.scss */
+  /* line 136, ../sass/components/_featured.scss */
   #featured-posts {
     position: relative;
     width: 100%;
     margin: 0;
   }
-  /* line 144, ../sass/components/_featured.scss */
+  /* line 141, ../sass/components/_featured.scss */
   #featured-posts .post {
     width: 100%;
     height: 120px;
     color: white;
   }
-  /* line 150, ../sass/components/_featured.scss */
+  /* line 147, ../sass/components/_featured.scss */
   #featured-posts .post .entry-meta {
     width: 100%;
     text-align: center;
   }
 
   /* Add the background colors to be more colorful for the mobile site. */
-  /* line 159, ../sass/components/_featured.scss */
+  /* line 156, ../sass/components/_featured.scss */
   #featured-posts .post:nth-child(1) {
     background-color: #e74c3c;
   }
 
-  /* line 159, ../sass/components/_featured.scss */
+  /* line 156, ../sass/components/_featured.scss */
   #featured-posts .post:nth-child(2) {
     background-color: #e67e22;
   }
 
-  /* line 159, ../sass/components/_featured.scss */
+  /* line 156, ../sass/components/_featured.scss */
   #featured-posts .post:nth-child(3) {
     background-color: #f1c40f;
   }
 
-  /* line 159, ../sass/components/_featured.scss */
+  /* line 156, ../sass/components/_featured.scss */
   #featured-posts .post:nth-child(4) {
     background-color: #3498db;
   }
 
-  /* line 159, ../sass/components/_featured.scss */
+  /* line 156, ../sass/components/_featured.scss */
   #featured-posts .post:nth-child(5) {
     background-color: #34495e;
   }
 
-  /* line 159, ../sass/components/_featured.scss */
+  /* line 156, ../sass/components/_featured.scss */
   #featured-posts .post:nth-child(6) {
     background-color: #27ae60;
   }
@@ -1406,6 +1346,10 @@ cite:before {
 .entry-meta .author::before {
   content: '–';
   padding: 0 0.8em;
+}
+/* line 14, ../sass/components/html-elements/_entry-meta.scss */
+.entry-meta * {
+  display: inline-block;
 }
 
 /**
@@ -2082,26 +2026,58 @@ body.archive .page .post-content {
  * @file.
  * Styles for a single post of the website as bassed on the site navigation.
  */
-/*============= Post =============*/
 /* line 7, ../sass/components/posts/_single-page-post.scss */
 .single,
 .single-post,
 .page {
+  /*============= Image =============*/
+  /*============= Post =============*/
   /*============= Post Navigation =============*/
   /* Show the navigation for mobile browsers as typical links. */
 }
-/* line 10, ../sass/components/posts/_single-page-post.scss */
+/* line 11, ../sass/components/posts/_single-page-post.scss */
+.single .featured-image,
+.single-post .featured-image,
+.page .featured-image {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  min-height: 200px;
+  max-height: 1200px;
+  height: 50vh;
+}
+/* line 20, ../sass/components/posts/_single-page-post.scss */
+.single .featured-image .background-image,
+.single-post .featured-image .background-image,
+.page .featured-image .background-image {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+/* line 33, ../sass/components/posts/_single-page-post.scss */
 .single article.post,
 .single article.page,
 .single-post article.post,
 .single-post article.page,
 .page article.post,
 .page article.page {
+  padding: 0;
   position: relative;
   /* Show the the header inforamation to the side if possible. */
   /* Show the title as a big item on the top page. */
 }
-/* line 25, ../sass/components/posts/_single-page-post.scss */
+/* line 49, ../sass/components/posts/_single-page-post.scss */
 .single article.post header.entry-header,
 .single article.page header.entry-header,
 .single-post article.post header.entry-header,
@@ -2111,7 +2087,7 @@ body.archive .page .post-content {
   width: 100%;
   text-align: center;
 }
-/* line 29, ../sass/components/posts/_single-page-post.scss */
+/* line 53, ../sass/components/posts/_single-page-post.scss */
 .single article.post header.entry-header .entry-title,
 .single article.page header.entry-header .entry-title,
 .single-post article.post header.entry-header .entry-title,
@@ -2122,7 +2098,7 @@ body.archive .page .post-content {
   width: auto;
   display: inline-block;
 }
-/* line 36, ../sass/components/posts/_single-page-post.scss */
+/* line 60, ../sass/components/posts/_single-page-post.scss */
 .single article.post header.entry-header .entry-title::after,
 .single article.page header.entry-header .entry-title::after,
 .single-post article.post header.entry-header .entry-title::after,
@@ -2141,7 +2117,7 @@ body.archive .page .post-content {
   width: 0;
   background-color: #95a5a6;
 }
-/* line 53, ../sass/components/posts/_single-page-post.scss */
+/* line 77, ../sass/components/posts/_single-page-post.scss */
 .single article.post header.entry-header .entry-title.animated::after,
 .single article.page header.entry-header .entry-title.animated::after,
 .single-post article.post header.entry-header .entry-title.animated::after,
@@ -2151,7 +2127,7 @@ body.archive .page .post-content {
   left: -10%;
   width: 120%;
 }
-/* line 60, ../sass/components/posts/_single-page-post.scss */
+/* line 84, ../sass/components/posts/_single-page-post.scss */
 .single article.post .entry-meta,
 .single article.page .entry-meta,
 .single-post article.post .entry-meta,
@@ -2162,14 +2138,14 @@ body.archive .page .post-content {
   right: 100%;
   top: 10%;
 }
-/* line 74, ../sass/components/posts/_single-page-post.scss */
+/* line 98, ../sass/components/posts/_single-page-post.scss */
 .single .post-navigation,
 .single-post .post-navigation,
 .page .post-navigation {
   display: none;
 }
 @media (min-width: 1300px) {
-  /* line 77, ../sass/components/posts/_single-page-post.scss */
+  /* line 101, ../sass/components/posts/_single-page-post.scss */
   .single .post-navigation .nav-links > *,
   .single-post .post-navigation .nav-links > *,
   .page .post-navigation .nav-links > * {
@@ -2183,7 +2159,7 @@ body.archive .page .post-content {
     /* Show the icon for the next post.  */
     /* Show everything in as a more visible style. */
   }
-  /* line 90, ../sass/components/posts/_single-page-post.scss */
+  /* line 114, ../sass/components/posts/_single-page-post.scss */
   .single .post-navigation .nav-links > *::before,
   .single-post .post-navigation .nav-links > *::before,
   .page .post-navigation .nav-links > *::before {
@@ -2201,13 +2177,13 @@ body.archive .page .post-content {
     -webkit-transition: color 0.2s ease;
     transition: color 0.2s ease;
   }
-  /* line 104, ../sass/components/posts/_single-page-post.scss */
+  /* line 128, ../sass/components/posts/_single-page-post.scss */
   .single .post-navigation .nav-links > *:hover::before,
   .single-post .post-navigation .nav-links > *:hover::before,
   .page .post-navigation .nav-links > *:hover::before {
     color: rgba(84, 94, 100, 0.4);
   }
-  /* line 107, ../sass/components/posts/_single-page-post.scss */
+  /* line 131, ../sass/components/posts/_single-page-post.scss */
   .single .post-navigation .nav-links > *.nav-previous::before,
   .single-post .post-navigation .nav-links > *.nav-previous::before,
   .page .post-navigation .nav-links > *.nav-previous::before {
@@ -2216,7 +2192,7 @@ body.archive .page .post-content {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
   }
-  /* line 112, ../sass/components/posts/_single-page-post.scss */
+  /* line 136, ../sass/components/posts/_single-page-post.scss */
   .single .post-navigation .nav-links > * > a,
   .single-post .post-navigation .nav-links > * > a,
   .page .post-navigation .nav-links > * > a {
@@ -2230,13 +2206,13 @@ body.archive .page .post-content {
     font-size: 1.2em;
     z-index: 2;
   }
-  /* line 128, ../sass/components/posts/_single-page-post.scss */
+  /* line 152, ../sass/components/posts/_single-page-post.scss */
   .single .post-navigation .nav-links > *.nav-previous,
   .single-post .post-navigation .nav-links > *.nav-previous,
   .page .post-navigation .nav-links > *.nav-previous {
     left: 20px;
   }
-  /* line 129, ../sass/components/posts/_single-page-post.scss */
+  /* line 153, ../sass/components/posts/_single-page-post.scss */
   .single .post-navigation .nav-links > *.nav-next,
   .single-post .post-navigation .nav-links > *.nav-next,
   .page .post-navigation .nav-links > *.nav-next {

@@ -1,8 +1,13 @@
 /* Shows the content in the center of the screen for most posts and such. */
-.content-container {
+
+.center-element {
     @include display-flex;
     @include flex-direction(row);
     @include justify-content(center);
+}
+
+.content-container {
+    @extend .center-element;
 }
 
 .element-content, .content-element {

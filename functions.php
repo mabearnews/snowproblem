@@ -153,13 +153,48 @@ function snowproblem_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'snowproblem_scripts' );
 
-
 /**
  * Change the default read more text from an excerpt.
  */
 function snowproblem_excerpt_more( $more ) {
 	return '...';
 }
+
+/**
+ * Change the html markupp of comments.
+ */
+function snowproblem_comment($comment, $args, $depth) {
+	$GLOBALS['comment'] = $comment;
+	extract($args, EXTR_SKIP);
+?>
+	<article <?php comment_class(); ?> id="comment-<?php comment_ID() ?>">
+		<?php if ( $args['avatar_size'] != '0' ) : ?>
+			<div class="author-image-container">
+				<?php echo get_avatar( $comment, ( isset($args['avatar_size']) ? $args['avatar_size'] : 96) ); ?>
+			</div>
+		<?php endif; ?>
+
+		<section class="entry-meta">
+			<span class="posted-on">
+				<?php printf( __('%1$s: %2$s'), get_comment_date(),  get_comment_time() ); ?>
+			</span>
+			<span class="byline">
+				<?php printf( __( '<span class="author">%s</span>' ), get_comment_author_link() ); ?>
+			</span>
+		</section> <!-- .comment-meta -->
+
+		<section class="comment-body">
+			<?php comment_text(); ?>
+		</section> <!-- .comment-body -->
+
+		<div class="reply">
+			<?php comment_reply_link( array_merge( $args, array( 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+		</div>
+
+	</article> <!-- #comment-? -->
+<?php
+}
+
 add_filter('excerpt_more', 'snowproblem_excerpt_more');
 
 /**

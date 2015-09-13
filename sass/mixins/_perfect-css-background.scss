@@ -1,0 +1,9 @@
+/**
+ * Makes a background image fill a container...
+ */
+@mixin perfect-css-background {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    @include background-size(cover);
+}
