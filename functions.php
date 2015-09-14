@@ -191,6 +191,8 @@ function snowproblem_comment($comment, $args, $depth) {
 			<?php comment_reply_link( array_merge( $args, array( 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
 		</div>
 
+		<div class="background"></div>
+
 	</article> <!-- #comment-? -->
 <?php
 }

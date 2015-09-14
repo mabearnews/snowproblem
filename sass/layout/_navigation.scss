@@ -33,6 +33,7 @@ nav#site-navigation {
     height: $nav-screen-height;
 }
 
+nav#site-navigation h1 { margin: 0; }
 
 /* Style the ul elements shown to display horizontally and without style. */
 nav#site-navigation ul {
@@ -234,6 +235,9 @@ nav#site-navigation .menu-toggle .toggle {
 
 /* Changes the navigation to a more mobile view. */
 @media screen and (max-width: $mobile-breakpoint), screen and (max-height: $nav-height-breakpoint) {
+
+    nav#site-navigation { height: $nav-screen-mobile-height; }
+    #content-nav-bar-padding { height: $nav-screen-mobile-height !important; }
     #site-navigation-more.visible {
 
         ul {

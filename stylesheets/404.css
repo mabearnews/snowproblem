@@ -287,98 +287,98 @@ input {
 }
 @-moz-keyframes pulse {
   0% {
-    color: #34495e;
-  }
-  20% {
-    color: #2980b9;
-  }
-  30% {
     color: #f1c40f;
   }
+  20% {
+    color: #e67e22;
+  }
+  30% {
+    color: #2ecc71;
+  }
   40% {
-    color: #8e44ad;
+    color: #e74c3c;
   }
   50% {
+    color: #2ecc71;
+  }
+  60% {
+    color: #f1c40f;
+  }
+  70% {
+    color: #f1c40f;
+  }
+  80% {
+    color: #bdc3c7;
+  }
+  90% {
+    color: #95a5a6;
+  }
+  100% {
+    color: #f1c40f;
+  }
+}
+@-webkit-keyframes pulse {
+  0% {
+    color: #f1c40f;
+  }
+  20% {
+    color: white;
+  }
+  30% {
     color: #27ae60;
+  }
+  40% {
+    color: #bdc3c7;
+  }
+  50% {
+    color: #f1c40f;
   }
   60% {
     color: #e67e22;
   }
   70% {
+    color: #1abc9c;
+  }
+  80% {
+    color: #16a085;
+  }
+  90% {
+    color: #3498db;
+  }
+  100% {
     color: #f1c40f;
-  }
-  80% {
-    color: #e74c3c;
-  }
-  90% {
-    color: #d35400;
-  }
-  100% {
-    color: #34495e;
-  }
-}
-@-webkit-keyframes pulse {
-  0% {
-    color: #34495e;
-  }
-  20% {
-    color: white;
-  }
-  30% {
-    color: #bdc3c7;
-  }
-  40% {
-    color: #e74c3c;
-  }
-  50% {
-    color: #27ae60;
-  }
-  60% {
-    color: white;
-  }
-  70% {
-    color: #7f8c8d;
-  }
-  80% {
-    color: #e74c3c;
-  }
-  90% {
-    color: #95a5a6;
-  }
-  100% {
-    color: #34495e;
   }
 }
 @keyframes pulse {
   0% {
-    color: #34495e;
+    color: #f1c40f;
   }
   20% {
-    color: #e74c3c;
-  }
-  30% {
-    color: #9b59b6;
-  }
-  40% {
-    color: #27ae60;
-  }
-  50% {
     color: #16a085;
   }
-  60% {
-    color: #bdc3c7;
-  }
-  70% {
-    color: #34495e;
-  }
-  80% {
-    color: #9b59b6;
-  }
-  90% {
+  30% {
     color: #95a5a6;
   }
-  100% {
+  40% {
+    color: #95a5a6;
+  }
+  50% {
+    color: #95a5a6;
+  }
+  60% {
     color: #34495e;
+  }
+  70% {
+    color: #e74c3c;
+  }
+  80% {
+    color: #e67e22;
+  }
+  90% {
+    color: #16a085;
+  }
+  100% {
+    color: #f1c40f;
   }
 }
 /* line 81, ../sass/404.scss */

@@ -10,6 +10,74 @@ $comment-padding : 5px;
     width: 100%;
 }
 
+#comments .content-element { overflow: hidden; }
+
 #comments .comment {
-    padding: $comment-padding;
+    width: 100%;
+    margin: 0;
+
+    // Allow the background to be positioned absolutly.
+    position: relative;
+
+    /*============= Background =============*/
+
+    * {
+        z-index: $multiple-post-not-background-zindex;
+    }
+
+    .background {
+        // Configure the size.
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        // Change width to acomedate gained angle element
+        width: $post-width * 2;
+
+        height: 100%;
+
+        z-index: $multiple-post-background-zindex;
+
+        @include transform-origin(top, right);
+        @include transform(rotate(#{-$multiple-post-background-rotation}));
+    }
+
+    /* Background color alternates based off of section. */
+    &:nth-child(2n) .background {
+        background-color: $multiple-post-background-1;
+    }
+    &:nth-child(2n+1) .background {
+        background-color: $multiple-post-background-2;
+    }
+
+    /*============= Content =============*/
+
+    // Include flexbox to properly show the content.
+    @include display-flex;
+    @include justify-content(center);
+    @include flex-direction(row);
+
+    .post-content {
+        width: $post-width;
+    }
+}
+
+#comments .comment {
+    .comment-body {
+        // Allow the background enough space.
+        margin: $multiple-post-padding-vertical 0;
+    }
+
+    .entry-meta {
+        position: absolute;
+
+        right: 0;
+        width: 100%;
+        text-align: center;
+
+        top: 0;
+
+        @include transform-origin(top, right);
+        @include transform(rotate(#{-$multiple-post-background-rotation}));
+    }
 }

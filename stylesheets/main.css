@@ -280,8 +280,13 @@ nav#site-navigation > .wrapper > * {
   height: 100%;
 }
 
+/* line 36, ../sass/layout/_navigation.scss */
+nav#site-navigation h1 {
+  margin: 0;
+}
+
 /* Style the ul elements shown to display horizontally and without style. */
-/* line 38, ../sass/layout/_navigation.scss */
+/* line 39, ../sass/layout/_navigation.scss */
 nav#site-navigation ul {
   display: -webkit-flex;
   display: flex;
@@ -293,12 +298,12 @@ nav#site-navigation ul {
   padding: 0;
   list-style-type: none;
 }
-/* line 49, ../sass/layout/_navigation.scss */
+/* line 50, ../sass/layout/_navigation.scss */
 nav#site-navigation ul li {
   padding: 0 5px;
 }
 
-/* line 55, ../sass/layout/_navigation.scss */
+/* line 56, ../sass/layout/_navigation.scss */
 nav#site-navigation .menu-toggle .toggle {
   position: relative;
   margin-left: 40px;
@@ -307,7 +312,7 @@ nav#site-navigation .menu-toggle .toggle {
 }
 
 /* Showes the contents of the navigation sub menues. */
-/* line 65, ../sass/layout/_navigation.scss */
+/* line 66, ../sass/layout/_navigation.scss */
 #site-navigation-more ul {
   display: block;
   display: -webkit-flex;
@@ -336,11 +341,11 @@ nav#site-navigation .menu-toggle .toggle {
   /* Styling the individual elements. */
   /* Transitions added to the creation of elements */
 }
-/* line 93, ../sass/layout/_navigation.scss */
+/* line 94, ../sass/layout/_navigation.scss */
 #site-navigation-more ul ul {
   display: none;
 }
-/* line 98, ../sass/layout/_navigation.scss */
+/* line 99, ../sass/layout/_navigation.scss */
 #site-navigation-more ul li {
   -moz-transition: all 1s;
   -o-transition: all 1s;
@@ -363,147 +368,147 @@ nav#site-navigation .menu-toggle .toggle {
   /* Style the text */
   text-overflow: elipses;
 }
-/* line 118, ../sass/layout/_navigation.scss */
+/* line 119, ../sass/layout/_navigation.scss */
 #site-navigation-more ul li:nth-last-child(1) {
   -moz-transition-delay: 0.8s;
   -o-transition-delay: 0.8s;
   -webkit-transition-delay: 0.8s;
   transition-delay: 0.8s;
 }
-/* line 118, ../sass/layout/_navigation.scss */
+/* line 119, ../sass/layout/_navigation.scss */
 #site-navigation-more ul li:nth-last-child(2) {
   -moz-transition-delay: 1s;
   -o-transition-delay: 1s;
   -webkit-transition-delay: 1s;
   transition-delay: 1s;
 }
-/* line 118, ../sass/layout/_navigation.scss */
+/* line 119, ../sass/layout/_navigation.scss */
 #site-navigation-more ul li:nth-last-child(3) {
   -moz-transition-delay: 1.2s;
   -o-transition-delay: 1.2s;
   -webkit-transition-delay: 1.2s;
   transition-delay: 1.2s;
 }
-/* line 118, ../sass/layout/_navigation.scss */
+/* line 119, ../sass/layout/_navigation.scss */
 #site-navigation-more ul li:nth-last-child(4) {
   -moz-transition-delay: 1.4s;
   -o-transition-delay: 1.4s;
   -webkit-transition-delay: 1.4s;
   transition-delay: 1.4s;
 }
-/* line 118, ../sass/layout/_navigation.scss */
+/* line 119, ../sass/layout/_navigation.scss */
 #site-navigation-more ul li:nth-last-child(5) {
   -moz-transition-delay: 1.6s;
   -o-transition-delay: 1.6s;
   -webkit-transition-delay: 1.6s;
   transition-delay: 1.6s;
 }
-/* line 118, ../sass/layout/_navigation.scss */
+/* line 119, ../sass/layout/_navigation.scss */
 #site-navigation-more ul li:nth-last-child(6) {
   -moz-transition-delay: 1.8s;
   -o-transition-delay: 1.8s;
   -webkit-transition-delay: 1.8s;
   transition-delay: 1.8s;
 }
-/* line 118, ../sass/layout/_navigation.scss */
+/* line 119, ../sass/layout/_navigation.scss */
 #site-navigation-more ul li:nth-last-child(7) {
   -moz-transition-delay: 2s;
   -o-transition-delay: 2s;
   -webkit-transition-delay: 2s;
   transition-delay: 2s;
 }
-/* line 118, ../sass/layout/_navigation.scss */
+/* line 119, ../sass/layout/_navigation.scss */
 #site-navigation-more ul li:nth-last-child(8) {
   -moz-transition-delay: 2.2s;
   -o-transition-delay: 2.2s;
   -webkit-transition-delay: 2.2s;
   transition-delay: 2.2s;
 }
-/* line 118, ../sass/layout/_navigation.scss */
+/* line 119, ../sass/layout/_navigation.scss */
 #site-navigation-more ul li:nth-last-child(9) {
   -moz-transition-delay: 2.4s;
   -o-transition-delay: 2.4s;
   -webkit-transition-delay: 2.4s;
   transition-delay: 2.4s;
 }
-/* line 118, ../sass/layout/_navigation.scss */
+/* line 119, ../sass/layout/_navigation.scss */
 #site-navigation-more ul li:nth-last-child(10) {
   -moz-transition-delay: 2.6s;
   -o-transition-delay: 2.6s;
   -webkit-transition-delay: 2.6s;
   transition-delay: 2.6s;
 }
-/* line 118, ../sass/layout/_navigation.scss */
+/* line 119, ../sass/layout/_navigation.scss */
 #site-navigation-more ul li:nth-last-child(11) {
   -moz-transition-delay: 2.8s;
   -o-transition-delay: 2.8s;
   -webkit-transition-delay: 2.8s;
   transition-delay: 2.8s;
 }
-/* line 118, ../sass/layout/_navigation.scss */
+/* line 119, ../sass/layout/_navigation.scss */
 #site-navigation-more ul li:nth-last-child(12) {
   -moz-transition-delay: 3.0s;
   -o-transition-delay: 3.0s;
   -webkit-transition-delay: 3.0s;
   transition-delay: 3.0s;
 }
-/* line 118, ../sass/layout/_navigation.scss */
+/* line 119, ../sass/layout/_navigation.scss */
 #site-navigation-more ul li:nth-last-child(13) {
   -moz-transition-delay: 3.2s;
   -o-transition-delay: 3.2s;
   -webkit-transition-delay: 3.2s;
   transition-delay: 3.2s;
 }
-/* line 118, ../sass/layout/_navigation.scss */
+/* line 119, ../sass/layout/_navigation.scss */
 #site-navigation-more ul li:nth-last-child(14) {
   -moz-transition-delay: 3.4s;
   -o-transition-delay: 3.4s;
   -webkit-transition-delay: 3.4s;
   transition-delay: 3.4s;
 }
-/* line 118, ../sass/layout/_navigation.scss */
+/* line 119, ../sass/layout/_navigation.scss */
 #site-navigation-more ul li:nth-last-child(15) {
   -moz-transition-delay: 3.6s;
   -o-transition-delay: 3.6s;
   -webkit-transition-delay: 3.6s;
   transition-delay: 3.6s;
 }
-/* line 118, ../sass/layout/_navigation.scss */
+/* line 119, ../sass/layout/_navigation.scss */
 #site-navigation-more ul li:nth-last-child(16) {
   -moz-transition-delay: 3.8s;
   -o-transition-delay: 3.8s;
   -webkit-transition-delay: 3.8s;
   transition-delay: 3.8s;
 }
-/* line 118, ../sass/layout/_navigation.scss */
+/* line 119, ../sass/layout/_navigation.scss */
 #site-navigation-more ul li:nth-last-child(17) {
   -moz-transition-delay: 4s;
   -o-transition-delay: 4s;
   -webkit-transition-delay: 4s;
   transition-delay: 4s;
 }
-/* line 118, ../sass/layout/_navigation.scss */
+/* line 119, ../sass/layout/_navigation.scss */
 #site-navigation-more ul li:nth-last-child(18) {
   -moz-transition-delay: 4.2s;
   -o-transition-delay: 4.2s;
   -webkit-transition-delay: 4.2s;
   transition-delay: 4.2s;
 }
-/* line 118, ../sass/layout/_navigation.scss */
+/* line 119, ../sass/layout/_navigation.scss */
 #site-navigation-more ul li:nth-last-child(19) {
   -moz-transition-delay: 4.4s;
   -o-transition-delay: 4.4s;
   -webkit-transition-delay: 4.4s;
   transition-delay: 4.4s;
 }
-/* line 118, ../sass/layout/_navigation.scss */
+/* line 119, ../sass/layout/_navigation.scss */
 #site-navigation-more ul li:nth-last-child(20) {
   -moz-transition-delay: 4.6s;
   -o-transition-delay: 4.6s;
   -webkit-transition-delay: 4.6s;
   transition-delay: 4.6s;
 }
-/* line 128, ../sass/layout/_navigation.scss */
+/* line 129, ../sass/layout/_navigation.scss */
 #site-navigation-more ul.come-in li {
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);
@@ -515,7 +520,7 @@ nav#site-navigation .menu-toggle .toggle {
 
 /* Style the identifier of the current page. */
 /* Position the current page of the website for increased naviation */
-/* line 136, ../sass/layout/_navigation.scss */
+/* line 137, ../sass/layout/_navigation.scss */
 #site-navigation-more .current-page {
   position: absolute;
   width: 100vh;
@@ -531,7 +536,7 @@ nav#site-navigation .menu-toggle .toggle {
   transform: rotate(90deg);
   text-align: right;
 }
-/* line 148, ../sass/layout/_navigation.scss */
+/* line 149, ../sass/layout/_navigation.scss */
 #site-navigation-more .current-page a {
   font-size: 2.5em;
   letter-spacing: 0.5em;
@@ -539,7 +544,7 @@ nav#site-navigation .menu-toggle .toggle {
   text-align: right;
 }
 
-/* line 160, ../sass/layout/_navigation.scss */
+/* line 161, ../sass/layout/_navigation.scss */
 #site-navigation-more {
   position: fixed;
   right: 100vw;
@@ -553,7 +558,7 @@ nav#site-navigation .menu-toggle .toggle {
 }
 
 /* Could be wraped in a media query... Handels the navigation side of things.*/
-/* line 176, ../sass/layout/_navigation.scss */
+/* line 177, ../sass/layout/_navigation.scss */
 #site-navigation-more {
   -moz-transform-origin: right top;
   -ms-transform-origin: right top;
@@ -567,7 +572,7 @@ nav#site-navigation .menu-toggle .toggle {
   right: auto;
   left: -57.73503vh;
 }
-/* line 192, ../sass/layout/_navigation.scss */
+/* line 193, ../sass/layout/_navigation.scss */
 #site-navigation-more.visible {
   -moz-transform: rotate(-30deg);
   -ms-transform: rotate(-30deg);
@@ -575,7 +580,7 @@ nav#site-navigation .menu-toggle .toggle {
   transform: rotate(-30deg);
 }
 
-/* line 197, ../sass/layout/_navigation.scss */
+/* line 198, ../sass/layout/_navigation.scss */
 #base-wrapper.nav-visible #page {
   -moz-transform: rotate(-30deg);
   -ms-transform: rotate(-30deg);
@@ -590,7 +595,7 @@ nav#site-navigation .menu-toggle .toggle {
 /**
  * Allow the page to transform with the current navigation bar.
  */
-/* line 209, ../sass/layout/_navigation.scss */
+/* line 210, ../sass/layout/_navigation.scss */
 #page {
   -moz-transition: -moz-transform 1.2s;
   -o-transition: -o-transform 1.2s;
@@ -604,31 +609,41 @@ nav#site-navigation .menu-toggle .toggle {
 
 /* Hide the ul elements of the navigation bar in a certain width. */
 @media (max-width: 900px) {
-  /* line 216, ../sass/layout/_navigation.scss */
+  /* line 217, ../sass/layout/_navigation.scss */
   nav#site-navigation ul {
     display: none;
   }
 
-  /* line 220, ../sass/layout/_navigation.scss */
+  /* line 221, ../sass/layout/_navigation.scss */
   #sidebar {
     display: none !important;
   }
 }
 /* Makes the navigation menu size to the maximum width of the page  */
 @media (min-width: 1120px) {
-  /* line 225, ../sass/layout/_navigation.scss */
+  /* line 226, ../sass/layout/_navigation.scss */
   nav#site-navigation > .wrapper {
     width: 1120px;
   }
 
-  /* line 229, ../sass/layout/_navigation.scss */
+  /* line 230, ../sass/layout/_navigation.scss */
   nav#site-navigation .toggle {
     margin-left: 0 !important;
   }
 }
 /* Changes the navigation to a more mobile view. */
 @media screen and (max-width: 420px), screen and (max-height: 700px) {
-  /* line 237, ../sass/layout/_navigation.scss */
+  /* line 239, ../sass/layout/_navigation.scss */
+  nav#site-navigation {
+    height: 50px;
+  }
+
+  /* line 240, ../sass/layout/_navigation.scss */
+  #content-nav-bar-padding {
+    height: 50px !important;
+  }
+
+  /* line 241, ../sass/layout/_navigation.scss */
   #site-navigation-more.visible {
     -moz-transform: rotate(0) translateX(57.73503vh);
     -ms-transform: rotate(0) translateX(57.73503vh);
@@ -637,7 +652,7 @@ nav#site-navigation .menu-toggle .toggle {
     width: 70%;
     max-width: 320px;
   }
-  /* line 239, ../sass/layout/_navigation.scss */
+  /* line 243, ../sass/layout/_navigation.scss */
   #site-navigation-more.visible ul {
     -moz-transform: rotate(0);
     -ms-transform: rotate(0);
@@ -650,7 +665,7 @@ nav#site-navigation .menu-toggle .toggle {
     -webkit-justify-content: space-around;
     justify-content: space-around;
   }
-  /* line 249, ../sass/layout/_navigation.scss */
+  /* line 253, ../sass/layout/_navigation.scss */
   #site-navigation-more.visible ul li {
     width: 90%;
     left: 5%;
@@ -664,7 +679,7 @@ nav#site-navigation .menu-toggle .toggle {
   }
 
   /* Include the navigation transition time for seamless transitioning. */
-  /* line 271, ../sass/layout/_navigation.scss */
+  /* line 275, ../sass/layout/_navigation.scss */
   #base-wrapper {
     -moz-transition: all 1.2s !important;
     -o-transition: all 1.2s !important;
@@ -672,14 +687,14 @@ nav#site-navigation .menu-toggle .toggle {
     transition: all 1.2s !important;
   }
 
-  /* line 273, ../sass/layout/_navigation.scss */
+  /* line 277, ../sass/layout/_navigation.scss */
   #base-wrapper.nav-visible {
     -moz-transform: translateX(320px);
     -ms-transform: translateX(320px);
     -webkit-transform: translateX(320px);
     transform: translateX(320px);
   }
-  /* line 274, ../sass/layout/_navigation.scss */
+  /* line 278, ../sass/layout/_navigation.scss */
   #base-wrapper.nav-visible #page {
     -moz-transform: rotate(0);
     -ms-transform: rotate(0);
@@ -688,7 +703,7 @@ nav#site-navigation .menu-toggle .toggle {
   }
 }
 @media screen and (max-width: 420px) and (max-width: 457.14286px), screen and (max-height: 700px) and (max-width: 457.14286px) {
-  /* line 273, ../sass/layout/_navigation.scss */
+  /* line 277, ../sass/layout/_navigation.scss */
   #base-wrapper.nav-visible {
     -moz-transform: translateX(70%);
     -ms-transform: translateX(70%);
@@ -860,8 +875,78 @@ body.home #breaking-posts .entry-meta * {
 }
 
 /* line 13, ../sass/components/_comments.scss */
+#comments .content-element {
+  overflow: hidden;
+}
+
+/* line 15, ../sass/components/_comments.scss */
 #comments .comment {
-  padding: 5px;
+  width: 100%;
+  margin: 0;
+  position: relative;
+  /*============= Background =============*/
+  /* Background color alternates based off of section. */
+  /*============= Content =============*/
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+/* line 24, ../sass/components/_comments.scss */
+#comments .comment * {
+  z-index: 2;
+}
+/* line 28, ../sass/components/_comments.scss */
+#comments .comment .background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1400px;
+  height: 100%;
+  z-index: 1;
+  -moz-transform-origin: top right;
+  -ms-transform-origin: top right;
+  -webkit-transform-origin: top right;
+  transform-origin: top right;
+  -moz-transform: rotate(-4deg);
+  -ms-transform: rotate(-4deg);
+  -webkit-transform: rotate(-4deg);
+  transform: rotate(-4deg);
+}
+/* line 46, ../sass/components/_comments.scss */
+#comments .comment:nth-child(2n) .background {
+  background-color: white;
+}
+/* line 49, ../sass/components/_comments.scss */
+#comments .comment:nth-child(2n+1) .background {
+  background-color: #F3F3F3;
+}
+/* line 60, ../sass/components/_comments.scss */
+#comments .comment .post-content {
+  width: 700px;
+}
+
+/* line 66, ../sass/components/_comments.scss */
+#comments .comment .comment-body {
+  margin: 50px 0;
+}
+/* line 71, ../sass/components/_comments.scss */
+#comments .comment .entry-meta {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  top: 0;
+  -moz-transform-origin: top right;
+  -ms-transform-origin: top right;
+  -webkit-transform-origin: top right;
+  transform-origin: top right;
+  -moz-transform: rotate(-4deg);
+  -ms-transform: rotate(-4deg);
+  -webkit-transform: rotate(-4deg);
+  transform: rotate(-4deg);
 }
 
 /* line 1, ../sass/components/_featured.scss */
