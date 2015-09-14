@@ -20,7 +20,7 @@ get_header(); ?>
 		<section id="featured">
 			<section id="featured-image"></section>
 			<section id="featured-posts">
-				<?php query_posts('posts_per_page=5&category_name=featured'); /* Query all posts with 'featured' category. Maximum of 5. */ ?>
+				<?php query_posts('posts_per_page=4&category_name=featured&orderby=date&order=DESC'); /* Query all posts with 'featured' category. Maximum of 5. */ ?>
 				<?php if ( have_posts() ): ?>
 					<?php /* Start the Loop */ ?>
 					<?php while ( have_posts() ) : the_post(); ?>

@@ -2379,3 +2379,9 @@ body.home .post[class*="category-markup"] {
 body.home .post[class*="category-aciform"] {
   border-left-color: #9b59b6;
 }
+
+/* Hide Category bar for featured */
+/* line 32, ../sass/pages/_front-page.scss */
+#featured .post {
+  border-left: none;
+}

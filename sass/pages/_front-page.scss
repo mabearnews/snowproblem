@@ -27,3 +27,6 @@ body.home .post {
         }
     }
 }
+
+/* Hide Category bar for featured */
+#featured .post { border-left: none; }
