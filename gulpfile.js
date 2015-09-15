@@ -22,9 +22,11 @@ gulp.task('coffee', function() {
     .pipe(gulp.dest('./js/'))
 });
 
-gulp.task('zip', function() {
+gulp.task('zip', ["compass", "coffee"], function() {
   gulp.src('.')
     .pipe(zip('snowproblem.zip'))
     .pipe(gulp.dest('dist'));
 
 });
+
+gulp.task('default', ['zip']);
