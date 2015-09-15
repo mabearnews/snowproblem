@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var compass = require('gulp-compass');
 var coffee = require('gulp-coffee');
+var zip = require('gulp-zip');
 
 gulp.task('compass', function() {
   gulp.src('./sass/*.scss')
@@ -19,4 +20,11 @@ gulp.task('coffee', function() {
   gulp.src('./coffee/*.coffee')
     .pipe(coffee({bare: true}).on('error', gutil.log))
     .pipe(gulp.dest('./js/'))
+});
+
+gulp.task('zip', function() {
+  gulp.src('.')
+    .pipe(zip('snowproblem.zip'))
+    .pipe(gulp.dest('dist'));
+
 });

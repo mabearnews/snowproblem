@@ -27,3 +27,5 @@ stylesheets/*
 js/*
 !js/customizer.js
 !js/skip-link-focus.js
+
+dist
