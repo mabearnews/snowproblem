@@ -12,7 +12,7 @@ gulp.task('compass', function() {
       css: 'stylesheets',
       sass: 'sass'
     }))
-    .pipe(gulp.dest('app/assets/temp'));
+    //.pipe(gulp.dest('app/assets/temp'));
 });
 
 gulp.task('coffee', function() {
