@@ -16,5 +16,14 @@ wp-content/plugins/hello.php
 .sass-cache
 .sass-cache/*
 
+node_modules
+
 /readme.html
 /license.txt
+
+stylesheets
+stylesheets/*
+
+js/*
+!js/customizer.js
+!js/skip-link-focus.js
