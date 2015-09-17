@@ -66,6 +66,7 @@ get_header(); ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 
 					<?php
+						if ( ! has_category( 'featured' ) ) :
 
 						/*
 						 * Include the Post-Format-specific template for the content.
@@ -73,6 +74,8 @@ get_header(); ?>
 						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 						 */
 						get_template_part( 'template-parts/content', 'front' );
+
+						endif;
 					?>
 
 				<?php endwhile; ?>

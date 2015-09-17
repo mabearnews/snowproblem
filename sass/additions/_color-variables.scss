@@ -160,13 +160,24 @@ $comment-content-border-color: $black;
 
 /*============= Categories =============*/
 $category-colors: (
-    'uncategorized': $grey,
-    'css': $blue,
-    'featured': $red,
-    'post-formats': $orange,
-    'template-2': $lightblue,
-    'edge-case-2': $lightred,
-    'markup': $yellow,
-    'aciform': $purple
+    'uncategorized':       $lightgrey,
+    'blogs':               $blue,
+    'blogscat':            $blue,
+    'question-of-the-day': $red,
+    'the-stew':            $lightred,
+    'entertainment':       $lightblue,
+    'markup':              $yellow,
+    'movie-reviews':       $darkgreen,
+    'music-reviews':       $green,
+    'theater-reviews':     $lightgreen,
+    'extra-point':         $lightyellow,
+    'ma-events':           $darkred,
+    'news':                $purple,
+    'opinion':             $grey,
+    'science':             $darkblue,
+    'sports':              $darkyellow,
+    'featured':            $darkpurple,
+    'top-stories':         $darkpurple,
+    'satire':              $lightpurple
 );
 $category-color-default: $lightgrey;
