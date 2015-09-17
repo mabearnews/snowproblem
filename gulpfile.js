@@ -23,13 +23,13 @@ gulp.task('compass', function() {
   });
 
   gulp.task('zip', ["compass", "coffee"], function() {
-  gulp.src(['./*',
-    '!./coffee',
-    '!./sass',
-    '!./scripts',
-    '!./.sass-cache',
-    '!./.git',
-    '!./dist'
+  gulp.src(['./**',
+    '!./coffee/**',
+    '!./sass/**',
+    '!./scripts/**',
+    '!./.sass-cache/**',
+    '!./.git/**',
+    '!./dist/**'
   ])
     .pipe(zip('snowproblem.zip'))
     .pipe(gulp.dest('dist'));
