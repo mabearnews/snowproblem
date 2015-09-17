@@ -36,7 +36,7 @@
 				</div>
 			</section>
 			<!-- Primary Menu  -->
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+			<?php snowproblem_primary_menu(); ?>
 
 			<!-- Site Name -->
 			<section id="site-title-wrapper" class="container">

@@ -142,7 +142,7 @@ if ( ! function_exists( 'the_archive_title' ) ) :
  */
 function the_archive_title( $before = '', $after = '' ) {
 	if ( is_category() ) {
-		$title = sprintf( esc_html__( 'Category: %s', 'snowproblem' ), single_cat_title( '', false ) );
+		$title = sprintf( esc_html__( '%s', 'snowproblem' ), single_cat_title( '', false ) );
 	} elseif ( is_tag() ) {
 		$title = sprintf( esc_html__( 'Tag: %s', 'snowproblem' ), single_tag_title( '', false ) );
 	} elseif ( is_author() ) {
@@ -283,6 +283,28 @@ function snowproblem_social_menu() {
 				'link_before'     => '<span>',
 				'link_after'      => '</span>',
 				'depth' 		  => 1,
+				'fallback_cb'	  => '',
+			)
+		);
+	}
+}
+
+/**
+ * Primary menu creation.
+ */
+function snowproblem_primary_menu() {
+	if ( has_nav_menu( 'primary' ) ) {
+		wp_nav_menu(
+			array(
+				'theme_location'  => 'primary',
+				'container' 	  => 'div',
+				'container_id'    => 'menu-primary',
+				'container_class' => 'menu',
+				'menu_id' 		  => 'menu-primary-items',
+				'menu_class' 	  => '',
+				'link_before'     => '<span>',
+				'link_after'      => '</span>',
+				'depth' 		  => 5,
 				'fallback_cb'	  => '',
 			)
 		);

@@ -27,13 +27,13 @@
 		<section class="contact">
 			<div class="column">
 				<div class="location">
-					
+
 				</div>
 			</div>
 		</section>
 
 		<section class="credits">
-			<div class="credit"><span>Site Desing by Sequoia Snow</span></div>
+			<div class="credit"><span>Site Design by Sequoia Snow</span></div>
 		</section>
 
 	</footer>
