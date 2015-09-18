@@ -28,9 +28,15 @@
 			<?php endif;?>
 
 			<div class="entry-content">
-				<a href="<?php print get_permalink(); ?>" title="<?php print  __('Read More', 'snowproblem'); ?>" rel="bookmark"><?php the_title( '<h1 class="entry-title">', '</h1>' ); ?></a>
 
-				<?php the_excerpt(); ?>
+				<div class="entry-content-wrapper">
+					
+					<a href="<?php print get_permalink(); ?>" title="<?php print  __('Read More', 'snowproblem'); ?>" rel="bookmark"><?php the_title( '<h1 class="entry-title">', '</h1>' ); ?></a>
+
+					<?php the_excerpt(); ?>
+
+				</div>
+
 
 			</div><!-- .entry-content -->
 

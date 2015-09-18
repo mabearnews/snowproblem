@@ -29,6 +29,12 @@ selectedClass = "selected"
             $( @ ).addClass selectedClass
 
 
+        # Dissallow hyperlinks of non selected elements.
+        $( "#featured-image .post-featured-image:not(.selected) a" ).click (e) ->
+            e.preventDefault();
+            alert 'hello'
+
+
         # Set the images in order and inside the feaeturedImageSelector
         $( postSelector ).each ->
             $( featuredImageSelector ).append $( @ ).find( imageContainerSelector ).clone()

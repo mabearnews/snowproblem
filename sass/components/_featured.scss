@@ -45,6 +45,16 @@
             color: $featured-image-entry-content-text-color;
             font-size: $featured-image-entry-content-font-size;
         }
+
+        a { z-index: -1; }
+
+        // Blur the background.
+        .entry-content-wrapper {
+            background-color: $featured-post-content-bgcolor;
+            padding: $featured-post-conent-padding;
+
+            border-radius: $featured-post-conent-border-radius;
+        }
     }
 }
 
@@ -122,6 +132,8 @@
 #featured-image .post-featured-image.selected {
     z-index: 2;
     opacity: 1;
+
+    a { z-index: 10 !important; }
 }
 
 #featured-image .post-featured-image:not(.selected) {

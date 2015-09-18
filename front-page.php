@@ -41,7 +41,7 @@ get_header(); ?>
 
 		<section id="breaking">
 			<section id="breaking-posts">
-				<?php query_posts('posts_per_page=5&category_name=breaking'); /* Query all posts with 'featured' category. Maximum of 5. */ ?>
+				<?php query_posts('posts_per_page=5&category_name=breaking&orderby=date&order=DESC'); /* Query all posts with 'featured' category. Maximum of 5. */ ?>
 				<?php if ( have_posts() ): ?>
 					<?php /* Start the Loop */ ?>
 					<?php while ( have_posts() ) : the_post(); ?>
@@ -61,6 +61,7 @@ get_header(); ?>
 		</section>
 
 		<section id="recent-posts" class="masonary-grid">
+			<?php query_posts('posts_per_page=100&orderby=date&order=DESC'); ?>
 			<?php if ( have_posts() ) : ?>
 				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
@@ -85,6 +86,8 @@ get_header(); ?>
 				<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
 			<?php endif; ?>
+
+			<?php wp_reset_query(); ?>
 		</section><!-- #recent-posts-->
 
 <?php get_footer(); ?>
