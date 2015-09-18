@@ -60,34 +60,57 @@ get_header(); ?>
 			</section>
 		</section>
 
-		<section id="recent-posts" class="masonary-grid">
-			<?php query_posts('posts_per_page=100&orderby=date&order=DESC'); ?>
-			<?php if ( have_posts() ) : ?>
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+		<section id="recent-posts">
+			<?php
+			/**
+			 * Go back 12 months using php date function
+			 */
+			 $count = 0;
+			 $current_month = date('m');
+			 $current_year  = date('Y');
 
-					<?php
-						if ( ! has_category( 'featured' ) ) :
+			 while ( $count < 12 ):
 
-						/*
-						 * Include the Post-Format-specific template for the content.
-						 * If you want to override this in a child theme, then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'template-parts/content', 'front' );
+				 // Establish varaibles to use.
+				 $month = $current_month > $count ? $current_month - $count : 12 + $current_month - $count;
+				 $year  = $current_month > $count ? $current_year : $current_year - 1;
 
-						endif;
-					?>
+				 $count++;
+			?>
+				<?php query_posts( "year={$year}&monthnum={$month}&posts_per_page=-1&orderby=date&order=DESC" ); ?>
 
-				<?php endwhile; ?>
+				<?php if ( have_posts() ) : ?>
 
-			<?php else : ?>
+					<section class="month month-<?php print $month; ?> year-<?php print $year; ?> masonary-grid">
 
-				<?php get_template_part( 'template-parts/content', 'none' ); ?>
+					<?php /* Start the Loop */ ?>
+					<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php endif; ?>
+						<?php
+					//		if ( ! has_category( 'featured' ) ) :
 
-			<?php wp_reset_query(); ?>
+							/*
+							 * Include the Post-Format-specific template for the content.
+							 * If you want to override this in a child theme, then include a file
+							 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+							 */
+							get_template_part( 'template-parts/content', 'front' );
+
+					//		endif;
+						?>
+
+					<?php endwhile; ?>
+
+					</section><!-- .month -->
+
+				<?php endif; ?>
+
+
+
+				<?php wp_reset_query(); ?>
+
+			<?php endwhile; ?>
+
 		</section><!-- #recent-posts-->
 
 <?php get_footer(); ?>
