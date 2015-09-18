@@ -15,3 +15,15 @@
         display: inline-block;
     }
 }
+
+@mixin entry-meta($author) {
+    font-size: $author-font-size;
+    color: $author-font-color;
+
+    #{$author}::before {
+        content: '–';
+        padding: 0 $author-font-size;
+    }
+
+    * { display: inline-block; }
+}

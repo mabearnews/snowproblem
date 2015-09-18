@@ -12,6 +12,7 @@
 
 .element-content, .content-element {
     width: $post-width;
+    padding: 0 $post-content-mobile-padding;
 }
 
 .full-width-container {

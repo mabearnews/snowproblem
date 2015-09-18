@@ -33,7 +33,7 @@
 		</section>
 
 		<section class="credits">
-			<div class="credit"><span>Site Design by Sequoia Snow</span></div>
+			<div class="credit"><span><a href="mailto:sequoia@sequoiasnow.com">Site Design by Sequoia Snow</a></span></div>
 		</section>
 
 	</footer>

@@ -148,8 +148,6 @@ $featured-image-entry-content-text-color: $white;
 
 $featured-post-content-bgcolor: rgba(black, 0.8);
 
-/*============= Featured =============*/
-$breaking-section-bgcolor: lighten($lightgrey, 20);
 
 /*============= General =============*/
 $author-font-color:  $grey;
@@ -183,3 +181,8 @@ $category-colors: (
     'satire':              $lightpurple
 );
 $category-color-default: $lightgrey;
+
+/*============= Front Page =============*/
+$breaking-section-bgcolor: lighten($lightgrey, 20);
+$front-page-month-color-odd: white;
+$front-page-month-color-even: $breaking-section-bgcolor;

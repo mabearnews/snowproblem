@@ -5,7 +5,25 @@ body.home #content {
 }
 
 body.home #recent-posts  {
-    @include column-layout;
+    width: 100%;
+}
+
+body.home #recent-posts .month {
+    width: 100%;
+
+    @include display-flex;
+    @include flex-direction(column);
+    @include justify-content(flex-begin);
+
+    &:nth-child(2n+1) { background-color: $front-page-month-color-odd; }
+    &:nth-child(2n)   { background-color: $front-page-month-color-even; }
+}
+
+body.home #recent-posts .month .category-description {
+    font-family: $font-headings;
+    margin-left: $column-container-margin;
+
+    @include entry-meta('.year-text');
 }
 
 body.home .post img {
