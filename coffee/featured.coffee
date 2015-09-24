@@ -18,7 +18,15 @@ selectedClass = "selected"
     $( document ).ready ->
         # Document has loaded.
 
+        # Dissallow hyperlinks of non selected elements.
+        $( "#{imageContainerSelector} a" ).each ->
+            $( @ ).attr( 'data-href', $( @ ).attr( 'href' ) );
+            $( @ ).attr( 'href', null );
+            $( @ ).css( 'cursor', 'auto' );
+
         $( postSelector ).on 'mouseover', (e) ->
+
+
             id = $( @ ).attr 'id'
             $featuredContent = $("#featured-image .post-featured-image[data-post-id=#{id}]")
 
@@ -27,12 +35,6 @@ selectedClass = "selected"
 
             $featuredContent.addClass selectedClass
             $( @ ).addClass selectedClass
-
-
-        # Dissallow hyperlinks of non selected elements.
-        $( "#featured-image .post-featured-image:not(.selected) a" ).click (e) ->
-            e.preventDefault();
-            alert 'hello'
 
 
         # Set the images in order and inside the feaeturedImageSelector
