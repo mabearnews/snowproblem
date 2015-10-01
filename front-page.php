@@ -71,13 +71,13 @@ get_header(); ?>
 	<section id="recent-posts">
 		<?php
 		/**
-		 * Go back 12 months using php date function
+		 * Go back 5 months using php date function
 		 */
 		 $count = 0;
 		 $current_month = date('m');
 		 $current_year  = date('Y');
 
-		 while ( $count < 12 ):
+		 while ( $count < 5 ):
 
 			 // Establish varaibles to use.
 			 $month = $current_month > $count ? $current_month - $count : 12 + $current_month - $count;

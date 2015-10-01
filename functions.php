@@ -150,6 +150,12 @@ function snowproblem_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	wp_enqueue_scripts( 'snowporblem-ajax-loading', get_template_directory_uri() . '/js/ajax-loading.js' );
+
+	wp_localize_script( 'snowporblem-ajax-loading', 'ajaxpagination', array(
+		'ajaxurl' => admin_url( 'admin-ajax.php' )
+	));
 }
 add_action( 'wp_enqueue_scripts', 'snowproblem_scripts' );
 
