@@ -71,9 +71,12 @@ $all-colors: $white,
 
 /*============= General =============*/
 $current-element-color: $lightgrey;
+$color__text-default: black;
+$color__link-active: $grey;
 
 /*============= Page =============*/
- $page-bgcolor: $white;
+ $page-bgcolor: #F5F5F5;
+ $content-bgcolor: white;
 
 /*============= Navigation Bar =============*/
 
@@ -124,9 +127,13 @@ $multiple-post-background-2: #F3F3F3;
 
 $post-read-more-color: $lightorange;
 
+$ajax-loading-bgcolor: $black;
+$ajax-loading-text-color: $lightblue;
+
 /*============= Single Post =============*/
 $single-post-title-underline-color: $grey;
 $single-post-navigation-link-bgcolor: rgba($lightgrey, 0.4);
+
 
 /*============= Footer =============*/
 $footer-bgcolor: darken($white, 4);
@@ -160,11 +167,6 @@ $comment-content-border-color: $black;
 
 /*============= Categories =============*/
 $category-colors: (
-    'uncategorized':       $lightgrey,
-    'blogs':               $blue,
-    'blogscat':            $blue,
-    'question-of-the-day': $red,
-    'the-stew':            $lightred,
     'entertainment':       $lightblue,
     'markup':              $yellow,
     'movie-reviews':       $darkgreen,
@@ -172,13 +174,18 @@ $category-colors: (
     'theater-reviews':     $lightgreen,
     'extra-point':         $lightyellow,
     'ma-events':           $darkred,
-    'news':                $purple,
     'opinion':             $grey,
     'science':             $darkblue,
     'sports':              $darkyellow,
-    'featured':            $darkpurple,
+    'blogs':               $blue,
+    'blogscat':            $blue,
+    'question-of-the-day': $red,
+    'the-stew':            $lightred,
     'top-stories':         $darkpurple,
-    'satire':              $lightpurple
+    'satire':              $lightpurple,
+    'featured':            $darkpurple,
+    'news':                $purple,
+    'uncategorized':       $lightgrey
 );
 $category-color-default: $lightgrey;
 

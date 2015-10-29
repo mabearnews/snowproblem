@@ -132,39 +132,59 @@ function snowproblem_scripts() {
 
 	wp_enqueue_style( 'snowproblem-style', get_stylesheet_uri() );
 
-	wp_enqueue_style( 'snowproblem-main-style', get_template_directory_uri() . '/stylesheets/main.css' );
+	wp_enqueue_style( 'snowproblem-main-style', get_template_directory_uri() . '/dist/css/main.css' );
 
 	// Adds in support for jQuery.
 	if ( ! is_admin() ) {
         wp_enqueue_script( 'jquery' );
     }
 
-	wp_enqueue_script( 'snowproblem-add-classes', get_template_directory_uri() . '/js/add-classes.js' );
+	// Add in underscore.js
+	wp_enqueue_script( 'snowproblem-underscore', get_template_directory_uri() . '/node_modules/underscore/underscore-min.js' );
 
-	wp_enqueue_script( 'snowproblem-featured', get_template_directory_uri() . '/js/featured.js' );
-
-	wp_enqueue_script( 'snowproblem-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
-	wp_enqueue_script( 'snowproblem-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'snowproblem-main-js', get_template_directory_uri() . '/dist/js/main.js' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_scripts( 'snowporblem-ajax-loading', get_template_directory_uri() . '/js/ajax-loading.js' );
+	// Add support for ajax-loading
+	wp_enqueue_script( 'snowproblem-ajax-loading', get_template_directory_uri() .'/dist/js/ajax.js' );
 
-	wp_localize_script( 'snowporblem-ajax-loading', 'ajaxpagination', array(
-		'ajaxurl' => admin_url( 'admin-ajax.php' )
+	wp_localize_script( 'snowproblem-ajax-loading', 'ajaxinfo', array(
+		'url' => admin_url( 'admin-ajax.php' )
 	));
 }
 add_action( 'wp_enqueue_scripts', 'snowproblem_scripts' );
 
 /**
- * Change the default read more text from an excerpt.
+ * Allow ajax loading of scripts to display content on infinite scroll.
  */
-function snowproblem_excerpt_more( $more ) {
-	return '...';
+function snowproblem_ajax_post_loading() {
+	$data = $_POST['queryParams'];
+
+	$format = isset( $_POST['postFormat'] ) ? $_POST['postFormat'] : '';
+	$skipTo = isset( $_POST['skipTo'] ) ? $_POST['skipTo'] : 0;
+
+	query_posts( $data );
+
+	if ( have_posts() ) {
+		while ( have_posts() ) {
+			the_post();
+
+			if ( $skipTo-- >= 0 ) { continue; }
+
+			get_template_part( 'template-parts/content', $format );
+		}
+	}
+
+	wp_reset_query();
+
+	// Avoid the die, 0 command
+	die();
 }
+add_action( 'wp_ajax_ajax_post_loading', 'snowproblem_ajax_post_loading' );
+add_action( 'wp_ajax_nopriv_ajax_post_loading', 'snowproblem_ajax_post_loading' );
 
 /**
  * Change the html markupp of comments.
@@ -204,6 +224,13 @@ function snowproblem_comment($comment, $args, $depth) {
 }
 
 add_filter('excerpt_more', 'snowproblem_excerpt_more');
+
+/**
+ * Change the default read more text from an excerpt.
+ */
+function snowproblem_excerpt_more( $more ) {
+	return '...';
+}
 
 /**
  * Implement the Custom Header feature.

@@ -33,7 +33,7 @@ body, html {
 #base-wrapper {
     // Allow for smoth 3d transitions.
     @include transform-style(preserve-3d);
-    @include transition(transform $sidebar-display-transition-duration);
+    @include transition(transform $base-element-transform-time);
 
     width: 100vw;
     height: 100vh;

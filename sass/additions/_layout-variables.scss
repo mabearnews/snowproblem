@@ -7,6 +7,8 @@
 /*============= Navigation bar =============*/
 $nav-screen-rotation: 30deg;
 
+$nav-screen-margin: 60px;
+$nav-mobile-margin: 10px;
 $nav-screen-height: 100px;
 $nav-screen-mobile-height: 50px;
 
@@ -64,9 +66,9 @@ $multiple-post-padding-vertical: 50px;
 /*============= Breakpoints =============*/
 $standard-breakpoint: $sidebar-width + $content-min-width;
 $mobile-breakpoint: 420px;
-$nav-hide-breakpoint: 900px;
 $nav-site-title-change-font-breakpoint: 500px;
-$nav-height-breakpoint: 700px;
+$nav-breakpoint-large: 1000px;
+$nav-breakpoint-hidden: 700px;
 
 /*============= Front Page Grid =============*/
 $front-page-grid-post-width: 300px;

@@ -42,6 +42,5 @@
 
 <?php wp_footer(); ?>
 
-</div> <!-- #base-wrapper -->
 </body>
 </html>

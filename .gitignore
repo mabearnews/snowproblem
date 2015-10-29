@@ -1,5 +1,4 @@
 *.log
-.htaccess
 sitemap.xml
 sitemap.xml.gz
 wp-config.php
@@ -20,12 +19,5 @@ node_modules
 
 /readme.html
 /license.txt
-
-stylesheets
-stylesheets/*
-
-js/*
-!js/customizer.js
-!js/skip-link-focus.js
 
 dist

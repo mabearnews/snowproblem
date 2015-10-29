@@ -1,0 +1,11 @@
+a {
+    color: $color__text-default;
+    @include transition( color $time__short );
+    cursor: pointer;
+
+    &:active,
+    &:focus,
+    &:hover {
+        color: $color__link-active;
+    }
+}

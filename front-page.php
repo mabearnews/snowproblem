@@ -21,29 +21,32 @@ get_header(); ?>
 	$loaded_posts = array();
 	?>
 
-	<section id="featured">
-		<section id="featured-image"></section>
-		<section id="featured-posts">
-			<?php query_posts('posts_per_page=4&category_name=featured&orderby=date&order=DESC'); /* Query all posts with 'featured' category. Maximum of 5. */ ?>
-			<?php if ( have_posts() ): ?>
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+	<?php query_posts('posts_per_page=4&category_name=featured&orderby=date&order=DESC'); /* Query all posts with 'featured' category. Maximum of 5. */ ?>
+	<?php if ( have_posts() ): ?>
 
-					<?php
-					/**
-					 * Include content speciffically of the 'featured' type.
-					 */
-					get_template_part( 'template-parts/content', 'featured');
+		<section id="featured">
+			<section id="featured-image"></section>
+			<section id="featured-posts">
+					<?php /* Start the Loop */ ?>
+					<?php while ( have_posts() ) : the_post(); ?>
 
-					// Add the post to already loaded elements
-					$loaded_posts[] = get_the_ID();
-					?>
+						<?php
+						/**
+						 * Include content speciffically of the 'featured' type.
+						 */
+						get_template_part( 'template-parts/content', 'featured');
 
-				<?php endwhile; ?>
-			<?php endif; ?>
-			<?php wp_reset_query(); /* Reset for all posts. */ ?>
-		</section> <!-- #featured-posts -->
-	</section> <!-- #featured -->
+						// Add the post to already loaded elements
+						$loaded_posts[] = get_the_ID();
+						?>
+
+					<?php endwhile; ?>
+
+				<?php wp_reset_query(); /* Reset for all posts. */ ?>
+			</section> <!-- #featured-posts -->
+		</section> <!-- #featured -->
+
+	<?php endif; ?>
 
 	<section id="breaking">
 		<section id="breaking-posts">
@@ -71,13 +74,13 @@ get_header(); ?>
 	<section id="recent-posts">
 		<?php
 		/**
-		 * Go back 5 months using php date function
+		 * Go back 12 months using php date function
 		 */
 		 $count = 0;
 		 $current_month = date('m');
 		 $current_year  = date('Y');
 
-		 while ( $count < 5 ):
+		 while ( $count < 12 ):
 
 			 // Establish varaibles to use.
 			 $month = $current_month > $count ? $current_month - $count : 12 + $current_month - $count;

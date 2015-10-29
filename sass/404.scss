@@ -3,8 +3,8 @@
  * Simply styles the entire 404 page.
  */
 @import "compass";
-@import "additions/*";
-@import "base/*";
+@import "additions/all";
+@import "base/all";
 
 $astronaut-size: 200px;
 

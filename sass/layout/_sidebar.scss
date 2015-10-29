@@ -10,9 +10,6 @@
 
     // Hide for mobile.
     display: none;
-
-    // Allow for transition to show the sidebar.
-    @include transition(all $sidebar-display-transition-duration);
 }
 
 @media (min-width: #{$standard-breakpoint}) {
@@ -28,10 +25,7 @@
         top: 0;
 
         // Position the sidebar to allow the dispaly of the border.
-        right: 0;
-        @include transform(translateX($sidebar-width));
-
-
+        right: -$sidebar-width;
         width: $sidebar-width;
 
         // Make sure the sidebar takes up the apropriate space.
@@ -44,11 +38,11 @@
     }
 
     /* Perform all animations for the display of the sidebar. */
-    #base-wrapper.sidebar-display {
-        @include transform(translateX(-$sidebar-width));
-    }
+    body.sidebar-visible {
 
-    #sidebar.sidebar-display {
-         @include transform(translateX(0));
+        #page, #site-navigation, #sidebar {
+            @include transform(translateX(-$sidebar-width));
+        }
+
     }
 }

@@ -1,0 +1,25 @@
+// Center contnet using a flexbox...
+.center-vertical-child-flex {
+    @include display-flex;
+    @include flex-direction( column );
+    @include justify-content( center );
+}
+
+
+// Center self horizontally
+.center-horizontal-single-margin {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// Center children horizontally
+.center-horizontal-child-align {
+    text-align: center;
+}
+
+// Center children horizontally
+.center-horizontal-child-flex {
+    @include display-flex;
+    @include flex-direction( row );
+    @include justify-content( center );
+}

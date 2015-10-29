@@ -1,0 +1,20 @@
+body.search-results {
+/**
+ * The current page is displaying the result of a search, thus the multi column
+ * layout for a page with multiple posts, applies
+ */
+#search-posts, header {
+    background-color:  $content-bgcolor;
+}
+
+#search-posts {
+    width: 70%;
+}
+
+header {
+    width: 40%;
+}
+
+
+
+}
