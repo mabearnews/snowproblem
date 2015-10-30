@@ -1,3 +1,9 @@
+/**
+ * Character loading idea comes from codepen...
+ *
+ * http://codepen.io/Vampireos/pen/yijwL?editors=110
+ */
+
 .ajax-loading {
     width: 100%;
     background-color: $ajax-loading-bgcolor;
@@ -13,51 +19,48 @@
     position: relative;
     padding: 0;
     margin: 0;
+    text-align: center;
+
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: .5em;
 }
 
-@include keyframes( character-move ) {
-    0% {
-        left:0;
-        opacity:0;
+@include keyframes( character-animate ) {
+    100% {
+        @include text-shadow(
+            0 0 2px rgba(204, 208, 212,0.2),
+            0 0 3px rgba(0, 0, 0, 0.02),
+            0 0 0 rgba(0, 0, 0, 0),
+            0 0 0 rgba(255, 255, 255, 0),
+            0 0 0 rgba(0, 0, 0, 0),
+            0 0 0 rgba(255, 255, 255, 0),
+            0 0 0 rgba(255, 255, 255, 0)
+        );
     }
-	35% {
-        @include transform( rotate( 0 ) );
-
-		left: 41%;
-		opacity:1;
-	}
-	65% {
-        @include transform( rotate( 0 ) );
-
-		left:59%;
-		opacity:1;
-	}
-	100% {
-        @include transform( rotate( -180 ) );
-
-		left:100%;
-		opacity:0;
-	}
 }
 
 
 .ajax-loading .letter {
-    position:absolute;
-    width: 40px;
-    height: 56px;
-    font-size: 35px;
-    opacity:0;
-    font-family:Helvetica, Arial, sans-serif;
+    font-size: 4.5em;
 
-    $time-character-move: 4s;
+    @include text-shadow(
+        0 0 2px rgba(204, 208, 212,0.9),
+        0 15px 25px rgba(0, 0, 0, 0.3),
+        0 -2px 3px rgba(0, 0, 0, 0.1),
+        0 -5px 10px rgba(255, 255, 255, 0.5),
+        0 5px 10px rgba(0, 0, 0, 0.3),
+        0 3px 4px rgba(255, 255, 255, 0.2),
+        0 0 20px rgba(255, 255, 255, 0.45));
 
-    @include animation( character-move $time-character-move linear infinite );
+}
 
-    @include transform( rotate( 180deg ) );
+$time-character-move: 1.2s;
+.ajax-loading.inview .letter {
+    @include animation( character-animate $time-character-move ease-in-out infinite alternate );
+}
 
-    @for $i from 1 through 10 {
-        &:nth-child( #{$i} ) {
-            @include animation-delay( 0.2s * $i );
-        }
+@for $i from 1 through 10 {
+    .ajax-loading .letter:nth-child( #{$i} ) {
+        @include animation-delay( 0.15s * $i );
     }
 }

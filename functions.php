@@ -164,11 +164,13 @@ add_action( 'wp_enqueue_scripts', 'snowproblem_scripts' );
  */
 function snowproblem_ajax_post_loading() {
 	$data = $_POST['queryParams'];
-	$data['posts_per_page'] = -1;
 
 	$format = isset( $_POST['postFormat'] ) ? $_POST['postFormat'] : '';
 	$skipTo = isset( $_POST['skipTo'] ) ? $_POST['skipTo'] : 0;
 	$post_number = isset( $_POST['postNumber'] ) ? $_POST['postNumber'] : PHP_INT_MAX;
+
+
+	$data['posts_per_page'] = $skipTo + $post_number + 3;
 
 	query_posts( $data );
 

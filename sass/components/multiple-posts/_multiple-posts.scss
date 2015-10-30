@@ -1,18 +1,18 @@
-body.search-results {
+body.search-results, body.archive, body.category {
 /**
  * The current page is displaying the result of a search, thus the multi column
  * layout for a page with multiple posts, applies
  */
 
 
-#search-posts {
+.loaded-posts {
     @extend .center-horizontal-single-margin;
     width: 100%;
     max-width: $multiple-post-max-width;
     padding: $grid-gap;
 }
 
-#search-posts article.post {
+.loaded-posts article.post {
     margin-bottom: $grid-gap;
     background-color: $content-bgcolor;
     width: 100%;

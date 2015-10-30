@@ -6,33 +6,49 @@
      * October 28, 2015 Sequoia Snow
      */
     $.fn.ajaxLoadPosts = function( params, loaded ) {
+        var paramsString = false;
+
+        // Check if params are a function.
+        if ( typeof params === 'undefined' ) {
+            var attrVal = $( this ).attr( 'ajax-load-posts' );
+
+            if ( attrVal.charAt(0) == '[' || attrVal.charAt(0) == '{' ) {
+                params = JSON.parse( attrVal );
+            } else {
+                params = attrVal;
+            }
+        }
+
         // Check if loaded is a function.
         if ( typeof loaded === 'undefined' ) {
             loaded = function() { };
         }
 
-        var s = _.extend({
+        var s = {
             scrollContainer: $( '#page' ),
             postNumber: 10
-        }, params);
+        };
+
+        if ( ! paramsString ) {
+            s = _.extend( s, params );
+        }
 
         // Create a loading animations
         this.append($(
             '<div class="ajax-loading">'+
                 '<div class="letters">'+
-                    '<div class="letter">G</div>'+
-                    '<div class="letter">N</div>'+
-                    '<div class="letter">I</div>'+
-                    '<div class="letter">D</div>'+
-                    '<div class="letter">A</div>'+
-                    '<div class="letter">O</div>'+
-                    '<div class="letter">L</div>'+
+                    '<span class="letter">L</span>'+
+                    '<span class="letter">O</span>'+
+                    '<span class="letter">A</span>'+
+                    '<span class="letter">D</span>'+
+                    '<span class="letter">I</span>'+
+                    '<span class="letter">N</span>'+
+                    '<span class="letter">G</span>'+
                 '</div>'+
             '</div>'
         ));
 
         var ajaxLoadingDiv = this.find('.ajax-loading').first();
-
 
         var t = this;
 
@@ -41,12 +57,17 @@
         var refreshPosts = function() {
             console.log( 'Fetching more data' );
 
-            var queryParams = _.clone( s );
+            var queryParams;
 
-            delete queryParams.postFormat;
-            delete queryParams.scrollContainer;
-            delete queryParams.postNumber;
+            if ( paramsString ) {
+                queryParams = paramsString;
+            } else {
+                queryParams = _.clone( s );
 
+                delete queryParams.postFormat;
+                delete queryParams.scrollContainer;
+                delete queryParams.postNumber;
+            }
 
             $.ajax({
         		url: ajaxinfo.url,
@@ -59,8 +80,6 @@
                     queryParams: queryParams
         		},
         		success: function( result ) {
-                    console.log( result );
-
                     r = $( result );
 
                     var resultNumb = $( '<div></div>' ).append( r.clone() ).children().length;
@@ -77,6 +96,7 @@
                     console.log( resultNumb + ' More posts loaded' );
 
                     ajaxLoadingDiv.before( r );
+                    ajaxLoadingDiv.removeClass( 'inview' );
 
                     numberReceived += s.postNumber;
 
@@ -104,12 +124,12 @@
         var checkShouldRefresh = function(e, isInView) {
 
             if ( isInView ) {
+                $( this ).addClass( 'inview' );
+
                 console.log( 'Attempting Data Fetch...' );
                 refreshPosts();
             }
         };
-
-        refreshPosts();
 
         $( ajaxLoadingDiv ).bind( 'inview', checkShouldRefresh );
     }
@@ -121,6 +141,6 @@
  */
 jQuery(document).ready(function( $ ) {
     $( '*[ajax-load-posts]' ).each(function() {
-        $( this ).ajaxLoadPosts( JSON.parse( $( this ).attr( 'ajax-load-posts' ) ) );
+        $( this ).ajaxLoadPosts();
     });
 });

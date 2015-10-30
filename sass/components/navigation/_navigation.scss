@@ -61,5 +61,5 @@
 }
 
 @media screen and (max-width: $nav-breakpoint-hidden) and (max-height: $nav-breakpoint-hidden) {
-    #site-navigation { height: $nav-screen-height / 2; }
+    #site-navigation, #content-nav-bar-padding { height: $nav-screen-height / 2; }
 }

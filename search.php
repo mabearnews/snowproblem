@@ -28,7 +28,7 @@ get_header(); ?>
 			);
 			?>
 
-			<section id="search-posts" ajax-load-posts='<?php echo json_encode( $queryattrs ); ?>'></section> <!-- #search-posts -->
+			<section id="search-posts" class="loaded-posts" ajax-load-posts='<?php echo json_encode( $queryattrs ); ?>'></section> <!-- #search-posts -->
 
 		<?php endif; ?>
 

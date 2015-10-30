@@ -234,7 +234,7 @@ a:active, a:focus, a:hover {
   justify-content: center;
 }
 
-.center-horizontal-single-margin, body.search-results #search-posts {
+.center-horizontal-single-margin, body.search-results .loaded-posts, body.archive .loaded-posts, body.category .loaded-posts {
   margin-left: auto;
   margin-right: auto;
 }
@@ -1042,7 +1042,7 @@ table.animated thead::after {
   }
 }
 @media screen and (max-width: 700px) and (max-height: 700px) {
-  #site-navigation {
+  #site-navigation, #content-nav-bar-padding {
     height: 50px;
   }
 }
@@ -1338,11 +1338,16 @@ ul#primary-menu-items > li {
   display: block;
 }
 
+/**
+ * Character loading idea comes from codepen...
+ *
+ * http://codepen.io/Vampireos/pen/yijwL?editors=110
+ */
 .ajax-loading {
   width: 100%;
-  background-color: #34495e;
+  background-color: #F5F5F5;
   height: 20vw;
-  color: #1abc9c;
+  color: transparent;
 }
 
 .ajax-loading .letters {
@@ -1350,179 +1355,124 @@ ul#primary-menu-items > li {
   position: relative;
   padding: 0;
   margin: 0;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: .5em;
 }
 
-@-moz-keyframes character-move {
-  0% {
-    left: 0;
-    opacity: 0;
-  }
-  35% {
-    -moz-transform: rotate(0);
-    transform: rotate(0);
-    left: 41%;
-    opacity: 1;
-  }
-  65% {
-    -moz-transform: rotate(0);
-    transform: rotate(0);
-    left: 59%;
-    opacity: 1;
-  }
+@-moz-keyframes character-animate {
   100% {
-    -moz-transform: rotate(-180);
-    transform: rotate(-180);
-    left: 100%;
-    opacity: 0;
+    text-shadow: 0 0 2px rgba(204, 208, 212, 0.2), 0 0 3px rgba(0, 0, 0, 0.02), 0 0 0 transparent, 0 0 0 rgba(255, 255, 255, 0), 0 0 0 transparent, 0 0 0 rgba(255, 255, 255, 0), 0 0 0 rgba(255, 255, 255, 0);
   }
 }
-@-webkit-keyframes character-move {
-  0% {
-    left: 0;
-    opacity: 0;
-  }
-  35% {
-    -webkit-transform: rotate(0);
-    transform: rotate(0);
-    left: 41%;
-    opacity: 1;
-  }
-  65% {
-    -webkit-transform: rotate(0);
-    transform: rotate(0);
-    left: 59%;
-    opacity: 1;
-  }
+@-webkit-keyframes character-animate {
   100% {
-    -webkit-transform: rotate(-180);
-    transform: rotate(-180);
-    left: 100%;
-    opacity: 0;
+    text-shadow: 0 0 2px rgba(204, 208, 212, 0.2), 0 0 3px rgba(0, 0, 0, 0.02), 0 0 0 transparent, 0 0 0 rgba(255, 255, 255, 0), 0 0 0 transparent, 0 0 0 rgba(255, 255, 255, 0), 0 0 0 rgba(255, 255, 255, 0);
   }
 }
-@keyframes character-move {
-  0% {
-    left: 0;
-    opacity: 0;
-  }
-  35% {
-    -moz-transform: rotate(0);
-    -ms-transform: rotate(0);
-    -webkit-transform: rotate(0);
-    transform: rotate(0);
-    left: 41%;
-    opacity: 1;
-  }
-  65% {
-    -moz-transform: rotate(0);
-    -ms-transform: rotate(0);
-    -webkit-transform: rotate(0);
-    transform: rotate(0);
-    left: 59%;
-    opacity: 1;
-  }
+@keyframes character-animate {
   100% {
-    -moz-transform: rotate(-180);
-    -ms-transform: rotate(-180);
-    -webkit-transform: rotate(-180);
-    transform: rotate(-180);
-    left: 100%;
-    opacity: 0;
+    text-shadow: 0 0 2px rgba(204, 208, 212, 0.2), 0 0 3px rgba(0, 0, 0, 0.02), 0 0 0 transparent, 0 0 0 rgba(255, 255, 255, 0), 0 0 0 transparent, 0 0 0 rgba(255, 255, 255, 0), 0 0 0 rgba(255, 255, 255, 0);
   }
 }
 .ajax-loading .letter {
-  position: absolute;
-  width: 40px;
-  height: 56px;
-  font-size: 35px;
-  opacity: 0;
-  font-family: Helvetica, Arial, sans-serif;
-  -moz-animation: character-move 4s linear infinite;
-  -webkit-animation: character-move 4s linear infinite;
-  animation: character-move 4s linear infinite;
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
+  font-size: 4.5em;
+  text-shadow: 0 0 2px rgba(204, 208, 212, 0.9), 0 15px 25px rgba(0, 0, 0, 0.3), 0 -2px 3px rgba(0, 0, 0, 0.1), 0 -5px 10px rgba(255, 255, 255, 0.5), 0 5px 10px rgba(0, 0, 0, 0.3), 0 3px 4px rgba(255, 255, 255, 0.2), 0 0 20px rgba(255, 255, 255, 0.45);
 }
+
+.ajax-loading.inview .letter {
+  -moz-animation: character-animate 1.2s ease-in-out infinite alternate;
+  -webkit-animation: character-animate 1.2s ease-in-out infinite alternate;
+  animation: character-animate 1.2s ease-in-out infinite alternate;
+}
+
 .ajax-loading .letter:nth-child(1) {
-  -moz-animation-delay: 0.2s;
-  -webkit-animation-delay: 0.2s;
-  animation-delay: 0.2s;
+  -moz-animation-delay: 0.15s;
+  -webkit-animation-delay: 0.15s;
+  animation-delay: 0.15s;
 }
+
 .ajax-loading .letter:nth-child(2) {
-  -moz-animation-delay: 0.4s;
-  -webkit-animation-delay: 0.4s;
-  animation-delay: 0.4s;
+  -moz-animation-delay: 0.3s;
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
 }
+
 .ajax-loading .letter:nth-child(3) {
+  -moz-animation-delay: 0.45s;
+  -webkit-animation-delay: 0.45s;
+  animation-delay: 0.45s;
+}
+
+.ajax-loading .letter:nth-child(4) {
   -moz-animation-delay: 0.6s;
   -webkit-animation-delay: 0.6s;
   animation-delay: 0.6s;
 }
-.ajax-loading .letter:nth-child(4) {
-  -moz-animation-delay: 0.8s;
-  -webkit-animation-delay: 0.8s;
-  animation-delay: 0.8s;
-}
+
 .ajax-loading .letter:nth-child(5) {
-  -moz-animation-delay: 1s;
-  -webkit-animation-delay: 1s;
-  animation-delay: 1s;
+  -moz-animation-delay: 0.75s;
+  -webkit-animation-delay: 0.75s;
+  animation-delay: 0.75s;
 }
+
 .ajax-loading .letter:nth-child(6) {
+  -moz-animation-delay: 0.9s;
+  -webkit-animation-delay: 0.9s;
+  animation-delay: 0.9s;
+}
+
+.ajax-loading .letter:nth-child(7) {
+  -moz-animation-delay: 1.05s;
+  -webkit-animation-delay: 1.05s;
+  animation-delay: 1.05s;
+}
+
+.ajax-loading .letter:nth-child(8) {
   -moz-animation-delay: 1.2s;
   -webkit-animation-delay: 1.2s;
   animation-delay: 1.2s;
 }
-.ajax-loading .letter:nth-child(7) {
-  -moz-animation-delay: 1.4s;
-  -webkit-animation-delay: 1.4s;
-  animation-delay: 1.4s;
-}
-.ajax-loading .letter:nth-child(8) {
-  -moz-animation-delay: 1.6s;
-  -webkit-animation-delay: 1.6s;
-  animation-delay: 1.6s;
-}
+
 .ajax-loading .letter:nth-child(9) {
-  -moz-animation-delay: 1.8s;
-  -webkit-animation-delay: 1.8s;
-  animation-delay: 1.8s;
-}
-.ajax-loading .letter:nth-child(10) {
-  -moz-animation-delay: 2s;
-  -webkit-animation-delay: 2s;
-  animation-delay: 2s;
+  -moz-animation-delay: 1.35s;
+  -webkit-animation-delay: 1.35s;
+  animation-delay: 1.35s;
 }
 
-body.search-results {
+.ajax-loading .letter:nth-child(10) {
+  -moz-animation-delay: 1.5s;
+  -webkit-animation-delay: 1.5s;
+  animation-delay: 1.5s;
+}
+
+body.search-results, body.archive, body.category {
   /**
    * The current page is displaying the result of a search, thus the multi column
    * layout for a page with multiple posts, applies
    */
 }
-body.search-results #search-posts {
+body.search-results .loaded-posts, body.archive .loaded-posts, body.category .loaded-posts {
   width: 100%;
   max-width: 700px;
   padding: 20px;
 }
-body.search-results #search-posts article.post {
+body.search-results .loaded-posts article.post, body.archive .loaded-posts article.post, body.category .loaded-posts article.post {
   margin-bottom: 20px;
   background-color: white;
   width: 100%;
   padding: 0;
 }
-body.search-results #search-posts article.post .entry-image {
+body.search-results .loaded-posts article.post .entry-image, body.archive .loaded-posts article.post .entry-image, body.category .loaded-posts article.post .entry-image {
   width: 100%;
   height: auto;
   margin: 0;
   padding: 0;
 }
-body.search-results #search-posts article.post .post-content {
+body.search-results .loaded-posts article.post .post-content, body.archive .loaded-posts article.post .post-content, body.category .loaded-posts article.post .post-content {
   padding: 20px;
 }
-body.search-results header.page-header {
+body.search-results header.page-header, body.archive header.page-header, body.category header.page-header {
   width: 100%;
   text-align: center;
 }
