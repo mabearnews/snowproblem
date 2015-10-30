@@ -12,9 +12,8 @@
         }
 
         var s = _.extend({
-            postFormat: 'search',
             scrollContainer: $( '#page' ),
-            posts_per_page: 10
+            postNumber: 10
         }, params);
 
         // Create a loading animations
@@ -32,16 +31,21 @@
             '</div>'
         ));
 
+        var ajaxLoadingDiv = this.find('.ajax-loading').first();
+
 
         var t = this;
 
         var numberReceived = 0;
 
         var refreshPosts = function() {
+            console.log( 'Fetching more data' );
+
             var queryParams = _.clone( s );
 
             delete queryParams.postFormat;
             delete queryParams.scrollContainer;
+            delete queryParams.postNumber;
 
 
             $.ajax({
@@ -51,38 +55,63 @@
         			action: 'ajax_post_loading',
                     postFormat: s.postFormat,
                     skipTo: numberReceived,
+                    postNumber: s.postNumber,
                     queryParams: queryParams
         		},
         		success: function( result ) {
+                    console.log( result );
+
+                    r = $( result );
+
+                    var resultNumb = $( '<div></div>' ).append( r.clone() ).children().length;
 
                     // Check if the response is actually valid
                     if ( ! result.length ) {
-                        $( s.scrollContainer ).unbind( 'scroll', checkShouldRefresh );
+                        console.log( 'No more posts to load' );
+
+                        ajaxLoadingDiv.unbind( 'inview', checkShouldRefresh );
+                        ajaxLoadingDiv.remove();
+                        return;
                     }
 
-                    t.find('.ajax-loading').first().before( $( result ) );
+                    console.log( resultNumb + ' More posts loaded' );
 
-                    numberReceived += s.posts_per_page;
+                    ajaxLoadingDiv.before( r );
+
+                    numberReceived += s.postNumber;
 
                     // Call loaded callback, if available.
                     loaded.call( t );
-        		}
+
+
+                    if ( resultNumb < s.postNumber ) {
+                        // End of cycle, not all children asked for returned.
+                        ajaxLoadingDiv.unbind( 'inview', checkShouldRefresh );
+                        ajaxLoadingDiv.remove();
+
+                        console.log( 'No more posts to load' );
+                    }
+        		},
+                error: function( error ) {
+                    console.log( 'Data Fetch failed' + error );
+                }
         	});
         };
 
         /**
          * Ensures that the ajax loading should indeed proceed.
          */
-        var checkShouldRefresh = function() {
-            if ( $( this ).scrollTop() + $( this ).innerHeight() >= this.scrollHeight ) {
-                // End reached...
+        var checkShouldRefresh = function(e, isInView) {
+
+            if ( isInView ) {
+                console.log( 'Attempting Data Fetch...' );
                 refreshPosts();
             }
         };
 
         refreshPosts();
 
-        $( s.scrollContainer ).bind( 'scroll', checkShouldRefresh );
+        $( ajaxLoadingDiv ).bind( 'inview', checkShouldRefresh );
     }
 })(jQuery);
 

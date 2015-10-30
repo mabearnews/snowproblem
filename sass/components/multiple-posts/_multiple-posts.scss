@@ -3,18 +3,38 @@ body.search-results {
  * The current page is displaying the result of a search, thus the multi column
  * layout for a page with multiple posts, applies
  */
-#search-posts, header {
-    background-color:  $content-bgcolor;
-}
+
 
 #search-posts {
-    width: 70%;
+    @extend .center-horizontal-single-margin;
+    width: 100%;
+    max-width: $multiple-post-max-width;
+    padding: $grid-gap;
 }
 
-header {
-    width: 40%;
+#search-posts article.post {
+    margin-bottom: $grid-gap;
+    background-color: $content-bgcolor;
+    width: 100%;
+    padding: 0;
+
+    .entry-image {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+    }
+
+    .post-content {
+        padding: $grid-gap;
+    }
 }
 
+header.page-header {
+    width: 100%;
+
+    text-align: center;
+}
 
 
 }

@@ -142,6 +142,8 @@ function snowproblem_scripts() {
 	// Add in underscore.js
 	wp_enqueue_script( 'snowproblem-underscore', get_template_directory_uri() . '/node_modules/underscore/underscore-min.js' );
 
+	wp_enqueue_script( 'snowproblem-plugins-js', get_template_directory_uri() . '/dist/js/plugins.js' );
+
 	wp_enqueue_script( 'snowproblem-main-js', get_template_directory_uri() . '/dist/js/main.js' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -162,9 +164,11 @@ add_action( 'wp_enqueue_scripts', 'snowproblem_scripts' );
  */
 function snowproblem_ajax_post_loading() {
 	$data = $_POST['queryParams'];
+	$data['posts_per_page'] = -1;
 
 	$format = isset( $_POST['postFormat'] ) ? $_POST['postFormat'] : '';
 	$skipTo = isset( $_POST['skipTo'] ) ? $_POST['skipTo'] : 0;
+	$post_number = isset( $_POST['postNumber'] ) ? $_POST['postNumber'] : PHP_INT_MAX;
 
 	query_posts( $data );
 
@@ -172,7 +176,8 @@ function snowproblem_ajax_post_loading() {
 		while ( have_posts() ) {
 			the_post();
 
-			if ( $skipTo-- >= 0 ) { continue; }
+			if ( --$skipTo >= 0 ) { continue; }
+			if ( $post_number-- <= 0 ) {  break; };
 
 			get_template_part( 'template-parts/content', $format );
 		}
@@ -180,7 +185,7 @@ function snowproblem_ajax_post_loading() {
 
 	wp_reset_query();
 
-	// Avoid the die, 0 command
+	// Avoid the die 0 command
 	die();
 }
 add_action( 'wp_ajax_ajax_post_loading', 'snowproblem_ajax_post_loading' );

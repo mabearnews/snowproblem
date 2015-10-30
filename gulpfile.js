@@ -34,6 +34,10 @@ gulp.task('js', function() {
     gulp.src('./js/ajax/*.js')
         .pipe(concat('ajax.js'))
         .pipe(gulp.dest('dist/js'));
+
+    gulp.src('./js/plugins/*.js')
+        .pipe(concat('plugins.js'))
+        .pipe(gulp.dest('dist/js'));
 });
 
 gulp.task('watch', function() {

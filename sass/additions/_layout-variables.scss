@@ -62,6 +62,7 @@ $single-post-featured-image-height: 60vh;
 /*============= Multiple Posts =============*/
 $multiple-post-background-rotation: 4deg;
 $multiple-post-padding-vertical: 50px;
+$multiple-post-max-width: 700px;
 
 /*============= Breakpoints =============*/
 $standard-breakpoint: $sidebar-width + $content-min-width;
@@ -73,6 +74,7 @@ $nav-breakpoint-hidden: 700px;
 /*============= Front Page Grid =============*/
 $front-page-grid-post-width: 300px;
 $front-page-grid-post-gap: 20px;
+$grid-gap: 20px;
 
 /*============= Footer =============*/
 $column-widget-width: $front-page-grid-post-width;
