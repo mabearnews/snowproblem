@@ -287,98 +287,98 @@ a:active, a:focus, a:hover {
 }
 @-moz-keyframes pulse {
   0% {
-    color: #e74c3c;
+    color: #1abc9c;
   }
   20% {
     color: #c0392b;
   }
   30% {
-    color: #2ecc71;
+    color: #f39c12;
   }
   40% {
-    color: #9b59b6;
+    color: #d35400;
   }
   50% {
-    color: #c0392b;
+    color: #2980b9;
   }
   60% {
-    color: #95a5a6;
+    color: #f1c40f;
   }
   70% {
-    color: #27ae60;
-  }
-  80% {
-    color: #3498db;
-  }
-  90% {
     color: #7f8c8d;
   }
+  80% {
+    color: #f1c40f;
+  }
+  90% {
+    color: white;
+  }
   100% {
-    color: #e74c3c;
+    color: #1abc9c;
   }
 }
 @-webkit-keyframes pulse {
   0% {
-    color: #e74c3c;
+    color: #1abc9c;
   }
   20% {
-    color: #27ae60;
+    color: #9b59b6;
   }
   30% {
-    color: #e74c3c;
+    color: #f1c40f;
   }
   40% {
-    color: #9b59b6;
+    color: #f1c40f;
   }
   50% {
     color: #9b59b6;
   }
   60% {
-    color: #95a5a6;
+    color: #16a085;
   }
   70% {
-    color: #2980b9;
+    color: #f1c40f;
   }
   80% {
-    color: #9b59b6;
+    color: #f1c40f;
   }
   90% {
     color: #f1c40f;
   }
   100% {
-    color: #e74c3c;
+    color: #1abc9c;
   }
 }
 @keyframes pulse {
   0% {
-    color: #e74c3c;
+    color: #1abc9c;
   }
   20% {
     color: white;
   }
   30% {
-    color: #e74c3c;
+    color: #9b59b6;
   }
   40% {
-    color: #e67e22;
+    color: #9b59b6;
   }
   50% {
-    color: #27ae60;
+    color: #9b59b6;
   }
   60% {
-    color: white;
+    color: #9b59b6;
   }
   70% {
-    color: #16a085;
+    color: #9b59b6;
   }
   80% {
-    color: #16a085;
+    color: #e74c3c;
   }
   90% {
-    color: #e74c3c;
+    color: #9b59b6;
   }
   100% {
-    color: #e74c3c;
+    color: #1abc9c;
   }
 }
 #message {

@@ -87,7 +87,14 @@ $nav-hovered-link: $darkgrey;
 
 /* Relates to the revealable side of the site. */
 $nav-base-background-color: $black;
-$nav-colors: $orange, $blue, $yellow, $red, $grey, $lightgreen, $black;
+$nav-colors: (
+    'orange': $orange,
+    'blue': $blue,
+    'yellow': $yellow,
+    'red': $red,
+    'grey': $grey,
+    'green': $lightgreen
+);
 
 /* Relates to the submenu displayed in the revealable navigation bar. */
 $nav-submenu-bgcolor: rgba($lightgrey, 0.5);
@@ -101,6 +108,8 @@ $nav-toggle-line-color: $black;
 /* Relates to the menu on mobile devices and the colors for these devices. */
 $nav-mobile-more-text-color: $white;
 $nav-mobile-more-submenu-backgorund: transparent;
+
+$nav-more-bgcolor: $orange;
 
 /*============= Sidebar =============*/
 $sidebar-bgcolor: $red;
@@ -136,11 +145,11 @@ $single-post-navigation-link-bgcolor: rgba($lightgrey, 0.4);
 
 
 /*============= Footer =============*/
-$footer-bgcolor: darken($white, 4);
+$footer-bgcolor: $nav-bgcolor;
 $column-text-color: $white;
 
 $footer-credit-text-color: darken($darkgrey, 20);
-$footer-credit-bgcolor: darken($footer-bgcolor, 20);
+$footer-credit-bgcolor: $nav-bgcolor;
 
 /*============= Featured =============*/
 $featured-post-bgcolor: rgba(black, 0.4);

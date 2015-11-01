@@ -11,6 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> data-post-type="<?php print get_post_type(); ?>">
 	<?php if ( has_post_thumbnail() ) : ?>
+
 		<section class="featured-image">
 
 			<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
@@ -26,7 +27,7 @@
 	<div class="center-element">
 
 		<section class="post-content">
-			<header class="entry-header">
+			<header class="entry-header entry-section">
 				<?php the_title( '<h1 class="entry-title add-animated">', '</h1>' ); ?>
 
 				<div class="entry-meta">
@@ -34,7 +35,7 @@
 				</div><!-- .entry-meta -->
 			</header><!-- .entry-header -->
 
-			<div class="entry-content">
+			<div class="entry-content entry-section">
 				<?php the_content(); ?>
 				<?php
 					wp_link_pages( array(
@@ -44,7 +45,7 @@
 				?>
 			</div><!-- .entry-content -->
 
-			<footer class="entry-footer">
+			<footer class="entry-footer entry-section">
 				<?php snowproblem_entry_footer(); ?>
 			</footer><!-- .entry-footer -->
 		</section>

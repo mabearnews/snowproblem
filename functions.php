@@ -169,8 +169,11 @@ function snowproblem_ajax_post_loading() {
 	$skipTo = isset( $_POST['skipTo'] ) ? $_POST['skipTo'] : 0;
 	$post_number = isset( $_POST['postNumber'] ) ? $_POST['postNumber'] : PHP_INT_MAX;
 
-
-	$data['posts_per_page'] = $skipTo + $post_number + 3;
+	if ( is_array( $data ) ) {
+		$data['posts_per_page'] = $skipTo + $post_number + 3;
+	} else {
+		$data .= '&posts_per_page=' . ($skipTo + $post_number + 3);
+	}
 
 	query_posts( $data );
 

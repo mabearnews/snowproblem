@@ -21,7 +21,7 @@ get_header(); ?>
 				?>
 			</header><!-- .page-header -->
 
-			<section id="category-results" class="loaded-posts" ajax-load-posts="<?php print $query_stirng; ?>"></section>
+			<section id="category-results" class="loaded-posts" ajax-load-posts="<?php print $query_string; ?>"></section>
 
 		<?php endif; ?>
 

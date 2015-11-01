@@ -42,6 +42,13 @@
 
         section.post-content {
             @extend .element-content;
+
+            .entry-section {
+                padding: $grid-gap;
+                margin-top: $grid-gap;
+                margin-bottom: $grid-gap;
+                background-color: $content-bgcolor;
+            }
         }
 
 
@@ -57,28 +64,6 @@
                 position: relative;
                 width: auto;
                 display: inline-block;
-            }
-
-            .entry-title::after {
-                content: '';
-                // Add animation for the effect
-                @include transition(all $single-post-title-underline-transition);
-
-                // Position at bottom of header, like an underline.
-                position: absolute;
-                bottom: -$single-post-title-underline-height;
-                height: $single-post-title-underline-height;
-                left: 50%;
-
-                // Show on page load.
-                width: 0;
-
-                background-color: $single-post-title-underline-color;
-            }
-
-            .entry-title.animated::after {
-                left: -($single-post-title-underline-width - 100%) / 2;
-                width: $single-post-title-underline-width;
             }
         }
     }

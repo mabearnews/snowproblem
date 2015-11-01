@@ -6,36 +6,43 @@
      * October 28, 2015 Sequoia Snow
      */
     $.fn.ajaxLoadPosts = function( params, loaded ) {
-        var paramsString = false;
+        var paramsIsString = false;
 
         // Check if params are a function.
         if ( typeof params === 'undefined' ) {
-            var attrVal = $( this ).attr( 'ajax-load-posts' );
+            var attrVal = this.attr( 'ajax-load-posts' );
 
             if ( attrVal.charAt(0) == '[' || attrVal.charAt(0) == '{' ) {
                 params = JSON.parse( attrVal );
             } else {
                 params = attrVal;
+                paramsIsString = true;
             }
         }
 
         // Check if loaded is a function.
         if ( typeof loaded === 'undefined' ) {
-            loaded = function() { };
+            if ( this.data( 'ajax-load-posts-done' ) ) {
+                loaded = this.data( 'ajax-load-posts-done' );
+            } else {
+                loaded = function() {};
+            }
+
         }
+
 
         var s = {
             scrollContainer: $( '#page' ),
             postNumber: 10
         };
 
-        if ( ! paramsString ) {
+        if ( ! paramsIsString ) {
             s = _.extend( s, params );
         }
 
         // Create a loading animations
         this.append($(
-            '<div class="ajax-loading">'+
+            '<div class="ajax-loading column">'+
                 '<div class="letters">'+
                     '<span class="letter">L</span>'+
                     '<span class="letter">O</span>'+
@@ -59,8 +66,8 @@
 
             var queryParams;
 
-            if ( paramsString ) {
-                queryParams = paramsString;
+            if ( paramsIsString ) {
+                queryParams = params;
             } else {
                 queryParams = _.clone( s );
 
@@ -80,6 +87,8 @@
                     queryParams: queryParams
         		},
         		success: function( result ) {
+                    console.log( result );
+
                     r = $( result );
 
                     var resultNumb = $( '<div></div>' ).append( r.clone() ).children().length;

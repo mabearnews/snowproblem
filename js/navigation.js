@@ -25,10 +25,12 @@ PrimaryNav.toggleState = function( newState ) {
         // Add in the finnal class for the removal of the more navigation bar.
         this.elems.base.addClass( this.props.visibleEndingClass );
 
-        var ts = this.elems.moreNav.css( 'transition-duration' );
+        var ts = $( '#page' ).css( 'transition-duration' );
+        ts = ts.substring(0, ts.length - 1);
         setTimeout( function() {
             this.elems.base.removeClass( this.props.visibleEndingClass );
-        }.bind( this ), parseInt( ts, 10 ) * 1000 );
+        }.bind( this ), 1.4 * ts * 1000 );
+
     }
 };
 
@@ -147,7 +149,7 @@ PrimaryNav.addListeners = function() {
         t.toggleState();
 
         if ( t.state === true ) {
-            t.changeContent( t.elems.primaryMenu.clone() );
+            t.changeContent( t.elems.primaryMenu.children( 'ul' ).first().clone() );
             t.allowDestroy( true );
         }
     });

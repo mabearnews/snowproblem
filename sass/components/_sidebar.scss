@@ -9,7 +9,7 @@
     padding-top: $nav-screen-height / 2 - $nav-toggle-height / 2;
 
     background-color: $sidebar-bgcolor;
-    color: $sidebar-text-color;
+    &, * { color: $sidebar-text-color; }
 }
 
 #sidebar ul {

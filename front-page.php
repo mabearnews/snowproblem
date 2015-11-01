@@ -71,68 +71,15 @@ get_header(); ?>
 		</section>
 	</section>
 
-	<section id="recent-posts">
-		<?php
+	<?php
 		/**
-		 * Go back 12 months using php date function
+		 * Define the paramaters for the recent posts query.
 		 */
-		 $count = 0;
-		 $current_month = date('m');
-		 $current_year  = date('Y');
-
-		 while ( $count < 12 ):
-
-			 // Establish varaibles to use.
-			 $month = $current_month > $count ? $current_month - $count : 12 + $current_month - $count;
-			 $year  = $current_month > $count ? $current_year : $current_year - 1;
-
-			 $date_obj = DateTime::createFromFormat( '!m', $month );
-
-
-			 $count++;
-		?>
-			<?php query_posts( "year={$year}&monthnum={$month}&posts_per_page=-1&orderby=date&order=DESC" ); ?>
-
-			<?php if ( have_posts() ) : ?>
-
-				<section class="month month-<?php print $month; ?> year-<?php print $year; ?> masonary-grid">
-					<div class="category-description">
-						<span class="month-text"><?php print $date_obj->format( 'F' ); ?></span>
-						<span class="year-text"><?php print $year; ?></span>
-					</div>
-
-					<div class="column-container">
-
-						<?php /* Start the Loop */ ?>
-						<?php while ( have_posts() ) : the_post(); ?>
-
-							<?php
-								if ( ! in_array( get_the_ID(), $loaded_posts ) ) :
-
-								/*
-								 * Include the Post-Format-specific template for the content.
-								 * If you want to override this in a child theme, then include a file
-								 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-								 */
-								get_template_part( 'template-parts/content', 'front' );
-
-								endif;
-							?>
-
-						<?php endwhile; ?>
-
-					</div><!-- .column-container -->
-
-				</section><!-- .month -->
-
-			<?php endif; ?>
-
-
-
-			<?php wp_reset_query(); ?>
-
-		<?php endwhile; ?>
-
-	</section><!-- #recent-posts-->
-
+		 $params = array(
+			 'orderby' => 'data',
+			 'order'   => 'DESC',
+			 'postFormat' => 'front',
+		 );
+	?>
+	<section id="recent-posts" class="snowgrid" ajax-load-posts='<?php echo json_encode( $params ); ?>' first-large="2"></section>
 <?php get_footer(); ?>
