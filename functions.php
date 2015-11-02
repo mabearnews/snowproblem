@@ -42,7 +42,7 @@ function snowproblem_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
+	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary Menu', 'snowproblem' ),
 		'social'  => esc_html__( 'Social Menu', 'snowproblem'),
@@ -77,6 +77,34 @@ function snowproblem_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+
+	/**
+	 * Enables some post types to be used on the site for more varaible posts.
+	 */
+	register_post_type( 'breaking_news_ticker',
+		array(
+			'labels' => array(
+				'name'  			 => 'Breaking News',
+				'singular_name'      => 'Breaking News',
+				'add_new' 			 => 'Add New',
+				'add_new_item' 		 => 'Add New Breaking News Ticker Item',
+				'edit' 				 => 'Edit',
+				'edit_item' 		 => 'Edit',
+				'new_item'			 => 'New Breaking News',
+				'view' 				 => 'View',
+				'view_item' 		 => 'View Breaking News',
+				'search_items' 		 => 'Search Breaking News',
+				'not_found' 		 => 'No Breaking News items found',
+				'not_found_in_trash' => 'No Breaking News itemsfound in Trash',
+			),
+
+			'public'        => true,
+			'menu_position' => 15,
+			'supports'      => array( 'title', 'editor' ),
+			'taxonomies'    => array( '' ),
+			'has_archive'   => true
+		)
+	);
 }
 endif; // snowproblem_setup
 add_action( 'after_setup_theme', 'snowproblem_setup' );
@@ -132,33 +160,69 @@ function snowproblem_scripts() {
 
 	wp_enqueue_style( 'snowproblem-style', get_stylesheet_uri() );
 
-	wp_enqueue_style( 'snowproblem-main-style', get_template_directory_uri() . '/stylesheets/main.css' );
+	wp_enqueue_style( 'snowproblem-main-style', get_template_directory_uri() . '/dist/css/main.css' );
 
 	// Adds in support for jQuery.
 	if ( ! is_admin() ) {
         wp_enqueue_script( 'jquery' );
     }
 
-	wp_enqueue_script( 'snowproblem-add-classes', get_template_directory_uri() . '/js/add-classes.js' );
+	// Add in underscore.js
+	wp_enqueue_script( 'snowproblem-underscore', get_template_directory_uri() . '/node_modules/underscore/underscore-min.js' );
 
-	wp_enqueue_script( 'snowproblem-featured', get_template_directory_uri() . '/js/featured.js' );
+	wp_enqueue_script( 'snowproblem-plugins-js', get_template_directory_uri() . '/dist/js/plugins.js' );
 
-	wp_enqueue_script( 'snowproblem-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
-	wp_enqueue_script( 'snowproblem-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'snowproblem-main-js', get_template_directory_uri() . '/dist/js/main.js' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	// Add support for ajax-loading
+	wp_enqueue_script( 'snowproblem-ajax-loading', get_template_directory_uri() .'/dist/js/ajax.js' );
+
+	wp_localize_script( 'snowproblem-ajax-loading', 'ajaxinfo', array(
+		'url' => admin_url( 'admin-ajax.php' )
+	));
 }
 add_action( 'wp_enqueue_scripts', 'snowproblem_scripts' );
 
 /**
- * Change the default read more text from an excerpt.
+ * Allow ajax loading of scripts to display content on infinite scroll.
  */
-function snowproblem_excerpt_more( $more ) {
-	return '...';
+function snowproblem_ajax_post_loading() {
+	$data = $_POST['queryParams'];
+
+	$format = isset( $_POST['postFormat'] ) ? $_POST['postFormat'] : '';
+	$skipTo = isset( $_POST['skipTo'] ) ? $_POST['skipTo'] : 0;
+	$post_number = isset( $_POST['postNumber'] ) ? $_POST['postNumber'] : PHP_INT_MAX;
+
+	if ( is_array( $data ) ) {
+		$data['posts_per_page'] = $skipTo + $post_number + 3;
+	} else {
+		$data .= '&posts_per_page=' . ($skipTo + $post_number + 3);
+	}
+
+	query_posts( $data );
+
+	if ( have_posts() ) {
+		while ( have_posts() ) {
+			the_post();
+
+			if ( --$skipTo >= 0 ) { continue; }
+			if ( $post_number-- <= 0 ) {  break; };
+
+			get_template_part( 'template-parts/content', $format );
+		}
+	}
+
+	wp_reset_query();
+
+	// Avoid the die 0 command
+	die();
 }
+add_action( 'wp_ajax_ajax_post_loading', 'snowproblem_ajax_post_loading' );
+add_action( 'wp_ajax_nopriv_ajax_post_loading', 'snowproblem_ajax_post_loading' );
 
 /**
  * Change the html markupp of comments.
@@ -195,6 +259,13 @@ function snowproblem_comment($comment, $args, $depth) {
 
 	</article> <!-- #comment-? -->
 <?php
+}
+
+/**
+ * Change the default read more text from an excerpt.
+ */
+function snowproblem_excerpt_more( $more ) {
+	return '...';
 }
 
 add_filter('excerpt_more', 'snowproblem_excerpt_more');

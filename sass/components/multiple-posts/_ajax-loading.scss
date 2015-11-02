@@ -1,0 +1,66 @@
+/**
+ * Character loading idea comes from codepen...
+ *
+ * http://codepen.io/Vampireos/pen/yijwL?editors=110
+ */
+
+.ajax-loading {
+    width: 100%;
+    background-color: $ajax-loading-bgcolor;
+    height: 20vw;
+
+    color: $ajax-loading-text-color;
+
+    @extend .center-vertical-child-flex;
+}
+
+.ajax-loading .letters {
+    width: 100%;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: .5em;
+}
+
+@include keyframes( character-animate ) {
+    100% {
+        @include text-shadow(
+            0 0 2px rgba(204, 208, 212,0.2),
+            0 0 3px rgba(0, 0, 0, 0.02),
+            0 0 0 rgba(0, 0, 0, 0),
+            0 0 0 rgba(255, 255, 255, 0),
+            0 0 0 rgba(0, 0, 0, 0),
+            0 0 0 rgba(255, 255, 255, 0),
+            0 0 0 rgba(255, 255, 255, 0)
+        );
+    }
+}
+
+
+.ajax-loading .letter {
+    font-size: 4.5em;
+
+    @include text-shadow(
+        0 0 2px rgba(204, 208, 212,0.9),
+        0 15px 25px rgba(0, 0, 0, 0.3),
+        0 -2px 3px rgba(0, 0, 0, 0.1),
+        0 -5px 10px rgba(255, 255, 255, 0.5),
+        0 5px 10px rgba(0, 0, 0, 0.3),
+        0 3px 4px rgba(255, 255, 255, 0.2),
+        0 0 20px rgba(255, 255, 255, 0.45));
+
+}
+
+$time-character-move: 1.2s;
+.ajax-loading.inview .letter {
+    @include animation( character-animate $time-character-move ease-in-out infinite alternate );
+}
+
+@for $i from 1 through 10 {
+    .ajax-loading .letter:nth-child( #{$i} ) {
+        @include animation-delay( 0.15s * $i );
+    }
+}

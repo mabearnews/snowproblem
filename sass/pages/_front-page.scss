@@ -1,30 +1,7 @@
-body.home #content {
-    // Specified float fixes some problems using columns for webkit and moz.
-    float: right;
-
-}
-
 body.home #recent-posts  {
     width: 100%;
 }
 
-body.home #recent-posts .month {
-    width: 100%;
-
-    @include display-flex;
-    @include flex-direction(column);
-    @include justify-content(flex-begin);
-
-    &:nth-child(2n+1) { background-color: $front-page-month-color-odd; }
-    &:nth-child(2n)   { background-color: $front-page-month-color-even; }
-}
-
-body.home #recent-posts .month .category-description {
-    font-family: $font-headings;
-    margin-left: $column-container-margin;
-
-    @include entry-meta('.year-text');
-}
 
 body.home .post img {
     width: 100%;
@@ -35,6 +12,8 @@ body.home .post header * { margin-top: 0; }
 
 /* Show the categories the current post is linked to. */
 body.home .post {
+    background-color: $content-bgcolor;
+
     border-left-width: $front-page-category-border-width;
     border-left-style: solid;
     border-left-color: $category-color-default;

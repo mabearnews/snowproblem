@@ -1,0 +1,10 @@
+#breaking-news-ticker {
+    width: 100%;
+    height: 100px;
+    font-family: 'Cutive', serif;
+
+
+    @extend .center-vertical-child-flex;
+
+    text-align: center;
+}

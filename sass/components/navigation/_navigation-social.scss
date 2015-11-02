@@ -23,7 +23,7 @@ $social-icons: (
 );
 
 @each $name, $character in $social-icons {
-    #menu-social-items a[href*="#{$name}"] {
+    #social-menu-items a[href*="#{$name}"] {
 
         // Hides all the content of the div.
         span { display: none; }
@@ -34,4 +34,12 @@ $social-icons: (
             font-size: $social-menu-font-size;
         }
     }
+}
+
+
+#social-menu { @extend .center-vertical-child-flex; }
+
+#social-menu li {
+    margin-left: 5px;
+    margin-right: 5px;
 }

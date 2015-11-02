@@ -9,7 +9,7 @@
     padding-top: $nav-screen-height / 2 - $nav-toggle-height / 2;
 
     background-color: $sidebar-bgcolor;
-    color: $sidebar-text-color;
+    &, * { color: $sidebar-text-color; }
 }
 
 #sidebar ul {
@@ -28,64 +28,4 @@
 #sidebar ul li {
     width: 100%;
     text-align: left;
-}
-
-
-/* The sidebar toggle in the navigation. It resembels in dimensions the navigation. */
- #sidebar-toggle .container {
-    position: relative;
-
-    margin-right: $nav-toggle-margin;
-
-    width: $nav-toggle-width;
-    height: $nav-toggle-height;
-
-    cursor: pointer;
-
-    /* Show default 3 bar state. */
-    .row {
-        @include transition(all $nav-toggle-transition-time);
-
-        position: absolute;
-        width: 100%;
-
-        height: $nav-toggle-line-height;
-
-        .dot, .dash { position: absolute; }
-    }
-
-    @for $i from 1 through 3 {
-        .row:nth-child(#{$i}) {
-            top: ($i - 1) * 100% / 3;
-        }
-    }
-
-    .row .dot {
-        height: $nav-toggle-line-height;
-        width: $nav-toggle-line-height;
-
-        background-color: $nav-toggle-line-color;
-
-        left: 0;
-        top: 0;
-    }
-
-    .row .dash {
-        width: $nav-toggle-width - 1 * $nav-toggle-line-height;
-
-        height: $nav-toggle-line-height;
-        background-color: $nav-toggle-line-color;
-
-        left: 2 * $nav-toggle-line-height;
-        top: 0;
-    }
-
-    .row:nth-child(2) .dash {
-        width: $nav-toggle-width - 2 * $nav-toggle-line-height;
-    }
-}
-
-#sidebar-toggle .container { display: none; }
-@media (min-width: #{$standard-breakpoint}) {
-    #sidebar-toggle .container { display: block; }
 }

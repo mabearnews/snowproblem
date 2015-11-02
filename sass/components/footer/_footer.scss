@@ -5,6 +5,8 @@
  */
 
 footer#primary-footer {
+    border-top: $nav-border;
+
     padding-top: 15px;
 
     background-color: $footer-bgcolor;
@@ -24,6 +26,8 @@ footer#primary-footer {
 #primary-footer .credits {
     width: 100%;
     margin: 0;
+
+    padding: 40px;
 
     // Show as flexbox.
     @include display-flex;
