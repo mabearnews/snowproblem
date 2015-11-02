@@ -42,7 +42,7 @@ function snowproblem_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
+	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary Menu', 'snowproblem' ),
 		'social'  => esc_html__( 'Social Menu', 'snowproblem'),
@@ -77,6 +77,34 @@ function snowproblem_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+
+	/**
+	 * Enables some post types to be used on the site for more varaible posts.
+	 */
+	register_post_type( 'breaking_news_ticker',
+		array(
+			'labels' => array(
+				'name'  			 => 'Breaking News',
+				'singular_name'      => 'Breaking News',
+				'add_new' 			 => 'Add New',
+				'add_new_item' 		 => 'Add New Breaking News Ticker Item',
+				'edit' 				 => 'Edit',
+				'edit_item' 		 => 'Edit',
+				'new_item'			 => 'New Breaking News',
+				'view' 				 => 'View',
+				'view_item' 		 => 'View Breaking News',
+				'search_items' 		 => 'Search Breaking News',
+				'not_found' 		 => 'No Breaking News items found',
+				'not_found_in_trash' => 'No Breaking News itemsfound in Trash',
+			),
+
+			'public'        => true,
+			'menu_position' => 15,
+			'supports'      => array( 'title', 'editor' ),
+			'taxonomies'    => array( '' ),
+			'has_archive'   => true
+		)
+	);
 }
 endif; // snowproblem_setup
 add_action( 'after_setup_theme', 'snowproblem_setup' );
@@ -233,14 +261,14 @@ function snowproblem_comment($comment, $args, $depth) {
 <?php
 }
 
-add_filter('excerpt_more', 'snowproblem_excerpt_more');
-
 /**
  * Change the default read more text from an excerpt.
  */
 function snowproblem_excerpt_more( $more ) {
 	return '...';
 }
+
+add_filter('excerpt_more', 'snowproblem_excerpt_more');
 
 /**
  * Implement the Custom Header feature.

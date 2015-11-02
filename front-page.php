@@ -13,13 +13,30 @@
  */
 
 get_header(); ?>
+	<?php query_posts('post_type=breaking_news_ticker&orderby=date&order=DESC'); /* Query all posts of 'breaking_news' type.*/ ?>
+	<?php if ( have_posts() ) : ?>
 
-	<?php
-	/**
-	 * Keep track of the already loaded posts.
-	 */
-	$loaded_posts = array();
-	?>
+		<section id="breaking-news-ticker">
+
+			<section id="breaking-news-items">
+					<?php /* Start the Loop */ ?>
+					<?php while ( have_posts() ) : the_post(); ?>
+
+						<?php
+						/**
+						 * Include content speciffically of the 'featured' type.
+						 */
+						get_template_part( 'template-parts/breaking' );
+						?>
+
+					<?php endwhile; ?>
+				<?php wp_reset_query(); /* Reset for all posts. */ ?>
+			</section> <!-- #breaking-news-items -->
+
+		</section> <!-- #breaking-news-ticker -->
+
+	<?php endif; ?>
+
 
 	<?php query_posts('posts_per_page=4&category_name=featured&orderby=date&order=DESC'); /* Query all posts with 'featured' category. Maximum of 5. */ ?>
 	<?php if ( have_posts() ): ?>
@@ -35,9 +52,6 @@ get_header(); ?>
 						 * Include content speciffically of the 'featured' type.
 						 */
 						get_template_part( 'template-parts/content', 'featured');
-
-						// Add the post to already loaded elements
-						$loaded_posts[] = get_the_ID();
 						?>
 
 					<?php endwhile; ?>
@@ -47,29 +61,6 @@ get_header(); ?>
 		</section> <!-- #featured -->
 
 	<?php endif; ?>
-
-	<section id="breaking">
-		<section id="breaking-posts">
-			<?php query_posts('posts_per_page=5&category_name=breaking&orderby=date&order=DESC'); /* Query all posts with 'featured' category. Maximum of 5. */ ?>
-			<?php if ( have_posts() ): ?>
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
-
-					<?php
-					/**
-					 * Include content speciffically of the 'featured' type.
-					 */
-					get_template_part( 'template-parts/content', 'front' );
-
-					// Add the post to already loaded elements
-					$loaded_posts[] = get_the_ID();
-					?>
-
-				<?php endwhile; ?>
-			<?php endif; ?>
-			<?php wp_reset_query(); /* Reset for all posts. */ ?>
-		</section>
-	</section>
 
 	<?php
 		/**

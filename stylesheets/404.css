@@ -38,11 +38,9 @@
  * Headings is used for anything that is not a large block of text. Casual
  * is used for anything else.
  */
-@import url(http://fonts.googleapis.com/css?family=Bitter:400,700);
-@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700|Rokkitt:400,700);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
-@import url(https://fonts.googleapis.com/css?family=Inconsolata);
 @import url(https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Cutive);
 h1, h2, h3, h4, h5, h6, #message .go-home * {
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
@@ -91,6 +89,7 @@ h1, h2, h3, h4, h5, h6, #message .go-home * {
 /*============= Multiple Posts =============*/
 /*============= Breakpoints =============*/
 /*============= Front Page Grid =============*/
+/*============= News ticker =============*/
 /*============= Footer =============*/
 /*============= Footer =============*/
 /*============= Featured =============*/
@@ -287,98 +286,98 @@ a:active, a:focus, a:hover {
 }
 @-moz-keyframes pulse {
   0% {
-    color: #1abc9c;
+    color: #2ecc71;
   }
   20% {
-    color: #c0392b;
+    color: #2980b9;
   }
   30% {
-    color: #f39c12;
+    color: white;
   }
   40% {
+    color: #2980b9;
+  }
+  50% {
+    color: #e67e22;
+  }
+  60% {
+    color: #3498db;
+  }
+  70% {
+    color: #e74c3c;
+  }
+  80% {
+    color: #95a5a6;
+  }
+  90% {
+    color: #f1c40f;
+  }
+  100% {
+    color: #2ecc71;
+  }
+}
+@-webkit-keyframes pulse {
+  0% {
+    color: #2ecc71;
+  }
+  20% {
+    color: #e74c3c;
+  }
+  30% {
     color: #d35400;
+  }
+  40% {
+    color: #16a085;
   }
   50% {
     color: #2980b9;
   }
   60% {
-    color: #f1c40f;
+    color: #2980b9;
   }
   70% {
-    color: #7f8c8d;
+    color: #bdc3c7;
   }
   80% {
-    color: #f1c40f;
+    color: #d35400;
   }
   90% {
-    color: white;
+    color: #c0392b;
   }
   100% {
-    color: #1abc9c;
+    color: #2ecc71;
   }
 }
-@-webkit-keyframes pulse {
+@keyframes pulse {
   0% {
-    color: #1abc9c;
+    color: #2ecc71;
   }
   20% {
-    color: #9b59b6;
+    color: #27ae60;
   }
   30% {
-    color: #f1c40f;
+    color: #e74c3c;
   }
   40% {
-    color: #f1c40f;
+    color: #9b59b6;
   }
   50% {
-    color: #9b59b6;
+    color: #1abc9c;
   }
   60% {
     color: #16a085;
   }
   70% {
-    color: #f1c40f;
+    color: #34495e;
   }
   80% {
-    color: #f1c40f;
+    color: #34495e;
   }
   90% {
-    color: #f1c40f;
+    color: #bdc3c7;
   }
   100% {
-    color: #1abc9c;
-  }
-}
-@keyframes pulse {
-  0% {
-    color: #1abc9c;
-  }
-  20% {
-    color: white;
-  }
-  30% {
-    color: #9b59b6;
-  }
-  40% {
-    color: #9b59b6;
-  }
-  50% {
-    color: #9b59b6;
-  }
-  60% {
-    color: #9b59b6;
-  }
-  70% {
-    color: #9b59b6;
-  }
-  80% {
-    color: #e74c3c;
-  }
-  90% {
-    color: #9b59b6;
-  }
-  100% {
-    color: #1abc9c;
+    color: #2ecc71;
   }
 }
 #message {

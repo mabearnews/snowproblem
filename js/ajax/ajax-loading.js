@@ -87,8 +87,6 @@
                     queryParams: queryParams
         		},
         		success: function( result ) {
-                    console.log( result );
-
                     r = $( result );
 
                     var resultNumb = $( '<div></div>' ).append( r.clone() ).children().length;
