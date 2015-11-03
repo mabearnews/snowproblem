@@ -140,8 +140,8 @@ PrimaryNav.init = function( elems ) {
 PrimaryNav.addListeners = function() {
     var t = this;
 
-    this.elems.navLinks.each(function() {
-        $( this ).click(function() { t.showMore( t.getLinkSubmenu( this ) ); });
+    this.props.malformedLinks.map(function( elem ) {
+        $( elem ).click(function() { t.showMore( t.getLinkSubmenu( elem ) ); });
     });
 
     // Create the nav toggle event based rotation...
