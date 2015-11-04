@@ -42,10 +42,11 @@ function snowproblem_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in two locations.
+	// This theme uses wp_nav_menu() in three locations.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary Menu', 'snowproblem' ),
 		'social'  => esc_html__( 'Social Menu', 'snowproblem'),
+		'footer'  => esc_html__( 'Footer Menu', 'snowproblem' ),
 	) );
 
 	/*
@@ -95,12 +96,41 @@ function snowproblem_setup() {
 				'view_item' 		 => 'View Breaking News',
 				'search_items' 		 => 'Search Breaking News',
 				'not_found' 		 => 'No Breaking News items found',
-				'not_found_in_trash' => 'No Breaking News itemsfound in Trash',
+				'not_found_in_trash' => 'No Breaking News items found in Trash',
+			),
+
+			'public'        	 => true,
+			'publicly_queryable' => true,
+			'menu_position' 	 => 15,
+			'supports'      	 => array( 'title', 'editor' ),
+			'taxonomies'    	 => array( '' ),
+			'has_archive'   	 => false
+		)
+	);
+
+	/**
+	 * Allow for the creation of a staff page.
+	 */
+	register_post_type( 'staff_people',
+		array(
+			'labels' => array(
+				'name'  			 => 'People',
+				'singular_name'      => 'People',
+				'add_new' 			 => 'Add New',
+				'add_new_item' 		 => 'Add New Person',
+				'edit' 				 => 'Edit',
+				'edit_item' 		 => 'Edit',
+				'new_item'			 => 'New Person',
+				'view' 				 => 'View',
+				'view_item' 		 => 'View Person',
+				'search_items' 		 => 'Search People',
+				'not_found' 		 => 'No People found',
+				'not_found_in_trash' => 'No People found in Trash',
 			),
 
 			'public'        => true,
 			'menu_position' => 15,
-			'supports'      => array( 'title', 'editor' ),
+			'supports'      => array( 'title', 'author', 'editor', 'thumbnail' ),
 			'taxonomies'    => array( '' ),
 			'has_archive'   => true
 		)
@@ -269,6 +299,21 @@ function snowproblem_excerpt_more( $more ) {
 }
 
 add_filter('excerpt_more', 'snowproblem_excerpt_more');
+
+
+/**
+ * Adds the name of the post with the slug for more particular styling options.
+ */
+function snowproblem_add_slug_body_class( $classes ) {
+	global $post;
+
+	if ( isset( $post ) ) {
+		$classes[] = $post->post_type . '-' . $post->post_name;
+	}
+	return $classes;
+}
+add_filter( 'body_class', 'snowproblem_add_slug_body_class' );
+
 
 /**
  * Implement the Custom Header feature.

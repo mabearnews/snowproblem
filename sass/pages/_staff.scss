@@ -1,0 +1,30 @@
+/**
+ * Resolves all styling for the rather customized staff page.
+ *
+ * This page, as currently layed out takes a rather modern look as well as
+ * using a drak theme which differentiates it from the standard grey background
+ * of the site.
+ *
+ * In addition to the dark theme, the document adds new attributes of a theme,
+ * namely the inclusion of space related images, with the moon at the bottom
+ * in this case. While this looks cool stylisticlly this also serves in
+ * one other sense the out of the world nature of the site and of the
+ * menlo atheron chronicle!
+ *
+ * In order to properly implement the darker theme the navigation bar is
+ * apropriatly styled with darker colors so as to maintain the decour of the
+ * page.
+ */
+body.page-staff {
+
+/**
+ * Change the navigation to more accuratly describe the colors of this page.
+ */
+@include site-color-change( $text-color: $white,
+                                  $background-color: $color__background-dark,
+                                  $content-background-color: tomato,
+                                  $more-background-color:  $color__background-light,
+                                  $border-color: $white );
+
+
+}

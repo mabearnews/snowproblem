@@ -261,12 +261,12 @@ a:active, a:focus, a:hover {
   justify-content: center;
 }
 
-.element-content, .single article.post section.post-content,
-.single article.page section.post-content,
-.single-post article.post section.post-content,
-.single-post article.page section.post-content,
-.page article.post section.post-content,
-.page article.page section.post-content, .content-element {
+.element-content, body.single article.post section.post-content,
+body.single article.page section.post-content,
+body.single-post article.post section.post-content,
+body.single-post article.page section.post-content,
+body.page article.post section.post-content,
+body.page article.page section.post-content, .content-element {
   width: 700px;
   padding: 0 20px;
 }
@@ -1675,17 +1675,17 @@ body.search-results header.page-header, body.archive header.page-header, body.ca
  * @file.
  * Styles for a single post of the website as bassed on the site navigation.
  */
-.single,
-.single-post,
-.page {
+body.single,
+body.single-post,
+body.page {
   /*============= Image =============*/
   /*============= Post =============*/
   /*============= Post Navigation =============*/
   /* Show the navigation for mobile browsers as typical links. */
 }
-.single .featured-image,
-.single-post .featured-image,
-.page .featured-image {
+body.single .featured-image,
+body.single-post .featured-image,
+body.page .featured-image {
   position: relative;
   margin: 0;
   width: 100%;
@@ -1693,9 +1693,9 @@ body.search-results header.page-header, body.archive header.page-header, body.ca
   max-height: 1200px;
   height: 60vh;
 }
-.single .featured-image .background-image,
-.single-post .featured-image .background-image,
-.page .featured-image .background-image {
+body.single .featured-image .background-image,
+body.single-post .featured-image .background-image,
+body.page .featured-image .background-image {
   position: absolute;
   left: 0;
   right: 0;
@@ -1711,57 +1711,57 @@ body.search-results header.page-header, body.archive header.page-header, body.ca
   -webkit-background-size: cover;
   background-size: cover;
 }
-.single article.post,
-.single article.page,
-.single-post article.post,
-.single-post article.page,
-.page article.post,
-.page article.page {
+body.single article.post,
+body.single article.page,
+body.single-post article.post,
+body.single-post article.page,
+body.page article.post,
+body.page article.page {
   padding: 0;
   font-size: 1.1em;
   position: relative;
   /* Show the the header inforamation to the side if possible. */
   /* Show the title as a big item on the top page. */
 }
-.single article.post section.post-content .entry-section,
-.single article.page section.post-content .entry-section,
-.single-post article.post section.post-content .entry-section,
-.single-post article.page section.post-content .entry-section,
-.page article.post section.post-content .entry-section,
-.page article.page section.post-content .entry-section {
+body.single article.post section.post-content .entry-section,
+body.single article.page section.post-content .entry-section,
+body.single-post article.post section.post-content .entry-section,
+body.single-post article.page section.post-content .entry-section,
+body.page article.post section.post-content .entry-section,
+body.page article.page section.post-content .entry-section {
   padding: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: white;
 }
-.single article.post header.entry-header,
-.single article.page header.entry-header,
-.single-post article.post header.entry-header,
-.single-post article.page header.entry-header,
-.page article.post header.entry-header,
-.page article.page header.entry-header {
+body.single article.post header.entry-header,
+body.single article.page header.entry-header,
+body.single-post article.post header.entry-header,
+body.single-post article.page header.entry-header,
+body.page article.post header.entry-header,
+body.page article.page header.entry-header {
   width: 100%;
   text-align: center;
 }
-.single article.post header.entry-header .entry-title,
-.single article.page header.entry-header .entry-title,
-.single-post article.post header.entry-header .entry-title,
-.single-post article.page header.entry-header .entry-title,
-.page article.post header.entry-header .entry-title,
-.page article.page header.entry-header .entry-title {
+body.single article.post header.entry-header .entry-title,
+body.single article.page header.entry-header .entry-title,
+body.single-post article.post header.entry-header .entry-title,
+body.single-post article.page header.entry-header .entry-title,
+body.page article.post header.entry-header .entry-title,
+body.page article.page header.entry-header .entry-title {
   position: relative;
   width: auto;
   display: inline-block;
 }
-.single .post-navigation,
-.single-post .post-navigation,
-.page .post-navigation {
+body.single .post-navigation,
+body.single-post .post-navigation,
+body.page .post-navigation {
   display: none;
 }
 @media (min-width: 1300px) {
-  .single .post-navigation .nav-links > *,
-  .single-post .post-navigation .nav-links > *,
-  .page .post-navigation .nav-links > * {
+  body.single .post-navigation .nav-links > *,
+  body.single-post .post-navigation .nav-links > *,
+  body.page .post-navigation .nav-links > * {
     position: absolute;
     top: 45vh;
     top: calc(50vh - 100px);
@@ -1772,9 +1772,9 @@ body.search-results header.page-header, body.archive header.page-header, body.ca
     /* Show the icon for the next post.  */
     /* Show everything in as a more visible style. */
   }
-  .single .post-navigation .nav-links > *::before,
-  .single-post .post-navigation .nav-links > *::before,
-  .page .post-navigation .nav-links > *::before {
+  body.single .post-navigation .nav-links > *::before,
+  body.single-post .post-navigation .nav-links > *::before,
+  body.page .post-navigation .nav-links > *::before {
     position: absolute;
     left: 0;
     top: 0;
@@ -1789,22 +1789,22 @@ body.search-results header.page-header, body.archive header.page-header, body.ca
     -webkit-transition: color 0.2s ease;
     transition: color 0.2s ease;
   }
-  .single .post-navigation .nav-links > *:hover::before,
-  .single-post .post-navigation .nav-links > *:hover::before,
-  .page .post-navigation .nav-links > *:hover::before {
+  body.single .post-navigation .nav-links > *:hover::before,
+  body.single-post .post-navigation .nav-links > *:hover::before,
+  body.page .post-navigation .nav-links > *:hover::before {
     color: rgba(84, 94, 100, 0.4);
   }
-  .single .post-navigation .nav-links > *.nav-previous::before,
-  .single-post .post-navigation .nav-links > *.nav-previous::before,
-  .page .post-navigation .nav-links > *.nav-previous::before {
+  body.single .post-navigation .nav-links > *.nav-previous::before,
+  body.single-post .post-navigation .nav-links > *.nav-previous::before,
+  body.page .post-navigation .nav-links > *.nav-previous::before {
     -moz-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
   }
-  .single .post-navigation .nav-links > * > a,
-  .single-post .post-navigation .nav-links > * > a,
-  .page .post-navigation .nav-links > * > a {
+  body.single .post-navigation .nav-links > * > a,
+  body.single-post .post-navigation .nav-links > * > a,
+  body.page .post-navigation .nav-links > * > a {
     display: table-cell;
     vertical-align: middle;
     width: 100%;
@@ -1815,14 +1815,14 @@ body.search-results header.page-header, body.archive header.page-header, body.ca
     font-size: 1.2em;
     z-index: 2;
   }
-  .single .post-navigation .nav-links > *.nav-previous,
-  .single-post .post-navigation .nav-links > *.nav-previous,
-  .page .post-navigation .nav-links > *.nav-previous {
+  body.single .post-navigation .nav-links > *.nav-previous,
+  body.single-post .post-navigation .nav-links > *.nav-previous,
+  body.page .post-navigation .nav-links > *.nav-previous {
     left: 20px;
   }
-  .single .post-navigation .nav-links > *.nav-next,
-  .single-post .post-navigation .nav-links > *.nav-next,
-  .page .post-navigation .nav-links > *.nav-next {
+  body.single .post-navigation .nav-links > *.nav-next,
+  body.single-post .post-navigation .nav-links > *.nav-next,
+  body.page .post-navigation .nav-links > *.nav-next {
     right: 20px;
   }
 }
@@ -1919,4 +1919,52 @@ body.home .post[class*="category-uncategorized"] {
   height: 100px;
   font-family: 'Cutive', serif;
   text-align: center;
+}
+
+/**
+ * Resolves all styling for the rather customized staff page.
+ *
+ * This page, as currently layed out takes a rather modern look as well as
+ * using a drak theme which differentiates it from the standard grey background
+ * of the site.
+ *
+ * In addition to the dark theme, the document adds new attributes of a theme,
+ * namely the inclusion of space related images, with the moon at the bottom
+ * in this case. While this looks cool stylisticlly this also serves in
+ * one other sense the out of the world nature of the site and of the
+ * menlo atheron chronicle!
+ *
+ * In order to properly implement the darker theme the navigation bar is
+ * apropriatly styled with darker colors so as to maintain the decour of the
+ * page.
+ */
+body.page-staff {
+  /**
+   * Change the navigation to more accuratly describe the colors of this page.
+   */
+}
+body.page-staff nav#site-navigation {
+  background-color: #010D0D;
+  border-color: white;
+}
+body.page-staff nav#site-navigation, body.page-staff nav#site-navigation * {
+  color: white;
+}
+body.page-staff nav#site-navigation .toggle .row, body.page-staff nav#site-navigation .toggle .row * {
+  background-color: white !important;
+}
+body.page-staff {
+  background-color: gainsboro;
+}
+body.page-staff footer#primary-footer, body.page-staff footer#primary-footer * {
+  border-color: white;
+  background-color: #010D0D;
+  color: white;
+}
+body.page-staff #page, body.page-staff #content, body.page-staff #main {
+  background-color: #010D0D;
+  color: white;
+}
+body.page-staff article.post .entry-section, body.page-staff article.page .entry-section {
+  background-color: tomato !important;
 }

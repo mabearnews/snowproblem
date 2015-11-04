@@ -75,14 +75,18 @@ $color__text-default: black;
 $color__link-active: $grey;
 
 /*============= Page =============*/
- $page-bgcolor: #F5F5F5;
- $content-bgcolor: white;
+$page-bgcolor: #F5F5F5;
+$content-bgcolor: white;
+
+$color__background-dark: #010D0D;
+$color__background-light: rgb( 220, 220, 220 );
 
 /*============= Navigation Bar =============*/
 
 /* Relates to the allways visual side of the site */
 $nav-bgcolor: $white;
-$nav-border: 1px solid rgba($lightgrey, 0.6);
+$nav-border-color: rgba($lightgrey, 0.6);
+$nav-border: 1px solid $nav-border-color;
 $nav-hovered-link: $darkgrey;
 
 /* Relates to the revealable side of the site. */

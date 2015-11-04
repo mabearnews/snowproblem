@@ -74,39 +74,29 @@ PrimaryNav.getLinkSubmenu = function( n ) {
  * Malforms all of the links that would be bound to submenues.
  */
 PrimaryNav.malformLinks = function() {
-    var t = this;
-
-    // Set an array to store the malformed links.
-    this.props.malformedLinks = [];
-
-    this.elems.navLinks.each(function() {
-        // Check if has submenu...
-        if ( ! t.getLinkSubmenu( this ) ) {
-            // Does not have a submenu...
-            return this;
+    this.props.malformedLinks = _.filter( this.elems.navLinks, function( n ) {
+        if ( ! this.getLinkSubmenu( n ) ) {
+            return false;
         }
 
         // Check if has links...
-        if ( $( this ).find( 'a' ).length ) {
+        if ( $( n ).find( 'a' ).length ) {
 
-            var link = $( this ).find( 'a' ).first();
+            var link = $( n ).find( 'a' ).first();
 
-            $.data( this, 'href', $( link ).attr( 'href' ) );
+            $.data( n, 'href', $( link ).attr( 'href' ) );
 
             link.removeAttr( 'href' );
         }
 
-        // Save the link data for the element
-        t.props.malformedLinks.push( $( this ) );
-    });
+        return true;
+    }.bind( this ) );
 }
 
 /**
  * Toggle the content of the more nav.
  */
 PrimaryNav.changeContent = function( content ) {
-
-    console.log( content );
 
     this.elems.moreNav.empty();
 
@@ -115,6 +105,21 @@ PrimaryNav.changeContent = function( content ) {
 
     w.append( content.clone() );
     this.elems.moreNav.append( w );
+
+    var t = this;
+
+    // Ensure listeners for elemetns inside the navigation content.
+    this.elems.moreNav.find( 'ul' ).first().children( 'li' ).each(function() {
+        var c = t.getLinkSubmenu( this );
+
+        console.log( c );
+
+        if ( c ) {
+            $( this ).on( 'click', function() {
+                t.changeContent( c );
+            });
+        }
+    });
 };
 
 /**
@@ -140,8 +145,8 @@ PrimaryNav.init = function( elems ) {
 PrimaryNav.addListeners = function() {
     var t = this;
 
-    this.elems.navLinks.each(function() {
-        $( this ).click(function() { t.showMore( t.getLinkSubmenu( this ) ); });
+    this.props.malformedLinks.map(function( elem ) {
+        $( elem ).click(function() { t.showMore( t.getLinkSubmenu( elem ) ); });
     });
 
     // Create the nav toggle event based rotation...
