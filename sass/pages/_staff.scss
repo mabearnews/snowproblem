@@ -22,6 +22,7 @@ body.page-staff {
  */
 @include site-color-change( $text-color: $white,
                                   $background-color: $color__background-dark,
+                                  $content-background-color: tomato,
                                   $more-background-color:  $color__background-light,
                                   $border-color: $white );
 

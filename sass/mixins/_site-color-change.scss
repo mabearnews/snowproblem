@@ -1,7 +1,8 @@
 @mixin site-color-change( $text-color: $color__text-default,
-                                $background-color: $nav-bgcolor,
-                                $more-background-color: $nav-more-bgcolor,
-                                $border-color: $nav-border-color, $change-footer: true, $change-page: true )
+                          $background-color: $nav-bgcolor,
+                          $content-background-color: lighten( $nav-bgcolor, 10 ),
+                          $more-background-color: $nav-more-bgcolor,
+                          $border-color: $nav-border-color, $change-footer: true, $change-page: true )
 {
     nav#site-navigation {
         background-color: $background-color;
@@ -29,6 +30,12 @@
         #page, #content, #main {
             background-color:  $background-color;
             color: $text-color;
+        }
+    }
+
+    article.post, article.page {
+        .entry-section {
+            background-color: $content-background-color !important;
         }
     }
 }

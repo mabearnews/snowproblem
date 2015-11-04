@@ -1831,38 +1831,6 @@ body.page .post-navigation {
   padding: 0 30px;
 }
 
-/**
- * To more clearly differentiate page from other from content, pages are shown
- * to have a darker color scheme than mere posts.
- */
-body.page {
-  /**
-   * Change the navigation to more accuratly describe the colors of this page.
-   */
-}
-body.page nav#site-navigation {
-  background-color: #010D0D;
-  border-color: white;
-}
-body.page nav#site-navigation, body.page nav#site-navigation * {
-  color: white;
-}
-body.page nav#site-navigation .toggle .row, body.page nav#site-navigation .toggle .row * {
-  background-color: white !important;
-}
-body.page {
-  background-color: gainsboro;
-}
-body.page footer#primary-footer, body.page footer#primary-footer * {
-  border-color: white;
-  background-color: #010D0D;
-  color: white;
-}
-body.page #page, body.page #content, body.page #main {
-  background-color: #010D0D;
-  color: white;
-}
-
 body.home #recent-posts {
   width: 100%;
 }
@@ -1996,4 +1964,7 @@ body.page-staff footer#primary-footer, body.page-staff footer#primary-footer * {
 body.page-staff #page, body.page-staff #content, body.page-staff #main {
   background-color: #010D0D;
   color: white;
+}
+body.page-staff article.post .entry-section, body.page-staff article.page .entry-section {
+  background-color: tomato !important;
 }
