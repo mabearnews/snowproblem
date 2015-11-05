@@ -39,8 +39,6 @@
             if ( ! numb ) { numb = 0; }
             if ( numb > string.length ) { callback(); return;  }
 
-            console.log( string.substr( 0, numb ) );
-
             container.text( string.substr( 0, numb ) );
 
             setTimeout( function() {

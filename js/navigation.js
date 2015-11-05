@@ -112,8 +112,6 @@ PrimaryNav.changeContent = function( content ) {
     this.elems.moreNav.find( 'ul' ).first().children( 'li' ).each(function() {
         var c = t.getLinkSubmenu( this );
 
-        console.log( c );
-
         if ( c ) {
             $( this ).on( 'click', function() {
                 t.changeContent( c );
