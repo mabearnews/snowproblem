@@ -14,6 +14,13 @@ body.page {
         width: 100%;
         min-height: $single-post-featured-image-min-height;
         max-height: $single-post-featured-image-max-height;
+
+        // Ensure desktop has somethging in view...
+        @media screen and (min-height: $single-post-featured-image-max-height) {
+            max-height: 70vh;
+        }
+
+        // Can be changed by single-post.js
         height: $single-post-featured-image-height;
     }
 

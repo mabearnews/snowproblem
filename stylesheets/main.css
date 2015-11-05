@@ -1558,7 +1558,7 @@ body.search-results .loaded-posts article.post, body.archive .loaded-posts artic
   width: 100%;
   padding: 0;
 }
-body.search-results .loaded-posts article.post .entry-image, body.archive .loaded-posts article.post .entry-image, body.category .loaded-posts article.post .entry-image {
+body.search-results .loaded-posts article.post .entry-image, body.search-results .loaded-posts article.post .entry-image img, body.archive .loaded-posts article.post .entry-image, body.archive .loaded-posts article.post .entry-image img, body.category .loaded-posts article.post .entry-image, body.category .loaded-posts article.post .entry-image img {
   width: 100%;
   height: auto;
   margin: 0;
@@ -1690,8 +1690,15 @@ body.page .featured-image {
   margin: 0;
   width: 100%;
   min-height: 200px;
-  max-height: 1200px;
+  max-height: 800px;
   height: 60vh;
+}
+@media screen and (min-height: 800px) {
+  body.single .featured-image,
+  body.single-post .featured-image,
+  body.page .featured-image {
+    max-height: 70vh;
+  }
 }
 body.single .featured-image .background-image,
 body.single-post .featured-image .background-image,

@@ -108,33 +108,6 @@ function snowproblem_setup() {
 		)
 	);
 
-	/**
-	 * Allow for the creation of a staff page.
-	 */
-	register_post_type( 'staff_people',
-		array(
-			'labels' => array(
-				'name'  			 => 'People',
-				'singular_name'      => 'People',
-				'add_new' 			 => 'Add New',
-				'add_new_item' 		 => 'Add New Person',
-				'edit' 				 => 'Edit',
-				'edit_item' 		 => 'Edit',
-				'new_item'			 => 'New Person',
-				'view' 				 => 'View',
-				'view_item' 		 => 'View Person',
-				'search_items' 		 => 'Search People',
-				'not_found' 		 => 'No People found',
-				'not_found_in_trash' => 'No People found in Trash',
-			),
-
-			'public'        => true,
-			'menu_position' => 15,
-			'supports'      => array( 'title', 'author', 'editor', 'thumbnail' ),
-			'taxonomies'    => array( '' ),
-			'has_archive'   => true
-		)
-	);
 }
 endif; // snowproblem_setup
 add_action( 'after_setup_theme', 'snowproblem_setup' );
