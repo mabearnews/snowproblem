@@ -12,11 +12,12 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> data-post-type="<?php print get_post_type(); ?>">
 	<?php if ( has_post_thumbnail() ) : ?>
 
-		<section class="featured-image">
+		<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
 
-			<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
+		<section class="featured-image" image-url="<?php print $image[0]; ?>">
 
-				<div class="background-image" style="background-image: url('<?php print $image[0]; ?>');"></div>
+
+			<div class="background-image" style="background-image: url('<?php print $image[0]; ?>');"></div>
 
 			<?php unset($image); /* Remove $image in case it interferes with later wordpress functionality. */ ?>
 
