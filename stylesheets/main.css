@@ -1831,6 +1831,58 @@ body.page .post-navigation {
   padding: 0 30px;
 }
 
+/**
+ * Themes all pages displaying a multitude of posts for a specific author.
+ *
+ * These posts will be shown to the left, the author to the right.
+ *
+ */
+body.author #main {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+body.author #author-info {
+  margin-top: 20px;
+  margin-right: 20px;
+  width: 350px;
+  order: 2;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+body.author #author-info .author-content {
+  background-color: white;
+}
+body.author #main .loaded-posts {
+  margin: 0;
+  order: 1;
+}
+@media screen and (max-width: 770px) {
+  body.author #main {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  body.author #main .loaded-posts, body.author #author-info {
+    width: 100%;
+    max-width: 100%;
+  }
+  body.author #main .loaded-posts {
+    order: 2;
+  }
+  body.author #author-info {
+    order: 1;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
 body.home #recent-posts {
   width: 100%;
 }

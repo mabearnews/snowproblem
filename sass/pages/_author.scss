@@ -1,0 +1,55 @@
+/**
+ * Themes all pages displaying a multitude of posts for a specific author.
+ *
+ * These posts will be shown to the left, the author to the right.
+ *
+ */
+body.author {
+
+#main {
+    @include display-flex;
+    @include flex-direction( row );
+    @include justify-content( center );
+}
+
+#author-info {
+    margin-top: $grid-gap;
+    margin-right: $grid-gap;
+    width: $post-author-width;
+    order: 2;
+
+    @include display-flex;
+    @include flex-direction( column );
+    @include justify-content( flex-start );
+
+    .author-content { background-color: $content-bgcolor; }
+}
+
+#main .loaded-posts {
+    margin: 0;
+    order: 1;
+}
+
+@media screen and ( max-width: #{ $post-author-width + $post-width + $grid-gap * 3} ) {
+
+}
+
+
+@media screen and (max-width: #{ $post-author-width + $post-width * 0.6 } ) {
+    #main { @include flex-wrap( wrap ); }
+
+    #main .loaded-posts, #author-info {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #main .loaded-posts {  order: 2; }
+    #author-info {
+        order: 1;
+        margin-left: $grid-gap;
+        margin-right: $grid-gap;
+     }
+}
+
+
+}
