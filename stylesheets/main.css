@@ -29,6 +29,7 @@
 /*============= Comments =============*/
 /*============= Categories =============*/
 /*============= Front Page =============*/
+/*============= S-Button =============*/
 /**
  * @file.
  * Defines two variables which are used to determine fonts across the site.
@@ -55,6 +56,7 @@ h1, h2, h3, h4, h5, h6 {
 /*============= General =============*/
 /*============= Footer =============*/
 /*============= Posts =============*/
+/*============= S-Button =============*/
 /**
  * @file.
  * This file relates to the general elements of appearence that do not conform
@@ -91,6 +93,7 @@ h1, h2, h3, h4, h5, h6 {
 /*============= Footer =============*/
 /*============= Featured =============*/
 /*============= Comments =============*/
+/*============= S-Button =============*/
 /**
  * @file.
  * Relates to all the various timing that is essential to the flow of the
@@ -104,6 +107,7 @@ h1, h2, h3, h4, h5, h6 {
 /*============= Multiple Posts =============*/
 /*============= Posts =============*/
 /*============= Featured =============*/
+/*============= Button =============*/
 /**
  * @file.
  * Relates to various elements conncerning miscelanious styling for things
@@ -411,6 +415,407 @@ body.home .snowgrid .post .entry-content {
   padding: 15px;
 }
 
+/* Animates text when visible, works primarily off of the .animated class. */
+@-moz-keyframes draw-text {
+  100% {
+    stroke-dashoffset: 0;
+    fill-opacity: 1;
+  }
+}
+@-webkit-keyframes draw-text {
+  100% {
+    stroke-dashoffset: 0;
+    fill-opacity: 1;
+  }
+}
+@keyframes draw-text {
+  100% {
+    stroke-dashoffset: 0;
+    fill-opacity: 1;
+  }
+}
+@-moz-keyframes fill-text {
+  0% {
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 1;
+  }
+}
+@-webkit-keyframes fill-text {
+  0% {
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 1;
+  }
+}
+@keyframes fill-text {
+  0% {
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 1;
+  }
+}
+svg.draw-text {
+  width: 100%;
+}
+svg.draw-text text {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  fill-opacity: 0;
+}
+
+svg.draw-text.animated text, .animated svg.draw-text text {
+  -moz-animation: draw-text 5.4s forwards;
+  -webkit-animation: draw-text 5.4s forwards;
+  animation: draw-text 5.4s forwards;
+}
+
+blockquote {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+  margin: 0.25em 0;
+  padding: 0.25em 40px;
+  line-height: 1.45;
+  position: relative;
+  color: #333333;
+}
+
+blockquote::before {
+  display: block;
+  content: "\201C";
+  font-size: 80px;
+  position: absolute;
+  left: 3px;
+  top: -20px;
+  color: #ccc;
+}
+
+cite {
+  font-family: "Montserrat", sans-serif;
+  color: #999999;
+  font-size: 12px;
+  display: block;
+  margin-top: 5px;
+  margin-left: 30px;
+}
+
+cite:before {
+  content: "\2014 \2009";
+}
+
+/**
+ * Style the entry meta, somewhat basically for the entire site.
+ */
+.entry-meta {
+  font-size: 0.8em;
+  color: #95a5a6;
+}
+.entry-meta .author::before {
+  content: '–';
+  padding: 0 0.8em;
+}
+.entry-meta * {
+  display: inline-block;
+}
+
+/**
+ * Shows a masonry element as position relative in order to allow children
+ * to be postioned absolutly by javascript.
+ */
+.masonry-grid {
+  position: relative;
+}
+
+.post-content .read-more {
+  color: #f39c12;
+  opacity: 0;
+  -moz-transform: translateX(-2em);
+  -ms-transform: translateX(-2em);
+  -webkit-transform: translateX(-2em);
+  transform: translateX(-2em);
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+/* Show the read more link on hover. */
+.post-content:hover .read-more {
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Show the read more link by default on mobile. */
+@media only screen and (max-width: 420px) {
+  .post-content .read-more {
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+  display: block;
+  font-size: 0.9em;
+}
+table *, table *::before, table *::after {
+  -moz-transition: all 1.2s;
+  -o-transition: all 1.2s;
+  -webkit-transition: all 1.2s;
+  transition: all 1.2s;
+}
+table thead {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+}
+table thead::after {
+  content: '';
+  height: 1px;
+  background-color: black;
+  margin-left: 0;
+  margin-right: 0;
+  display: block;
+  width: 0;
+}
+table tr {
+  height: 2.25em;
+}
+table tr > * {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+table.animated thead::after {
+  width: 100%;
+}
+
+.s-button, #respond #reply-title {
+  -moz-transition: all 1.2s;
+  -o-transition: all 1.2s;
+  -webkit-transition: all 1.2s;
+  transition: all 1.2s;
+  -moz-border-radius: 25.2px;
+  -webkit-border-radius: 25.2px;
+  border-radius: 25.2px;
+  margin: 15px 0;
+  padding: 15px;
+  display: inline-block;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 7px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+}
+.s-button:hover, #respond #reply-title:hover {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.s-button:hover, #respond #reply-title:hover {
+  color: black;
+  background-color: white;
+}
+.s-button.color-white, #respond .color-white#reply-title {
+  border: 1px solid white;
+  color: white;
+}
+.s-button.color-white:hover, #respond .color-white#reply-title:hover {
+  color: black;
+  background-color: white;
+}
+.s-button.color-lightgrey, #respond .color-lightgrey#reply-title {
+  border: 1px solid #bdc3c7;
+  color: #bdc3c7;
+}
+.s-button.color-lightgrey:hover, #respond .color-lightgrey#reply-title:hover {
+  color: black;
+  background-color: #bdc3c7;
+}
+.s-button.color-grey, #respond .color-grey#reply-title {
+  border: 1px solid #95a5a6;
+  color: #95a5a6;
+}
+.s-button.color-grey:hover, #respond .color-grey#reply-title:hover {
+  color: black;
+  background-color: #95a5a6;
+}
+.s-button.color-darkgrey, #respond .color-darkgrey#reply-title {
+  border: 1px solid #7f8c8d;
+  color: #7f8c8d;
+}
+.s-button.color-darkgrey:hover, #respond .color-darkgrey#reply-title:hover {
+  color: black;
+  background-color: #7f8c8d;
+}
+.s-button.color-lightyellow, #respond .color-lightyellow#reply-title {
+  border: 1px solid #f1c40f;
+  color: #f1c40f;
+}
+.s-button.color-lightyellow:hover, #respond .color-lightyellow#reply-title:hover {
+  color: black;
+  background-color: #f1c40f;
+}
+.s-button.color-yellow, #respond .color-yellow#reply-title {
+  border: 1px solid #f1c40f;
+  color: #f1c40f;
+}
+.s-button.color-yellow:hover, #respond .color-yellow#reply-title:hover {
+  color: black;
+  background-color: #f1c40f;
+}
+.s-button.color-darkyellow, #respond .color-darkyellow#reply-title {
+  border: 1px solid #f1c40f;
+  color: #f1c40f;
+}
+.s-button.color-darkyellow:hover, #respond .color-darkyellow#reply-title:hover {
+  color: black;
+  background-color: #f1c40f;
+}
+.s-button.color-lightorange, #respond .color-lightorange#reply-title {
+  border: 1px solid #f39c12;
+  color: #f39c12;
+}
+.s-button.color-lightorange:hover, #respond .color-lightorange#reply-title:hover {
+  color: black;
+  background-color: #f39c12;
+}
+.s-button.color-orange, #respond .color-orange#reply-title {
+  border: 1px solid #e67e22;
+  color: #e67e22;
+}
+.s-button.color-orange:hover, #respond .color-orange#reply-title:hover {
+  color: black;
+  background-color: #e67e22;
+}
+.s-button.color-darkorange, #respond .color-darkorange#reply-title {
+  border: 1px solid #d35400;
+  color: #d35400;
+}
+.s-button.color-darkorange:hover, #respond .color-darkorange#reply-title:hover {
+  color: black;
+  background-color: #d35400;
+}
+.s-button.color-lightblue, #respond .color-lightblue#reply-title {
+  border: 1px solid #1abc9c;
+  color: #1abc9c;
+}
+.s-button.color-lightblue:hover, #respond .color-lightblue#reply-title:hover {
+  color: black;
+  background-color: #1abc9c;
+}
+.s-button.color-blue, #respond .color-blue#reply-title {
+  border: 1px solid #3498db;
+  color: #3498db;
+}
+.s-button.color-blue:hover, #respond .color-blue#reply-title:hover {
+  color: black;
+  background-color: #3498db;
+}
+.s-button.color-darkblue, #respond .color-darkblue#reply-title {
+  border: 1px solid #2980b9;
+  color: #2980b9;
+}
+.s-button.color-darkblue:hover, #respond .color-darkblue#reply-title:hover {
+  color: black;
+  background-color: #2980b9;
+}
+.s-button.color-lightred, #respond .color-lightred#reply-title {
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+}
+.s-button.color-lightred:hover, #respond .color-lightred#reply-title:hover {
+  color: black;
+  background-color: #e74c3c;
+}
+.s-button.color-red, #respond .color-red#reply-title {
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+}
+.s-button.color-red:hover, #respond .color-red#reply-title:hover {
+  color: black;
+  background-color: #e74c3c;
+}
+.s-button.color-darkred, #respond .color-darkred#reply-title {
+  border: 1px solid #c0392b;
+  color: #c0392b;
+}
+.s-button.color-darkred:hover, #respond .color-darkred#reply-title:hover {
+  color: black;
+  background-color: #c0392b;
+}
+.s-button.color-lightpurple, #respond .color-lightpurple#reply-title {
+  border: 1px solid #9b59b6;
+  color: #9b59b6;
+}
+.s-button.color-lightpurple:hover, #respond .color-lightpurple#reply-title:hover {
+  color: black;
+  background-color: #9b59b6;
+}
+.s-button.color-purple, #respond .color-purple#reply-title {
+  border: 1px solid #9b59b6;
+  color: #9b59b6;
+}
+.s-button.color-purple:hover, #respond .color-purple#reply-title:hover {
+  color: black;
+  background-color: #9b59b6;
+}
+.s-button.color-darkpurple, #respond .color-darkpurple#reply-title {
+  border: 1px solid #8e44ad;
+  color: #8e44ad;
+}
+.s-button.color-darkpurple:hover, #respond .color-darkpurple#reply-title:hover {
+  color: black;
+  background-color: #8e44ad;
+}
+.s-button.color-lightgreen, #respond .color-lightgreen#reply-title {
+  border: 1px solid #2ecc71;
+  color: #2ecc71;
+}
+.s-button.color-lightgreen:hover, #respond .color-lightgreen#reply-title:hover {
+  color: black;
+  background-color: #2ecc71;
+}
+.s-button.color-green, #respond .color-green#reply-title {
+  border: 1px solid #27ae60;
+  color: #27ae60;
+}
+.s-button.color-green:hover, #respond .color-green#reply-title:hover {
+  color: black;
+  background-color: #27ae60;
+}
+.s-button.color-darkgreen, #respond .color-darkgreen#reply-title {
+  border: 1px solid #16a085;
+  color: #16a085;
+}
+.s-button.color-darkgreen:hover, #respond .color-darkgreen#reply-title:hover {
+  color: black;
+  background-color: #16a085;
+}
+.s-button.color-black, #respond .color-black#reply-title {
+  border: 1px solid black;
+  color: black;
+}
+.s-button.color-black:hover, #respond .color-black#reply-title:hover {
+  color: black;
+  background-color: black;
+}
+
 #breaking {
   width: 100%;
   float: left;
@@ -460,74 +865,13 @@ body.home #breaking-posts .entry-meta * {
  * The editing of comments to display in the proper format and to show with
  * the right pazazz.
  */
-#comments {
-  width: 100%;
+#respond #reply-title {
+  border: 1px solid #e67e22;
+  color: #e67e22;
 }
-
-#comments .content-element {
-  overflow: hidden;
-}
-
-#comments .comment {
-  width: 100%;
-  margin: 0;
-  position: relative;
-  /*============= Background =============*/
-  /* Background color alternates based off of section. */
-  /*============= Content =============*/
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-}
-#comments .comment * {
-  z-index: 2;
-}
-#comments .comment .background {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 1400px;
-  height: 100%;
-  z-index: 1;
-  -moz-transform-origin: top right;
-  -ms-transform-origin: top right;
-  -webkit-transform-origin: top right;
-  transform-origin: top right;
-  -moz-transform: rotate(-4deg);
-  -ms-transform: rotate(-4deg);
-  -webkit-transform: rotate(-4deg);
-  transform: rotate(-4deg);
-}
-#comments .comment:nth-child(2n) .background {
-  background-color: white;
-}
-#comments .comment:nth-child(2n+1) .background {
-  background-color: #F3F3F3;
-}
-#comments .comment .post-content {
-  width: 700px;
-}
-
-#comments .comment .comment-body {
-  margin: 50px 0;
-}
-#comments .comment .entry-meta {
-  position: absolute;
-  right: 0;
-  width: 100%;
-  text-align: center;
-  top: 0;
-  -moz-transform-origin: top right;
-  -ms-transform-origin: top right;
-  -webkit-transform-origin: top right;
-  transform-origin: top right;
-  -moz-transform: rotate(-4deg);
-  -ms-transform: rotate(-4deg);
-  -webkit-transform: rotate(-4deg);
-  transform: rotate(-4deg);
+#respond #reply-title:hover {
+  color: black;
+  background-color: #e67e22;
 }
 
 #featured {
@@ -612,7 +956,6 @@ body.home #breaking-posts .entry-meta * {
   position: relative;
   width: 250px;
   min-height: 80px;
-  color: white;
   background-color: rgba(0, 0, 0, 0.4);
   border-bottom: 0 solid transparent;
   margin: 0;
@@ -621,6 +964,9 @@ body.home #breaking-posts .entry-meta * {
 }
 #featured-posts .post .post-featured-image {
   display: none;
+}
+#featured-posts .post, #featured-posts .post * {
+  color: white;
 }
 #featured-posts .post:first-child {
   border-top: 0 solid transparent;
@@ -823,192 +1169,6 @@ footer#primary-footer .widget-container .entry-meta * {
   color: #4e5758;
   text-align: center;
   margin: 0.8em 0;
-}
-
-/* Animates text when visible, works primarily off of the .animated class. */
-@-moz-keyframes draw-text {
-  100% {
-    stroke-dashoffset: 0;
-    fill-opacity: 1;
-  }
-}
-@-webkit-keyframes draw-text {
-  100% {
-    stroke-dashoffset: 0;
-    fill-opacity: 1;
-  }
-}
-@keyframes draw-text {
-  100% {
-    stroke-dashoffset: 0;
-    fill-opacity: 1;
-  }
-}
-@-moz-keyframes fill-text {
-  0% {
-    fill-opacity: 0;
-  }
-  100% {
-    fill-opacity: 1;
-  }
-}
-@-webkit-keyframes fill-text {
-  0% {
-    fill-opacity: 0;
-  }
-  100% {
-    fill-opacity: 1;
-  }
-}
-@keyframes fill-text {
-  0% {
-    fill-opacity: 0;
-  }
-  100% {
-    fill-opacity: 1;
-  }
-}
-svg.draw-text {
-  width: 100%;
-}
-svg.draw-text text {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  fill-opacity: 0;
-}
-
-svg.draw-text.animated text, .animated svg.draw-text text {
-  -moz-animation: draw-text 5.4s forwards;
-  -webkit-animation: draw-text 5.4s forwards;
-  animation: draw-text 5.4s forwards;
-}
-
-blockquote {
-  font-family: Georgia, serif;
-  font-size: 16px;
-  font-style: italic;
-  margin: 0.25em 0;
-  padding: 0.25em 40px;
-  line-height: 1.45;
-  position: relative;
-  color: #333333;
-}
-
-blockquote::before {
-  display: block;
-  content: "\201C";
-  font-size: 80px;
-  position: absolute;
-  left: 3px;
-  top: -20px;
-  color: #ccc;
-}
-
-cite {
-  font-family: "Montserrat", sans-serif;
-  color: #999999;
-  font-size: 12px;
-  display: block;
-  margin-top: 5px;
-  margin-left: 30px;
-}
-
-cite:before {
-  content: "\2014 \2009";
-}
-
-/**
- * Style the entry meta, somewhat basically for the entire site.
- */
-.entry-meta {
-  font-size: 0.8em;
-  color: #95a5a6;
-}
-.entry-meta .author::before {
-  content: '–';
-  padding: 0 0.8em;
-}
-.entry-meta * {
-  display: inline-block;
-}
-
-/**
- * Shows a masonry element as position relative in order to allow children
- * to be postioned absolutly by javascript.
- */
-.masonry-grid {
-  position: relative;
-}
-
-.post-content .read-more {
-  color: #f39c12;
-  opacity: 0;
-  -moz-transform: translateX(-2em);
-  -ms-transform: translateX(-2em);
-  -webkit-transform: translateX(-2em);
-  transform: translateX(-2em);
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-
-/* Show the read more link on hover. */
-.post-content:hover .read-more {
-  -moz-transform: translateX(0);
-  -ms-transform: translateX(0);
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
-  opacity: 1;
-}
-
-/* Show the read more link by default on mobile. */
-@media only screen and (max-width: 420px) {
-  .post-content .read-more {
-    -moz-transform: translateX(0);
-    -ms-transform: translateX(0);
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-table {
-  border-collapse: collapse;
-  width: 100%;
-  text-align: left;
-  display: block;
-  font-size: 0.9em;
-}
-table *, table *::before, table *::after {
-  -moz-transition: all 1.2s;
-  -o-transition: all 1.2s;
-  -webkit-transition: all 1.2s;
-  transition: all 1.2s;
-}
-table thead {
-  display: block;
-  width: 100%;
-  margin-bottom: 8px;
-}
-table thead::after {
-  content: '';
-  height: 1px;
-  background-color: black;
-  margin-left: 0;
-  margin-right: 0;
-  display: block;
-  width: 0;
-}
-table tr {
-  height: 2.25em;
-}
-table tr > * {
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
-table.animated thead::after {
-  width: 100%;
 }
 
 /**

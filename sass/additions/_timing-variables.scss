@@ -15,6 +15,8 @@ $time__ages: 5s;
 $base-element-transform-time: 0.8s ease-out;
 
 
+
+
 /*============= Navigation =============*/
 $nav-transition-color-duration: 0.4s;
 $nav-toggle-transition-time: 0.5s;
@@ -41,3 +43,6 @@ $single-post-title-underline-transition: 1.5s ease-in;
 /*============= Featured =============*/
 $featured-post-transition: 1s;
 $featured-post-image-transition: 2s;
+
+/*============= Button =============*/
+$timing__button: $time__long;

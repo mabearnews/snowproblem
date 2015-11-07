@@ -20,12 +20,10 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area content-container">
-	<section class="content-element">
+<div id="comments" class="comments-area">
+	<section class="com,ents-content">
 		<?php if ( have_comments() ) : ?>
-			<h2 class="comments-title">
-				
-			</h2>
+			<h2 class="comments-title"> Comments </h2>
 
 			<section class="comment-list">
 				<?php

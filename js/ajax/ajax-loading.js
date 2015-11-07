@@ -33,7 +33,8 @@
 
         var s = {
             scrollContainer: $( '#page' ),
-            postNumber: 10
+            postNumber: 10,
+            excludeIDS: [],
         };
 
         if ( ! paramsIsString ) {
@@ -74,6 +75,7 @@
                 delete queryParams.postFormat;
                 delete queryParams.scrollContainer;
                 delete queryParams.postNumber;
+                delete queryParams.excludeIDS;
             }
 
             $.ajax({
@@ -84,7 +86,8 @@
                     postFormat: s.postFormat,
                     skipTo: numberReceived,
                     postNumber: s.postNumber,
-                    queryParams: queryParams
+                    queryParams: queryParams,
+                    excludeIDS: s.excludeIDS
         		},
         		success: function( result ) {
                     r = $( result );

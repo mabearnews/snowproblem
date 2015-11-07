@@ -200,24 +200,27 @@ function snowproblem_ajax_post_loading() {
 	$skipTo = isset( $_POST['skipTo'] ) ? $_POST['skipTo'] : 0;
 	$post_number = isset( $_POST['postNumber'] ) ? $_POST['postNumber'] : PHP_INT_MAX;
 
+	$exclude_ids = isset( $_POST['excludeIDS'] ) ? $_POST['excludeIDS'] : array();
+
 	if ( is_array( $data ) ) {
-		$data['posts_per_page'] = $skipTo + $post_number + 3;
+		$data['posts_per_page'] = $skipTo + $post_number + count( $exclude_ids ) + 3;
 	} else {
-		$data .= '&posts_per_page=' . ($skipTo + $post_number + 3);
+		$data .= '&posts_per_page=' . ($skipTo + $post_number + count( $exclude_ids ) + 3);
 	}
 
 	query_posts( $data );
 
-	if ( have_posts() ) {
-		while ( have_posts() ) {
-			the_post();
+	if ( have_posts() ) :
+		while ( have_posts() ) : the_post();
 
+			if ( in_array( get_the_ID(), $exclude_ids ) ) { continue; }
 			if ( --$skipTo >= 0 ) { continue; }
 			if ( $post_number-- <= 0 ) {  break; };
 
 			get_template_part( 'template-parts/content', $format );
-		}
-	}
+
+		endwhile;
+	endif;
 
 	wp_reset_query();
 
