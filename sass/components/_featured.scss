@@ -81,7 +81,6 @@
         position: relative;
         width: $featured-post-width;
         min-height: $featured-post-height;
-        color: $feauted-post-title-color;
         background-color: $featured-post-bgcolor;
 
         // Add a border to the display.
@@ -95,6 +94,8 @@
 
         // Remove non essential members of the post.
         .post-featured-image { display: none; }
+
+        &, * { color: $feauted-post-title-color; }
 
         &:first-child {
             border-top: $featured-post-border-size solid $featured-post-border-color;

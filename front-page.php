@@ -12,6 +12,11 @@
  * @package snowproblem
  */
 
+/**
+ * Sets up an array of id's to be ignored as they are already loaded...
+ */
+$loaded_posts = array();
+
 get_header(); ?>
 	<?php query_posts('post_type=breaking_news_ticker&orderby=date&order=DESC'); /* Query all posts of 'breaking_news' type.*/ ?>
 	<?php if ( have_posts() ) : ?>
@@ -52,6 +57,9 @@ get_header(); ?>
 						 * Include content speciffically of the 'featured' type.
 						 */
 						get_template_part( 'template-parts/content', 'featured');
+
+						// Ensure the item is loaded with an id.
+						$loaded_posts[]= get_the_ID();
 						?>
 
 					<?php endwhile; ?>
@@ -67,9 +75,10 @@ get_header(); ?>
 		 * Define the paramaters for the recent posts query.
 		 */
 		 $params = array(
-			 'orderby' => 'data',
-			 'order'   => 'DESC',
+			 'orderby'    => 'data',
+			 'order'      => 'DESC',
 			 'postFormat' => 'front',
+			 'excludeIDS' => $loaded_posts,
 		 );
 	?>
 	<section id="recent-posts" class="snowgrid" ajax-load-posts='<?php echo json_encode( $params ); ?>' first-large="2"></section>

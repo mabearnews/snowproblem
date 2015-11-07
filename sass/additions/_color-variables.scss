@@ -73,6 +73,8 @@ $all-colors: $white,
 $current-element-color: $lightgrey;
 $color__text-default: black;
 $color__link-active: $grey;
+$color__text-light: white;
+$color__text-dark: $color__text-default;
 
 /*============= Page =============*/
 $page-bgcolor: #F5F5F5;
@@ -206,3 +208,31 @@ $category-color-default: $lightgrey;
 $breaking-section-bgcolor: lighten($lightgrey, 20);
 $front-page-month-color-odd: white;
 $front-page-month-color-even: $breaking-section-bgcolor;
+
+/*============= S-Button =============*/
+$color__button-default: white;
+$colors__button: (
+     'white'      : white,
+     'lightgrey'  : $lightgrey,
+     'grey'       : $grey,
+     'darkgrey'   : $darkgrey,
+     'lightyellow': $lightyellow,
+     'yellow'     : $yellow,
+     'darkyellow' : $darkyellow,
+     'lightorange': $lightorange,
+     'orange'     : $orange,
+     'darkorange' : $darkorange,
+     'lightblue'  : $lightblue,
+     'blue'       : $blue,
+     'darkblue'   : $darkblue,
+     'lightred'   : $lightred,
+     'red'        : $red,
+     'darkred'    : $darkred,
+     'lightpurple': $lightpurple,
+     'purple'     : $purple,
+     'darkpurple' : $darkpurple,
+     'lightgreen' : $lightgreen,
+     'green'      : $green,
+     'darkgreen'  : $darkgreen,
+     'black'      : black,
+);

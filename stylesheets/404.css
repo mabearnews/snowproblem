@@ -32,6 +32,7 @@
 /*============= Comments =============*/
 /*============= Categories =============*/
 /*============= Front Page =============*/
+/*============= S-Button =============*/
 /**
  * @file.
  * Defines two variables which are used to determine fonts across the site.
@@ -58,6 +59,7 @@ h1, h2, h3, h4, h5, h6, #message .go-home * {
 /*============= General =============*/
 /*============= Footer =============*/
 /*============= Posts =============*/
+/*============= S-Button =============*/
 /**
  * @file.
  * This file relates to the general elements of appearence that do not conform
@@ -94,6 +96,7 @@ h1, h2, h3, h4, h5, h6, #message .go-home * {
 /*============= Footer =============*/
 /*============= Featured =============*/
 /*============= Comments =============*/
+/*============= S-Button =============*/
 /**
  * @file.
  * Relates to all the various timing that is essential to the flow of the
@@ -107,6 +110,7 @@ h1, h2, h3, h4, h5, h6, #message .go-home * {
 /*============= Multiple Posts =============*/
 /*============= Posts =============*/
 /*============= Featured =============*/
+/*============= Button =============*/
 /**
  * @file.
  * Relates to various elements conncerning miscelanious styling for things
@@ -286,98 +290,98 @@ a:active, a:focus, a:hover {
 }
 @-moz-keyframes pulse {
   0% {
-    color: #8e44ad;
+    color: white;
   }
   20% {
-    color: #16a085;
+    color: #2ecc71;
   }
   30% {
-    color: #8e44ad;
+    color: #9b59b6;
   }
   40% {
-    color: #f1c40f;
+    color: #34495e;
   }
   50% {
-    color: #95a5a6;
+    color: #16a085;
   }
   60% {
     color: #f1c40f;
   }
   70% {
-    color: #34495e;
+    color: #2ecc71;
   }
   80% {
-    color: #16a085;
+    color: #bdc3c7;
   }
   90% {
-    color: #e67e22;
+    color: #e74c3c;
   }
   100% {
-    color: #8e44ad;
+    color: white;
   }
 }
 @-webkit-keyframes pulse {
   0% {
-    color: #8e44ad;
+    color: white;
   }
   20% {
-    color: #e74c3c;
+    color: #f1c40f;
   }
   30% {
     color: #2980b9;
   }
   40% {
-    color: #f1c40f;
-  }
-  50% {
-    color: #f1c40f;
-  }
-  60% {
-    color: #95a5a6;
-  }
-  70% {
-    color: #c0392b;
-  }
-  80% {
-    color: #3498db;
-  }
-  90% {
     color: #16a085;
   }
+  50% {
+    color: #3498db;
+  }
+  60% {
+    color: #1abc9c;
+  }
+  70% {
+    color: white;
+  }
+  80% {
+    color: #34495e;
+  }
+  90% {
+    color: #f39c12;
+  }
   100% {
-    color: #8e44ad;
+    color: white;
   }
 }
 @keyframes pulse {
   0% {
-    color: #8e44ad;
+    color: white;
   }
   20% {
-    color: #16a085;
-  }
-  30% {
-    color: #8e44ad;
-  }
-  40% {
-    color: #d35400;
-  }
-  50% {
-    color: #16a085;
-  }
-  60% {
     color: #f39c12;
   }
+  30% {
+    color: #f39c12;
+  }
+  40% {
+    color: #95a5a6;
+  }
+  50% {
+    color: #34495e;
+  }
+  60% {
+    color: #f1c40f;
+  }
   70% {
-    color: #9b59b6;
+    color: #8e44ad;
   }
   80% {
     color: #16a085;
   }
   90% {
-    color: #f39c12;
+    color: #bdc3c7;
   }
   100% {
-    color: #8e44ad;
+    color: white;
   }
 }
 #message {

@@ -159,9 +159,8 @@
 
 
         // Ensure that that endResize event loaded properly.
-        setTimeout(function() {
-            performAlignment();
-        }, 1000);
+        setTimeout(performAlignment 1000);
+        setTimeout(performAlignment 2500);
 
         // Tell self that snowgrid is loaded.
         this.addClass( 'loaded' );
