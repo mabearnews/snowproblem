@@ -181,6 +181,28 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "PT Serif", serif;
 }
 
+.post .entry-image {
+  width: 100%;
+  overflow: hidden;
+}
+.post .entry-image, .post .entry-image * {
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+.post .entry-image img {
+  -moz-transition: all 0.8s;
+  -o-transition: all 0.8s;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+}
+.post .entry-image:hover img {
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
 /**
  * @file.
  * Defines some basic ovverride styles for parts of the page to improve the
@@ -2050,86 +2072,95 @@ body.author #main .loaded-posts {
   }
 }
 
+body.home {
+  /* Remove extra space from header */
+  /* Hide Category bar for featured */
+}
 body.home #recent-posts {
   width: 100%;
 }
-
-body.home .post img {
-  width: 100%;
-}
-
-/* Remove extra space from header */
-body.home .post header * {
-  margin-top: 0;
-}
-
-/* Show the categories the current post is linked to. */
-body.home .post {
+body.home #recent-posts .post {
+  padding: 0;
   background-color: white;
+}
+body.home #recent-posts .post .post-content {
+  margin-top: 0;
+  padding: 20px;
+  /* Show the categories the current post is linked to. */
   border-left-width: 5px;
   border-left-style: solid;
   border-left-color: #bdc3c7;
 }
-body.home .post[class*="category-entertainment"] {
-  border-left-color: #1abc9c;
+body.home #recent-posts .post[class*="category-entertainment"] .post-content {
+  border-color: #1abc9c;
 }
-body.home .post[class*="category-markup"] {
-  border-left-color: #f1c40f;
+body.home #recent-posts .post[class*="category-markup"] .post-content {
+  border-color: #f1c40f;
 }
-body.home .post[class*="category-movie-reviews"] {
-  border-left-color: #16a085;
+body.home #recent-posts .post[class*="category-movie-reviews"] .post-content {
+  border-color: #16a085;
 }
-body.home .post[class*="category-music-reviews"] {
-  border-left-color: #27ae60;
+body.home #recent-posts .post[class*="category-music-reviews"] .post-content {
+  border-color: #27ae60;
 }
-body.home .post[class*="category-theater-reviews"] {
-  border-left-color: #2ecc71;
+body.home #recent-posts .post[class*="category-theater-reviews"] .post-content {
+  border-color: #2ecc71;
 }
-body.home .post[class*="category-extra-point"] {
-  border-left-color: #f1c40f;
+body.home #recent-posts .post[class*="category-extra-point"] .post-content {
+  border-color: #f1c40f;
 }
-body.home .post[class*="category-ma-events"] {
-  border-left-color: #c0392b;
+body.home #recent-posts .post[class*="category-ma-events"] .post-content {
+  border-color: #c0392b;
 }
-body.home .post[class*="category-opinion"] {
-  border-left-color: #95a5a6;
+body.home #recent-posts .post[class*="category-opinion"] .post-content {
+  border-color: #95a5a6;
 }
-body.home .post[class*="category-science"] {
-  border-left-color: #2980b9;
+body.home #recent-posts .post[class*="category-science"] .post-content {
+  border-color: #2980b9;
 }
-body.home .post[class*="category-sports"] {
-  border-left-color: #f1c40f;
+body.home #recent-posts .post[class*="category-sports"] .post-content {
+  border-color: #f1c40f;
 }
-body.home .post[class*="category-blogs"] {
-  border-left-color: #3498db;
+body.home #recent-posts .post[class*="category-blogs"] .post-content {
+  border-color: #3498db;
 }
-body.home .post[class*="category-blogscat"] {
-  border-left-color: #3498db;
+body.home #recent-posts .post[class*="category-blogscat"] .post-content {
+  border-color: #3498db;
 }
-body.home .post[class*="category-question-of-the-day"] {
-  border-left-color: #e74c3c;
+body.home #recent-posts .post[class*="category-question-of-the-day"] .post-content {
+  border-color: #e74c3c;
 }
-body.home .post[class*="category-the-stew"] {
-  border-left-color: #e74c3c;
+body.home #recent-posts .post[class*="category-the-stew"] .post-content {
+  border-color: #e74c3c;
 }
-body.home .post[class*="category-top-stories"] {
-  border-left-color: #8e44ad;
+body.home #recent-posts .post[class*="category-top-stories"] .post-content {
+  border-color: #8e44ad;
 }
-body.home .post[class*="category-satire"] {
-  border-left-color: #9b59b6;
+body.home #recent-posts .post[class*="category-satire"] .post-content {
+  border-color: #9b59b6;
 }
-body.home .post[class*="category-featured"] {
-  border-left-color: #8e44ad;
+body.home #recent-posts .post[class*="category-featured"] .post-content {
+  border-color: #8e44ad;
 }
-body.home .post[class*="category-news"] {
-  border-left-color: #9b59b6;
+body.home #recent-posts .post[class*="category-news"] .post-content {
+  border-color: #9b59b6;
 }
-body.home .post[class*="category-uncategorized"] {
-  border-left-color: #bdc3c7;
+body.home #recent-posts .post[class*="category-uncategorized"] .post-content {
+  border-color: #bdc3c7;
 }
-
-/* Hide Category bar for featured */
-#featured .post {
+body.home #recent-posts .post .entry-image, body.home #recent-posts .post img {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+body.home .post img {
+  width: 100%;
+}
+body.home .post header * {
+  margin-top: 0;
+}
+body.home #featured .post {
   border-left: none;
 }
 

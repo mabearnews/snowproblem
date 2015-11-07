@@ -11,9 +11,11 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'post' ); ?>>
 	<?php if ( has_post_thumbnail() ) : ?>
-		<div class="entry-image">
-			<?php the_post_thumbnail(); ?>
-		</div>
+		<a href="<?php print get_permalink(); ?>">
+			<div class="entry-image">
+				<?php the_post_thumbnail(); ?>
+			</div>
+		</a>
 	<?php endif; ?>
 
 	<section class="post-content">

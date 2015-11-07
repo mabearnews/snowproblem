@@ -1,29 +1,51 @@
-body.home #recent-posts  {
+body.home {
+
+#recent-posts  {
     width: 100%;
 }
 
-
-body.home .post img {
-    width: 100%;
-}
-
-/* Remove extra space from header */
-body.home .post header * { margin-top: 0; }
-
-/* Show the categories the current post is linked to. */
-body.home .post {
+#recent-posts .post {
+    padding: 0;
     background-color: $content-bgcolor;
 
-    border-left-width: $front-page-category-border-width;
-    border-left-style: solid;
-    border-left-color: $category-color-default;
+    .post-content {
+        margin-top: 0;
+        padding: $grid-gap;
+
+        /* Show the categories the current post is linked to. */
+
+        border-left-width: $front-page-category-border-width;
+        border-left-style: solid;
+        border-left-color: $category-color-default;
+    }
 
     @each $category, $color in $category-colors {
-        &[class*="category-#{$category}"] {
-            border-left-color: $color;
+        &[class*="category-#{$category}"] .post-content {
+            border-color: $color;
         }
+    }
+
+    .entry-image, img {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
     }
 }
 
+
+.post img {
+    width: 100%;
+}
+
+
+
+/* Remove extra space from header */
+.post header * { margin-top: 0; }
+
+
+
 /* Hide Category bar for featured */
 #featured .post { border-left: none; }
+
+}
