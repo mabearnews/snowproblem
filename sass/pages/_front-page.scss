@@ -48,4 +48,10 @@ body.home {
 /* Hide Category bar for featured */
 #featured .post { border-left: none; }
 
+/* Import the remaining files from the `front` folder. */
+@import "front/grid";
+@import "front/news-ticker";
+@import "front/ma-posts";
+@import "front/editors-picks";
+
 }

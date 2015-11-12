@@ -18,64 +18,40 @@
 $loaded_posts = array();
 
 get_header(); ?>
-	<?php query_posts('post_type=breaking_news_ticker&orderby=date&order=DESC'); /* Query all posts of 'breaking_news' type.*/ ?>
-	<?php if ( have_posts() ) : ?>
 
-		<section id="breaking-news-ticker">
+	<?php include get_template_directory() . '/front-parts/featured.php'; ?>
 
-			<section id="breaking-news-items">
-					<?php /* Start the Loop */ ?>
-					<?php while ( have_posts() ) : the_post(); ?>
-
-						<?php
-						/**
-						 * Include content speciffically of the 'featured' type.
-						 */
-						get_template_part( 'template-parts/breaking' );
-						?>
-
-					<?php endwhile; ?>
-				<?php wp_reset_query(); /* Reset for all posts. */ ?>
-			</section> <!-- #breaking-news-items -->
-
-		</section> <!-- #breaking-news-ticker -->
-
-	<?php endif; ?>
+	<?php include get_template_directory() . '/front-parts/breaking-news-ticker.php'; ?>
 
 
-	<?php query_posts('posts_per_page=4&category_name=featured&orderby=date&order=DESC'); /* Query all posts with 'featured' category. Maximum of 5. */ ?>
-	<?php if ( have_posts() ): ?>
+	<section class="front-grid direction-row row-2">
 
-		<section id="featured">
-			<section id="featured-image"></section>
-			<section id="featured-posts">
-					<?php /* Start the Loop */ ?>
-					<?php while ( have_posts() ) : the_post(); ?>
+		<div class="col-1" >
 
-						<?php
-						/**
-						 * Include content speciffically of the 'featured' type.
-						 */
-						get_template_part( 'template-parts/content', 'featured');
+		</div>
 
-						// Ensure the item is loaded with an id.
-						$loaded_posts[]= get_the_ID();
-						?>
+		<div class="col-2 front-grid direction-col" >
 
-					<?php endwhile; ?>
+			<div class="row-p50" >
 
-				<?php wp_reset_query(); /* Reset for all posts. */ ?>
-			</section> <!-- #featured-posts -->
-		</section> <!-- #featured -->
+				<?php /* Include editors picks -- avoids excessivly complicated front page file. */  ?>
+				<?php include get_template_directory() . '/front-parts/editors-picks.php'; ?>
+			</div>
 
-	<?php endif; ?>
+			<div class="row-p50">
+
+			</div>
+
+		</div>
+
+	</section>
 
 	<?php
 		/**
 		 * Define the paramaters for the recent posts query.
 		 */
 		 $params = array(
-			 'orderby'    => 'data',
+			 'orderby'    => 'date',
 			 'order'      => 'DESC',
 			 'postFormat' => 'front',
 			 'excludeIDS' => $loaded_posts,

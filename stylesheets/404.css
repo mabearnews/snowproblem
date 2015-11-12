@@ -32,6 +32,7 @@
 /*============= Comments =============*/
 /*============= Categories =============*/
 /*============= Front Page =============*/
+/*============ -- Editors Picks =============*/
 /*============= S-Button =============*/
 /**
  * @file.
@@ -312,98 +313,98 @@ a:active, a:focus, a:hover {
 }
 @-moz-keyframes pulse {
   0% {
-    color: #bdc3c7;
-  }
-  20% {
-    color: #e67e22;
-  }
-  30% {
-    color: #2ecc71;
-  }
-  40% {
-    color: #e67e22;
-  }
-  50% {
-    color: #8e44ad;
-  }
-  60% {
-    color: #7f8c8d;
-  }
-  70% {
-    color: #2980b9;
-  }
-  80% {
-    color: #f1c40f;
-  }
-  90% {
-    color: #1abc9c;
-  }
-  100% {
-    color: #bdc3c7;
-  }
-}
-@-webkit-keyframes pulse {
-  0% {
-    color: #bdc3c7;
-  }
-  20% {
-    color: #27ae60;
-  }
-  30% {
     color: #e74c3c;
   }
+  20% {
+    color: #2ecc71;
+  }
+  30% {
+    color: #c0392b;
+  }
   40% {
-    color: white;
+    color: #e74c3c;
   }
   50% {
     color: #9b59b6;
   }
   60% {
+    color: #bdc3c7;
+  }
+  70% {
+    color: #2ecc71;
+  }
+  80% {
+    color: #95a5a6;
+  }
+  90% {
     color: #f1c40f;
+  }
+  100% {
+    color: #e74c3c;
+  }
+}
+@-webkit-keyframes pulse {
+  0% {
+    color: #e74c3c;
+  }
+  20% {
+    color: #1abc9c;
+  }
+  30% {
+    color: #f1c40f;
+  }
+  40% {
+    color: #16a085;
+  }
+  50% {
+    color: #c0392b;
+  }
+  60% {
+    color: #16a085;
   }
   70% {
     color: #e74c3c;
   }
   80% {
-    color: #e74c3c;
+    color: #27ae60;
   }
   90% {
-    color: #d35400;
+    color: #1abc9c;
   }
   100% {
-    color: #bdc3c7;
+    color: #e74c3c;
   }
 }
 @keyframes pulse {
   0% {
-    color: #bdc3c7;
+    color: #e74c3c;
   }
   20% {
-    color: #e74c3c;
+    color: #f1c40f;
   }
   30% {
-    color: #e74c3c;
+    color: #27ae60;
   }
   40% {
-    color: #2980b9;
+    color: #34495e;
   }
   50% {
-    color: #8e44ad;
+    color: #bdc3c7;
   }
   60% {
-    color: #2ecc71;
+    color: #3498db;
   }
   70% {
-    color: #2ecc71;
+    color: #3498db;
   }
   80% {
-    color: #2980b9;
+    color: #2ecc71;
   }
   90% {
-    color: #c0392b;
+    color: #3498db;
   }
   100% {
-    color: #bdc3c7;
+    color: #e74c3c;
   }
 }
 #message {

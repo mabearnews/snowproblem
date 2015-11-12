@@ -1,171 +1,76 @@
+/**
+ * Creates a featured image dispaly at the very top of the page with a
+ * variety of posts deeemed featured. The title and the excerpt along with
+ * a photo are shown, thats it.
+ *
+ * For impacting file look at:
+ * @see js/featured.js
+ * @see front-parts/featured.php
+ * @see inc/content-featured.php
+ */
 #featured {
+    @include box-sizing( border-box );
     width: 100%;
-
     position: relative;
+    height: $featured-height;
+
+    background-color: white;
 }
-
-#featured #featured-image {
-    margin: 0;
-
-    position: relative;
-
-    width: 100%;
-    height: $featured-image-height;
-    min-height: $featured-post-number * $featured-post-height;
-    max-height: calc(100vh - #{$nav-screen-height});
-
-    /* Show the background image to take up the entire site. */
-    .background-image {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-
-        @include perfect-css-background;
-    }
-
-    /* Show the entry content above the image. */
-    .entry-content {
-        width: $featured-image-entry-content-width;
-        height: 100%;
-
-        position: absolute;
-        left: calc(50% - #{$featured-image-entry-content-width / 2});
-        top: 0;
-
-        // Center all content vertically
-        @include display-flex;
-        @include flex-direction(column);
-        @include justify-content(center);
-
-        * {
-            color: $featured-image-entry-content-text-color;
-            font-size: $featured-image-entry-content-font-size;
-        }
-
-        a { z-index: -1; }
-
-        // Blur the background.
-        .entry-content-wrapper {
-            background-color: $featured-post-content-bgcolor;
-            padding: $featured-post-conent-padding;
-
-            border-radius: $featured-post-conent-border-radius;
-        }
-    }
-}
-
 
 #featured-posts {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+#featured-posts > article.featured-post {
+    @extend .center-vertical-child-flex;
+
+    // Temporarily hide...
+    @include transform(translateX(100vw));
+
+    &, > * { @include transition( all $featured-post-transition ) };
+
+    width: 100%;
+    height: 100%;
     position: absolute;
-    right: 0;
+    left: 0;
     top: 0;
+    bottom: 0;
+    right: 0;
+}
 
+#featured-posts > article.featured-post > .post-content {
+    @include perfect-css-background-rel;
+    position: relative;
     width: $featured-post-width;
+    padding: 30px;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
 
-    // Order in a fashion that allowes for the display of the posts in directly correlating order.
-    @include display-flex;
-    @include flex-direction(column);
-    @include justify-content(flex-start);
+    > .entry-content * {
+        @include text-shadow( 1px 1px 0 black );
+    }
 
-    border-left: $featured-post-border-size solid $featured-post-border-color;
-    border-right: $featured-post-border-size solid $featured-post-border-color;
-
-    .post {
-        @include box-sizing(border-box);
-        @include transition(all $featured-post-transition);
-
-        position: relative;
-        width: $featured-post-width;
-        min-height: $featured-post-height;
-        background-color: $featured-post-bgcolor;
-
-        // Add a border to the display.
-        border-bottom: $featured-post-border-size solid $featured-post-border-color;
-
-        // Remove all margins in order to allow ideal flexbox.
-        margin: 0;
-
-        // Override default post padding.
-        padding: 0 $featured-post-padding;
-
-        // Remove non essential members of the post.
-        .post-featured-image { display: none; }
-
-        &, * { color: $feauted-post-title-color; }
-
-        &:first-child {
-            border-top: $featured-post-border-size solid $featured-post-border-color;
-        }
-
-        .entry-header .entry-title {
-            font-size: $featured-post-title-font-size;
-            text-align: center;
-
-            width: 100%;
-        }
-
-        padding-bottom: $author-font-size * 2;
-
-        .entry-meta {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-        }
+    > .entry-content .title * {
+        @include text-shadow( 1px 1px 3px rgba(0,0,0,0.5) );
+        text-align: left;
+        font-size: 2em;
+        text-decoration: none;
     }
 }
 
 
-/* Relates to the currently selected post and the change that entails */
-#featured-posts .post.selected {
-    background-color: $featured-post-selected-bgcolor;
-}
+#featured-posts > article.featured-post.active  {
+    // Reveal!
+    @include transform(translateX(0));
 
-#featured-image .post-featured-image {
-    @include transition(all $featured-post-image-transition);
-}
-
-#featured-image .post-featured-image.selected {
-    z-index: 2;
-    opacity: 1;
-
-    a { z-index: 10 !important; }
-}
-
-#featured-image .post-featured-image:not(.selected) {
-    opacity: 0;
-    z-index: 1;
-}
-
-/* Media query to change appearence based off of screen size. */
-@media screen and (max-width: $standard-breakpoint) {
-    #featured #featured-image { display: none; }
-
-    #featured-posts {
-        position: relative;
-        width: 100%;
-        margin: 0;
-
-        .post {
-            width: 100%;
-            height: $featured-post-mobile-height;
-            color: $featured-post-mobile-text-color;
-        }
-
-        .post .entry-meta {
-            width: 100%;
-
-            text-align: center;
-        }
-    }
-
-    /* Add the background colors to be more colorful for the mobile site. */
-    @for $index from 1 through length($featured-post-mobile-bgcolors) {
-        #featured-posts .post:nth-child(#{$index}) { background-color: nth($featured-post-mobile-bgcolors, $index); }
+    > .post-content {
+        @include transform(skew(-15deg) rotate(15deg) translateX(0));
+        @include box-shadow(40px 40px 10px 0 rgba(0,0,0,0.3));
     }
 }

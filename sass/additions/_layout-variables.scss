@@ -76,6 +76,8 @@ $front-page-grid-post-width: 300px;
 $front-page-grid-post-gap: 20px;
 $grid-gap: 20px;
 
+$front-grid-size: 400px;
+
 /*============= News ticker =============*/
 $news-ticker-height: 40px;
 
@@ -88,9 +90,9 @@ $column-widget-gap: $front-page-grid-post-gap;
 $body-default-bgcolor: $grey;
 
 /*============= Featured =============*/
-$featured-post-width: 250px;
-$featured-post-height: 80px;
-$featured-image-height: 80vh;
+$featured-height: 100vh;
+$featured-post-width: 60%;
+$featured-post-height: 60%;
 
 $featured-post-mobile-height: 120px;
 

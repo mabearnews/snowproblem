@@ -209,6 +209,13 @@ $breaking-section-bgcolor: lighten($lightgrey, 20);
 $front-page-month-color-odd: white;
 $front-page-month-color-even: $breaking-section-bgcolor;
 
+
+/*============ -- Editors Picks =============*/
+$editors-picks-name-bgcolor: $white;
+$editors-picks-default-bgcolor: $white;
+$editors-picks-post-title-color: $white;
+$editors-picks-author-color: $lightred;
+
 /*============= S-Button =============*/
 $color__button-default: white;
 $colors__button: (

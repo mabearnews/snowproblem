@@ -312,12 +312,11 @@ function snowproblem_primary_menu() {
 }
 
 /**
- * Generates the svg icon for a heading.
+ * Returns a featured image url if one exists.
  */
-function _svg_heading($inner) {
-	return <<<SVG
-	<svg class="draw-text" height="60">
-		<text x="50%" y="40" text-anchor="middle" fill="black" stroke="black" stroke-width="1" font-size="40px" >{$inner}</text>
-	</svg>
-SVG;
+function get_the_post_thumbnail_url() {
+	if ( has_post_thumbnail() ) {
+		return wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];
+	}
+	return false;
 }

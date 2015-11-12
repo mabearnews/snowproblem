@@ -13,7 +13,7 @@
 	<?php if ( has_post_thumbnail() ) : ?>
 		<a href="<?php print get_permalink(); ?>">
 			<div class="entry-image">
-				<?php the_post_thumbnail( 'large' ); ?>
+				<?php the_post_thumbnail( 'medium' ); ?>
 			</div>
 		</a>
 	<?php endif; ?>
@@ -24,15 +24,11 @@
 
 		</header><!-- .entry-header -->
 
-		<div class="entry-content">
-			<?php the_excerpt(); ?>
-		</div><!-- .entry-content -->
-
 		<?php if ( 'post' == get_post_type() ) : ?>
 			<div class="entry-meta">
 				<?php snowproblem_posted_on(); ?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 
-	</section>
+	</section> <!-- .post-content -->
 </article><!-- #post-## -->

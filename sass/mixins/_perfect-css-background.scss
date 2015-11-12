@@ -2,9 +2,23 @@
 /**
  * Makes a background image fill a container...
  */
-@mixin perfect-css-background {
+@mixin perfect-css-background( $image: false ) {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
     @include background-size(cover);
+
+    @if ( $image ) {
+        background-image: url(#{$image});
+    }
+}
+
+@mixin perfect-css-background-rel( $image: false ) {
+    background-repeat: no-repeat;
+    background-position: center center;
+    @include background-size(cover);
+
+    @if ( $image ) {
+        background-image: url(#{$image});
+    }
 }

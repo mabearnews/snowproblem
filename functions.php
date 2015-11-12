@@ -191,46 +191,6 @@ function snowproblem_scripts() {
 add_action( 'wp_enqueue_scripts', 'snowproblem_scripts' );
 
 /**
- * Allow ajax loading of scripts to display content on infinite scroll.
- */
-function snowproblem_ajax_post_loading() {
-	$data = $_POST['queryParams'];
-
-	$format = isset( $_POST['postFormat'] ) ? $_POST['postFormat'] : '';
-	$skipTo = isset( $_POST['skipTo'] ) ? $_POST['skipTo'] : 0;
-	$post_number = isset( $_POST['postNumber'] ) ? $_POST['postNumber'] : PHP_INT_MAX;
-
-	$exclude_ids = isset( $_POST['excludeIDS'] ) ? $_POST['excludeIDS'] : array();
-
-	if ( is_array( $data ) ) {
-		$data['posts_per_page'] = $skipTo + $post_number + count( $exclude_ids ) + 3;
-	} else {
-		$data .= '&posts_per_page=' . ($skipTo + $post_number + count( $exclude_ids ) + 3);
-	}
-
-	query_posts( $data );
-
-	if ( have_posts() ) :
-		while ( have_posts() ) : the_post();
-
-			if ( in_array( get_the_ID(), $exclude_ids ) ) { continue; }
-			if ( --$skipTo >= 0 ) { continue; }
-			if ( $post_number-- <= 0 ) {  break; };
-
-			get_template_part( 'template-parts/content', $format );
-
-		endwhile;
-	endif;
-
-	wp_reset_query();
-
-	// Avoid the die 0 command
-	die();
-}
-add_action( 'wp_ajax_ajax_post_loading', 'snowproblem_ajax_post_loading' );
-add_action( 'wp_ajax_nopriv_ajax_post_loading', 'snowproblem_ajax_post_loading' );
-
-/**
  * Change the html markupp of comments.
  */
 function snowproblem_comment($comment, $args, $depth) {
@@ -290,6 +250,10 @@ function snowproblem_add_slug_body_class( $classes ) {
 }
 add_filter( 'body_class', 'snowproblem_add_slug_body_class' );
 
+/**
+ * Implement ajax laoding.
+ */
+require get_template_directory() . '/inc/ajax-loading.php';
 
 /**
  * Implement the Custom Header feature.
