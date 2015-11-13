@@ -76,6 +76,10 @@ $front-page-grid-post-width: 300px;
 $front-page-grid-post-gap: 20px;
 $grid-gap: 20px;
 
+/*============= Percetnage Bassed Grid =============*/
+$percent-grid-num: 12;
+$percent-grid-gap: 2%;
+
 $front-grid-size: 400px;
 
 /*============= News ticker =============*/
@@ -90,7 +94,8 @@ $column-widget-gap: $front-page-grid-post-gap;
 $body-default-bgcolor: $grey;
 
 /*============= Featured =============*/
-$featured-height: 100vh;
+$featured-height: calc(100vh - #{$nav-screen-height});
+$featured-height-mobile: calc(100vh - #{$nav-screen-mobile-height});
 $featured-post-width: 60%;
 $featured-post-height: 60%;
 

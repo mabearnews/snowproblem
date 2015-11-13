@@ -89,6 +89,7 @@ h1, h2, h3, h4, h5, h6 {
 /*============= Multiple Posts =============*/
 /*============= Breakpoints =============*/
 /*============= Front Page Grid =============*/
+/*============= Percetnage Bassed Grid =============*/
 /*============= News ticker =============*/
 /*============= Footer =============*/
 /*============= Footer =============*/
@@ -167,6 +168,148 @@ h1, h2, h3, h4, h5, h6 {
 /**
  * Makes a background image fill a container...
  */
+/**
+ * @see http://codepen.io/drus/pen/MwEZVe?editors=110
+ */
+.percent-gird {
+  overflow: hidden;
+  *zoom: 1;
+  padding: 2%;
+  margin-left: -2%;
+}
+
+.percent-gird .module {
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  float: left;
+  width: 98%;
+  margin-left: 2%;
+  margin-bottom: 2%;
+  min-height: 60px;
+}
+@media only screen and (min-width: 481px) {
+  .percent-gird .module.tablet-1 {
+    width: 6.33333%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .percent-gird .module.desktop-1 {
+    width: 6.33333%;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .percent-gird .module.tablet-2 {
+    width: 14.66667%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .percent-gird .module.desktop-2 {
+    width: 14.66667%;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .percent-gird .module.tablet-3 {
+    width: 23%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .percent-gird .module.desktop-3 {
+    width: 23%;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .percent-gird .module.tablet-4 {
+    width: 31.33333%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .percent-gird .module.desktop-4 {
+    width: 31.33333%;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .percent-gird .module.tablet-5 {
+    width: 39.66667%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .percent-gird .module.desktop-5 {
+    width: 39.66667%;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .percent-gird .module.tablet-6 {
+    width: 48%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .percent-gird .module.desktop-6 {
+    width: 48%;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .percent-gird .module.tablet-7 {
+    width: 56.33333%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .percent-gird .module.desktop-7 {
+    width: 56.33333%;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .percent-gird .module.tablet-8 {
+    width: 64.66667%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .percent-gird .module.desktop-8 {
+    width: 64.66667%;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .percent-gird .module.tablet-9 {
+    width: 73%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .percent-gird .module.desktop-9 {
+    width: 73%;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .percent-gird .module.tablet-10 {
+    width: 81.33333%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .percent-gird .module.desktop-10 {
+    width: 81.33333%;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .percent-gird .module.tablet-11 {
+    width: 89.66667%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .percent-gird .module.desktop-11 {
+    width: 89.66667%;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .percent-gird .module.tablet-12 {
+    width: 98%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .percent-gird .module.desktop-12 {
+    width: 98%;
+  }
+}
+
 /**
  * @file.
  * Contains information about the various fonts and font types that are to
@@ -251,7 +394,7 @@ a:active, a:focus, a:hover {
   color: #95a5a6;
 }
 
-.center-vertical-child-flex, #featured-posts > article.featured-post, #site-navigation, nav#site-navigation #menu-toggle, #social-menu, #site-title-wrapper, #primary-menu, .ajax-loading, body.home #breaking-news-ticker, body.home #editors-picks > article.pick:first-child {
+.center-vertical-child-flex, #featured-posts > article.featured-post, #site-navigation, nav#site-navigation #menu-toggle, #social-menu, #site-title-wrapper, #primary-menu, .ajax-loading, body.home #breaking-news-ticker, body.home #editors-picks article.pick:first-child {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: column;
@@ -914,6 +1057,7 @@ body.home #breaking-posts .entry-meta * {
   width: 100%;
   position: relative;
   height: 100vh;
+  height: calc(100vh - 100px);
   background-color: white;
 }
 
@@ -977,15 +1121,41 @@ body.home #breaking-posts .entry-meta * {
   transform: translateX(0);
 }
 #featured-posts > article.featured-post.active > .post-content {
-  -moz-transform: skew(-15deg) rotate(15deg) translateX(0);
-  -ms-transform: skew(-15deg) rotate(15deg) translateX(0);
-  -webkit-transform: skew(-15deg) rotate(15deg) translateX(0);
-  transform: skew(-15deg) rotate(15deg) translateX(0);
+  -moz-transform: skew(-15deg) rotate(15deg);
+  -ms-transform: skew(-15deg) rotate(15deg);
+  -webkit-transform: skew(-15deg) rotate(15deg);
+  transform: skew(-15deg) rotate(15deg);
   -moz-box-shadow: 40px 40px 10px 0 rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 40px 40px 10px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 40px 40px 10px 0 rgba(0, 0, 0, 0.3);
 }
 
+/** MOBILE!!! **/
+@media screen and (max-width: 800px) {
+  #featured-posts {
+    height: calc(100vh - 50px);
+  }
+
+  #featured-posts > article.featured-post {
+    padding: 0;
+  }
+
+  #featured-posts > article.featured-post > .post-content {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  #featured-posts > article.featured-post.active > .post-content {
+    -moz-transform: skew(0) rotate(0);
+    -ms-transform: skew(0) rotate(0);
+    -webkit-transform: skew(0) rotate(0);
+    transform: skew(0) rotate(0);
+    -moz-box-shadow: nav-breakpoint-hidden;
+    -webkit-box-shadow: nav-breakpoint-hidden;
+    box-shadow: nav-breakpoint-hidden;
+  }
+}
 /**
  * @file.
  * Relates to all the visual elements of hte sidebar, the layout not included
@@ -2308,14 +2478,22 @@ body.home #breaking-news-ticker {
 body.home #editors-picks {
   height: 400px;
   width: 100%;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  overflow: scroll;
 }
-body.home #editors-picks > article.pick {
+body.home #editors-picks-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+body.home #editors-picks article.pick {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   float: left;
+  display: inline-block;
   margin: 0;
   width: 400px;
   height: 400px;
@@ -2327,7 +2505,7 @@ body.home #editors-picks > article.pick {
   -webkit-background-size: cover;
   background-size: cover;
 }
-body.home #editors-picks > article.pick:first-child {
+body.home #editors-picks article.pick:first-child {
   text-align: center;
   background-color: white;
   color: #e74c3c;

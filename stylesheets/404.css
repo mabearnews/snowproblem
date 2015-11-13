@@ -92,6 +92,7 @@ h1, h2, h3, h4, h5, h6, #message .go-home * {
 /*============= Multiple Posts =============*/
 /*============= Breakpoints =============*/
 /*============= Front Page Grid =============*/
+/*============= Percetnage Bassed Grid =============*/
 /*============= News ticker =============*/
 /*============= Footer =============*/
 /*============= Footer =============*/
@@ -313,98 +314,98 @@ a:active, a:focus, a:hover {
 }
 @-moz-keyframes pulse {
   0% {
-    color: #e74c3c;
-  }
-  20% {
-    color: #2ecc71;
-  }
-  30% {
-    color: #c0392b;
-  }
-  40% {
-    color: #e74c3c;
-  }
-  50% {
-    color: #9b59b6;
-  }
-  60% {
-    color: #bdc3c7;
-  }
-  70% {
-    color: #2ecc71;
-  }
-  80% {
-    color: #95a5a6;
-  }
-  90% {
     color: #f1c40f;
   }
+  20% {
+    color: #2980b9;
+  }
+  30% {
+    color: white;
+  }
+  40% {
+    color: white;
+  }
+  50% {
+    color: #7f8c8d;
+  }
+  60% {
+    color: #f1c40f;
+  }
+  70% {
+    color: #34495e;
+  }
+  80% {
+    color: #2ecc71;
+  }
+  90% {
+    color: #8e44ad;
+  }
   100% {
-    color: #e74c3c;
+    color: #f1c40f;
   }
 }
 @-webkit-keyframes pulse {
   0% {
-    color: #e74c3c;
+    color: #f1c40f;
   }
   20% {
-    color: #1abc9c;
+    color: #2980b9;
   }
   30% {
     color: #f1c40f;
   }
   40% {
-    color: #16a085;
+    color: white;
   }
   50% {
-    color: #c0392b;
+    color: #e74c3c;
   }
   60% {
-    color: #16a085;
+    color: #c0392b;
   }
   70% {
-    color: #e74c3c;
+    color: #8e44ad;
   }
   80% {
-    color: #27ae60;
+    color: #8e44ad;
   }
   90% {
-    color: #1abc9c;
+    color: #f1c40f;
   }
   100% {
-    color: #e74c3c;
+    color: #f1c40f;
   }
 }
 @keyframes pulse {
   0% {
-    color: #e74c3c;
+    color: #f1c40f;
   }
   20% {
     color: #f1c40f;
   }
   30% {
-    color: #27ae60;
+    color: #95a5a6;
   }
   40% {
-    color: #34495e;
+    color: #e74c3c;
   }
   50% {
-    color: #bdc3c7;
+    color: white;
   }
   60% {
-    color: #3498db;
+    color: #2980b9;
   }
   70% {
-    color: #3498db;
+    color: #7f8c8d;
   }
   80% {
-    color: #2ecc71;
+    color: #f1c40f;
   }
   90% {
-    color: #3498db;
+    color: #7f8c8d;
   }
   100% {
-    color: #e74c3c;
+    color: #f1c40f;
   }
 }
 #message {

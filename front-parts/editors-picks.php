@@ -15,27 +15,31 @@ query_posts( array(
 
     <section id="editors-picks">
 
-        <?php /* Info about how this is the editors picks... */ ?>
+        <div id="editors-picks-container">
 
-        <article class="pick" id="first-editors-pick">
+            <?php /* Info about how this is the editors picks... */ ?>
 
-            <div class="title"><h1>Editors Picks</h1></div>
+            <article class="pick" id="first-editors-pick">
 
-        </article>
+                <div class="title"><h1>Editors Picks</h1></div>
 
-        <?php while ( have_posts() ) : the_post(); ?>
+            </article>
 
-            <?php
-            /**
-             * Include content speciffically of the 'editors-pick' type.
-             */
-            get_template_part( 'template-parts/content', 'editors-pick' );
+            <?php while ( have_posts() ) : the_post(); ?>
 
-            // Ensure the item is loaded with an id.
-            $loaded_posts[]= get_the_ID();
-            ?>
+                <?php
+                /**
+                 * Include content speciffically of the 'editors-pick' type.
+                 */
+                get_template_part( 'template-parts/content', 'editors-pick' );
 
-        <?php endwhile; ?>
+                // Ensure the item is loaded with an id.
+                $loaded_posts[]= get_the_ID();
+                ?>
+
+            <?php endwhile; ?>
+
+        </div> <!-- #editors-picks-container -->
 
     </section> <!-- #editors-picks -->
 

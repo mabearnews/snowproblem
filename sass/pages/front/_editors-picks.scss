@@ -4,16 +4,23 @@
 #editors-picks {
     height: $front-grid-size;
     width: 100%;
-    overflow-x: scroll;
-    overflow-y: hidden;
+    overflow: scroll;
+}
+
+#editors-picks-container {
+    @include display-flex;
+    @include flex-direction(row);
+    @include justify-content(flex-start);
 }
 
 /**
  * Confirm the layout options.
  */
-#editors-picks > article.pick {
+#editors-picks  article.pick {
     @include box-sizing(border-box);
+
     float: left;
+    display: inline-block;
     margin: 0;
     width: $front-grid-size;
     height: $front-grid-size;
@@ -27,7 +34,7 @@
 /**
  * Configure the first about elements...
  */
-#editors-picks > article.pick:first-child {
+#editors-picks  article.pick:first-child {
     text-align: center;
     background-color: $editors-picks-default-bgcolor;
     @extend .center-vertical-child-flex;
