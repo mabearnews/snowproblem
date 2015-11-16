@@ -22,7 +22,6 @@ gulp.task('compass', function() {
             sass: 'sass'
         }))
         .on( 'error', swallowError )
-        .pipe(minifyCSS())
         .pipe(gulp.dest( 'dist/css' ));
 });
 

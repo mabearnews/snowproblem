@@ -1,6 +1,9 @@
 
 body {
     background-color: $nav-more-bgcolor;
+
+    // Ensure there is no background image...
+    background-image: none !important;
 }
 
 #site-navigation-more {

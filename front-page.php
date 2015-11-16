@@ -24,23 +24,11 @@ get_header(); ?>
 	<?php include get_template_directory() . '/front-parts/breaking-news-ticker.php'; ?>
 
 
-	<section class="front-grid direction-row row-2">
+	<section id="categories-container" class="percent-gird">
 
-		<div class="col-1" >
+		<div class="module desktop-4 tablet-6">
 
-		</div>
-
-		<div class="col-2 front-grid direction-col" >
-
-			<div class="row-p50" >
-
-				<?php /* Include editors picks -- avoids excessivly complicated front page file. */  ?>
-				<?php include get_template_directory() . '/front-parts/editors-picks.php'; ?>
-			</div>
-
-			<div class="row-p50">
-
-			</div>
+			<?php include get_template_directory() . '/front-parts/editors-picks.php'; ?>
 
 		</div>
 
@@ -57,5 +45,5 @@ get_header(); ?>
 			 'excludeIDS' => $loaded_posts,
 		 );
 	?>
-	<section id="recent-posts" class="snowgrid" ajax-load-posts='<?php echo json_encode( $params ); ?>' first-large="2"></section>
+	<section id="recent-posts" class="snowgrid" ajax-load-posts='<?php echo json_encode( $params ); ?>'></section>
 <?php get_footer(); ?>

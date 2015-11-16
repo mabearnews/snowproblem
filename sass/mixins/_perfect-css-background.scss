@@ -22,3 +22,6 @@
         background-image: url(#{$image});
     }
 }
+
+.perfect-css-background-rel { @include perfect-css-background-rel; }
+.perfect-css-background     { @include perfect-css-background; }

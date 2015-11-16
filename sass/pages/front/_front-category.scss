@@ -1,0 +1,30 @@
+#categories-container { background-color: $content-bgcolor; }
+
+.front-category {
+    @include box-shadow(0 0 5px 3px rgba(0,0,0,0.1), 2px 2px 8px rgba(0,0,0,0.1));
+
+    width: 100%;
+    border-radius: 25px;
+    overflow: hidden;
+    background-color: $content-bgcolor;
+    padding: 0;
+
+    &, * { @include transition( all $time__medium ); }
+}
+
+.front-category .post {
+
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    .entry-image {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .post-content {
+        padding: $grid-gap;
+    }
+}

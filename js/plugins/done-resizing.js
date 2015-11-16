@@ -7,17 +7,13 @@ jQuery(document).ready(function($) {
      */
 
     $.fn.endResize = function( func ) {
-
         var resizeID;
-
-        var donResizing = function() {
-            func.call( this );
-        }
-
         this.resize( function() {
             clearTimeout( resizeID );
 
-            resizeId = setTimeout( donResizing, 500 );
+            resizeId = setTimeout( function() {
+                func.call( this );
+            }, 1000 );
         } );
 
     }

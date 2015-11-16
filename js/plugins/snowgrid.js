@@ -29,7 +29,7 @@
         minWidth: 300,
         maxWidth: 400,
 
-        columnGap: 20,
+        columnGap: 0,
 
         map: {
             'column': 'column',
@@ -40,62 +40,65 @@
             'column-4': 'column-4',
 
             'column-full': 'column-full'
-        }
+        },
+
+        animationDuration: 2000
     };
 
     $.fn.snowgridRefresh = function() {
-        var settings = this.data( 'snowgrid-setting' );
-        var colGap = settings.columnGap;
+        var settings         = this.data( 'snowgrid-setting' );
+        var colGap           = settings.columnGap;
         var columnIdentifier = this.data( 'snowgrid-column-identifier' );
-
-        var width  = this.width();
-        var numbElements = Math.ceil( width / ( settings.maxWidth + colGap ) );
-        var colWidth     = ( width - colGap ) / numbElements - colGap;
-        var columns = this.find( columnIdentifier );
+        var width            = this.width();
+        var numbColumns      = Math.floor( width / settings.minWidth )
+        var colWidth         = ( width - colGap ) / numbColumns - colGap;
+        var columns          = this.find( columnIdentifier );
 
         // Set all the next top variables to zero by default.
         var nextTop = [];
-        for ( var i = 0; i < numbElements; i++ ) { nextTop.push( colGap ); }
 
-        var index = 0;
-        columns.each(function() {
-            // Set the number of columns for the given elemnt.
-            var colNumb = 1;
-            if ( $( this ).hasClass( settings.map['column-2'] ) ) {
-                colNumb = 2;
-            } else if ( $( this ).hasClass( settings.map['column-3'] ) ) {
-                colNumb = 3;
-            }  else if ( $( this ).hasClass( settings.map['column-4'] ) ) {
-                colNumb = 4;
-            } else if ( $( this ).hasClass( settings.map['column-full'] ) ) {
-                colNumb = numbElements;
-            }
+        for ( var i = 0; i < numbColumns; i++ ) { nextTop.push( colGap ); }
 
-            var width = colWidth * colNumb + colGap * ( colNumb - 1 );
-            var top   = nextTop[ index  % numbElements ];
-            var left  = ( index % numbElements ) * ( colGap + colWidth ) + colGap;
+        var children = [];
 
+        // Set the positions to absolute, note that any dynamically appended
+        // must be positioned absolutly.
+        columns.each(function( i ) {
+            $( this ).css( 'position', 'absolute' );
 
+            // Select the shortest column...
+            var top = _.min( nextTop );
+            var col = _.indexOf( nextTop, top );
 
-            // Actually adjust the element size
-            $( this ).css({
-                width: width + 'px',
-                top: top + 'px',
-                left: left + 'px'
-            });
-            // Update the value of the next top for this element...
-            for ( colNumb; colNumb > 0; colNumb-- ) {
-                nextTop[ index % numbElements ] += $( this ).height() + colGap;
-                index++;
-            }
+            var left  = col * ( colGap + colWidth ) + colGap;
+            var width = colWidth;
+
+            // Set the widths
+            $( this ).outerWidth( width );
+
+            // Create a child element to apply after all calculations...
+            var child = {
+                obj: $( this ),
+                x:  left,
+                y: top,
+                w: width,
+                h: $( this ).outerHeight(),
+                n: i
+            };
+
+            nextTop[col] = child.y + child.h + colGap;
+            children.push( child );
         });
 
-        // Update the size of the container to be the largest of the nextTop values.
-        var maxTop = 0;
-        for ( var i = 0; i < nextTop.length; i++ ) {
-            if ( maxTop < nextTop[i] ) { maxTop = nextTop[i]; }
-        }
-        this.height( maxTop );
+        columns.each(function( i ) {
+            $( this ).stop( 1, 1 ).animate({
+                left: children[i].x,
+                top: children[i].y,
+                width: children[i].w
+            }, settings.animationDuration);
+        });
+
+        this.height( _.max( nextTop ) );
     };
 
     $.fn.snowgrid = function( columnIdentifier, overrides ) {
@@ -134,33 +137,19 @@
              this.css( 'position' ) != 'absolute' &&
              this.css( 'position' ) != 'fixed' ) {
 
-              this.css( 'position', 'relative' );
-
+             this.css( 'position', 'relative' );
         }
 
-        // Show that this is a snowgtid.
+        // Show that this is a snowgrid.
         this.data( 'is-snowgrid', true );
 
-        // Set the positions to absolute, note that any dynamically appended
-        // must be positioned absolutly.
-        this.find( columnIdentifier ).each(function() {
-            $( this ).css( 'position', 'absolute' );
-        });
-
-        var performAlignment = function() {
-
+        var arrange = function() {
             this.snowgridRefresh();
-
         }.bind( this );
 
         // Origionally resize the grid to scale.
-        $( window ).endResize( performAlignment );
-        performAlignment();
-
-
-        // Ensure that that endResize event loaded properly.
-        setTimeout(performAlignment, 1000);
-        setTimeout(performAlignment, 2500);
+        $( window ).endResize( arrange );
+        this.snowgridRefresh();
 
         // Tell self that snowgrid is loaded.
         this.addClass( 'loaded' );
@@ -177,22 +166,18 @@ jQuery(document).ready(function($) {
      * Creats some default class implementation of the snowgrid.
      */
     $( '.snowgrid' ).each( function() {
+        var overrides = {};
 
-        if ( $( this ).attr( 'first-large' ) ) {
+        _.each( snowgridsettings, function( num, key ) {
 
-            var fl = $( this ).attr( 'first-large' );
-
-            if ( fl < 2 ) {
-                fl = 2;
+            if ( $( this ).attr( 'snowgrid-' + key ) ) {
+                overrides[key] = $( this ).attr( 'snowgrid-' + key );
             }
 
-            var elem = $( this ).find('*[class^=column]:first');
+        });
 
-            if ( elem.hasClass( 'has-post-thumbnail' ) ) {
-                elem.addClass( 'column-' + fl );
-            }
-        }
+        console.log( overrides );
 
-        $( this ).snowgrid( '*[class^=column]' );
+        $( this ).snowgrid( '*[class^=column]', overrides );
     } );
 });

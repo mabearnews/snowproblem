@@ -6,24 +6,24 @@
  */
 
 query_posts( array(
-    'posts_per_page' => 10,
+    'posts_per_page' => 5,
     'category_name'  => 'editors-picks',
     'orderby'        => 'date',
     'order'  		 => 'DESC',
 ) ); ?>
 <?php if ( have_posts() ) : ?>
 
-    <section id="editors-picks">
+    <section id="editors-picks" class="front-category">
 
-        <div id="editors-picks-container">
+        <div id="editors-picks-container" add-hover-class="last-hovered">
+
+            <article class="pick first title">
+                <div class="editors-picks-title">
+                    <h1>Editors Picks</h1>
+                </div>
+            </article>
 
             <?php /* Info about how this is the editors picks... */ ?>
-
-            <article class="pick" id="first-editors-pick">
-
-                <div class="title"><h1>Editors Picks</h1></div>
-
-            </article>
 
             <?php while ( have_posts() ) : the_post(); ?>
 

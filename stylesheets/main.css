@@ -168,6 +168,25 @@ h1, h2, h3, h4, h5, h6 {
 /**
  * Makes a background image fill a container...
  */
+.perfect-css-background-rel {
+  background-repeat: no-repeat;
+  background-position: center center;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+.perfect-css-background {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
 /**
  * @see http://codepen.io/drus/pen/MwEZVe?editors=110
  */
@@ -196,7 +215,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media only screen and (min-width: 1024px) {
   .percent-gird .module.desktop-1 {
-    width: 6.33333%;
+    width: 6.33333% !important;
   }
 }
 @media only screen and (min-width: 481px) {
@@ -206,7 +225,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media only screen and (min-width: 1024px) {
   .percent-gird .module.desktop-2 {
-    width: 14.66667%;
+    width: 14.66667% !important;
   }
 }
 @media only screen and (min-width: 481px) {
@@ -216,7 +235,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media only screen and (min-width: 1024px) {
   .percent-gird .module.desktop-3 {
-    width: 23%;
+    width: 23% !important;
   }
 }
 @media only screen and (min-width: 481px) {
@@ -226,7 +245,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media only screen and (min-width: 1024px) {
   .percent-gird .module.desktop-4 {
-    width: 31.33333%;
+    width: 31.33333% !important;
   }
 }
 @media only screen and (min-width: 481px) {
@@ -236,7 +255,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media only screen and (min-width: 1024px) {
   .percent-gird .module.desktop-5 {
-    width: 39.66667%;
+    width: 39.66667% !important;
   }
 }
 @media only screen and (min-width: 481px) {
@@ -246,7 +265,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media only screen and (min-width: 1024px) {
   .percent-gird .module.desktop-6 {
-    width: 48%;
+    width: 48% !important;
   }
 }
 @media only screen and (min-width: 481px) {
@@ -256,7 +275,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media only screen and (min-width: 1024px) {
   .percent-gird .module.desktop-7 {
-    width: 56.33333%;
+    width: 56.33333% !important;
   }
 }
 @media only screen and (min-width: 481px) {
@@ -266,7 +285,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media only screen and (min-width: 1024px) {
   .percent-gird .module.desktop-8 {
-    width: 64.66667%;
+    width: 64.66667% !important;
   }
 }
 @media only screen and (min-width: 481px) {
@@ -276,7 +295,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media only screen and (min-width: 1024px) {
   .percent-gird .module.desktop-9 {
-    width: 73%;
+    width: 73% !important;
   }
 }
 @media only screen and (min-width: 481px) {
@@ -286,7 +305,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media only screen and (min-width: 1024px) {
   .percent-gird .module.desktop-10 {
-    width: 81.33333%;
+    width: 81.33333% !important;
   }
 }
 @media only screen and (min-width: 481px) {
@@ -296,7 +315,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media only screen and (min-width: 1024px) {
   .percent-gird .module.desktop-11 {
-    width: 89.66667%;
+    width: 89.66667% !important;
   }
 }
 @media only screen and (min-width: 481px) {
@@ -306,7 +325,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media only screen and (min-width: 1024px) {
   .percent-gird .module.desktop-12 {
-    width: 98%;
+    width: 98% !important;
   }
 }
 
@@ -394,7 +413,7 @@ a:active, a:focus, a:hover {
   color: #95a5a6;
 }
 
-.center-vertical-child-flex, #featured-posts > article.featured-post, #site-navigation, nav#site-navigation #menu-toggle, #social-menu, #site-title-wrapper, #primary-menu, .ajax-loading, body.home #breaking-news-ticker, body.home #editors-picks article.pick:first-child {
+.center-vertical-child-flex, #featured-posts > article.featured-post, #site-navigation, nav#site-navigation #menu-toggle, #social-menu, #site-title-wrapper, #primary-menu, .ajax-loading, body.home #breaking-news-ticker {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: column;
@@ -483,6 +502,7 @@ body, html {
   width: 100vw;
   height: 100vh;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   overflow-x: hidden;
   top: 0;
   left: 0;
@@ -555,30 +575,6 @@ body, html {
   -o-transition: -o-transform 0.8s ease-out;
   -webkit-transition: -webkit-transform 0.8s ease-out;
   transition: transform 0.8s ease-out;
-}
-
-body.home .snowgrid.loaded .post {
-  -moz-transition: left 1.2s, right 1.2s, top 1.2s, bottom 1.2s;
-  -o-transition: left 1.2s, right 1.2s, top 1.2s, bottom 1.2s;
-  -webkit-transition: left 1.2s, right 1.2s, top 1.2s, bottom 1.2s;
-  transition: left 1.2s, right 1.2s, top 1.2s, bottom 1.2s;
-}
-
-body.home .snowgrid .post {
-  position: absolute;
-}
-body.home .snowgrid .post .entry-image {
-  width: 100%;
-}
-body.home .snowgrid .post .entry-image img {
-  width: 100%;
-  height: auto;
-  margin: 0;
-  padding: 0;
-}
-body.home .snowgrid .post .entry-content {
-  margin: 0;
-  padding: 15px;
 }
 
 /* Animates text when visible, works primarily off of the .animated class. */
@@ -1059,6 +1055,7 @@ body.home #breaking-posts .entry-meta * {
   height: 100vh;
   height: calc(100vh - 100px);
   background-color: white;
+  overflow: hidden;
 }
 
 #featured-posts {
@@ -1075,6 +1072,10 @@ body.home #breaking-posts .entry-meta * {
   -ms-transform: translateX(100vw);
   -webkit-transform: translateX(100vw);
   transform: translateX(100vw);
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  max-height: 100%;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -1151,9 +1152,54 @@ body.home #breaking-posts .entry-meta * {
     -ms-transform: skew(0) rotate(0);
     -webkit-transform: skew(0) rotate(0);
     transform: skew(0) rotate(0);
-    -moz-box-shadow: nav-breakpoint-hidden;
-    -webkit-box-shadow: nav-breakpoint-hidden;
-    box-shadow: nav-breakpoint-hidden;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+}
+/** Post Navigation **/
+#featured-post-navigation {
+  position: absolute;
+  bottom: 20px;
+  left: 40%;
+  display: -webkit-flex;
+  display: flex;
+}
+
+#featured-post-navigation .option {
+  -moz-transition: all 0.8s;
+  -o-transition: all 0.8s;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  border: 1px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 6px;
+  height: 10px;
+  width: 10px;
+}
+#featured-post-navigation .option.active {
+  -moz-transform: scale(1.4);
+  -ms-transform: scale(1.4);
+  -webkit-transform: scale(1.4);
+  transform: scale(1.4);
+  background-color: white;
+}
+
+@media screen and (max-width: 800px) {
+  #featured-post-navigation {
+    -webkit-justify-content: center;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  #featured .option {
+    margin: 12px;
+    height: 13px;
+    width: 13px;
+    border: 2px solid white;
   }
 }
 /**
@@ -1454,6 +1500,7 @@ body.nav-visible nav#site-navigation #menu-toggle > .toggle .row:nth-child(2) {
 }
 body {
   background-color: #e67e22;
+  background-image: none !important;
 }
 
 #site-navigation-more {
@@ -2158,12 +2205,6 @@ body.home {
   /**
    * Describes a layout for editors picks and such
    */
-  /**
-   * Confirm the layout options.
-   */
-  /**
-   * Configure the first about elements...
-   */
 }
 body.home #recent-posts {
   width: 100%;
@@ -2475,41 +2516,37 @@ body.home #breaking-news-ticker {
   font-family: 'Cutive', serif;
   text-align: center;
 }
-body.home #editors-picks {
-  height: 400px;
-  width: 100%;
-  overflow: scroll;
-}
-body.home #editors-picks-container {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-}
-body.home #editors-picks article.pick {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  float: left;
-  display: inline-block;
-  margin: 0;
-  width: 400px;
-  height: 400px;
-  padding: 25px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  -webkit-background-size: cover;
-  background-size: cover;
-}
-body.home #editors-picks article.pick:first-child {
-  text-align: center;
+body.home #categories-container {
   background-color: white;
-  color: #e74c3c;
-  font-size: 2em;
+}
+body.home .front-category {
+  -moz-box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.1), 2px 2px 8px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.1), 2px 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.1), 2px 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  border-radius: 25px;
+  overflow: hidden;
+  background-color: white;
+  padding: 0;
+}
+body.home .front-category, body.home .front-category * {
+  -moz-transition: all 0.8s;
+  -o-transition: all 0.8s;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+}
+body.home .front-category .post {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+body.home .front-category .post .entry-image {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+body.home .front-category .post .post-content {
+  padding: 20px;
 }
 
 /**

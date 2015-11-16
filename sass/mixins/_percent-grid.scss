@@ -14,7 +14,8 @@ $space-total: 100% - $percent-grid-num * $percent-grid-gap;
 
     @if $desktop {
         @media only screen and (min-width: 1024px) {
-            width: ($space-total / $percent-grid-num * $desktop) + ($percent-grid-gap * ($desktop - 1));
+            // !important as the desktop must override the tablet for each of these...
+            width: ($space-total / $percent-grid-num * $desktop) + ($percent-grid-gap * ($desktop - 1)) !important;
         }
     }
 }

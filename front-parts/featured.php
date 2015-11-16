@@ -7,7 +7,7 @@
 
 <?php if ( have_posts() ): ?>
 
-    <section id="featured">
+    <section id="featured" class="perfect-css-background-rel" <?php if ( get_background_image() ) : ?>style="background-image: url(<?php print get_background_image(); ?>)"<?php endif; ?>>
         <section id="featured-posts">
                 <?php /* Start the Loop */ ?>
                 <?php while ( have_posts() ) : the_post(); ?>
@@ -24,6 +24,14 @@
 
                 <?php endwhile; ?>
         </section> <!-- #featured-posts -->
+
+        <section id="featured-post-navigation">
+            <?php for ( $i = 0; $i < 5; $i++ ) : ?>
+
+                <div class="option"></div>
+
+            <?php endfor; ?>
+        </section> <!-- #featured-post-navigation -->
     </section> <!-- #featured -->
 
 <?php endif; ?>
