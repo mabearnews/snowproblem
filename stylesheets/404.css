@@ -1,449 +1,68 @@
-/**
- * @file.
- * Simply styles the entire 404 page.
- */
-/**
- * @file.
- * This file contians information about the colors for this websites. All
- * these colors are specified in two phases, the first is the colorscheme
- * and the second is the individual colors of indiviudal items, this also
- * applies to text though typically with the -text- modifier in the varaible
- * name.
- */
-/*============= COLOR SCHEME =============*/
-/*============= General =============*/
-/*============= Page =============*/
-/*============= Navigation Bar =============*/
-/* Relates to the allways visual side of the site */
-/* Relates to the revealable side of the site. */
-/* Relates to the submenu displayed in the revealable navigation bar. */
-/* Relates to the more burger menu icon. */
-/* Relates to the menu on mobile devices and the colors for these devices. */
-/*============= Sidebar =============*/
-/*============= Widgets =============*/
-/*============= Gallery =============*/
-/*============= Blockquote =============*/
-/*============= Table =============*/
-/*============= Multiple Posts =============*/
-/*============= Single Post =============*/
-/*============= Footer =============*/
-/*============= Featured =============*/
-/*============= General =============*/
-/*============= Comments =============*/
-/*============= Categories =============*/
-/*============= Front Page =============*/
-/*============ -- Editors Picks =============*/
-/*============= S-Button =============*/
-/**
- * @file.
- * Defines two variables which are used to determine fonts across the site.
- * Headings is used for anything that is not a large block of text. Casual
- * is used for anything else.
- */
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
-@import url(https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic);
-@import url(https://fonts.googleapis.com/css?family=Cutive);
-h1, h2, h3, h4, h5, h6, #message .go-home * {
-  font-family: "Montserrat", sans-serif;
-  font-weight: bold;
-}
+/*
+Error: File to import not found or unreadable: additions/all.
+       Load paths:
+         /Users/sequoiasnow/Sites/journalism/wordpress/wp-content/themes/snowproblem/sass
+         /usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets
+         /usr/local/lib/ruby/gems/2.2.0/gems/susy-2.2.9/sass
+         Compass::SpriteImporter
+        on line 6 of /Users/sequoiasnow/Sites/journalism/wordpress/wp-content/themes/snowproblem/sass/404.scss
 
-/*============= Navigation bar =============*/
-/* Allow for responseve design. */
-/*============= Social Menu =============*/
-/*============= Widgets =============*/
-/*============= Gallery =============*/
-/*============= Blockquote =============*/
-/*============= Table =============*/
-/*============= Single Post =============*/
-/*============= Featured =============*/
-/*============= General =============*/
-/*============= Footer =============*/
-/*============= Posts =============*/
-/*============= S-Button =============*/
-/**
- * @file.
- * This file relates to the general elements of appearence that do not conform
- * to other parts of the site.
- */
-/*============= Navigation =============*/
-/*============= Sidebar =============*/
-/*============= Widgets =============*/
-/*============= Images =============*/
-/*============= Table =============*/
-/*============= Posts =============*/
-/*============= Footer =============*/
-/*============= Featured =============*/
-/*============= Comments =============*/
-/*============= Categories =============*/
-/**
- * @file.
- * This file concnerns the layout of various elements on the page. It should be
- * noted that not all of these variables should be changed, if the variables are
- * relative then include that definition in the definition of the variable.
- */
-/*============= Navigation bar =============*/
-/*============= Sidebar =============*/
-/*============= Widgets =============*/
-/*============= Gallery =============*/
-/*============= Content =============*/
-/*============= Posts =============*/
-/*============= Single Post =============*/
-/*============= Multiple Posts =============*/
-/*============= Breakpoints =============*/
-/*============= Front Page Grid =============*/
-/*============= Percetnage Bassed Grid =============*/
-/*============= News ticker =============*/
-/*============= Footer =============*/
-/*============= Footer =============*/
-/*============= Featured =============*/
-/*============= Comments =============*/
-/*============= S-Button =============*/
-/**
- * @file.
- * Relates to all the various timing that is essential to the flow of the
- * sites animations and other features.
- */
-/*============= Standards =============*/
-/*============= Navigation =============*/
-/*============= Gallery =============*/
-/*============= Table =============*/
-/*============= Animated =============*/
-/*============= Multiple Posts =============*/
-/*============= Posts =============*/
-/*============= Featured =============*/
-/*============= Button =============*/
-/**
- * @file.
- * Relates to various elements conncerning miscelanious styling for things
- */
-/*============= Navigation bar =============*/
-/*============= Featured =============*/
-/**
- * @file.
- * Relates to all the z-index's of the site, complete, can be used to change
- * z-index problems in scope
- */
-/*============= Navigation =============*/
-/*============= Sidevar =============*/
-/*============= Multiple Posts =============*/
-/**
- * @file.
- * Contains information about the various fonts and font types that are to
- * be imported into the given site.
- */
-/**
- * @file.
- * All styles relating to all images.
- */
-/* CSS arrows in various direction. */
-.post {
-  font-size: 0.9em;
-  font-family: "PT Serif", serif;
-}
+1: /**
+2:  * @file.
+3:  * Simply styles the entire 404 page.
+4:  *\/
+5: @import "compass";
+6: @import "additions/all";
+7: @import "base/all";
+8: 
+9: $astronaut-size: 200px;
+10: 
+11: #content {
 
-.post .entry-image {
-  width: 100%;
-  overflow: hidden;
-}
-.post .entry-image, .post .entry-image * {
-  padding: 0;
-  margin: 0;
-  display: block;
-}
-.post .entry-image img {
-  -moz-transition: all 0.8s;
-  -o-transition: all 0.8s;
-  -webkit-transition: all 0.8s;
-  transition: all 0.8s;
-}
-.post .entry-image:hover img {
-  -moz-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
-}
-
-/**
- * @file.
- * Defines some basic ovverride styles for parts of the page to improve the
- * overall design and normalize appearences.
- */
-body {
-  font-family: "PT Serif", serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: inherit;
-  cursor: pointer;
-  font-family: "Montserrat", sans-serif;
-}
-a:visited {
-  color: inherit;
-}
-a:hover {
-  color: inherit;
-}
-
-.post .entry-content a {
-  text-decoration: underline;
-}
-
-/* Styling to change the color of the currently selected element. */
-*[class*="current"] {
-  color: #bdc3c7;
-}
-
-input {
-  background-color: transparent;
-}
-
-a {
-  color: black;
-  -moz-transition: color 0.4s;
-  -o-transition: color 0.4s;
-  -webkit-transition: color 0.4s;
-  transition: color 0.4s;
-  cursor: pointer;
-}
-a:active, a:focus, a:hover {
-  color: #95a5a6;
-}
-
-#content {
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: left center;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  -webkit-background-size: cover;
-  background-size: cover;
-}
-
-@-moz-keyframes astronaut-move {
-  0% {
-    -moz-transform: scale(1);
-    transform: scale(1);
-    left: 60vw;
-  }
-  100% {
-    -moz-transform: scale(0.01);
-    transform: scale(0.01);
-    left: 1vw;
-  }
-}
-@-webkit-keyframes astronaut-move {
-  0% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    left: 60vw;
-  }
-  100% {
-    -webkit-transform: scale(0.01);
-    transform: scale(0.01);
-    left: 1vw;
-  }
-}
-@keyframes astronaut-move {
-  0% {
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    left: 60vw;
-  }
-  100% {
-    -moz-transform: scale(0.01);
-    -ms-transform: scale(0.01);
-    -webkit-transform: scale(0.01);
-    transform: scale(0.01);
-    left: 1vw;
-  }
-}
-#astonaut {
-  -moz-animation: astronaut-move 300s ease-out forwards;
-  -webkit-animation: astronaut-move 300s ease-out forwards;
-  animation: astronaut-move 300s ease-out forwards;
-  position: absolute;
-  top: 40vh;
-  left: 60vw;
-  width: 200px;
-  height: 200px;
-  margin-top: -200px;
-}
-#astonaut img {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
-@-moz-keyframes primary-text-come-in {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
-}
-@-webkit-keyframes primary-text-come-in {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
-}
-@keyframes primary-text-come-in {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
-}
-@-moz-keyframes pulse {
-  0% {
-    color: #f39c12;
-  }
-  20% {
-    color: #34495e;
-  }
-  30% {
-    color: #2980b9;
-  }
-  40% {
-    color: white;
-  }
-  50% {
-    color: #2ecc71;
-  }
-  60% {
-    color: #e67e22;
-  }
-  70% {
-    color: #34495e;
-  }
-  80% {
-    color: #16a085;
-  }
-  90% {
-    color: #16a085;
-  }
-  100% {
-    color: #f39c12;
-  }
-}
-@-webkit-keyframes pulse {
-  0% {
-    color: #f39c12;
-  }
-  20% {
-    color: #f1c40f;
-  }
-  30% {
-    color: #f1c40f;
-  }
-  40% {
-    color: white;
-  }
-  50% {
-    color: #e67e22;
-  }
-  60% {
-    color: #27ae60;
-  }
-  70% {
-    color: #3498db;
-  }
-  80% {
-    color: #d35400;
-  }
-  90% {
-    color: #1abc9c;
-  }
-  100% {
-    color: #f39c12;
-  }
-}
-@keyframes pulse {
-  0% {
-    color: #f39c12;
-  }
-  20% {
-    color: #d35400;
-  }
-  30% {
-    color: #9b59b6;
-  }
-  40% {
-    color: #f39c12;
-  }
-  50% {
-    color: #f1c40f;
-  }
-  60% {
-    color: #c0392b;
-  }
-  70% {
-    color: #9b59b6;
-  }
-  80% {
-    color: #f1c40f;
-  }
-  90% {
-    color: #2ecc71;
-  }
-  100% {
-    color: #f39c12;
-  }
-}
-#message {
-  width: 100%;
-  left: 0;
-  padding: 16px;
-  bottom: 5vh;
-  position: absolute;
-  color: white;
-  z-index: 1000;
-  font-size: 4em;
-  text-align: center;
-}
-#message .primary-text {
-  overflow: hidden;
-}
-#message .go-home * {
-  cursor: pointer;
-  -moz-animation: pulse 16s infinite linear;
-  -webkit-animation: pulse 16s infinite linear;
-  animation: pulse 16s infinite linear;
-}
-#message * {
-  text-align: center;
-}
-
-@media (max-width: 900px) {
-  #message {
-    font-size: 3em;
-  }
-}
-@media (max-width: 600px) {
-  #message .primary-text {
-    display: none;
-  }
-
-  #message {
-    width: 100%;
-    font-size: 2.5em;
-  }
-}
+Backtrace:
+/Users/sequoiasnow/Sites/journalism/wordpress/wp-content/themes/snowproblem/sass/404.scss:6
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/import_node.rb:45:in `import'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/import_node.rb:28:in `imported_file'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/import_node.rb:37:in `css_import?'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:311:in `visit_import'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `block in with_base'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `with_base'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `map'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/root_node.rb:36:in `css_tree'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/root_node.rb:20:in `render'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/engine.rb:278:in `render'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:209:in `each'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/usr/local/lib/ruby/gems/2.2.0/gems/compass-1.0.3/lib/compass/sass_compiler.rb:40:in `compile!'
+/usr/local/lib/ruby/gems/2.2.0/gems/compass-1.0.3/lib/compass/commands/update_project.rb:49:in `perform'
+/usr/local/lib/ruby/gems/2.2.0/gems/compass-1.0.3/lib/compass/commands/base.rb:18:in `execute'
+/usr/local/lib/ruby/gems/2.2.0/gems/compass-1.0.3/lib/compass/commands/project_base.rb:19:in `execute'
+/usr/local/lib/ruby/gems/2.2.0/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/usr/local/lib/ruby/gems/2.2.0/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/usr/local/lib/ruby/gems/2.2.0/gems/compass-1.0.3/bin/compass:30:in `block in <top (required)>'
+/usr/local/lib/ruby/gems/2.2.0/gems/compass-1.0.3/bin/compass:44:in `call'
+/usr/local/lib/ruby/gems/2.2.0/gems/compass-1.0.3/bin/compass:44:in `<top (required)>'
+/usr/local/bin/compass:23:in `load'
+/usr/local/bin/compass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: additions/all.\A        Load paths:\A          /Users/sequoiasnow/Sites/journalism/wordpress/wp-content/themes/snowproblem/sass\A          /usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets\A          /usr/local/lib/ruby/gems/2.2.0/gems/susy-2.2.9/sass\A          Compass::SpriteImporter\A         on line 6 of /Users/sequoiasnow/Sites/journalism/wordpress/wp-content/themes/snowproblem/sass/404.scss\A \A 1: /**\A 2:  * @file.\A 3:  * Simply styles the entire 404 page.\A 4:  */\A 5: @import \"compass\";\A 6: @import \"additions/all\";\A 7: @import \"base/all\";\A 8: \A 9: $astronaut-size: 200px;\A 10: \A 11: #content {"; }

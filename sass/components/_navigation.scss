@@ -1,0 +1,344 @@
+/**
+ * _navigation.scss
+ *
+ * Base file for the definition of some default navigation constructs.
+ *
+ * Also sets some default styles for the creation of said constructs.
+ */
+#site-navigation {
+    width: 100vw;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: $nav-screen-height;
+
+    background-color: $nav-bgcolor;
+    border-bottom: $nav-border;
+
+    z-index: $nav-zindex;
+
+    // Center the wrapper.
+    @extend .center-vertical-child-flex;
+
+    padding: 0 $nav-screen-margin;
+}
+
+#site-navigation > .wrapper {
+    @include display-flex;
+    @include flex-direction( row );
+    @include justify-content( space-between );
+}
+
+#site-navigation > .wrapper > * {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#site-navigation ul, li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#site-navigation ul.menu-items {
+    // Show as a flexbox with direction in place of inlin block as would
+    // else be the standard.
+    @include display-flex;
+    @include flex-direction( row );
+}
+
+@media screen and (max-width: $nav-breakpoint-large) {
+    #site-navigation { padding: 8px; }
+}
+
+
+ @media screen and (max-width: $nav-breakpoint-hidden) {
+    // Hide all nonesential elements of hte
+    #primary-menu, #social-menu {
+        display: none;
+    }
+}
+
+@media screen and (max-width: $nav-breakpoint-hidden) and (max-height: $nav-breakpoint-hidden) {
+    #site-navigation, #content-nav-bar-padding { height: $nav-screen-height / 2; }
+}
+
+/* Styles the toggle of the navigation bar. */
+nav#site-navigation #menu-toggle {
+    @extend .center-vertical-child-flex;
+
+    cursor: pointer;
+
+    width: $nav-toggle-height;
+
+    &, * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .toggle {
+        width: 100%;
+        height: $nav-toggle-height;
+        position: relative;
+    }
+
+    /* Show default 3 bar state. */
+    .row {
+        @include transition(all $nav-toggle-transition-time);
+
+        position: absolute;
+        width: 100%;
+
+        height: $nav-toggle-line-height;
+        background-color: $nav-toggle-line-color;
+    }
+
+    @for $i from 1 through 3 {
+        .row:nth-child(#{$i}) {
+            top: ($i - 1) * 100% / 3;
+        }
+    }
+}
+
+/* On click show as an exit button */
+body.nav-visible nav#site-navigation #menu-toggle > .toggle {
+    .row:first-child {
+        @include transform-origin(0, top);
+        @include transform(rotate(45deg));
+    }
+
+    .row:last-child {
+        @include transform-origin(0, bottom);
+        @include transform(rotate(-45deg));
+    }
+
+    .row:nth-child(2) {
+        left: 150%; opacity: 0;
+    }
+}
+
+
+body {
+    background-color: $nav-more-bgcolor;
+
+    // Ensure there is no background image...
+    background-image: none !important;
+}
+
+#site-navigation-more {
+    position: fixed;
+    left: $grid-gap;
+    bottom: $grid-gap;
+
+    padding: $grid-gap;
+
+    background-color: $content-bgcolor;
+
+    ul, li {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: #{$nav-breakpoint-hidden + 1}) {
+
+#page {
+    @include transform-origin( top, left );
+}
+
+body.nav-visible  {
+    #page {
+        @include transform( rotate(-$nav-screen-rotation ) );
+    }
+}
+
+body.nav-visible, body.nav-ending-visible {
+    #page { height: 200vh; }
+}
+
+}
+
+
+@media screen and (max-width: $nav-breakpoint-hidden ) {
+    body.nav-visible #page, body.nav-visible #site-navigation {
+        @include transform( translateX( $nav-mobile-width ) );
+    }
+
+    #site-navigation-more {
+        position: fixed;
+
+        left: $grid-gap;
+        top: $grid-gap;
+        bottom: $grid-gap;
+
+        height: 80vh;
+        height: calc( 100vh - #{ $grid-gap * 2 } );
+
+        width: $nav-mobile-width - $grid-gap * 2;
+
+        background-color: transparent;
+
+        .more-nav-wrapper { height: 100%; }
+
+        padding-top: $grid-gap * 3;
+        padding-bottom: $grid-gap * 3;
+
+        #primary-menu-items {
+
+            @include display-flex;
+            @include flex-direction( column );
+            @include justify-content( space-between );
+        }
+    }
+
+}
+
+
+#primary-menu {
+    @extend .center-vertical-child-flex;
+}
+
+#primary-menu-items li {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+// Hide all children of the navigation bar...
+#primary-menu-items li { display: none; }
+ul#primary-menu-items > li { display: block; }
+
+/**
+ * @file.
+ * Defines the styling for the social menu, including the display, through sass
+ * of social media icons.
+ */
+
+// All the valid selectors vs icons for those from font awesome.
+$social-icons: (
+    "facebook" : "\f230",
+    "github"   : "\f092",
+    "tumblr"   : "\f173",
+    "vine"     : "\f1ca",
+    "yelp"     : "\f1e9",
+    "youtube"  : "\f166",
+    "twitter"  : "\f099",
+    "vimeo"    : "\f194",
+    "slack"    : "\f198",
+    "rebel"    : "\f1d0",
+    "pinterest": "\f231",
+    "linkedin" : "\f08c",
+    "google"   : "\f0d4",
+    "instagram": "\f16d"
+);
+
+@each $name, $character in $social-icons {
+    #social-menu-items a[href*="#{$name}"] {
+
+        // Hides all the content of the div.
+        span { display: none; }
+
+        &::before {
+            font-family: "fontawesome";
+            content: $character;
+            font-size: $social-menu-font-size;
+        }
+    }
+}
+
+
+#social-menu { @extend .center-vertical-child-flex; }
+
+#social-menu li {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#site-title-wrapper {
+    @extend .center-vertical-child-flex;
+
+    &, * {  margin: 0; padding: 0; }
+}
+
+
+
+#site-title-wrapper .site-title {
+    font-size: $nav-site-title-font-small;
+}
+
+/* Changes the font size of the title on shrinking */
+@media (min-width: $nav-site-title-change-font-breakpoint) {
+    #site-title-wrapper .site-title {
+        font-size: $nav-site-title-font-medium;
+    }
+}
+
+@media (min-width: $page-max-width) {
+    #site-title-wrapper .site-title {
+        font-size: $nav-site-title-font-large;
+    }
+}
+
+@include mobile-breakpoint {
+    #site-title-wrapper .site-title {
+        font-size: $nav-site-title-font-mobile;
+    }
+}
+
+/* The sidebar toggle in the navigation. It resembels in dimensions the navigation. */
+#sidebar-toggle .container {
+    position: relative;
+    width: $nav-toggle-width;
+    height: $nav-toggle-height;
+    cursor: pointer;
+
+    /* Show default 3 bar state. */
+    .row {
+        @include transition(all $nav-toggle-transition-time);
+        position: absolute;
+        width: 100%;
+        height: $nav-toggle-line-height;
+
+        .dot,
+        .dash {
+            position: absolute;
+        }
+    }
+
+    @for $i from 1 through 3 {
+        .row:nth-child(#{$i}) {
+            top: ($i - 1) * 100% / 3;
+        }
+    }
+
+    .row .dot {
+        height: $nav-toggle-line-height;
+        width: $nav-toggle-line-height;
+        background-color: $nav-toggle-line-color;
+        left: 0;
+        top: 0;
+    }
+
+    .row .dash {
+        width: $nav-toggle-width - 1 * $nav-toggle-line-height;
+        height: $nav-toggle-line-height;
+        background-color: $nav-toggle-line-color;
+        left: 2 * $nav-toggle-line-height;
+        top: 0;
+    }
+
+    .row:nth-child(2) .dash {
+        width: $nav-toggle-width - 2 * $nav-toggle-line-height;
+    }
+}
+
+#sidebar-toggle .container {
+    display: none;
+}
+
+@media (min-width: #{$standard-breakpoint}) {
+    #sidebar-toggle .container {
+        display: block;
+    }
+}

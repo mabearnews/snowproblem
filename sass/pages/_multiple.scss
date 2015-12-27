@@ -1,0 +1,40 @@
+body.search-results, body.archive, body.category {
+  /**
+   * The current page is displaying the result of a search, thus the multi column
+   * layout for a page with multiple posts, applies
+   */
+
+
+  .loaded-posts {
+      @extend .center-horizontal-single-margin;
+      width: 100%;
+      max-width: $multiple-post-max-width;
+      padding: $grid-gap;
+  }
+
+  .loaded-posts article.post {
+      margin-bottom: $grid-gap;
+      background-color: $content-bgcolor;
+      width: 100%;
+      padding: 0;
+
+      .entry-image, .entry-image img {
+          width: 100%;
+          height: auto;
+          margin: 0;
+          padding: 0;
+      }
+
+      .post-content {
+          padding: $grid-gap;
+      }
+  }
+
+  header.page-header {
+      width: 100%;
+
+      text-align: center;
+  }
+
+
+}
