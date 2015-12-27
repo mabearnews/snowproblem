@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'column post' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'column post post-front' ); ?>>
 
 	<?php if ( has_post_thumbnail() ) : ?>
 		<a href="<?php print get_permalink(); ?>">
@@ -20,6 +20,27 @@
 			</div>
 		</a>
 	<?php endif; ?>
+
+	<section class="post-categories">
+		<?php
+		/* Print the categories beloning to the post. */
+		$categories = get_the_category();
+
+		foreach ( $categories as $category ) :
+			// Remove uncategorized posts.
+			if ( strtolower( $category->name ) == 'uncategorized' ) { continue; }
+		?>
+
+			<div class="category">
+				<a href="<?php print esc_url( get_category_link( $category->term_id ) ); ?>">
+					<span class="title">
+						<?php print $category->name; ?>
+					</span>
+				</a>
+			</div>
+
+		<?php endforeach; ?>
+	</section>
 
 	<section class="post-content">
 

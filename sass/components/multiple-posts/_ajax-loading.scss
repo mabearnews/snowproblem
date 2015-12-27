@@ -55,7 +55,7 @@
 }
 
 $time-character-move: 1.2s;
-.ajax-loading.inview .letter {
+.ajax-loading .letter {
     @include animation( character-animate $time-character-move ease-in-out infinite alternate );
 }
 

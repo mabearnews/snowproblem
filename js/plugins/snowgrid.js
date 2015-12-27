@@ -119,7 +119,7 @@
             		}
             	}
             	return orig;
-            })( settings, overrides )
+            })( settings, overrides );
         }
 
         // Save the settings
@@ -171,12 +171,12 @@ jQuery(document).ready(function($) {
         _.each( snowgridsettings, function( num, key ) {
 
             if ( $( this ).attr( 'snowgrid-' + key ) ) {
-                overrides[key] = $( this ).attr( 'snowgrid-' + key );
+                overrides[key] = parseInt(
+                    $( this ).attr( 'snowgrid-' + key ), 10
+                );
             }
 
-        });
-
-        console.log( overrides );
+        }.bind( this ));
 
         $( this ).snowgrid( '*[class^=column]', overrides );
     } );
