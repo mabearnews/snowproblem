@@ -40,13 +40,13 @@ sass/
 |   |– _helpers.scss     # Class & placeholders helpers
 |
 |– vendors/
-|   |– _normalize.scss   # Normalize
-|
-|
+|   |– _normalize.scss   # Normalize to maintain consistant behavior.
 `– main.scss             # Main Sass file
 
 
 */
+@charset 'utf-8';
+
 @import 'compass';
 
 @import

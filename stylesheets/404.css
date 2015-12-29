@@ -1,31 +1,46 @@
 /*
-Error: File to import not found or unreadable: additions/all.
-       Load paths:
-         /Users/sequoiasnow/Sites/journalism/wordpress/wp-content/themes/snowproblem/sass
-         /usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets
-         /usr/local/lib/ruby/gems/2.2.0/gems/susy-2.2.9/sass
-         Compass::SpriteImporter
-        on line 6 of /Users/sequoiasnow/Sites/journalism/wordpress/wp-content/themes/snowproblem/sass/404.scss
+Error: Undefined variable: "$color__text-default".
+        on line 2 of /Users/sequoiasnow/Sites/journalism/wordpress/wp-content/themes/snowproblem/sass/base/_links.scss
+        from line 12 of /Users/sequoiasnow/Sites/journalism/wordpress/wp-content/themes/snowproblem/sass/404.scss
 
-1: /**
-2:  * @file.
-3:  * Simply styles the entire 404 page.
-4:  *\/
-5: @import "compass";
-6: @import "additions/all";
-7: @import "base/all";
-8: 
-9: $astronaut-size: 200px;
-10: 
-11: #content {
+1: @import 'compass';
+2: 
+3: @import
+4:   'utils/variables',
+5:   'utils/functions',
+6:   'utils/mixins',
+7:   'utils/helpers';
 
 Backtrace:
-/Users/sequoiasnow/Sites/journalism/wordpress/wp-content/themes/snowproblem/sass/404.scss:6
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/import_node.rb:67:in `rescue in import'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/import_node.rb:45:in `import'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/import_node.rb:28:in `imported_file'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/import_node.rb:37:in `css_import?'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:311:in `visit_import'
+/Users/sequoiasnow/Sites/journalism/wordpress/wp-content/themes/snowproblem/sass/base/_links.scss:2
+/Users/sequoiasnow/Sites/journalism/wordpress/wp-content/themes/snowproblem/sass/404.scss:12
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/script/tree/variable.rb:49:in `_perform'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/script/tree/node.rb:50:in `perform'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:395:in `visit_prop'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `block in with_base'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `with_base'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:431:in `block (2 levels) in visit_rule'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:431:in `map'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:431:in `block in visit_rule'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:429:in `visit_rule'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `block in with_base'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `with_base'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `block (2 levels) in visit_import'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `map'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `block in visit_import'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:88:in `block in with_import'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:88:in `with_import'
+/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:323:in `visit_import'
 /usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
 /usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
 /usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `block in with_base'
@@ -65,4 +80,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: additions/all.\A        Load paths:\A          /Users/sequoiasnow/Sites/journalism/wordpress/wp-content/themes/snowproblem/sass\A          /usr/local/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets\A          /usr/local/lib/ruby/gems/2.2.0/gems/susy-2.2.9/sass\A          Compass::SpriteImporter\A         on line 6 of /Users/sequoiasnow/Sites/journalism/wordpress/wp-content/themes/snowproblem/sass/404.scss\A \A 1: /**\A 2:  * @file.\A 3:  * Simply styles the entire 404 page.\A 4:  */\A 5: @import \"compass\";\A 6: @import \"additions/all\";\A 7: @import \"base/all\";\A 8: \A 9: $astronaut-size: 200px;\A 10: \A 11: #content {"; }
+  content: "Error: Undefined variable: \"$color__text-default\".\A         on line 2 of /Users/sequoiasnow/Sites/journalism/wordpress/wp-content/themes/snowproblem/sass/base/_links.scss\A         from line 12 of /Users/sequoiasnow/Sites/journalism/wordpress/wp-content/themes/snowproblem/sass/404.scss\A \A 1: @import 'compass';\A 2: \A 3: @import\A 4:   'utils/variables',\A 5:   'utils/functions',\A 6:   'utils/mixins',\A 7:   'utils/helpers';"; }

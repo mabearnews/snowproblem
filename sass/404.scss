@@ -1,10 +1,15 @@
-/**
- * @file.
- * Simply styles the entire 404 page.
- */
-@import "compass";
-@import "additions/all";
-@import "base/all";
+@import 'compass';
+
+@import
+  'utils/variables',
+  'utils/functions',
+  'utils/mixins',
+  'utils/helpers';
+
+@import
+  'base/reset',
+  'base/typography',
+  'base/links';
 
 $astronaut-size: 200px;
 

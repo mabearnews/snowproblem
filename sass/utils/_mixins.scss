@@ -1,24 +1,55 @@
+/// Allowes response to breakpoints site wide for easier use.
+/// @see http://sass-guidelin.es
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get($breakpoints, $breakpoint);
 
-/**
- * Makes a background image fill a container...
- */
-@mixin perfect-css-background( $image: false ) {
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center center;
-    @include background-size(cover);
+  @if $raw-query {
+    $query: if(type-of($raw-query) == 'string', unquote($raw-query), inspect($raw-query));
 
-    @if ( $image ) {
-        background-image: url(#{$image});
+    @media #{$query} {
+      @content;
     }
+  } @else {
+    @error 'No value found for `#{$breakpoint}`. '
+         + 'Please make sure it is defined in `$breakpoints` map.';
+  }
 }
 
-@mixin perfect-css-background-rel( $image: false ) {
-    background-repeat: no-repeat;
-    background-position: center center;
-    @include background-size(cover);
-
-    @if ( $image ) {
-        background-image: url(#{$image});
+/// Allowes for rem based font sizes. Falls back to px's for older browsers.
+/// @param {Integer | String} $size - The font size in pixels or a key from
+/// heading font sizes.
+/// @require calculateRem
+@mixin font-size($size) {
+  @if unitless($size) {
+    @if map-has-key($heading-font-sizes, $sizes) {
+      $size: headingSize($size);
+    } @else {
+      $size: $size * 1px;
+      @warn 'No size unit provided, px assumed';
     }
+  }
+
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+/// Creates a filling background for any css image. Also provides a method for
+/// parallax or not nature of the image via the `fixed` property.
+/// @prop {String} $image - The image for the background
+/// @prop {Bool} $fixed - Wether to enable parallax throught fixed attachment.
+@mixin centered-background($image: false, $fixed: false) {
+  @include background-size(cover);
+
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  @if $fixed {
+    background-attachment: fixed;
+  }
+
+  @if ($image) {
+    background-image: $image;
+  }
 }
