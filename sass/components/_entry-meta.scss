@@ -1,29 +1,24 @@
 /**
- * Style the entry meta, somewhat basically for the entire site.
+ * Style the entry meta to a simple distraction free standard.
+ * 1. Adjust the font size and color.
+ * 2. Ensure everything stated remains on one line.
  */
 .entry-meta {
-    font-size: $author-font-size;
-    color: $author-font-color;
+  @include font-size('tiny'); /* 1 */
+  color: color('lightgrey'); /* 1 */
 
-    .author::before {
-        content: '–';
-
-        padding: 0 $author-font-size;
-    }
-
-    * {
-        display: inline-block;
-    }
+  * {
+    display: inline-block; /* 2 */
+  }
 }
 
-@mixin entry-meta($author) {
-    font-size: $author-font-size;
-    color: $author-font-color;
-
-    #{$author}::before {
-        content: '–';
-        padding: 0 $author-font-size;
-    }
-
-    * { display: inline-block; }
+/**
+ * Adjused the reference of the author name.
+ * 1. Prefix the author with a dash.
+ * 2. Padd the dash for appropriate spacing based off of font size set for
+ * entry meta.
+ */
+.entry-meta .author::before {
+    content: '–'; /* 1 */
+    padding: 0 headingSize('tiny'); /* 2 */
 }

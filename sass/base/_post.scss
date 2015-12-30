@@ -1,20 +1,23 @@
+/**
+ * Basic styling for the post font.
+ */
 .post {
-    font-size: $post-font-size;
-    font-family: $font-casual;
+  @include content-font;
 }
-.post .entry-image {
-    width: 100%;
-      overflow: hidden;
 
-    &, * {
-        padding: 0;
-        margin: 0;
-        display: block;
-    }
-    img {
-        @include transition( all $time__medium );
-    }
-    &:hover img {
-        @include transform( scale( 1.2) );
-    }
+.post .entry-image {
+width: 100%;
+overflow: hidden;
+
+&, * {
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+img {
+  @include transition( all $time__medium );
+}
+&:hover img {
+  @include transform( scale( 1.2) );
+}
 }

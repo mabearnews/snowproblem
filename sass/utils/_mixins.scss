@@ -1,5 +1,4 @@
 /// Allowes response to breakpoints site wide for easier use.
-/// @see http://sass-guidelin.es
 /// @param {String} $breakpoint - Breakpoint name
 /// @require $breakpoints
 @mixin respond-to($breakpoint) {
@@ -35,10 +34,19 @@
   font-size: calculateRem($size);
 }
 
+/// A convenicance mixin to declare typical content font size and family.
+/// @require font-size
+/// @require $content-font
+/// @require $content-font-size
+@mixin content-font {
+  @include font-size($content-font-size);
+  font-family: $content-font;
+}
+
 /// Creates a filling background for any css image. Also provides a method for
 /// parallax or not nature of the image via the `fixed` property.
-/// @prop {String} $image - The image for the background
-/// @prop {Bool} $fixed - Wether to enable parallax throught fixed attachment.
+/// @param {String} $image - The image for the background
+/// @param {Bool} $fixed - Wether to enable parallax throught fixed attachment.
 @mixin centered-background($image: false, $fixed: false) {
   @include background-size(cover);
 

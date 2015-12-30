@@ -1,0 +1,47 @@
+/**
+ * Ensure expected behavior of document body.
+ * 1. Remove excess margins and padding.
+ * 2. Standardize font to content specifics
+ * 3. Make font size standard for rem based sizing.
+ */
+body, html {
+  padding: 0; /* 1 */
+  margin: 0; /* 1 */
+  font-family: $content-font; /* 2 */
+  font-size: 100%; /* 3 */
+}
+
+/**
+ * 1. Make headings observe heading font family.
+ * 2. Standardize the size of headings and margins.
+ */
+#{headings()} {
+    @include font-size('tiny'); /* 2 */
+    margin: (headingFont('tiny') / 2)  auto; /* 2 */
+    font-family: $heading-font; /* 1 */
+}
+
+/**
+ * Make largest possible heading font.
+ */
+h1 {
+  @include font-size('huge');
+  margin: (headingFont('huge') / 2) auto;
+}
+
+/**
+ * Make second largest possible heading font.
+ */
+h2 {
+  @include font-size('large');
+  margin: (headingFont('large') / 2) auto;
+}
+
+
+/**
+ * Make smaller heading font.
+ */
+h3 {
+  @include font-size('small');
+  margin: (headingFont('small') / 2) auto;
+}

@@ -40,7 +40,7 @@ $colors: (
   'green': 'rgb(39, 174, 96)',
   'darkgreen': 'rgb(22, 160, 133)',
 
-  'black': 'rgb(0, 0, 0)'
+  'black': 'rgb(0, 0, 0)',
 );
 
 /// Define a method for retreiving a color from the colors array.
@@ -73,16 +73,16 @@ $focus-text-color: color('lightgrey');
 $theme-bgcolor: color('lightgrey');
 
 /// The color for site content, where text or other elements are concerned.
-$theme-content-color: color('white');
+$content-bgcolor: color('white');
 
 /// Determines breakpoints for the entire site.
 /// This allowes for uniform reactions to various states of responsive desing.
 /// @prop {String} key - Breakpoint Size
 /// @prop {Map} breakpoint - Breakpoint Value
 $breakpoints: (
-  'medium': (min-width: 800px),
-  'large': (min-width: 1000px),
-  'huge': (min-width: 1200px),
+  'medium': (max-width: 800px),
+  'large': (max-width: 1000px),
+  'huge': (max-width: 1200px),
 );
 
 /// The standard font used for typical content.
@@ -108,4 +108,23 @@ $heading-font-sizes: (
 /// Font sizes for entry meta, all things insignificant and small.
 $meta-font-size: headingSize('tiny');
 
-///
+/// The icons that will replace the names of links in the menu of social links.
+/// @prop {String} key - The lowercase name of the company as appears in the
+/// url.
+/// @prop {String} value - The font awesome icon equivilant.
+$social-icons: (
+    "facebook" : "\f230",
+    "github"   : "\f092",
+    "tumblr"   : "\f173",
+    "vine"     : "\f1ca",
+    "yelp"     : "\f1e9",
+    "youtube"  : "\f166",
+    "twitter"  : "\f099",
+    "vimeo"    : "\f194",
+    "slack"    : "\f198",
+    "rebel"    : "\f1d0",
+    "pinterest": "\f231",
+    "linkedin" : "\f08c",
+    "google"   : "\f0d4",
+    "instagram": "\f16d"
+);

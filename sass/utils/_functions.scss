@@ -7,7 +7,7 @@
     @warn 'No unit provided to calculate rem, assumed px';
     @return $size / 16rem;
   }
-  @return $size / 16px; * 1rem;
+  @return $size / 16px * 1rem;
 }
 
 /// Gets a heading font from the array of heading font sizes.
@@ -20,5 +20,5 @@
   @if $val {
     @return $val;
   }
-  @error 'The heading size #{$size} was not found.';
+  @error 'The heading size `#{$size}` was not found.';
 }
