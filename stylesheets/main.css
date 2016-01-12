@@ -1,83 +1,1878 @@
-/*
-Error: Undefined variable: "$color__text-default".
-        on line 2 of /Users/sequoiasnow/Sites/journalism/wordpress/wp-content/themes/snowproblem/sass/base/_links.scss
-        from line 57 of /Users/sequoiasnow/Sites/journalism/wordpress/wp-content/themes/snowproblem/sass/main.scss
+@charset "UTF-8";
+/**
+sass/
+|
+|– base/
+|   |– _base.scss        # Base Styles
+|   |– _reset.scss       # Reset/normalize
+|   |– _typography.scss  # Typography rules
+|   |- _links.scss       # Link rules
+|
+|– components/
+|   |– _buttons.scss     # Buttons
+|   |– _comments.scss    # Comments
+|   |– _featured.scss    # Featuerd Posts
+|   |– _widgets.scss     # Widgets
+|   |– _loading.scss     # Ajax Loading Progress
+|   |– _blockquote.scss  # Blockquotes
+|   |– _entry-meta.scss  # About a post
+|   |– _tables.scss      # Tables in posts
+|   |– _widgets.scss     # Widgets
+|   |- _post.scss        # Basic styling for a post
+|
+|– layout/
+|   |– _navigation.scss  # Navigation
+|   |– _content.scss     # Main Content
+|   |– _header.scss      # Header
+|   |– _footer.scss      # Footer
+|   |– _sidebar.scss     # Sidebar
+|   |– _page.scss        # Page
+|
+|– pages/
+|   |– _front-page.scss  # Main splashpage
+|   |– _page.scss        # Default page style
+|   |- _staff.scss       # Contact and page style.
+|   |- _author.scss      # About author page.
+|   |- _multiple.scss    # For search results and the like.
+|
+|– utils/
+|   |– _variables.scss   # Sass Variables
+|   |– _functions.scss   # Sass Functions
+|   |– _mixins.scss      # Sass Mixins
+|   |– _helpers.scss     # Class & placeholders helpers
+|
+|– vendors/
+|   |– _normalize.scss   # Normalize to maintain consistant behavior.
+`– main.scss             # Main Sass file
 
-1: /**
-2: sass/
-3: |
-4: |– base/
-5: |   |– _base.scss        # Base Styles
-6: |   |– _reset.scss       # Reset/normalize
-7: |   |– _typography.scss  # Typography rules
 
-Backtrace:
-/Users/sequoiasnow/Sites/journalism/wordpress/wp-content/themes/snowproblem/sass/base/_links.scss:2
-/Users/sequoiasnow/Sites/journalism/wordpress/wp-content/themes/snowproblem/sass/main.scss:57
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/script/tree/variable.rb:49:in `_perform'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/script/tree/node.rb:50:in `perform'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:395:in `visit_prop'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `block in with_base'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `with_base'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:431:in `block (2 levels) in visit_rule'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:431:in `map'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:431:in `block in visit_rule'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:429:in `visit_rule'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `block in with_base'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `with_base'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `block (2 levels) in visit_import'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `map'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:326:in `block in visit_import'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:88:in `block in with_import'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:88:in `with_import'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:323:in `visit_import'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `block in with_base'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/stack.rb:79:in `with_base'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `map'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:157:in `visit'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:8:in `visit'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/root_node.rb:36:in `css_tree'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/tree/root_node.rb:20:in `render'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/engine.rb:278:in `render'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:209:in `each'
-/usr/local/lib/ruby/gems/2.2.0/gems/sass-3.4.19/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/usr/local/lib/ruby/gems/2.2.0/gems/compass-1.0.3/lib/compass/sass_compiler.rb:40:in `compile!'
-/usr/local/lib/ruby/gems/2.2.0/gems/compass-1.0.3/lib/compass/commands/update_project.rb:49:in `perform'
-/usr/local/lib/ruby/gems/2.2.0/gems/compass-1.0.3/lib/compass/commands/base.rb:18:in `execute'
-/usr/local/lib/ruby/gems/2.2.0/gems/compass-1.0.3/lib/compass/commands/project_base.rb:19:in `execute'
-/usr/local/lib/ruby/gems/2.2.0/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
-/usr/local/lib/ruby/gems/2.2.0/gems/compass-1.0.3/lib/compass/exec/sub_command_ui.rb:15:in `run!'
-/usr/local/lib/ruby/gems/2.2.0/gems/compass-1.0.3/bin/compass:30:in `block in <top (required)>'
-/usr/local/lib/ruby/gems/2.2.0/gems/compass-1.0.3/bin/compass:44:in `call'
-/usr/local/lib/ruby/gems/2.2.0/gems/compass-1.0.3/bin/compass:44:in `<top (required)>'
-/usr/local/bin/compass:23:in `load'
-/usr/local/bin/compass:23:in `<main>'
 */
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Undefined variable: \"$color__text-default\".\A         on line 2 of /Users/sequoiasnow/Sites/journalism/wordpress/wp-content/themes/snowproblem/sass/base/_links.scss\A         from line 57 of /Users/sequoiasnow/Sites/journalism/wordpress/wp-content/themes/snowproblem/sass/main.scss\A \A 1: /**\A 2: sass/\A 3: |\A 4: |– base/\A 5: |   |– _base.scss        # Base Styles\A 6: |   |– _reset.scss       # Reset/normalize\A 7: |   |– _typography.scss  # Typography rules"; }
+/**
+ * Vertically centers the content of the child elements. Only is intended for
+ * one child.
+ */
+@import url(https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Cutive);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
+@import url(https://fonts.googleapis.com/css?family=EB+Garamond);
+@import url(https://fonts.googleapis.com/css?family=Cousine:400,700);
+#site-title-wrapper {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+a {
+  background-color: transparent;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+/**
+ * Provide the basic styling for the anchor tag. Specificly, it targets the
+ * responsive nature of the link in cases of hover or focus.
+ * 1. Responsive color change on hover.
+ * 2. Heading font to indicate difference from content.
+ */
+a {
+  -moz-transition: color 0.3s ease-in;
+  -o-transition: color 0.3s ease-in;
+  -webkit-transition: color 0.3s ease-in;
+  transition: color 0.3s ease-in;
+  font-size: 16px;
+  font-size: 1rem;
+  font-family: "EB Garamond", serif;
+  color: black;
+  /* 1 */
+  cursor: pointer;
+  text-decoration: none;
+}
+a:visited {
+  color: black;
+}
+a:active, a:focus, a:hover {
+  color: #95a5a6;
+  /* 1 */
+}
+
+/**
+ * Show the background of the page with the navigation bars color.
+ * 1. Ovverride any background image that wordpress might attempt to impose.
+ */
+body {
+  background-color: #e67e22;
+  background-image: none !important;
+  /* 1 */
+}
+
+/**
+ * Navigation bar defined to be above and fixed at the top of the page.
+ * 1. Position the navigation bar to the top.
+ * 2. Ensure that the navigation bar is above other elements.
+ * 3. Style the color and appearence of the navigation bar.
+ * 4. Verticly center the navigation bar's children.
+ * 5. Include padding for those children in the x and y direction.
+ * 6. Change the amount of padding on a bigger sized screen.
+ * 7. Shrink the navigation bar size on a smaller screen.
+ * 8. Allow for synched up transformation of movment on mobile with the page.
+ * 9. Ensure stanrd font size throught the navigation, exceptions may follow.
+ */
+#site-navigation {
+  -moz-transition: -moz-transform 0.8s;
+  -o-transition: -o-transform 0.8s;
+  -webkit-transition: -webkit-transform 0.8s;
+  transition: transform 0.8s;
+  /* 8 */
+  display: -webkit-flex;
+  display: flex;
+  /* 4 */
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  /* 4 */
+  -webkit-justify-content: center;
+  justify-content: center;
+  /* 4 */
+  font-size: 16px;
+  font-size: 1rem;
+  /* 9 */
+  position: fixed;
+  /* 1 */
+  left: 0;
+  /* 1 */
+  right: 0;
+  /* 1 */
+  top: 0;
+  /* 1 */
+  width: 100vw;
+  /* 2 */
+  height: 100px;
+  /* 2 */
+  background-color: white;
+  /* 3 */
+  border-bottom: 1px solid #d8dbdd;
+  /* 3 */
+  z-index: 100;
+  padding: 60px;
+  /* 5 */
+}
+@media (max-width: 800px) {
+  #site-navigation {
+    padding: 8px;
+    /* 6 */
+    height: 50px;
+    /* 7 */
+  }
+  body.nav-visible #site-navigation {
+    -moz-transform: translateX(300px);
+    -ms-transform: translateX(300px);
+    -webkit-transform: translateX(300px);
+    transform: translateX(300px);
+    /* 8 */
+  }
+}
+
+/**
+ * Ensures content is always pushed below the navigation bar, which is
+ * positioned relative to the window not the document.
+ * 1. Ensure no elements overlap the current one.
+ * 2. Shrink the size in tandem with the navigation bar.
+ */
+#content-nav-bar-padding {
+  width: 100%;
+  clear: both;
+  /* 1 */
+  height: 100px;
+}
+@media (max-width: 800px) {
+  #content-nav-bar-padding {
+    height: 50px;
+    /* 2 */
+  }
+}
+
+/**
+ * Style the navigation elements to display in a row using flexbox. This could
+ * also be accomplished with inline-block.
+ *
+ * The use of flex-direction: row is not required but helps ensure proper
+ * behavior.
+ *
+ * The wrapper also dictates the maximum width of the navigation bar, this is
+ * 1150px in this case.
+ */
+#site-navigation > .wrapper {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/**
+ * Ensure that the unordered lists and list elements within the navigation
+ * menu are not affected by base styles.
+ */
+#site-navigation ul, li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/**
+ * Show as a flexbox with direction in place of inline block as would
+ * else be the standard.
+ */
+#site-navigation ul.menu-items {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+/**
+ * Hide all elements of the navigation bar that are automatically taken by the
+ * mobile site expanded navigation.
+ */
+@media (max-width: 800px) {
+  #primary-menu, #social-menu, #sidebar-toggle {
+    display: none;
+  }
+}
+/**
+ * Styles the menu toggle which is a classic three bar burger menu with
+ * animating style when clicked.
+ * 1. Adjust to ensure the centering of the menu.
+ * 2. Indicate that this is a clickable button to users and mobile.
+ * 3. Keep the menu toggle
+ *
+ */
+#menu-toggle {
+  display: -webkit-flex;
+  display: flex;
+  /* 1 */
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  /* 1 */
+  -webkit-justify-content: center;
+  justify-content: center;
+  /* 1 */
+  cursor: pointer;
+  /* 2 */
+  width: 26px;
+  height: 20px;
+  margin-left: 0;
+  padding-left: 0;
+  position: relative;
+}
+
+/**
+ * Style the bar of the navigation toggle.
+ *
+ * 1. Include the animation time.
+ * 2. Allow for the pattern to emeerge via margins.
+ *
+ * Also position the transform origion and top properties in order to have
+ */
+#menu-toggle .row {
+  -moz-transition: -moz-transform 0.8s ease;
+  -o-transition: -o-transform 0.8s ease;
+  -webkit-transition: -webkit-transform 0.8s ease;
+  transition: transform 0.8s ease;
+  /* 1 */
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: black;
+  left: 0;
+  right: 0;
+}
+#menu-toggle .row:first-child {
+  -moz-transform-origin: 0 -4px;
+  -ms-transform-origin: 0 -4px;
+  -webkit-transform-origin: 0 -4px;
+  transform-origin: 0 -4px;
+  top: 0;
+}
+#menu-toggle .row:nth-child(2) {
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  top: 7px;
+}
+#menu-toggle .row:last-child {
+  -moz-transform-origin: 0 6px;
+  -ms-transform-origin: 0 6px;
+  -webkit-transform-origin: 0 6px;
+  transform-origin: 0 6px;
+  top: 15px;
+}
+
+/**
+ * On click show as an exit button by twisting the rows into format of an X.
+ * 1. Adjust the transformation origon for this alteration.
+ * 2. Rotate the bars to form the x.
+ * 3. Move the thrid unnecessary bar away.
+ * 4. Hide the finnal third bar.
+ */
+body.nav-visible #menu-toggle .row:first-child {
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  /* 2 */
+}
+body.nav-visible #menu-toggle .row:last-child {
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  /* 2 */
+}
+body.nav-visible #menu-toggle .row:nth-child(2) {
+  -moz-transform: translateX(200%);
+  -ms-transform: translateX(200%);
+  -webkit-transform: translateX(200%);
+  transform: translateX(200%);
+  /* 3 */
+  opacity: 0;
+  /* 4 */
+}
+
+/**
+ * Show all the site navigation menu behind the page, only revelaed when
+ * the menu toggle is clicked. This allowes for the expansion of the menu
+ * when the toggle is presseed.
+ * 1. Move from bottom to top on mobile screens.
+ */
+#site-navigation-more {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  padding: 20px;
+  max-width: 220px;
+  background-color: white;
+}
+@media (max-width: 800px) {
+  #site-navigation-more {
+    top: 20px;
+    bottom: auto;
+  }
+}
+
+/**
+ * Remove all list styles for the liks of the site navigation.
+ */
+#site-navigation-more ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/**
+ * The page which contains all of the content can rotate in order for the
+ * hidden menu to be seen. This is done through the rotation on the top
+ * left axis.
+ * 1. Rotate the page when the extended navigation menu is visible.
+ * 2. Show the page as larger to avoid the possibility of cut off.
+ * 3. Move the page in case of navigation mroe is visible.
+ */
+#page {
+  -moz-transition: all 0.8s linear;
+  -o-transition: all 0.8s linear;
+  -webkit-transition: all 0.8s linear;
+  transition: all 0.8s linear;
+  -moz-transform-origin: top left;
+  -ms-transform-origin: top left;
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
+  will-change: transform;
+}
+body.nav-visible #page {
+  -moz-transform: rotate(-35deg);
+  -ms-transform: rotate(-35deg);
+  -webkit-transform: rotate(-35deg);
+  transform: rotate(-35deg);
+  /* 1 */
+  height: 200vh;
+  /* 2 */
+}
+body.nav-ending-visible #page {
+  height: 200vh;
+  /* 2 */
+}
+@media (max-width: 800px) {
+  body.nav-visible #page {
+    -moz-transform: translateX(300px);
+    -ms-transform: translateX(300px);
+    -webkit-transform: translateX(300px);
+    transform: translateX(300px);
+    /* 3 */
+  }
+}
+
+/**
+ * Display the primary menu items in a row with space between them.
+ * 1. Hide all menu items below the depth of 1.
+ */
+#primary-menu-items li {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+#primary-menu-items li li {
+  display: none;
+  /* 1 */
+}
+
+/**
+ * The menu items are replaced with font awesome icons. This allowes the
+ * transference of the name to an icon as specified in $social-icons.
+ */
+#social-menu-items a[href*="facebook"] span {
+  display: none;
+}
+#social-menu-items a[href*="facebook"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="github"] span {
+  display: none;
+}
+#social-menu-items a[href*="github"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="tumblr"] span {
+  display: none;
+}
+#social-menu-items a[href*="tumblr"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="vine"] span {
+  display: none;
+}
+#social-menu-items a[href*="vine"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="yelp"] span {
+  display: none;
+}
+#social-menu-items a[href*="yelp"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="youtube"] span {
+  display: none;
+}
+#social-menu-items a[href*="youtube"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="twitter"] span {
+  display: none;
+}
+#social-menu-items a[href*="twitter"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="vimeo"] span {
+  display: none;
+}
+#social-menu-items a[href*="vimeo"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="slack"] span {
+  display: none;
+}
+#social-menu-items a[href*="slack"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="rebel"] span {
+  display: none;
+}
+#social-menu-items a[href*="rebel"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="pinterest"] span {
+  display: none;
+}
+#social-menu-items a[href*="pinterest"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="linkedin"] span {
+  display: none;
+}
+#social-menu-items a[href*="linkedin"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="google"] span {
+  display: none;
+}
+#social-menu-items a[href*="google"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="instagram"] span {
+  display: none;
+}
+#social-menu-items a[href*="instagram"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+/**
+ * Display the social menu icons with space between them.
+ */
+#social-menu li {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/**
+ * Ensure that the site title is in the middle of the screen and centered
+ * properly
+ */
+/**
+ * Style the site title to display the various sizes dependent on the size of
+ * the page using media queries. Also centers the title.
+ */
+#site-title-wrapper .site-title {
+  font-size: 34px;
+  font-size: 2.125rem;
+  display: block;
+  margin-top: -17px;
+}
+@media (max-width: 800px) {
+  #site-title-wrapper .site-title {
+    font-size: 24px;
+    font-size: 1.5rem;
+    margin-top: auto;
+  }
+}
+
+/**
+ * The sidebar toggle in the navigation. It resembels in dimensions the
+ * navigation toggle.
+ * 1. Hide for mobile displays.
+ */
+#sidebar-toggle .container {
+  position: relative;
+  width: 26px;
+  height: 20px;
+  cursor: pointer;
+}
+@media (max-width: 800px) {
+  #sidebar-toggle .container {
+    display: none;
+    /* 1 */
+  }
+}
+
+/**
+ * Style each row from the container.
+ */
+#sidebar-toggle .container .row {
+  -moz-transition: all 0.8s;
+  -o-transition: all 0.8s;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+}
+#sidebar-toggle .container .row:nth-child(1) {
+  top: 0%;
+}
+#sidebar-toggle .container .row:nth-child(2) {
+  top: 33.33333%;
+}
+#sidebar-toggle .container .row:nth-child(3) {
+  top: 66.66667%;
+}
+
+/**
+ * The sidebar dots indicative of the variety of widgets found in the
+ * sidebar.
+ */
+#sidebar-toggle .row .dot {
+  position: absolute;
+  height: 100%;
+  width: 3px;
+  background-color: black;
+  left: 0;
+  top: 0;
+}
+
+/**
+ * Style the dashes for the sidebar toggle, the longer parts following the
+ * dots.
+ */
+#sidebar-toggle .row .dash {
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  background-color: black;
+  left: 6px;
+  top: 0;
+}
+
+/**
+ * Make the middle dash shorter to make the symbol.
+ */
+#sidebar-toggle .row:nth-child(2) .dash {
+  width: 16px;
+}
+
+/**
+ * Style the layout between the left and the right side of the page.
+ */
+#content {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+@media (max-width: 800px) {
+  #content {
+    width: 100%;
+    float: left;
+  }
+}
+
+/**
+ * Allow for positioning of the primary content before the footer.
+ */
+#primary {
+  -webkit-flex: 1;
+  flex: 1;
+  order: 0;
+  overflow: hidden;
+}
+
+/**
+ * Sets up the sidebar, its notable this does not work on mobile and is thus
+ * removed for that sake.
+ *
+ * In order for the sidebar to extend beyond the frame it has to move, this is
+ * done by placing it off screen and moving it in using a tranform for gpu
+ * acceleration.
+ */
+#sidebar {
+  -moz-transition: -moz-transform 8s;
+  -o-transition: -o-transform 8s;
+  -webkit-transition: -webkit-transform 8s;
+  transition: transform 8s;
+  display: block;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  right: -200px;
+  width: 200px;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 20px;
+  background-color: #e74c3c;
+}
+#sidebar, #sidebar {
+  color: white;
+}
+.sidebar-visible #sidebar {
+  -moz-transform: translateX(-200px);
+  -ms-transform: translateX(-200px);
+  -webkit-transform: translateX(-200px);
+  transform: translateX(-200px);
+}
+@media (max-width: 800px) {
+  #sidebar {
+    overflow: visible;
+    display: none;
+  }
+}
+
+/**
+ * The styling for the footer of the page, the footer is currently not used as
+ * a widget area and styling for widget use in that area is currently not used.
+ */
+#primary-footer {
+  border-top: 1px solid #d8dbdd;
+  padding-top: 15px;
+  background-color: white;
+  width: 100%;
+}
+
+/**
+ * Style the footer credits to give some love to the people who wrote this file.
+ *
+ * This involves displaying credits as a flexbox in order to center content.
+ */
+#primary-footer .credits {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  width: 100%;
+  margin: 0;
+  padding: 40px;
+}
+
+/**
+ * Style individual credit to reflect qualities of a standard heading.
+ */
+#primary-footer .credit {
+  font-size: 16px;
+  font-size: 1rem;
+  font-family: "EB Garamond", serif;
+  color: black;
+  text-align: center;
+  margin: 16px 0;
+}
+
+/**
+ * Allow for page to be the primamry insighter of scrolling in place of html
+ * elements.
+ */
+body, html {
+  overflow: hidden;
+}
+
+/**
+ * Give page basic positioning and styling as well as allowing for the page
+ * itself to scroll normally on mobile devices.
+ */
+#page {
+  background-color: whitesmoke;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+}
+#page::-webkit-scrollbar {
+  display: none;
+}
+
+/**
+ * Styles all the widgets in the site and does so with base styles as well as
+ * more specific styles dictated in the widgets/ directory.
+ */
+.widget {
+  width: 100%;
+}
+
+.widget-title {
+  border-bottom: 1px solid black;
+}
+
+/**
+ * Allow a search icon for a search widget.
+ *
+ * The search widget is without border with no bottom border and is then shown
+ * with the icon beforehand.
+ */
+.widget_search {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+}
+.widget_search::before {
+  content: "\f002";
+  margin-left: 2px;
+  font-family: "fontawesome";
+  font-size: 1em;
+  color: black;
+}
+
+/**
+ * Show the input search field to display the seach field properly.
+ */
+.widget_search input.search-field {
+  border-radius: 0;
+  width: auto;
+  border: none;
+}
+.widget_search input.search-field:focus {
+  outline: none;
+}
+
+/**
+ * Show recent icons from widget icons and thereby allow for list item
+ * procession.
+ */
+.widget.widget_recent_comments ul li {
+  margin-bottom: 20px;
+}
+.widget.widget_recent_comments ul li::before {
+  content: "\f075";
+  margin-left: 2px;
+  font-family: "fontawesome";
+  font-size: 1em;
+  color: black;
+}
+
+/**
+ * Display archive with proceeding icon as well. Similar to recent comments.
+ */
+.widget.widget_archive ul li {
+  margin-bottom: 20px;
+}
+.widget.widget_archive ul li::before {
+  content: "\f187";
+  margin-left: 2px;
+  font-family: "fontawesome";
+  font-size: 1em;
+  color: black;
+}
+
+/**
+ * Ensure the loading animation takes
+ */
+.ajax-loading {
+  width: 100%;
+}
+
+/**
+ * Spinner rotating animation that allowes for infinite rotation.
+ */
+@-moz-keyframes rotate-spinner {
+  0% {
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate-spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate-spinner {
+  0% {
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/**
+ * Create a display for a loading animation that appears when featured posts
+ * are being considered.
+ * 1. Include spinning animation
+ * 2. Display the border shape
+ * 3. Position in the center of the contianer
+ * 4. Style to be centered in the page
+ */
+.ajax-loading .spinner {
+  -moz-animation: rotate-spinner 0.8s infinite linear;
+  -webkit-animation: rotate-spinner 0.8s infinite linear;
+  animation: rotate-spinner 0.8s infinite linear;
+  /* 1 */
+  border: 14px solid #055877;
+  /* 2 */
+  border-right-color: transparent;
+  /* 2 */
+  border-radius: 50%;
+  /* 2 */
+  width: 150px;
+  /* 3 */
+  height: 150px;
+  /* 3 */
+  margin: 20px auto;
+  /* 4 */
+}
+
+/**
+ * Style the entry meta to a simple distraction free standard.
+ * 1. Adjust the font size and color.
+ * 2. Ensure everything stated remains on one line.
+ */
+.entry-meta {
+  font-size: 12px;
+  font-size: 0.75rem;
+  /* 1 */
+  color: #bdc3c7;
+  /* 1 */
+}
+.entry-meta * {
+  display: inline-block;
+  /* 2 */
+}
+
+/**
+ * Adjused the reference of the author name.
+ * 1. Prefix the author with a dash.
+ * 2. Padd the dash for appropriate spacing based off of font size set for
+ * entry meta.
+ */
+.entry-meta .author::before {
+  content: '–';
+  /* 1 */
+  padding: 0 12px;
+  /* 2 */
+}
+
+/**
+ * Styles all the widgets in the site and does so with base styles as well as
+ * more specific styles dictated in the widgets/ directory.
+ */
+.widget {
+  width: 100%;
+}
+
+.widget-title {
+  border-bottom: 1px solid black;
+}
+
+/**
+ * Allow a search icon for a search widget.
+ *
+ * The search widget is without border with no bottom border and is then shown
+ * with the icon beforehand.
+ */
+.widget_search {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+}
+.widget_search::before {
+  content: "\f002";
+  margin-left: 2px;
+  font-family: "fontawesome";
+  font-size: 1em;
+  color: black;
+}
+
+/**
+ * Show the input search field to display the seach field properly.
+ */
+.widget_search input.search-field {
+  border-radius: 0;
+  width: auto;
+  border: none;
+}
+.widget_search input.search-field:focus {
+  outline: none;
+}
+
+/**
+ * Show recent icons from widget icons and thereby allow for list item
+ * procession.
+ */
+.widget.widget_recent_comments ul li {
+  margin-bottom: 20px;
+}
+.widget.widget_recent_comments ul li::before {
+  content: "\f075";
+  margin-left: 2px;
+  font-family: "fontawesome";
+  font-size: 1em;
+  color: black;
+}
+
+/**
+ * Display archive with proceeding icon as well. Similar to recent comments.
+ */
+.widget.widget_archive ul li {
+  margin-bottom: 20px;
+}
+.widget.widget_archive ul li::before {
+  content: "\f187";
+  margin-left: 2px;
+  font-family: "fontawesome";
+  font-size: 1em;
+  color: black;
+}
+
+/**
+ * Basic styling for the post font.
+ */
+.post {
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-family: "PT Serif", serif;
+}
+
+/**
+ * Allow some padding for the actual content of the post.
+ */
+.post-content {
+  padding: 20px;
+}
+
+/**
+ * Allow the entry image to expand on hover.
+ * 1. Allow for an increase in size without expanding beyond borders.
+ * 2. Ensure the lack of space for the picture.
+ * 3. Scale the image to a larger size.
+ */
+.post .entry-image {
+  width: 100%;
+  overflow: hidden;
+  /* 1 */
+}
+.post .entry-image, .post .entry-image * {
+  padding: 0;
+  /* 2 */
+  margin: 0;
+  /* 2 */
+  display: block;
+  /* 2 */
+}
+.post .entry-image img {
+  -moz-transition: all 0.8s;
+  -o-transition: all 0.8s;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+}
+.post .entry-image:hover img {
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  /* 3 */
+}
+
+/**
+ * Defines the simple styling for a post on the front page of the site.
+ *
+ * This post will traditionaly have a simple color scheme and provide links
+ * for more reading, a image and an excerpt.
+ *
+ * @see content/content-front.php
+ */
+/**
+ * Allow the image to scale overflow (1).
+ *
+ * Define paramaters for increased visibility and flat layout. Show box shadow
+ * on hover (2)
+ */
+.post-front {
+  overflow: hidden;
+  /* 1 */
+  background-color: white;
+}
+.post-front:hover {
+  -moz-box-shadow: 35px fade(black, 30);
+  -webkit-box-shadow: 35px fade(black, 30);
+  box-shadow: 35px fade(black, 30);
+  /* 2 */
+}
+
+/**
+ * Scale the entry image to permit optimal sizing. (2)
+ *
+ * Destroy all margins and padding that would affect borders. (3)
+ *
+ * Allow for the scale of the image on hover through a transition. (1)
+ */
+.post-front .entry-image {
+  -moz-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  -webkit-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+  /* 1 */
+  width: 100%;
+  /* 2 */
+  height: auto;
+  /* 2 */
+  padding: 0;
+  /* 3 */
+  margin: 0;
+  /* 3 */
+}
+
+/**
+ * Scale the entry image on hover (1) and fade the entry image (2).
+ */
+.post-front:hover .entry-image {
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  /* 1 */
+  opacity: 0.6;
+  /* 2 */
+}
+
+/**
+ * Format the entry content in accordance to flat ui standards. Determine the
+ * padding for the content (1).
+ */
+.post-front .post-content {
+  width: 100%;
+  padding: 6px;
+  /* 1 */
+  margin: 0;
+}
+
+/**
+ * Display using centering tactic to align the content centrally.
+ *
+ */
+#breaking-news-ticker {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+  font-family: 'Cutive', serif;
+  text-align: center;
+}
+
+/**
+ * Defines the simple styling for a post on the front page of the site.
+ *
+ * This post will traditionaly have a simple color scheme and provide links
+ * for more reading, a image and an excerpt.
+ *
+ * @see content/content-front.php
+ */
+/**
+ * Allow the image to scale overflow (1).
+ *
+ * Define paramaters for increased visibility and flat layout. Show box shadow
+ * on hover (2)
+ */
+.post-front {
+  overflow: hidden;
+  /* 1 */
+  background-color: white;
+}
+.post-front:hover {
+  -moz-box-shadow: 35px fade(black, 30);
+  -webkit-box-shadow: 35px fade(black, 30);
+  box-shadow: 35px fade(black, 30);
+  /* 2 */
+}
+
+/**
+ * Scale the entry image to permit optimal sizing. (2)
+ *
+ * Destroy all margins and padding that would affect borders. (3)
+ *
+ * Allow for the scale of the image on hover through a transition. (1)
+ */
+.post-front .entry-image {
+  -moz-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  -webkit-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+  /* 1 */
+  width: 100%;
+  /* 2 */
+  height: auto;
+  /* 2 */
+  padding: 0;
+  /* 3 */
+  margin: 0;
+  /* 3 */
+}
+
+/**
+ * Scale the entry image on hover (1) and fade the entry image (2).
+ */
+.post-front:hover .entry-image {
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  /* 1 */
+  opacity: 0.6;
+  /* 2 */
+}
+
+/**
+ * Format the entry content in accordance to flat ui standards. Determine the
+ * padding for the content (1).
+ */
+.post-front .post-content {
+  width: 100%;
+  padding: 6px;
+  /* 1 */
+  margin: 0;
+}
+
+/**
+ * A post is shown with a parallax style image. The container of that image
+ * lends the size of the image to consideration.
+ */
+.featured-image {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 500px;
+}
+
+/**
+ * The background image is shown as a fixed attachement background. This allows
+ * for parallax scrolling.
+ */
+.featured-image .background-image {
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/**
+ * Standard post padding that centers the content within to allow for a smaller
+ * post width.
+ */
+article.post,
+article.page {
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-family: "PT Serif", serif;
+  padding: 0;
+  position: relative;
+}
+
+/**
+ * Styling for the post content which mirrors element content and has a width
+ * that is defined as the typical size for text content.
+ */
+.post-content {
+  margin: auto;
+  padding: 20px;
+}
+body.single .post-content, body.single-post .post-content, body.page .post-content {
+  width: 800px;
+}
+
+/**
+ * Center the entry section for the content using margin: auto for vertical
+ * centering.
+ */
+.entry-section {
+  padding: 20px;
+  margin: 20px auto;
+  background-color: white;
+}
+
+/**
+ * Show the title as a big item on the top page.
+ */
+header.entry-header {
+  width: 100%;
+  text-align: center;
+  background-color: white;
+}
+
+/**
+ * Allows the entry content to be relativly positioned.
+ */
+.entry-title {
+  position: relative;
+  width: auto;
+  display: inline-block;
+}
+
+/**
+ * Ensure no post navigation is present.
+ */
+.post-navigation {
+  display: none !important;
+}
+
+/**
+ * Resolves all styling for the rather customized staff page.
+ *
+ * This page, as currently layed out takes a rather modern look as well as
+ * using a drak theme which differentiates it from the standard grey background
+ * of the site.
+ *
+ * In addition to the dark theme, the document adds new attributes of a theme,
+ * namely the inclusion of space related images, with the moon at the bottom
+ * in this case. While this looks cool stylisticlly this also serves in
+ * one other sense the out of the world nature of the site and of the
+ * menlo atheron chronicle!
+ *
+ * In order to properly implement the darker theme the navigation bar is
+ * apropriatly styled with darker colors so as to maintain the decour of the
+ * page.
+ */
+/**
+ * Themes all pages displaying a multitude of posts for a specific author.
+ *
+ * These posts will be shown to the left, the author to the right.
+ */
+body.author #main {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+@media (max-width: 800px) {
+  body.author #main {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+}
+
+/**
+ * Describe information concerning the author with the image on top and the
+ * description following. This technique employs the standard flexbox within
+ * a flexbox technique.
+ */
+#author-info {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  margin-top: 20px;
+  margin-right: 20px;
+  width: 300px;
+  order: 2;
+}
+@media (max-width: 800px) {
+  #author-info {
+    width: 100%;
+    max-width: 100%;
+    order: 1;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+/**
+ * Show content as content.
+ */
+#author-info .author-content {
+  background-color: white;
+}
+
+/**
+ * Order the loaded posts to proceded the author information
+ */
+body.author #main .loaded-posts {
+  margin: 0;
+  order: 1;
+}
+@media (max-width: 800px) {
+  body.author #main .loaded-posts {
+    width: 100%;
+    max-width: 100%;
+    order: 1;
+  }
+}
+
+/**
+ * Style the loaded posts container with certain content containment ability.
+ */
+.loaded-posts {
+  margin: 20px auto;
+  width: 100%;
+  max-width: 700px;
+  padding: 20px;
+}
+
+/**
+ * Style the loaded post to be a certain size with a given background and
+ * padding to allow for the full extent of the image.
+ */
+.loaded-posts article.post {
+  margin-bottom: 20px;
+  background-color: white;
+  width: 100%;
+  padding: 0;
+}
+
+/**
+ * Confirm the styling of the entry image for the loaded post.
+ */
+.loaded-posts .entry-image, .loaded-posts .entry-image img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Ensure post title displays properly and with sufficient pzazz.
+ */
+header.page-header {
+  font-size: 24px;
+  font-size: 1.5rem;
+  font-family: "EB Garamond", serif;
+  background-color: white;
+  width: 700px;
+  margin: 10px auto;
+  text-align: center;
+}

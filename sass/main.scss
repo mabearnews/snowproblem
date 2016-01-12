@@ -25,6 +25,7 @@ sass/
 |   |– _header.scss      # Header
 |   |– _footer.scss      # Footer
 |   |– _sidebar.scss     # Sidebar
+|   |– _page.scss        # Page
 |
 |– pages/
 |   |– _front-page.scss  # Main splashpage
@@ -67,7 +68,8 @@ sass/
   'layout/content',
   'layout/header',
   'layout/sidebar',
-  'layout/footer';
+  'layout/footer',
+  'layout/page';
 
 @import
   'components/buttons',

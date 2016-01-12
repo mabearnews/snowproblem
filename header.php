@@ -42,7 +42,9 @@
 
 		<!-- Site Name -->
 		<section id="site-title-wrapper" class="container">
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+					<?php bloginfo( 'name' ); ?>
+				</a>
 		</section>
 
 		<!-- Social Menu -->

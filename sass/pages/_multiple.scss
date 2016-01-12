@@ -1,40 +1,42 @@
-body.search-results, body.archive, body.category {
-  /**
-   * The current page is displaying the result of a search, thus the multi column
-   * layout for a page with multiple posts, applies
-   */
+/**
+ * Style the loaded posts container with certain content containment ability.
+ */
+.loaded-posts {
+    margin: $padding-val auto;
+    width: 100%;
+    max-width: 700px;
+    padding: $padding-val;
+}
 
+/**
+ * Style the loaded post to be a certain size with a given background and
+ * padding to allow for the full extent of the image.
+ */
+.loaded-posts article.post {
+  margin-bottom: $padding-val;
+  background-color: $content-bgcolor;
+  width: 100%;
+  padding: 0;
+}
 
-  .loaded-posts {
-      @extend .center-horizontal-single-margin;
-      width: 100%;
-      max-width: $multiple-post-max-width;
-      padding: $grid-gap;
-  }
+/**
+ * Confirm the styling of the entry image for the loaded post.
+ */
+.loaded-posts .entry-image, .loaded-posts .entry-image img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
 
-  .loaded-posts article.post {
-      margin-bottom: $grid-gap;
-      background-color: $content-bgcolor;
-      width: 100%;
-      padding: 0;
-
-      .entry-image, .entry-image img {
-          width: 100%;
-          height: auto;
-          margin: 0;
-          padding: 0;
-      }
-
-      .post-content {
-          padding: $grid-gap;
-      }
-  }
-
-  header.page-header {
-      width: 100%;
-
-      text-align: center;
-  }
-
-
+/**
+ * Ensure post title displays properly and with sufficient pzazz.
+ */
+header.page-header {
+  @include font-size('large');
+  font-family: $heading-font;
+  background-color: $content-bgcolor;
+  width: 700px;
+  margin: 10px auto;
+  text-align: center;
 }

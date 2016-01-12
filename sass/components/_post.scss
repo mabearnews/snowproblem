@@ -1,0 +1,38 @@
+/**
+ * Basic styling for the post font.
+ */
+.post {
+  @include content-font;
+}
+
+/**
+ * Allow some padding for the actual content of the post.
+ */
+.post-content {
+  padding: $padding-val;
+}
+
+/**
+ * Allow the entry image to expand on hover.
+ * 1. Allow for an increase in size without expanding beyond borders.
+ * 2. Ensure the lack of space for the picture.
+ * 3. Scale the image to a larger size.
+ */
+.post .entry-image {
+  width: 100%;
+  overflow: hidden; /* 1 */
+
+  &, * {
+    padding: 0; /* 2 */
+    margin: 0; /* 2 */
+    display: block; /* 2 */
+  }
+
+  img {
+    @include transition( all 0.8s );
+  }
+
+  &:hover img {
+    @include transform( scale( 1.2) ); /* 3 */
+  }
+}

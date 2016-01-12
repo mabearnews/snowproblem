@@ -1,48 +1,22 @@
-/* Shows the content in the center of the screen for most posts and such. */
-
-.center-element {
-    @include display-flex;
-    @include flex-direction(row);
-    @include justify-content(center);
-}
-
-.content-container {
-    @extend .center-element;
-}
-
-.element-content, .content-element {
-    width: $post-width;
-    padding: 0 $post-content-mobile-padding;
-}
-
-.full-width-container {
-    @include full-width-post-content;
-}
-
-
-
-/* Style the layout between the left and the right side of the page.*/
+/**
+ * Style the layout between the left and the right side of the page.
+ */
 #content {
-   // Allow for the flexbox to show properly.
    @include display-flex;
    @include flex-direction(column);
-
    width: 100%;
+
+   @include respond-to('medium') {
+     width: 100%;
+     float: left;
+   }
 }
 
-
+/**
+ * Allow for positioning of the primary content before the footer.
+ */
 #primary {
    @include flex(1);
-
    order: 0;
    overflow: hidden;
-}
-
-
-@media (min-width: #{$content-min-width}) {
-    /* The content should scale to show the sidebar border. */
-    #content {
-        width: 100%;
-        float: left;
-    }
 }

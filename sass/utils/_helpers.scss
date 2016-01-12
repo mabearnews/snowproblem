@@ -1,0 +1,9 @@
+/**
+ * Vertically centers the content of the child elements. Only is intended for
+ * one child.
+ */
+%center-vertical {
+    @include display-flex;
+    @include flex-direction(column);
+    @include justify-content(center);
+}

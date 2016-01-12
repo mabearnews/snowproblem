@@ -1,99 +1,77 @@
 /**
- * @file.
  * Styles all the widgets in the site and does so with base styles as well as
  * more specific styles dictated in the widgets/ directory.
  */
 .widget {
-    width: 100%;
-    .widget-title {
-        border-bottom: $widget-title-border;
-    }
+  width: 100%;
 }
 
-/* Adds styling for an icon to precede some text. */
-@mixin proceded-icon-styling($icon) {
-    &::before {
-        display: block;
-        text-align: left;
-        font-family: "fontawesome";
-        float: left;
-        padding-top: 0;
-      font-size: $widget-icon-font-size;
-      margin-right: 14px;
-      content: $icon;
-    }
+.widget-title {
+  border-bottom: 1px solid $primary-text-color;
 }
 
-/* Including specialized widgets */
+/**
+ * Allow a search icon for a search widget.
+ *
+ * The search widget is without border with no bottom border and is then shown
+ * with the icon beforehand.
+ */
 .widget_search {
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid black;
+  @include display-flex;
+  @include flex-direction(row);
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
 
-    @include display-flex;
-    @include flex-direction(row);
-
-    &::before {
-        content: "\f002";
-        margin-left: 2px;
-        font-family: "fontawesome";
-        font-size: 1em;
-        color: black;
-    }
-
-    input.search-field {
-        @include border-radius(0);
-
-        width: auto;
-        border: none;
-
-        &:focus {
-            outline: none;
-        }
-    }
+  &::before {
+    content: "\f002";
+    margin-left: 2px;
+    font-family: "fontawesome";
+    font-size: 1em;
+    color: black;
+  }
 }
 
-.widget_search {
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid black;
+/**
+ * Show the input search field to display the seach field properly.
+ */
+.widget_search input.search-field {
+  border-radius: 0;
+  width: auto;
+  border: none;
 
-    @include display-flex;
-    @include flex-direction(row);
-
-    &::before {
-        content: "\f002";
-        margin-left: 2px;
-        font-family: "fontawesome";
-        font-size: 1em;
-        color: black;
-    }
-
-    input.search-field {
-        @include border-radius(0);
-
-        width: auto;
-        border: none;
-
-        &:focus {
-            outline: none;
-        }
-    }
+  &:focus {
+    outline: none;
+  }
 }
 
-.widget.widget_recent_comments {
+/**
+ * Show recent icons from widget icons and thereby allow for list item
+ * procession.
+ */
+.widget.widget_recent_comments ul li {
+  margin-bottom: 20px;
 
-    ul li {
-        @include proceded-icon-styling("\f075");
-
-        margin-bottom: $widget-margin-bottom;;
-    }
+  &::before {
+    content: "\f075";
+    margin-left: 2px;
+    font-family: "fontawesome";
+    font-size: 1em;
+    color: black;
+  }
 }
 
-.widget_archive {
-    ul li {
-        @include proceded-icon-styling("\f187");
+/**
+ * Display archive with proceeding icon as well. Similar to recent comments.
+ */
+ .widget.widget_archive ul li {
+   margin-bottom: 20px;
 
-        margin-bottom: $widget-margin-bottom;
-    }
-}
+   &::before {
+     content: "\f187";
+     margin-left: 2px;
+     font-family: "fontawesome";
+     font-size: 1em;
+     color: black;
+   }
+ }

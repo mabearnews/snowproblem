@@ -6,14 +6,18 @@
  */
 a {
   @include transition(color 0.3s ease-in);
-
+  @include heading-font;
   color: $primary-text-color; /* 1 */
-  font-family: $heading-font; /* 2 */
   cursor: pointer;
+  text-decoration: none;
+
+  &:visited {
+    color: $primary-text-color;
+  }
 
   &:active,
   &:focus,
   &:hover {
-    color: $focus-text-color; /* 1 */
+    color: color('grey'); /* 1 */
   }
 }

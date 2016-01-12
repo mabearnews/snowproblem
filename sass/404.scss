@@ -99,7 +99,7 @@ $base-color: random-color();
     }
 
     .go-home * {
-        @extend %heading-font;
+        @include heading-font;
 
         cursor: pointer;
         @include animation(pulse 16s infinite linear);

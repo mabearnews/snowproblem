@@ -1,11 +1,15 @@
-var gulp    = require('gulp');
-var gutil   = require('gulp-util');
-var compass = require('gulp-compass');
-var coffee  = require('gulp-coffee');
-var concat  = require('gulp-concat');
-var zip     = require('gulp-zip');
-var connect = require('gulp-connect-php');
-var minifyCSS = require( 'gulp-minify-css' );
+var gulp       = require('gulp');
+var gutil      = require('gulp-util');
+var compass    = require('gulp-compass');
+var coffee     = require('gulp-coffee');
+var concat     = require('gulp-concat');
+var zip        = require('gulp-zip');
+var connect    = require('gulp-connect-php');
+var minifyCSS  = require( 'gulp-minify-css' );
+var reactify   = require('reactify');
+var browserify = require('browserify');
+var source     = require('vinyl-source-stream');
+var del        = require('del');
 
 function swallowError( error ) {
     // If you want details of the error in the console
@@ -39,22 +43,24 @@ gulp.task('js', function() {
         .pipe(gulp.dest('dist/js'));
 });
 
+gulp.task('react', function() {
+    return browserify('./js/front/app.jsx')
+    .transform(reactify)
+    .bundle()
+    .pipe(source('front.js'))
+    .pipe(gulp.dest('./dist/js'));
+})
+
+gulp.task('clean', function() {
+    del('dist');
+});
+
 gulp.task('watch', function() {
-    gulp.watch( 'sass/**/*.scss', [ 'compass' ] );
-    gulp.watch( 'js/**/*.js', [ 'js' ] );
+    gulp.watch('sass/**/*.scss', [ 'compass' ]);
+    gulp.watch('js/**/*.js', [ 'js' ]);
+    gulp.watch('js/front/**/*.jsx', ['react']);
 });
 
-gulp.task('zip', ["compass", "coffee"], function() {
-    gulp.src(['./**',
-            '!./coffee/**',
-            '!./sass/**',
-            '!./.sass-cache/**',
-            '!./.git/**'
-        ])
-        .pipe(zip('snowproblem.zip'))
-        .pipe(gulp.dest('dist'));
-
-});
 
 gulp.task('serve', function() {
     connect.server({
@@ -62,4 +68,4 @@ gulp.task('serve', function() {
     });
 });
 
-gulp.task('default', ['compass', 'js']);
+gulp.task('default', ['compass', 'js', 'react']);
