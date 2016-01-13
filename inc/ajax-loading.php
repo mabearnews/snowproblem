@@ -12,6 +12,10 @@ function snowproblem_ajax_post_loading() {
     // Establish the format of the posts as seen in 'template-parts/contnet'
     $format = isset( $_POST['postFormat'] ) ? $_POST['postFormat'] : '';
 
+    // Ensure retrieve as data is not an option, but instead actual content should
+    // be brought.
+    $retrieveAsData = isset( $_POST['retrieve_data'] ) ? $_POST['retrieve_data'] : false;
+
     // Check for the number of posts to be retrieved. Set to maximum if no specified.
     $post_number = isset( $_POST['postNumber'] ) ? $_POST['postNumber'] : PHP_INT_MAX;
 
@@ -42,6 +46,9 @@ function snowproblem_ajax_post_loading() {
     // Perform the mysql query and return each post
     query_posts( $data );
 
+    // Return value, if there is any need, such as for data.
+    $retVal = array();
+
     // Iterate through the posts, in the same manner as seeen in template files.
 	if ( have_posts() ) :
 		while ( have_posts() ) : the_post();
@@ -57,11 +64,20 @@ function snowproblem_ajax_post_loading() {
 			if ( $post_number-- <= 0 ) {  break; };
 
             //  Actually pull the content of format specified.
-			get_template_part( 'template-parts/content', $format );
+            if ( $retrieveAsData ) {
+                $retVal[] = get_post();
+            } else {
+    			get_template_part( 'template-parts/content', $format );
+            }
 		endwhile;
 	endif;
 
 	wp_reset_query();
+
+    // Print out data if that is the nature of the call.
+    if ( $retrieveAsData ) {
+        echo json_encode( $retVal );
+    }
 
 	// Avoid the die 0 command which prints a rather inconveniant 0.
 	die();

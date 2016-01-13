@@ -30,15 +30,14 @@ body {
   right: 0; /* 1 */
   top: 0; /* 1 */
   width: 100vw; /* 2 */
-  height: 100px; /* 2 */
+  height: 60px; /* 2 */
   background-color: $content-bgcolor;  /* 3 */
   border-bottom: 1px solid $border-color;  /* 3 */
   z-index: 100;
-  padding: 60px; /* 5 */
+  padding: 20px; /* 5 */
 
   @include respond-to('medium') {
     padding: 8px; /* 6 */
-    height: 50px; /* 7 */
 
     body.nav-visible & {
       @include transform(translateX(300px)); /* 8 */
@@ -50,16 +49,11 @@ body {
  * Ensures content is always pushed below the navigation bar, which is
  * positioned relative to the window not the document.
  * 1. Ensure no elements overlap the current one.
- * 2. Shrink the size in tandem with the navigation bar.
  */
 #content-nav-bar-padding {
   width: 100%;
   clear: both; /* 1 */
-  height: 100px;
-
-  @include respond-to('medium') {
-    height: 50px; /* 2 */
-  }
+  height: 60px;
 }
 
 /**
@@ -224,7 +218,7 @@ body.nav-visible #menu-toggle  .row {
  * 3. Move the page in case of navigation mroe is visible.
  */
 #page {
-  @include transition(all 0.8s linear);
+  @include transition(transform 0.8s linear);
   @include transform-origin( top, left );
   will-change: transform;
 

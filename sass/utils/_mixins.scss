@@ -2,7 +2,10 @@
 /// @param {String} $breakpoint - Breakpoint name
 /// @require $breakpoints
 @mixin respond-to($breakpoint) {
-  $raw-query: map-get($breakpoints, $breakpoint);
+  $raw-query: $breakpoint;
+  @if ( map-has-key($breakpoints, $breakpoint) ) {
+    $raw-query: map-get($breakpoints, $breakpoint);
+  }
 
   @if $raw-query {
     $query: if(type-of($raw-query) == 'string', unquote($raw-query), inspect($raw-query));

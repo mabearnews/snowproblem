@@ -8,6 +8,104 @@
  */
 
  /**
+  * Allow the content to be contained in a 1120px sized container, this allowes
+  * for easier reading.
+  */
+#react-container {
+  width: 1160px;
+  margin: 0 auto;
+  background-color: $content-bgcolor;
+  border-right: 1px solid $border-color;
+  border-left: 1px solid $border-color;
+}
+
+/**
+ * Allows the featured post to be differing colors if not background image
+ * is provided. A background image will override the background color. To
+ * ensure this there should be a background: ... property specifed by react.
+ */
+#featured-container .featured-post {
+  @include centered-background;
+  width: 100%;
+  height: 100%;
+}
+
+/// The size of a featured block that is centrally located on the front page.
+$featured-block-size: 1160px / 3;
+
+/**
+ * Style the featured container in order to create the flexbox layout of three
+ * columns.
+ */
+#featured-container {
+  padding: 0;
+  margin: 0;
+  height: $featured-block-size;
+  width: 100%;
+  @include display-flex;
+  @include flex-flow(row);
+
+  @include respond-to((max-width: $featured-block-size)) {
+    width: 100vw;
+    height: 100vw;
+  }
+
+  @include respond-to('medium') {
+    @include flex-flow(row wrap);
+    height: auto;
+  }
+}
+
+/**
+ * Style the flex characteristics of the top block, which is the highest order
+ * element in the column layout. Taking one third of the componetns.
+ */
+#featured-container .top-block {
+  @include display-flex;
+  @include flex-direction(column);
+  width: $featured-block-size;
+  height: $featured-block-size;
+
+  @include respond-to((max-width: $featured-block-size * 3)) {
+    width: (100vw / 3);
+    height: (100vw / 3);
+  }
+
+  @include respond-to('medium') {
+    width: 100vw;
+    height: 100vw;
+  }
+}
+
+/**
+ * Allows for vertiacl splits of a container by changing the top block
+ * container or other contianer to vertically divide.
+ */
+#featured-container .split-vertical {
+  @include display-flex;
+  @include flex-direction(column);
+
+  > * {
+    height: 50%;
+    width: 100%;
+  }
+}
+
+/**
+ * Allowes for the change in the horizontal components to create a more
+ * elemental display.
+ */
+#featured-container .split-horizontal {
+  @include display-flex;
+  @include flex-direction(row);
+
+  > * {
+    height: 100%;
+    width: 50%;
+  }
+}
+
+ /**
   * Allow the image to scale overflow (1).
   *
   * Define paramaters for increased visibility and flat layout. Show box shadow

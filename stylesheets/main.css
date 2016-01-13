@@ -540,22 +540,20 @@ body {
   /* 1 */
   width: 100vw;
   /* 2 */
-  height: 100px;
+  height: 60px;
   /* 2 */
   background-color: white;
   /* 3 */
   border-bottom: 1px solid #d8dbdd;
   /* 3 */
   z-index: 100;
-  padding: 60px;
+  padding: 20px;
   /* 5 */
 }
 @media (max-width: 800px) {
   #site-navigation {
     padding: 8px;
     /* 6 */
-    height: 50px;
-    /* 7 */
   }
   body.nav-visible #site-navigation {
     -moz-transform: translateX(300px);
@@ -570,19 +568,12 @@ body {
  * Ensures content is always pushed below the navigation bar, which is
  * positioned relative to the window not the document.
  * 1. Ensure no elements overlap the current one.
- * 2. Shrink the size in tandem with the navigation bar.
  */
 #content-nav-bar-padding {
   width: 100%;
   clear: both;
   /* 1 */
-  height: 100px;
-}
-@media (max-width: 800px) {
-  #content-nav-bar-padding {
-    height: 50px;
-    /* 2 */
-  }
+  height: 60px;
 }
 
 /**
@@ -776,10 +767,10 @@ body.nav-visible #menu-toggle .row:nth-child(2) {
  * 3. Move the page in case of navigation mroe is visible.
  */
 #page {
-  -moz-transition: all 0.8s linear;
-  -o-transition: all 0.8s linear;
-  -webkit-transition: all 0.8s linear;
-  transition: all 0.8s linear;
+  -moz-transition: -moz-transform 0.8s linear;
+  -o-transition: -o-transform 0.8s linear;
+  -webkit-transition: -webkit-transform 0.8s linear;
+  transition: transform 0.8s linear;
   -moz-transform-origin: top left;
   -ms-transform-origin: top left;
   -webkit-transform-origin: top left;
@@ -1500,6 +1491,117 @@ body, html {
  *
  * @see content/content-front.php
  */
+/**
+ * Allow the content to be contained in a 1120px sized container, this allowes
+ * for easier reading.
+ */
+#react-container {
+  width: 1160px;
+  margin: 0 auto;
+  background-color: white;
+  border-right: 1px solid #d8dbdd;
+  border-left: 1px solid #d8dbdd;
+}
+
+/**
+ * Allows the featured post to be differing colors if not background image
+ * is provided. A background image will override the background color. To
+ * ensure this there should be a background: ... property specifed by react.
+ */
+#featured-container .featured-post {
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+}
+
+/**
+ * Style the featured container in order to create the flexbox layout of three
+ * columns.
+ */
+#featured-container {
+  padding: 0;
+  margin: 0;
+  height: 386.66667px;
+  width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row;
+  flex-flow: row;
+}
+@media (max-width: 386.66667px) {
+  #featured-container {
+    width: 100vw;
+    height: 100vw;
+  }
+}
+@media (max-width: 800px) {
+  #featured-container {
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    height: auto;
+  }
+}
+
+/**
+ * Style the flex characteristics of the top block, which is the highest order
+ * element in the column layout. Taking one third of the componetns.
+ */
+#featured-container .top-block {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  width: 386.66667px;
+  height: 386.66667px;
+}
+@media (max-width: 1160px) {
+  #featured-container .top-block {
+    width: 33.33333vw;
+    height: 33.33333vw;
+  }
+}
+@media (max-width: 800px) {
+  #featured-container .top-block {
+    width: 100vw;
+    height: 100vw;
+  }
+}
+
+/**
+ * Allows for vertiacl splits of a container by changing the top block
+ * container or other contianer to vertically divide.
+ */
+#featured-container .split-vertical {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+#featured-container .split-vertical > * {
+  height: 50%;
+  width: 100%;
+}
+
+/**
+ * Allowes for the change in the horizontal components to create a more
+ * elemental display.
+ */
+#featured-container .split-horizontal {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+#featured-container .split-horizontal > * {
+  height: 100%;
+  width: 50%;
+}
+
 /**
  * Allow the image to scale overflow (1).
  *

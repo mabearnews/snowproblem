@@ -16,5 +16,4 @@ get_header(); ?>
 
 <div id="react-container"></div>
 
-
 <?php get_footer(); ?>
