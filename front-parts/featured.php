@@ -1,5 +1,5 @@
 <?php query_posts( array(
-    'posts_per_page' => 5,
+    'numberposts' => 5,
     'category_name'  => 'featured',
     'orderby'        => 'date',
     'order'          => 'DESC',

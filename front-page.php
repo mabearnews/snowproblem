@@ -23,7 +23,7 @@ query_posts( array(
     'category_name'  => 'featured',
     'orderby'        => 'date',
     'order'          => 'DESC',
-    'posts_per_page' => 5,
+    'numberposts' => 5,
 ) );
 
 while ( have_posts() ) {
@@ -109,7 +109,7 @@ get_header(); ?>
         snowproblem_excluded_query( array(
             'orderby'        => 'DATE',
             'order'          => 'DESC',
-            'posts_per_page' => '6',
+            'numberposts'    => '6',
             'meta_key'       => '_thumbnail_id',
             'category_name'  => 'top-stories',
         ), function() {
@@ -156,7 +156,7 @@ get_header(); ?>
         query_posts( array(
             'orderby'        => 'DATE',
             'order'          => 'DESC',
-            'posts_per_page' => '6',
+            'numberposts' => '6',
             'meta_key'       => '_thumbnail_id',
         ) );
 

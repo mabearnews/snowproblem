@@ -336,10 +336,10 @@ function get_the_post_thumbnail_url( $id = null ) {
 function snowproblem_excluded_query( array $query, callable $func) {
 	global $exclude_ids;
 
-	$numb_posts = isset( $query['posts_per_page'] ) ? $query['posts_per_page'] : -1;
+	$numb_posts = isset( $query['numberposts'] ) ? $query['numberposts'] : -1;
 
 	if ( $numb_posts != -1 ) {
-		$query['posts_per_page'] = $query['posts_per_page'] + 10;
+		$query['numberposts'] = $query['numberposts'] + 10;
 	}
 
 	query_posts( $query );

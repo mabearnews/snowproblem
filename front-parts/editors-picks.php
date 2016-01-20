@@ -6,7 +6,7 @@
  */
 
 query_posts( array(
-    'posts_per_page' => 5,
+    'numberposts' => 5,
     'category_name'  => 'editors-picks',
     'orderby'        => 'date',
     'order'  		 => 'DESC',

@@ -30,13 +30,13 @@ function snowproblem_ajax_post_loading() {
     // massive sql query to get all of them, we will only get the number needed,
     // while is the number requested, any that must be skipped, and excluded
     // posts wich are not included in $post_number. The +3 is just for security.
-    $posts_per_page = $skipTo + $post_number + count( $exclude_ids ) + 3;
+    $numberposts = $skipTo + $post_number + count( $exclude_ids ) + 3;
 
     // If the query is an array parse that, else parse as a whole
     if ( is_array( $data ) ) {
-        $data['posts_per_page'] = $posts_per_page;
+        $data['numberposts'] = $numberposts;
     } else {
-        $data .= '&posts_per_page=' . $posts_per_page;
+        $data .= '&numberposts=' . $numberposts;
     }
 
     // Perform the mysql query and return each post
@@ -85,7 +85,7 @@ add_action( 'wp_ajax_nopriv_ajax_post_loading', 'snowproblem_ajax_post_loading' 
 function snowproblem_ajax_data_get() {
     // Establish the nubmer of posts that are to be included.
     $numbPosts = isset( $_POST['post_number'] ) ? $_POST['post_number'] :
-               ( isset( $_POST['posts_per_page'] ) ? $_POST['posts_per_page'] : 1000 );
+               ( isset( $_POST['numberposts'] ) ? $_POST['numberposts'] : 1000 );
 
     // Establish what is to be taken from the post in terms of data.
     $what = isset( $_POST['what'] ) ? $_POST['what'] : null;
@@ -108,7 +108,7 @@ function snowproblem_ajax_data_get() {
     // in order to formulate a number.
     $postsPerPage = $skipTo + $numbPosts + count( $excludeIds ) + 1;
 
-    $queryData['posts_per_page'] = $postsPerPage;
+    $queryData['numberposts'] = $postsPerPage;
 
     // Perform the actual wordpress query.
     $query = new WP_Query( $queryData );
