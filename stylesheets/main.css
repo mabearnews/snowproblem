@@ -58,7 +58,7 @@ sass/
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
 @import url(https://fonts.googleapis.com/css?family=EB+Garamond);
 @import url(https://fonts.googleapis.com/css?family=Cousine:400,700);
-#site-title-wrapper, #featured-container .featured-post, #categories li {
+#site-title-wrapper, #featured-container .featured-post, #categories .cat {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: column;
@@ -1879,6 +1879,14 @@ div.category a {
 }
 
 /**
+ * Remove default padding of post contnet, which is used throught the site
+ * for other purposes.
+ */
+.newscard .post-content {
+  padding: 0;
+}
+
+/**
  * Format the entry content in accordance to flat ui standards. Determine the
  * padding for the content (1).
  */
@@ -1888,7 +1896,7 @@ div.category a {
   -webkit-transition: all 0.7s ease;
   transition: all 0.7s ease;
   width: 100%;
-  margin: 0;
+  margin: 10px;
   max-height: 0;
   overflow: hidden;
 }
@@ -1945,6 +1953,39 @@ div.category a {
 }
 
 /**
+ * Change author color.
+ */
+.newscard footer a {
+  color: #c8c8c8;
+}
+
+/**
+ * In order to differentiate the admitidily similiar view of the post name and
+ * the author, the author is shown with a proceeding icon.
+ */
+.newscard footer a::before {
+  content: '\f007';
+  font-family: "FontAwesome";
+  padding-right: 4px;
+}
+
+/**
+ * Ensure that there is sufficient delimination between both the header and
+ * the footer through the use of margins.
+ */
+.newscard footer, .newscard header {
+  padding: 4px 0;
+}
+
+/**
+ * Further seperating author from post name is a line deliniting the two.
+ */
+.newscard footer {
+  border-top: 1px solid #d8dbdd;
+  padding-top: 10px;
+}
+
+/**
  * Display using centering tactic to align the content centrally.
  */
 #breaking-news-ticker {
@@ -1962,15 +2003,8 @@ div.category a {
 
 /**
  * Properly set up a display of all the categories available throught the site.
- *
- * The flexbox that contains the categories is used to further the consistancy
- * of cateogory behavior and overrides standard list behavior.
  */
 #categories {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
   width: 100%;
   padding: 0;
   margin: 0;
@@ -1979,7 +2013,7 @@ div.category a {
 /**
  * Override default list behavior.
  */
-#categories ul, #categories li {
+#categories .cat {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -1993,101 +2027,84 @@ div.category a {
  *
  * Also vertically center and style the text for each category.
  */
-#categories li {
+#categories .cat {
+  -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   text-align: center;
-  height: 290px;
-  width: 290px;
   margin: 10px;
 }
-@media (max-width: 1160px) {
-  #categories li {
-    height: 25vw;
-    width: 25vw;
-  }
+#categories .cat:nth-child(1) {
+  background-color: #e67e22;
 }
-@media (max-width: 773.33333px) {
-  #categories li {
-    height: 100vw / 3;
-    width: 100vw / 3;
-  }
-}
-@media (max-width: 580px) {
-  #categories li {
-    height: 50vw;
-    width: 50vw;
-  }
-}
-#categories li:nth-child(1) {
-  background-color: #f1c40f;
-}
-#categories li:nth-child(2) {
-  background-color: #e74c3c;
-}
-#categories li:nth-child(3) {
-  background-color: #e74c3c;
-}
-#categories li:nth-child(4) {
-  background-color: #f39c12;
-}
-#categories li:nth-child(5) {
-  background-color: #f1c40f;
-}
-#categories li:nth-child(6) {
-  background-color: black;
-}
-#categories li:nth-child(7) {
-  background-color: #f39c12;
-}
-#categories li:nth-child(8) {
-  background-color: #9b59b6;
-}
-#categories li:nth-child(9) {
-  background-color: #3498db;
-}
-#categories li:nth-child(10) {
-  background-color: #e74c3c;
-}
-#categories li:nth-child(11) {
-  background-color: #f1c40f;
-}
-#categories li:nth-child(12) {
+#categories .cat:nth-child(2) {
   background-color: #8e44ad;
 }
-#categories li:nth-child(13) {
-  background-color: #9b59b6;
+#categories .cat:nth-child(3) {
+  background-color: #7f8c8d;
 }
-#categories li:nth-child(14) {
-  background-color: #2ecc71;
-}
-#categories li:nth-child(15) {
-  background-color: #9b59b6;
-}
-#categories li:nth-child(16) {
-  background-color: #d35400;
-}
-#categories li:nth-child(17) {
-  background-color: #e74c3c;
-}
-#categories li:nth-child(18) {
+#categories .cat:nth-child(4) {
   background-color: #f1c40f;
 }
-#categories li:nth-child(19) {
-  background-color: #d35400;
+#categories .cat:nth-child(5) {
+  background-color: #27ae60;
 }
-#categories li:nth-child(20) {
+#categories .cat:nth-child(6) {
+  background-color: #1abc9c;
+}
+#categories .cat:nth-child(7) {
+  background-color: white;
+}
+#categories .cat:nth-child(8) {
+  background-color: #f39c12;
+}
+#categories .cat:nth-child(9) {
   background-color: #bdc3c7;
 }
-#categories li:nth-child(21) {
+#categories .cat:nth-child(10) {
+  background-color: black;
+}
+#categories .cat:nth-child(11) {
+  background-color: #c0392b;
+}
+#categories .cat:nth-child(12) {
   background-color: #8e44ad;
 }
-#categories li:nth-child(22) {
+#categories .cat:nth-child(13) {
   background-color: #f1c40f;
 }
-#categories li:nth-child(23) {
+#categories .cat:nth-child(14) {
+  background-color: #9b59b6;
+}
+#categories .cat:nth-child(15) {
+  background-color: #e67e22;
+}
+#categories .cat:nth-child(16) {
+  background-color: white;
+}
+#categories .cat:nth-child(17) {
+  background-color: #3498db;
+}
+#categories .cat:nth-child(18) {
   background-color: #f39c12;
+}
+#categories .cat:nth-child(19) {
+  background-color: #9b59b6;
+}
+#categories .cat:nth-child(20) {
+  background-color: #d35400;
+}
+#categories .cat:nth-child(21) {
+  background-color: #e67e22;
+}
+#categories .cat:nth-child(22) {
+  background-color: #8e44ad;
+}
+#categories .cat:nth-child(23) {
+  background-color: #c0392b;
 }
 
 /**
@@ -2098,6 +2115,110 @@ div.category a {
   font-size: 25px;
   font-size: 1.5625rem;
   font-family: "Montserrat", "Helvetica", "Avenir", sans-serif;
+}
+
+/**
+ * Styles a section title. A section title is used to display information
+ * concerning the nature of the following seciton, such as featured or
+ * top stories.
+ *
+ * The design spec for this is a shadow'd offset content that is apparently
+ * broken using some clever skewing trickery.
+ */
+.section-title {
+  height: 102px;
+  position: relative;
+  margin: 10px auto;
+  margin-top: 20px;
+  padding: 10px;
+  text-transform: uppercase;
+  overflow: hidden;
+  display: inline-block;
+}
+.section-title, .section-title * {
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  font-size: 85px;
+  font-size: 5.3125rem;
+  color: white;
+  line-height: 102px;
+  white-space: nowrap;
+}
+
+/**
+ * Center the section title to a certian size.
+ */
+.section-title-container {
+  text-align: center;
+}
+
+/**
+ * Create the scewed sections that contain the title, these use the technique
+ * of being skewed and having their children skewed to maintain a cool effect.
+ *
+ * These are also absolutly positioned.
+ */
+.section-title .angled {
+  -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -moz-transform: skew(-25deg);
+  -ms-transform: skew(-25deg);
+  -webkit-transform: skew(-25deg);
+  transform: skew(-25deg);
+  position: absolute;
+  background-color: black;
+  overflow: hidden;
+  height: inherit;
+}
+.section-title .angled.title-first {
+  width: 55%;
+  top: 0;
+  left: 0;
+  padding-left: 100px;
+  margin-left: -100px;
+}
+.section-title .angled.title-first a {
+  left: 110px;
+  text-align: left;
+}
+.section-title .angled.title-second {
+  width: 45%;
+  top: 5px;
+  right: 0;
+  padding-right: 100px;
+  margin-right: -100px;
+}
+.section-title .angled.title-second a {
+  right: 103px;
+  text-align: right;
+}
+
+/**
+ * Transform the sizing of the skewed elements for furhter effect on hover.
+ */
+.section-title:hover .angled.title-first {
+  width: 98%;
+}
+.section-title:hover .angled.title-second {
+  width: 2%;
+}
+
+/**
+ * Reverse children skew to make them appear normal.
+ */
+.section-title .angled a {
+  -moz-transform: skew(25deg);
+  -ms-transform: skew(25deg);
+  -webkit-transform: skew(25deg);
+  transform: skew(25deg);
+  position: absolute;
+  top: 0;
 }
 
 /**

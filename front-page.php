@@ -47,12 +47,9 @@ function snoproblem_display_popular() {
     global $exclude_ids;
 
     query_posts( array(
-        'meta_key'       => 'post_views_count',
-        'orderby'        => 'meta_value_num',
-        'posts_per_page' => 20,
-        'date_query'     => array(
-           'after' => date('Y-m-d', strtotime('-40 days'))
-       ),
+        'meta_key'    => 'post_views_count',
+        'orderby'     => 'meta_value_num',
+        'numberposts' => 20,
     ) );
 
     while ( have_posts() ) {
@@ -68,13 +65,45 @@ function snoproblem_display_popular() {
     wp_reset_query();
 }
 
+
+/**
+ * Create a title for a category. This is used often for the division of
+ * sectons of content.
+ *
+ * It allows for some newer/better containment of reduntnat logic.
+ *
+ * -- I'm kinda sick, so if you can't understand that, my bad
+ *
+ * @param string $cat_name
+ */
+function snowproblem_section_title( $cat_name ) {
+    $cat   = term_exists('Uncategorized', 'category') ? get_category_by_slug( $cat_name ) : 0;
+    $title = $cat ? get_cat_name( $cat->term_id ) : $cat_name;
+    $url   = $cat ? esc_url( get_category_link( $cat->term_id ) ) : "#$cat_name";
+
+    ?>
+        <div class="section-title-container">
+            <section class="section-title">
+                <div class="title-size">
+                    <span><?php print $title; ?></span>
+                </div>
+                <div class="title-first angled">
+                    <a class="title" href="<?php print $url; ?>"><?php print $title; ?></a>
+                </div>
+                <div class="title-second angled">
+                    <a class="title" href="<?php print $url; ?>"><?php print $title; ?></a>
+                </div>
+            </section>
+        </div>
+    <?php
+}
+
 get_header(); ?>
 
 <div id="front-container">
 
-    <section class="section-title">
-        <a class="title" href="<?php echo esc_url( get_category_link( get_category_by_slug( 'top-stories' ) ) ); ?>">Top Stories</a>
-    </section>
+    <?php snowproblem_section_title( 'top-stories'); ?>
+
     <section id="top-stories" class="post-container snowgrid" snowgrid-columnGap="10" snowgrid-animationDuration="1">
         <?php
         snowproblem_excluded_query( array(
@@ -91,20 +120,37 @@ get_header(); ?>
 
     <?php snoproblem_display_popular(); ?>
 
-    <section id="categories">
+    <?php snowproblem_section_title( 'categories' ); ?>
 
-        <?php wp_list_categories( array(
-            'orderby'  => 'count',
-            'order'    => 'DESC',
-            'depth'    => 1,
-            'title_li' => '',
-        ) ); ?>
+    <section id="categories"
+             class="snowgrid"
+             snowgrid-columnGap="10"
+             snowground-minWidth="150"
+             snowground-maxWidth="250">
 
-    </section>
+        <?php
+        $cats = get_categories( array(
+            'orderby'      => 'count',
+            'order'        => 'DESC',
+            'hierarchical' => 0,
+        ) );
 
-    <section class="section-title">
-        <a>Recent Posts</a>
-    </section>
+        foreach ( $cats  as $cat ) : if ( $cat->count < 5 || $cat->slug == 'uncategorized' ) { continue; } ?>
+
+            <div class="column cat" style="height: <?php print rand( 50, 150 ); ?>px;">
+
+                <a href="<?php print esc_url( get_category_link( $cat->term_id ) ); ?>">
+                    <?php print $cat->cat_name; ?>
+                </a>
+
+            </div> <!-- .cat -->
+
+        <?php endforeach; ?>
+
+    </section> <!-- #categories -->
+
+    <?php snowproblem_section_title( 'Recent Posts' ); ?>
+
     <section id="recent-posts" class="post-container snowgrid" snowgrid-columnGap="10" snowgrid-animationDuration="1">
         <?php
         query_posts( array(

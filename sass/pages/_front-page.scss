@@ -337,13 +337,21 @@ $featured-block-size: 100vw / 3;
  }
 
 /**
+ * Remove default padding of post contnet, which is used throught the site
+ * for other purposes.
+ */
+.newscard .post-content {
+  padding: 0;
+}
+
+/**
  * Format the entry content in accordance to flat ui standards. Determine the
  * padding for the content (1).
  */
 .newscard .post-content p {
   @include transition(all 0.7s ease);
   width: 100%;
-  margin: 0;
+  margin: 10px;
   max-height: 0;
   overflow: hidden;
 
@@ -394,6 +402,40 @@ $featured-block-size: 100vw / 3;
 .newscard .post-date .year { display: none; }
 
 /**
+ * Change author color.
+ */
+.newscard footer a {
+  color: rgb(200, 200, 200);
+}
+
+/**
+ * In order to differentiate the admitidily similiar view of the post name and
+ * the author, the author is shown with a proceeding icon.
+ */
+.newscard footer a::before {
+  content: '\f007';
+  font-family: "FontAwesome";
+  padding-right: 4px;
+}
+
+/**
+ * Ensure that there is sufficient delimination between both the header and
+ * the footer through the use of margins.
+ */
+.newscard footer, .newscard header {
+  padding: 4px 0;
+}
+
+/**
+ * Further seperating author from post name is a line deliniting the two.
+ */
+.newscard footer {
+  border-top: 1px solid $border-color;
+  padding-top: 10px;
+}
+
+
+/**
  * Display using centering tactic to align the content centrally.
  */
 #breaking-news-ticker {
@@ -408,13 +450,8 @@ $featured-block-size: 100vw / 3;
 
 /**
  * Properly set up a display of all the categories available throught the site.
- *
- * The flexbox that contains the categories is used to further the consistancy
- * of cateogory behavior and overrides standard list behavior.
  */
 #categories {
-  @include display-flex;
-  @include flex-flow(row wrap);
   width: 100%;
   padding: 0;
   margin: 0;
@@ -423,7 +460,7 @@ $featured-block-size: 100vw / 3;
 /**
  * Override default list behavior.
  */
-#categories ul, #categories li {
+#categories .cat {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -437,28 +474,13 @@ $featured-block-size: 100vw / 3;
  *
  * Also vertically center and style the text for each category.
  */
-#categories li {
+#categories .cat {
   @extend %center-vertical;
+
+  @include box-shadow(0px 1px 2px 0px rgba(0, 0, 0, 0.15));
   @include box-sizing(border-box);
   text-align: center;
-  height: $max-page-width / 4;
-  width: $max-page-width / 4;
   margin: 10px;
-
-  @include respond-to((max-width: $max-page-width)) {
-    height: 25vw;
-    width: 25vw;
-  }
-
-  @include respond-to((max-width: ($max-page-width * 2 / 3))) {
-    height: 100vw / 3;
-    width: 100vw / 3;
-  }
-
-  @include respond-to((max-width: ($max-page-width / 2))) {
-    height: 50vw;
-    width: 50vw;
-  }
 
   @for $index from 1 through length(map-values($colors)) {
     &:nth-child(#{$index}) {
@@ -474,4 +496,98 @@ $featured-block-size: 100vw / 3;
 #categories a {
   @include font-size(25px);
   font-family: $heading-font;
+}
+
+
+/**
+ * Styles a section title. A section title is used to display information
+ * concerning the nature of the following seciton, such as featured or
+ * top stories.
+ *
+ * The design spec for this is a shadow'd offset content that is apparently
+ * broken using some clever skewing trickery.
+ */
+.section-title {
+  height: 102px;
+  position: relative;
+  margin: 10px auto;
+  margin-top: 20px;
+  padding: 10px;
+  text-transform: uppercase;
+  overflow: hidden;
+  display: inline-block;
+
+  &, * {
+    @include box-sizing(content-box);
+    @include font-size(85px);
+    color: color('white');
+    line-height: 102px;
+    white-space: nowrap;
+  }
+}
+
+/**
+ * Center the section title to a certian size.
+ */
+.section-title-container {
+  text-align: center;
+}
+
+/**
+ * Create the scewed sections that contain the title, these use the technique
+ * of being skewed and having their children skewed to maintain a cool effect.
+ *
+ * These are also absolutly positioned.
+ */
+.section-title .angled {
+  @include box-shadow(0px 1px 2px 0px rgba(0, 0, 0, 0.15));
+  @include transition(all 0.5s ease);
+  @include transform(skew(-25deg));
+  position: absolute;
+  background-color: color('black');
+  overflow: hidden;
+  height: inherit;
+
+  &.title-first {
+    width: 55%;
+    top: 0;
+    left: 0;
+    padding-left: 100px;
+    margin-left: -100px;
+
+    a {
+      left: 110px;
+      text-align: left;
+    }
+  }
+
+  &.title-second {
+    width: 45%;
+    top: 5px;
+    right: 0;
+    padding-right: 100px;
+    margin-right: -100px;
+
+    a {
+      right: 103px;
+      text-align: right;
+    }
+  }
+}
+
+/**
+ * Transform the sizing of the skewed elements for furhter effect on hover.
+ */
+.section-title:hover .angled {
+  &.title-first  { width: 98%; }
+  &.title-second { width: 2%; }
+}
+
+/**
+ * Reverse children skew to make them appear normal.
+ */
+.section-title .angled a {
+  @include transform(skew(25deg));
+  position: absolute;
+  top: 0;
 }
