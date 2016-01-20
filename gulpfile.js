@@ -59,6 +59,7 @@ gulp.task('watch', function() {
     gulp.watch('sass/**/*.scss', [ 'compass' ]);
     gulp.watch('js/**/*.js', [ 'js' ]);
     gulp.watch('js/front/**/*.jsx', ['react']);
+    gulp.watch('js/front/**/&.js', ['react']);
 });
 
 

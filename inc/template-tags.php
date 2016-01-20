@@ -314,9 +314,51 @@ function snowproblem_primary_menu() {
 /**
  * Returns a featured image url if one exists.
  */
-function get_the_post_thumbnail_url() {
-	if ( has_post_thumbnail() ) {
-		return wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' )[0];
+function get_the_post_thumbnail_url( $id = null ) {
+	if ( ! $id ) { $id = $post->ID; }
+	if ( has_post_thumbnail( $id ) ) {
+		return wp_get_attachment_image_src( get_post_thumbnail_id( $id ), 'single-post-thumbnail' )[0];
 	}
-	return false;
+	return '';
+}
+
+
+/**
+ * Query posts using thd exclude ids array as a reference. Note, this requires
+ * the presence of the global variable exclude_ids, it will query a post and
+ * then apply a function to each post in the loop, after some cursory inspection
+ * of the loop. Does not work particularly well if there are few of a certain post,
+ * or the posts have already been loaded.
+ *
+ * @param array $query
+ * @param callback $func
+ */
+function snowproblem_excluded_query( array $query, callable $func) {
+	global $exclude_ids;
+
+	$numb_posts = isset( $query['posts_per_page'] ) ? $query['posts_per_page'] : -1;
+
+	if ( $numb_posts != -1 ) {
+		$query['posts_per_page'] = $query['posts_per_page'] + 10;
+	}
+
+	query_posts( $query );
+
+	while ( have_posts() ) {
+		the_post();
+
+		// Ensure the post is not already loaded.
+		if ( in_array( get_the_ID(), $exclude_ids ) ) { continue; }
+
+		// Ensure that the number of posts desired is not exeeded.
+		if ( $numb_posts-- == 0 ) { break; }
+
+		// Allow future uses of this function to work.
+		$exclude_ids[] = get_the_ID();
+
+		// Execute the callback, at this point, all tests have been passed.
+		$func();
+	}
+
+	wp_reset_query();
 }

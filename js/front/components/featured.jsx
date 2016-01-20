@@ -1,34 +1,63 @@
 var React = require('react');
 
-var Colors   = require('../helpers/colors.js');
-var Category = require('./category.jsx');
+var Ajax     = require('../helpers/ajax.js');
+var Feature  = require('./feature.jsx');
 
 var Featured = React.createClass({
+    getInitialState: function() {
+        return {
+            posts: []
+        };
+    },
+
+    componentDidMount: function() {
+        Ajax.query({
+            category_name: 'featured',
+            orderby: 'date',
+            order: 'DESC',
+            post_number: 5,
+            what: {
+                'categories': 'categories',
+                'post_title': 'title',
+                'get_permalink': 'href',
+                'featured_image': 'background'
+            }
+        }, function(posts) {
+
+            if (this.isMounted()) {
+                this.setState({
+                  posts: posts
+                });
+            }
+
+        }.bind(this));
+    },
+
     render: function() {
-        var categories = this.props.categories;
-
-        var styles = {};
-
-        if ( this.props.background ) {
-            styles = { backgroundImage: 'url(' + this.props.background + ')' };
-        } else {
-            styles = { background: Colors.next() };
-        }
+        var posts = this.state.posts;
 
         return (
-            <article style={styles} className="featured-post">
+            <section id="featured-container">
 
-                <header>
-                    <h1>{this.props.title}</h1>
-                </header>
+                <div className="top-block split-vertical">
 
-                <div className="categories">
-                    {categories.map(function(cat) {
-                      return <Category href={cat.href} key={cat.name} name={cat.name} />;
-                    })}
+                    <Feature {...posts[1]} />
+                    <Feature {...posts[3]} />
+
+                </div>
+                <div className="top-block">
+
+                    <Feature {...posts[0]} />
+
+                </div>
+                <div className="top-block split-vertical">
+
+                    <Feature {...posts[2]} />
+                    <Feature {...posts[4]} />
+
                 </div>
 
-            </article>
+            </section>
         );
     }
 });

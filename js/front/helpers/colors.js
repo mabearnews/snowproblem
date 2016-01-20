@@ -68,11 +68,7 @@ var Colors = {
             this.usedColors = Object.keys(this.all).sort(function() {
                 return 0.5 - Math.random();
             });
-
-            console.log('reset');
         }
-
-        console.log(this.usedColors);
 
         return this.all[this.usedColors.pop()];
     }

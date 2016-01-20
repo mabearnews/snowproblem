@@ -27,7 +27,7 @@
  */
 .ajax-loading .spinner {
   @include animation(rotate-spinner 0.8s infinite linear); /* 1 */
-  border: 14px solid #055877; /* 2 */
+  border: 14px solid color('red'); /* 2 */
   border-right-color: transparent; /* 2 */
   border-radius: 50%; /* 2 */
   width: 150px; /* 3 */

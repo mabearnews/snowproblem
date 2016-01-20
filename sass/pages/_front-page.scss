@@ -8,30 +8,138 @@
  */
 
  /**
-  * Allow the content to be contained in a 1120px sized container, this allowes
+  * Allow the content to be contained in a 1160px sized container, this allowes
   * for easier reading.
   */
-#react-container {
-  width: 1160px;
+#front-container {
+  @include box-sizing(border-box);
+  width: $max-page-width;
   margin: 0 auto;
-  background-color: $content-bgcolor;
-  border-right: 1px solid $border-color;
-  border-left: 1px solid $border-color;
+}
+
+/**
+ * Style the react container, which contains the featured section to take up
+ * the proper amount of space.
+ */
+#react-container {
+  width: 100%;
+  position: relative;
+}
+
+/**
+ * Ensure all links bely default styling for the featured section.
+ */
+body.home a {
+  &,
+  &:active,
+  &:focus,
+  &:hover {
+    color: inherit;
+  }
+}
+
+/**
+ * Style the container of the featured elemtns to allow for overlay layers
+ * which are absolutly positioned.
+ */
+#featured-container {
+  position: relative;
+}
+
+/**
+ * Style the featured container with an overlay that allows the contained
+ * text of images to become more readable... This also allowes for some
+ * interesting looking picutres :-]
+ */
+#featured-container::after {
+  @include background-image(linear-gradient(top left, #2f253d 5%, #5e02c9 30%, #b300b6 58%, #b300b6 69%, black 94%));
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  z-index: 1;
 }
 
 /**
  * Allows the featured post to be differing colors if not background image
  * is provided. A background image will override the background color. To
  * ensure this there should be a background: ... property specifed by react.
+ *
+ *
+ * The featured post also contains the title and this is centered using the
+ * center-vertical helper. All other elements are absolutly positioned and thus
+ * not affected by this.
  */
 #featured-container .featured-post {
+  @extend %center-vertical;
   @include centered-background;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
+/**
+ * So the featured container categories with proper clickable potential.
+ */
+#featured-container .categories {
+  @include display-flex;
+  @include justify-content(flex-start);
+  @include flex-direction(row);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+/**
+ * Differnetiate between the categories.
+ * Add a border and a differing color to indicate differneces.
+ */
+div.category {
+  padding: 5px;
+  background-color: color('red');
+  border-left: 1px solid color('white');
+  color: color('white');
+
+  &:first-child {
+    border-left: none;
+  }
+}
+
+/**
+ * Ensure the distinct view of an actual category and its information.
+ */
+div.category a {
+  @include font-size(14px);
+  color: color('white');
+}
+
+/**
+ * Show the header of a featured post as centered with an obvious title.
+ *
+ * Also, include an obvious border that will heighten of display on colors.
+ */
+#featured-container .featured-post header {
+  @include transition(all 0.8s ease);
+  margin: auto;
+  text-align: center;
+  max-width: 70%;
+  padding: 10px;
+  border-radius: 400px;
+  border: 1px solid color('white');
+  z-index: 2;
+  color: color('white');
+}
+
+
 /// The size of a featured block that is centrally located on the front page.
-$featured-block-size: 1160px / 3;
+$featured-block-size: 100vw / 3;
 
 /**
  * Style the featured container in order to create the flexbox layout of three
@@ -105,19 +213,99 @@ $featured-block-size: 1160px / 3;
   }
 }
 
+
+/**
+ * Position newscards for the posts container.
+ */
+.post-container {
+  position: relative;
+  max-width: 100%;
+  width: 100vw;
+  background: darken(white, 5%);
+}
+
  /**
   * Allow the image to scale overflow (1).
   *
   * Define paramaters for increased visibility and flat layout. Show box shadow
   * on hover (2)
   */
-.post-front {
+.newscard {
+  @include transition(all 0.7s ease);
+  @include box-sizing(border-box);
+  @include centered-background;
+  @include box-shadow(0px 1px 2px 0px rgba(0, 0, 0, 0.15));
+  width: 300px;
+  height: 450px;
   overflow: hidden; /* 1 */
   background-color: color('white');
+  position: relative;
 
   &:hover {
-    @include box-shadow(35px fade( black, 30 )); /* 2 */
+    @include box-shadow(0px 1px 35px 0px rgba(0, 0, 0, 0.3)); /* 2 */
   }
+
+  @include respond-to('medium') {
+    @include box-shadow('none');
+    height: 600px;
+    width: 100%;
+    margin: 0;
+  }
+}
+
+/**
+ * Darken the newscard image on hover. This allowes for a more unique
+ * experience.
+ */
+.newscard::before {
+  @include transition(all 0.7s ease);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  opacity: 0;
+}
+
+/**
+ * Shows the newscard image more concretly.
+ */
+.newscard:hover::before {
+  opacity: 0.5;
+}
+
+/**
+ * Show the post to be a cohesive unit with standard padding and margins.
+ *
+ * This section contains all textual elemnents and thus allowes for more
+ * absolutly positioned children.
+ */
+.newscard .post {
+  @include transition(all 0.7s ease);
+  width: 100%;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: color('white');
+  z-index: 2;
+}
+
+/**
+ * Show the categories as a flex list displayed above the actual post.
+ */
+.newscard .post .categories {
+  @include display-flex;
+  position: absolute;
+  left: 0;
+  top: -34px;
+  height: 34px;
+  max-width: 100%;
+  overflow-y: scroll;
 }
 
 /**
@@ -127,18 +315,23 @@ $featured-block-size: 1160px / 3;
  *
  * Allow for the scale of the image on hover through a transition. (1)
  */
-.post-front .entry-image {
-  @include transition(all 1s ease-out); /* 1 */
+.newscard .entry-image img {
+  @include transition(all 0.7s ease); /* 1 */
   width: 100%; /* 2 */
   height: auto; /* 2 */
   padding: 0; /* 3 */
   margin: 0; /* 3 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
 }
 
 /**
  * Scale the entry image on hover (1) and fade the entry image (2).
  */
- .post-front:hover .entry-image {
+ .newscard:hover img {
    @include transform(scale(1.1)); /* 1 */
    opacity: 0.6; /* 2 */
  }
@@ -147,15 +340,61 @@ $featured-block-size: 1160px / 3;
  * Format the entry content in accordance to flat ui standards. Determine the
  * padding for the content (1).
  */
-.post-front .post-content {
+.newscard .post-content p {
+  @include transition(all 0.7s ease);
   width: 100%;
-  padding: 6px; /* 1 */
   margin: 0;
+  max-height: 0;
+  overflow: hidden;
+
+  @include respond-to('medium') {
+    max-height: 340px !important;
+  }
 }
 
 /**
+ * Show the post content on hover of the newscard, else, continue with
+ * zero heigth.
+ */
+.newscard:hover .post-content p {
+  max-height: 260px;
+}
+
+/**
+ * Style the date to show properly over the actual image it presents.
+ */
+.newscard .post-date {
+  @include display-flex;
+  @include flex-direction(column);
+  @include justify-content(center);
+  font-family: $heading-font;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 60px;
+  width: 60px;
+  z-index: 3;
+  border-radius: 50%;
+  background-color: color('red');
+  color: color('white');
+  font-weight: bold;
+  text-align: center;
+}
+
+/**
+ * Style each componetn of the date to appear as required.
+ */
+.newscard .post-date span {
+  display: block;
+}
+
+/**
+ * Year is not so important, one can assume.
+ */
+.newscard .post-date .year { display: none; }
+
+/**
  * Display using centering tactic to align the content centrally.
- *
  */
 #breaking-news-ticker {
   @include display-flex;
@@ -168,58 +407,71 @@ $featured-block-size: 1160px / 3;
 }
 
 /**
- * Defines the simple styling for a post on the front page of the site.
+ * Properly set up a display of all the categories available throught the site.
  *
- * This post will traditionaly have a simple color scheme and provide links
- * for more reading, a image and an excerpt.
- *
- * @see content/content-front.php
+ * The flexbox that contains the categories is used to further the consistancy
+ * of cateogory behavior and overrides standard list behavior.
  */
+#categories {
+  @include display-flex;
+  @include flex-flow(row wrap);
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
 
- /**
-  * Allow the image to scale overflow (1).
-  *
-  * Define paramaters for increased visibility and flat layout. Show box shadow
-  * on hover (2)
-  */
-.post-front {
-  overflow: hidden; /* 1 */
-  background-color: color('white');
+/**
+ * Override default list behavior.
+ */
+#categories ul, #categories li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-  &:hover {
-    @include box-shadow(35px fade( black, 30 )); /* 2 */
+/**
+ * Style each individual category as a box with a certain color which allows
+ * for more unique category depictions.
+ *
+ * Also adjust the widths of the categories based off of page size.
+ *
+ * Also vertically center and style the text for each category.
+ */
+#categories li {
+  @extend %center-vertical;
+  @include box-sizing(border-box);
+  text-align: center;
+  height: $max-page-width / 4;
+  width: $max-page-width / 4;
+  margin: 10px;
+
+  @include respond-to((max-width: $max-page-width)) {
+    height: 25vw;
+    width: 25vw;
+  }
+
+  @include respond-to((max-width: ($max-page-width * 2 / 3))) {
+    height: 100vw / 3;
+    width: 100vw / 3;
+  }
+
+  @include respond-to((max-width: ($max-page-width / 2))) {
+    height: 50vw;
+    width: 50vw;
+  }
+
+  @for $index from 1 through length(map-values($colors)) {
+    &:nth-child(#{$index}) {
+      background-color: nth(map-values($colors), random(length(map-values($colors))));
+    }
   }
 }
 
 /**
- * Scale the entry image to permit optimal sizing. (2)
- *
- * Destroy all margins and padding that would affect borders. (3)
- *
- * Allow for the scale of the image on hover through a transition. (1)
+ * Include link styling for each category on the front page to make the
+ * intended purpose more obvious.
  */
-.post-front .entry-image {
-  @include transition(all 1s ease-out); /* 1 */
-  width: 100%; /* 2 */
-  height: auto; /* 2 */
-  padding: 0; /* 3 */
-  margin: 0; /* 3 */
-}
-
-/**
- * Scale the entry image on hover (1) and fade the entry image (2).
- */
- .post-front:hover .entry-image {
-   @include transform(scale(1.1)); /* 1 */
-   opacity: 0.6; /* 2 */
- }
-
-/**
- * Format the entry content in accordance to flat ui standards. Determine the
- * padding for the content (1).
- */
-.post-front .post-content {
-  width: 100%;
-  padding: 6px; /* 1 */
-  margin: 0;
+#categories a {
+  @include font-size(25px);
+  font-family: $heading-font;
 }

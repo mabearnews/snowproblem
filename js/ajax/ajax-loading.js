@@ -44,15 +44,7 @@
         // Create a loading animations
         this.append($(
             '<div class="ajax-loading column">'+
-                '<div class="letters">'+
-                    '<span class="letter">L</span>'+
-                    '<span class="letter">O</span>'+
-                    '<span class="letter">A</span>'+
-                    '<span class="letter">D</span>'+
-                    '<span class="letter">I</span>'+
-                    '<span class="letter">N</span>'+
-                    '<span class="letter">G</span>'+
-                '</div>'+
+                '<div class="spinner"></div>'+
             '</div>'
         ));
 

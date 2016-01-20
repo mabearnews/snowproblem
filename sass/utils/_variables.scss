@@ -93,7 +93,7 @@ $breakpoints: (
 $content-font: ('PT Serif', serif);
 
 /// The standard font for all headings .
-$heading-font: ('EB Garamond', serif);
+$heading-font: ('Montserrat', 'Helvetica', 'Avenir', sans-serif);
 
 /// Fonts for alternate circumstances, like blockquotes or other headins.
 $alternate-font: (Georgia, serif);
@@ -144,4 +144,4 @@ $padding-val: 20px;
 
 /// Show the maximum width of the page in order to set a standard for larger
 /// screens.
-$max-page-width: 1100px;
+$max-page-width: 1160px;
