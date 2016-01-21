@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'featured-post' ); ?>>
 	<!-- Everything in this section is transfered to the front of attention on hover. -->
-	<section class="post-content" data-post-id="post-<?php the_ID(); ?>" <?php echo has_post_thumbnail() ? 'style="background-image: url(' . get_the_post_thumbnail_url() . ');"' : 'style="background-color: rgb(192, 57, 43);"'; ?>>
+	<section class="post-content" data-post-id="post-<?php the_ID(); ?>" <?php echo has_post_thumbnail() ? 'style="background-image: url(' . snowproblem_get_thumbnail_url() . ');"' : 'style="background-color: rgb(192, 57, 43);"'; ?>>
 
 			<div class="entry-content">
 

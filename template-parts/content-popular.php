@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>"
 		 <?php post_class( 'post post-popular' ); ?>
-		 style="background-image: url('<?php print get_the_post_thumbnail_url(); ?>')">
+		 style="background-image: url('<?php print snowproblem_get_thumbnail_url(); ?>')">
 
 	<section class="post-content">
 

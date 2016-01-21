@@ -1,4 +1,4 @@
-<article <?php post_class( 'column post newscard' ); ?> style="background-image: url(<?php print get_the_post_thumbnail_url(); ?>);">
+<article <?php post_class( 'column post newscard' ); ?> style="background-image: url(<?php print snowproblem_get_thumbnail_url(); ?>);">
 
     <?php if ( has_post_thumbnail() ) : ?>
         <section className="entry-image-placeholder"></section>

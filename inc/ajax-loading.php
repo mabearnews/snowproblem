@@ -131,7 +131,7 @@ function snowproblem_ajax_data_get() {
             }
             return $cats;
         },
-        'featured_image' => 'get_the_post_thumbnail_url',
+        'featured_image' => 'snowproblem_get_thumbnail_url',
     );
 
     if ( $query->have_posts() ) {
