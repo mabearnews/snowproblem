@@ -31,12 +31,12 @@ var Feature = React.createClass({
             <article style={styles} className="featured-post">
 
                 <header>
-                    <a hred={this.props.href}>{this.props.title}</a>
+                    <a href={this.props.href}>{this.props.title}</a>
                 </header>
 
                 <div className="categories">
                     {this.props.categories.map(function(cat) {
-                      return <Category href={cat.href} key={cat.name} name={cat.name} />;
+                      return <Category href={cat.url} key={cat.name} name={cat.name} />;
                     })}
                 </div>
 

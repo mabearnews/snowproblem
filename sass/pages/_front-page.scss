@@ -234,7 +234,7 @@ $featured-block-size: 100vw / 3;
   @include transition(all 0.7s ease);
   @include box-sizing(border-box);
   @include centered-background;
-  @include box-shadow(0px 1px 2px 0px rgba(0, 0, 0, 0.15));
+  @include content-shadow;
   width: 300px;
   height: 450px;
   overflow: hidden; /* 1 */
@@ -453,6 +453,7 @@ $featured-block-size: 100vw / 3;
  */
 #categories {
   width: 100%;
+  max-width: 100vw;
   padding: 0;
   margin: 0;
 }
@@ -475,16 +476,27 @@ $featured-block-size: 100vw / 3;
  * Also vertically center and style the text for each category.
  */
 #categories .cat {
+  $cat-colors: (
+    color('red'),
+    color('yellow'),
+    color('lightgrey'),
+    color('darkorange'),
+    color('darkorange'),
+    color('lightorange'),
+    color('darkred'),
+    color('white'),
+    color('orange'),
+  );
+
   @extend %center-vertical;
 
-  @include box-shadow(0px 1px 2px 0px rgba(0, 0, 0, 0.15));
+  @include content-shadow;
   @include box-sizing(border-box);
   text-align: center;
-  margin: 10px;
 
-  @for $index from 1 through length(map-values($colors)) {
-    &:nth-child(#{$index}) {
-      background-color: nth(map-values($colors), random(length(map-values($colors))));
+  @for $index from 1 through length($cat-colors) {
+    &:nth-child(#{$index}n) {
+      background-color: nth($cat-colors, $index);
     }
   }
 }
@@ -524,6 +536,10 @@ $featured-block-size: 100vw / 3;
     line-height: 102px;
     white-space: nowrap;
   }
+
+  @include respond-to('medium') {
+    &, * { @include font-size(60px); }
+  }
 }
 
 /**
@@ -531,6 +547,8 @@ $featured-block-size: 100vw / 3;
  */
 .section-title-container {
   text-align: center;
+  width: 100%;
+  max-width: 100vw;
 }
 
 /**
@@ -540,7 +558,7 @@ $featured-block-size: 100vw / 3;
  * These are also absolutly positioned.
  */
 .section-title .angled {
-  @include box-shadow(0px 1px 2px 0px rgba(0, 0, 0, 0.15));
+  @include content-shadow;
   @include transition(all 0.5s ease);
   @include transform(skew(-25deg));
   position: absolute;
@@ -590,4 +608,60 @@ $featured-block-size: 100vw / 3;
   @include transform(skew(25deg));
   position: absolute;
   top: 0;
+}
+
+/**
+ * Styles a popular post, these appear as 'featured' on the front page and also
+ * are a pretty cool achievement. Only about two or three will be shown, but
+ * when they are, the're shown with style.
+ *
+ * That style is a pretty background and a simple post-content region, really
+ * simplistic, and thats the beaty of it.
+ *
+ * Check out inc/post-views for more inforamtion on how these are chosen.
+ */
+.post-popular {
+  @include content-shadow;
+  @include centered-background;
+  width: 100%;
+  height: $max-page-width / 3;
+  max-height: 50vh;
+  position: realtive;
+  margin: 20px auto;
+
+  @include respond-to('medium') {
+    max-height: 100vh;
+  }
+}
+
+/**
+ * Style the post content to stand out from the background.
+ */
+.post-popular .post-content {
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: color('white');
+}
+
+/**
+ * Make the title a bit more visible, and also make it stad out from the
+ * entry meta boring stuff. Not to diss any author here, just saying, what
+ * do you really care about.
+ */
+.post-popular .title {
+  margin-bottom: 14px;
+
+  a {
+    @include font-size(20px);
+  }
+
+  &:hover a {
+    color: color('red');
+  }
 }

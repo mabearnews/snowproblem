@@ -103,9 +103,11 @@ jQuery(document).ready(function($) {
             // Check if there should be a change.
             if ( ( nt > 0 || (fh + ft) > 0 ) && ! navIsRel ) {
                 $( '#site-navigation' ).css('position', 'relative');
+                $( '#content-nav-bar-padding' ).height( 0 );
                 navIsRel = true;
             } else if ( nt <= 0 && navIsRel ) {
                 $( '#site-navigation' ).css('position', 'fixed');
+                $( '#content-nav-bar-padding' ).height( 60 );
                 navIsRel = false;
             }
         });

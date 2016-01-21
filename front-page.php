@@ -47,7 +47,7 @@ function snoproblem_display_popular() {
     global $exclude_ids;
 
     query_posts( array(
-        'meta_key'    => 'post_views_count',
+        'meta_key'    => 'snowproblem_views_count',
         'orderby'     => 'meta_value_num',
         'numberposts' => 20,
     ) );
@@ -125,8 +125,8 @@ get_header(); ?>
     <section id="categories"
              class="snowgrid"
              snowgrid-columnGap="10"
-             snowground-minWidth="150"
-             snowground-maxWidth="250">
+             snowground-minWidth="120"
+             snowground-maxWidth="260">
 
         <?php
         $cats = get_categories( array(
@@ -152,21 +152,20 @@ get_header(); ?>
     <?php snowproblem_section_title( 'Recent Posts' ); ?>
 
     <section id="recent-posts" class="post-container snowgrid" snowgrid-columnGap="10" snowgrid-animationDuration="1">
+
         <?php
-        query_posts( array(
+        snowproblem_excluded_query( array(
             'orderby'        => 'DATE',
             'order'          => 'DESC',
             'numberposts' => '6',
             'meta_key'       => '_thumbnail_id',
-        ) );
-
-        while ( have_posts() ) : the_post();
-
+        ), function() {
             get_template_part( 'template-parts/content', 'newscard' );
-
-        endwhile; ?>
+        } ); ?>
 
     </section>
+
+    <?php snoproblem_display_popular(); ?>
 
     <?php get_footer(); ?>
 

@@ -256,6 +256,11 @@ add_filter( 'body_class', 'snowproblem_add_slug_body_class' );
 require get_template_directory() . '/inc/ajax-loading.php';
 
 /**
+ * Allow page view tracking.
+ */
+require get_template_directory() . '/inc/post-views.php';
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';

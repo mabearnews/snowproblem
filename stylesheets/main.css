@@ -2006,6 +2006,7 @@ div.category a {
  */
 #categories {
   width: 100%;
+  max-width: 100vw;
   padding: 0;
   margin: 0;
 }
@@ -2035,76 +2036,33 @@ div.category a {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   text-align: center;
-  margin: 10px;
 }
-#categories .cat:nth-child(1) {
-  background-color: #e67e22;
+#categories .cat:nth-child(1n) {
+  background-color: #e74c3c;
 }
-#categories .cat:nth-child(2) {
-  background-color: #8e44ad;
-}
-#categories .cat:nth-child(3) {
-  background-color: #7f8c8d;
-}
-#categories .cat:nth-child(4) {
+#categories .cat:nth-child(2n) {
   background-color: #f1c40f;
 }
-#categories .cat:nth-child(5) {
-  background-color: #27ae60;
-}
-#categories .cat:nth-child(6) {
-  background-color: #1abc9c;
-}
-#categories .cat:nth-child(7) {
-  background-color: white;
-}
-#categories .cat:nth-child(8) {
-  background-color: #f39c12;
-}
-#categories .cat:nth-child(9) {
+#categories .cat:nth-child(3n) {
   background-color: #bdc3c7;
 }
-#categories .cat:nth-child(10) {
-  background-color: black;
-}
-#categories .cat:nth-child(11) {
-  background-color: #c0392b;
-}
-#categories .cat:nth-child(12) {
-  background-color: #8e44ad;
-}
-#categories .cat:nth-child(13) {
-  background-color: #f1c40f;
-}
-#categories .cat:nth-child(14) {
-  background-color: #9b59b6;
-}
-#categories .cat:nth-child(15) {
-  background-color: #e67e22;
-}
-#categories .cat:nth-child(16) {
-  background-color: white;
-}
-#categories .cat:nth-child(17) {
-  background-color: #3498db;
-}
-#categories .cat:nth-child(18) {
-  background-color: #f39c12;
-}
-#categories .cat:nth-child(19) {
-  background-color: #9b59b6;
-}
-#categories .cat:nth-child(20) {
+#categories .cat:nth-child(4n) {
   background-color: #d35400;
 }
-#categories .cat:nth-child(21) {
-  background-color: #e67e22;
+#categories .cat:nth-child(5n) {
+  background-color: #d35400;
 }
-#categories .cat:nth-child(22) {
-  background-color: #8e44ad;
+#categories .cat:nth-child(6n) {
+  background-color: #f39c12;
 }
-#categories .cat:nth-child(23) {
+#categories .cat:nth-child(7n) {
   background-color: #c0392b;
+}
+#categories .cat:nth-child(8n) {
+  background-color: white;
+}
+#categories .cat:nth-child(9n) {
+  background-color: #e67e22;
 }
 
 /**
@@ -2145,12 +2103,20 @@ div.category a {
   line-height: 102px;
   white-space: nowrap;
 }
+@media (max-width: 800px) {
+  .section-title, .section-title * {
+    font-size: 60px;
+    font-size: 3.75rem;
+  }
+}
 
 /**
  * Center the section title to a certian size.
  */
 .section-title-container {
   text-align: center;
+  width: 100%;
+  max-width: 100vw;
 }
 
 /**
@@ -2219,6 +2185,69 @@ div.category a {
   transform: skew(25deg);
   position: absolute;
   top: 0;
+}
+
+/**
+ * Styles a popular post, these appear as 'featured' on the front page and also
+ * are a pretty cool achievement. Only about two or three will be shown, but
+ * when they are, the're shown with style.
+ *
+ * That style is a pretty background and a simple post-content region, really
+ * simplistic, and thats the beaty of it.
+ *
+ * Check out inc/post-views for more inforamtion on how these are chosen.
+ */
+.post-popular {
+  -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  height: 386.66667px;
+  max-height: 50vh;
+  position: realtive;
+  margin: 20px auto;
+}
+@media (max-width: 800px) {
+  .post-popular {
+    max-height: 100vh;
+  }
+}
+
+/**
+ * Style the post content to stand out from the background.
+ */
+.post-popular .post-content {
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+/**
+ * Make the title a bit more visible, and also make it stad out from the
+ * entry meta boring stuff. Not to diss any author here, just saying, what
+ * do you really care about.
+ */
+.post-popular .title {
+  margin-bottom: 14px;
+}
+.post-popular .title a {
+  font-size: 20px;
+  font-size: 1.25rem;
+}
+.post-popular .title:hover a {
+  color: #e74c3c;
 }
 
 /**

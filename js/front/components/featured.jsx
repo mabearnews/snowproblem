@@ -23,7 +23,7 @@ var Featured = React.createClass({
                 'featured_image': 'background'
             }
         }, function(posts) {
-
+            
             if (this.isMounted()) {
                 this.setState({
                   posts: posts

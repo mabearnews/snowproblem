@@ -54,24 +54,6 @@
 		<!-- Social Menu -->
 		<?php snowproblem_social_menu(); ?>
 
-		<!-- Sidebar Toggle -->
-		<div class="center-vertical-child-flex">
-			<section id="sidebar-toggle">
-				<div class="toggle container">
-					<div class="row">
-						<div class="dot"></div>
-						<div class="dash"></div>
-					</div>
-					<div class="row">
-						<div class="dot"></div>
-						<div class="dash"></div>
-					</div>
-					<div class="row">
-						<div class="dot"></div>
-						<div class="dash"></div>
-					</div>
-				</div> <!-- .toggle.container -->
-			</section> <!-- #sidebar-toggle -->
 		</div> <!-- .center-vertical-child-flex -->
 	</div> <!-- .wrapper -->
 
