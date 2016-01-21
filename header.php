@@ -22,9 +22,6 @@
 
 <body <?php body_class(); ?>>
 
-<!-- #sidebar -->
-<?php get_sidebar(); ?>
-
 <!-- Primary Submenu Navigation -->
 <section id="site-navigation-more"></section>
 
@@ -54,10 +51,16 @@
 		<!-- Social Menu -->
 		<?php snowproblem_social_menu(); ?>
 
+
+		<section id="search-toggle">
+			<span class="fa fa-search"></span>
+		</section>
 		</div> <!-- .center-vertical-child-flex -->
 	</div> <!-- .wrapper -->
 
 </nav><!-- #site-navigation -->
+
+<?php get_search_form( true ); ?>
 
 <div id="page" class="hfeed site">
 	<div class="content-container container">

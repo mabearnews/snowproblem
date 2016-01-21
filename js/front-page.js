@@ -111,5 +111,18 @@ jQuery(document).ready(function($) {
                 navIsRel = false;
             }
         });
+
+        console.log(PrimaryNav);
+
+        // Allow for navigation transformations because there is some weird
+        // stuff that goes on when the parent is a fixed positiond element.
+        PrimaryNav.props.callbackStateOn = function() {
+           $( '#site-navigation' ).css('top', $('#page').scrollTop() + 'px');
+        };
+
+        PrimaryNav.props.callbackStateOff = function() {
+            $( '#site-navigation' ).css('top', '0');
+        };
+
     }
 });

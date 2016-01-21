@@ -30,17 +30,26 @@ body {
   right: 0; /* 1 */
   top: 0; /* 1 */
   width: 100vw; /* 2 */
+  max-width: 100vw;
   height: 60px; /* 2 */
   background-color: $content-bgcolor;  /* 3 */
   border-bottom: 1px solid $border-color;  /* 3 */
   z-index: 100;
   padding: 20px; /* 5 */
 
+  @include respond-to('large') {
+    a { @include font-size(13px); }
+  }
+
   @include respond-to('medium') {
     padding: 8px; /* 6 */
 
     body.nav-visible & {
       @include transform(translateX(300px)); /* 8 */
+    }
+
+    body.nav-visible &{
+      @include transform(translateX(0));
     }
   }
 }
@@ -218,9 +227,8 @@ body.nav-visible #menu-toggle  .row {
  * 3. Move the page in case of navigation mroe is visible.
  */
 #page {
-  @include transition(transform 0.8s linear);
+  @include transition(transform 0.8s);
   @include transform-origin( top, left );
-  will-change: transform;
 
   body.nav-visible & {
     @include transform(rotate(-35deg )); /* 1 */
@@ -290,11 +298,11 @@ body.nav-visible #menu-toggle  .row {
 #site-title-wrapper .site-title  {
     @include font-size('huge');
     display: block;
-    margin-top: headingSize('huge') /  -2;
+    margin-top: (headingSize('huge') / -2);
 
-    @include respond-to('medium') {
+    @include respond-to('large') {
       @include font-size('large');
-      margin-top: auto;
+      margin-top: (headingSize('large') / -4);
     }
 }
 

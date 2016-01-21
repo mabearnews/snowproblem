@@ -18,6 +18,8 @@ sass/
 |   |– _tables.scss      # Tables in posts
 |   |– _widgets.scss     # Widgets
 |   |- _post.scss        # Basic styling for a post
+|   |- _search.scss      # Search form
+|   |- _related-posts.scss  # Related posts
 |
 |– layout/
 |   |– _navigation.scss  # Navigation
@@ -73,6 +75,8 @@ sass/
   'layout/page';
 
 @import
+  'components/related-posts',
+  'components/search',
   'components/buttons',
   'components/comments',
   'components/featured',

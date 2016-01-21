@@ -19,6 +19,8 @@ sass/
 |   |– _tables.scss      # Tables in posts
 |   |– _widgets.scss     # Widgets
 |   |- _post.scss        # Basic styling for a post
+|   |- _search.scss      # Search form
+|   |- _related-posts.scss  # Related posts
 |
 |– layout/
 |   |– _navigation.scss  # Navigation
@@ -58,7 +60,7 @@ sass/
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
 @import url(https://fonts.googleapis.com/css?family=EB+Garamond);
 @import url(https://fonts.googleapis.com/css?family=Cousine:400,700);
-#site-title-wrapper, #featured-container .featured-post, #categories .cat {
+#site-title-wrapper, #search-toggle, #searchform, #featured-container .featured-post, #categories .cat {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: column;
@@ -542,6 +544,7 @@ body {
   /* 1 */
   width: 100vw;
   /* 2 */
+  max-width: 100vw;
   height: 60px;
   /* 2 */
   background-color: white;
@@ -551,6 +554,12 @@ body {
   z-index: 100;
   padding: 20px;
   /* 5 */
+}
+@media (max-width: 1000px) {
+  #site-navigation a {
+    font-size: 13px;
+    font-size: 0.8125rem;
+  }
 }
 @media (max-width: 800px) {
   #site-navigation {
@@ -563,6 +572,12 @@ body {
     -webkit-transform: translateX(300px);
     transform: translateX(300px);
     /* 8 */
+  }
+  body.nav-visible #site-navigation {
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
   }
 }
 
@@ -769,15 +784,14 @@ body.nav-visible #menu-toggle .row:nth-child(2) {
  * 3. Move the page in case of navigation mroe is visible.
  */
 #page {
-  -moz-transition: -moz-transform 0.8s linear;
-  -o-transition: -o-transform 0.8s linear;
-  -webkit-transition: -webkit-transform 0.8s linear;
-  transition: transform 0.8s linear;
+  -moz-transition: -moz-transform 0.8s;
+  -o-transition: -o-transform 0.8s;
+  -webkit-transition: -webkit-transform 0.8s;
+  transition: transform 0.8s;
   -moz-transform-origin: top left;
   -ms-transform-origin: top left;
   -webkit-transform-origin: top left;
   transform-origin: top left;
-  will-change: transform;
 }
 body.nav-visible #page {
   -moz-transform: rotate(-35deg);
@@ -967,11 +981,11 @@ body.nav-ending-visible #page {
   display: block;
   margin-top: -17px;
 }
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   #site-title-wrapper .site-title {
     font-size: 24px;
     font-size: 1.5rem;
-    margin-top: auto;
+    margin-top: -6px;
   }
 }
 
@@ -1181,6 +1195,117 @@ body, html {
 }
 #page::-webkit-scrollbar {
   display: none;
+}
+
+/**
+ * Style the icon to look clickable and feel so as well.
+ */
+#search-toggle {
+  font-size: 22px;
+  font-size: 1.375rem;
+  height: 100%;
+  cursor: pointer;
+}
+
+/**
+ * The searchform has a very high z-index as it takes up the entire
+ * site using some trickery we know to be fixed positioning (shh).
+ *
+ * It is not displayed by default unless the class search-visilbe is added
+ * to the body, in the interm it is left with no display value and an opaque
+ * view. The first is handled by javascript very carefully.
+ */
+#searchform {
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  opacity: 0;
+  z-index: -100;
+}
+body.search-visible #searchform {
+  opacity: 1;
+  z-index: 100;
+}
+
+/**
+ * Style the button to exit the searchfrom, arguably the most important
+ *
+ * This button is simply an x made of before and after components that are to
+ * smart for their own good.
+ */
+#search-exit {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+#search-exit::before, #search-exit::after {
+  content: '';
+  background-color: black;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+#search-exit::before {
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+#search-exit::after {
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+/**
+ * Style the search container to properly contain the search field.
+ *
+ * This includes mostly centering and an icon.
+ */
+#searchform .search-container {
+  font-size: 26px;
+  font-size: 1.625rem;
+  text-align: center;
+  font-family: "EB Garamond", Georgia, serif;
+}
+#searchform .search-container::after {
+  content: '';
+  margin: 5px;
+  font-family: "FontAwesome";
+  content: '\f002';
+}
+
+/**
+ * Style the actual input to simply be a line with soem text on it, no outline
+ * not fancy fuss.
+ *
+ * Also add in the search icon in case some idiot didn't already onow what was
+ * happening.
+ */
+#searchform input {
+  width: 40vw;
+  min-width: 240px;
+  max-width: 500px;
+  margin: auto;
+  border: none;
+  outline: none !important;
+  border-radius: 0;
+  border-bottom: 1px solid black;
+  text-align: right;
 }
 
 /**
@@ -2393,7 +2518,10 @@ body.author #main {
   justify-content: flex-start;
   margin-top: 20px;
   margin-right: 20px;
+  margin-left: 0;
+  margin-bottom: 0;
   width: 300px;
+  height: 0%;
   order: 2;
 }
 @media (max-width: 800px) {
