@@ -59,6 +59,7 @@ function snoproblem_display_popular() {
         if ( has_post_thumbnail() && ! in_array( get_the_ID(), $exclude_ids ) ) {
             get_template_part( 'template-parts/content', 'popular' );
             $exclude_ids[] = get_the_ID();
+            break;
         }
     }
 
@@ -102,7 +103,7 @@ get_header(); ?>
 
 <div id="front-container">
 
-    <?php snowproblem_section_title( 'top-stories'); ?>
+    <?php snowproblem_section_title( 'top-stories' ); ?>
 
     <section id="top-stories" class="post-container snowgrid" snowgrid-columnGap="10" snowgrid-animationDuration="1">
         <?php
