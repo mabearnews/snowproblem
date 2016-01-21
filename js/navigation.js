@@ -18,6 +18,10 @@ PrimaryNav.toggleState = function( newState ) {
     if ( this.state ) {
         this.elems.moreNav.addClass( this.props.visibleClass );
         this.elems.base.addClass( this.props.visibleClass );
+
+        if ( this.props.callbackStateOn ) {
+            this.props.callbackStateOn();
+        }
     } else {
         this.elems.moreNav.removeClass( this.props.visibleClass );
         this.elems.base.removeClass( this.props.visibleClass );
@@ -29,6 +33,9 @@ PrimaryNav.toggleState = function( newState ) {
         ts = ts.substring(0, ts.length - 1);
         setTimeout( function() {
             this.elems.base.removeClass( this.props.visibleEndingClass );
+            if ( this.props.callbackStateOff ) {
+                this.props.callbackStateOff();
+            }
         }.bind( this ), 1.4 * ts * 1000 );
 
     }
@@ -133,7 +140,6 @@ PrimaryNav.showMore = function( data ) {
  * Initialize the primary navigation.
  */
 PrimaryNav.init = function( elems ) {
-    this.props = {};
     this.elems = elems;
     this.state = false;
 
@@ -157,6 +163,8 @@ PrimaryNav.addListeners = function() {
         }
     });
 };
+
+PrimaryNav.props = {};
 
 })( jQuery );
 

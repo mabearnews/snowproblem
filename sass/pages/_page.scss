@@ -1,15 +1,84 @@
-// /**
-//  * To more clearly differentiate page from other from content, pages are shown
-//  * to have a darker color scheme than mere posts.
-//  */
-// body.page {
-//
-// /**
-//  * Change the navigation to more accuratly describe the colors of this page.
-//  */
-// @include site-color-change( $text-color: $white,
-//                                   $background-color: $color__background-dark,
-//                                   $more-background-color:  $color__background-light,
-//                                   $border-color: $white );
-//
-// }
+/**
+ * A post is shown with a parallax style image. The container of that image
+ * lends the size of the image to consideration.
+ */
+.featured-image {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 500px;
+}
+
+/**
+ * The background image is shown as a fixed attachement background. This allows
+ * for parallax scrolling.
+ */
+.featured-image .background-image {
+  @include centered-background($fixed: true);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/**
+ * Standard post padding that centers the content within to allow for a smaller
+ * post width.
+ */
+article.post,
+article.page {
+  @include content-font;
+  padding: 0;
+  position: relative;
+}
+
+/**
+ * Styling for the post content which mirrors element content and has a width
+ * that is defined as the typical size for text content.
+ */
+.post-content {
+  margin: auto;
+  padding: $padding-val;
+
+  @include single-post {
+    width: 800px;
+  }
+}
+
+/**
+ * Center the entry section for the content using margin: auto for vertical
+ * centering.
+ */
+.entry-section {
+  padding: $padding-val;
+  margin: $padding-val auto;
+  background-color: $content-bgcolor;
+}
+
+/**
+ * Show the title as a big item on the top page.
+ */
+header.entry-header {
+  width: 100%;
+  text-align: center;
+  background-color: $content-bgcolor;
+}
+
+/**
+ * Allows the entry content to be relativly positioned.
+ */
+.entry-title {
+    position: relative;
+    width: auto;
+    display: inline-block;
+}
+
+/**
+ * Ensure no post navigation is present.
+ */
+.post-navigation {
+  display: none !important;
+}

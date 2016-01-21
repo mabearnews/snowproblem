@@ -1,48 +1,37 @@
 /**
- * @file.
- * Creates the sidebar and also dicates its layout in terms of the
- * page content and the sidebar.
+ * Sets up the sidebar, its notable this does not work on mobile and is thus
+ * removed for that sake.
+ *
+ * In order for the sidebar to extend beyond the frame it has to move, this is
+ * done by placing it off screen and moving it in using a tranform for gpu
+ * acceleration.
  */
-
-/* Sets up the sidebar to allow toggling. */
 #sidebar {
+  $sidebar-width: 200px;
+
+  @include transition(transform 8s);
+  display: block;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  right: -$sidebar-width;
+  width: $sidebar-width;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: $padding-val;
+  background-color: color('red');
+
+  &, & {
+    color: $light-text-color;
+  }
+
+  .sidebar-visible & {
+    @include transform(translateX(-$sidebar-width));
+  }
+
+  @include respond-to('medium') {
     overflow: visible;
-
-    // Hide for mobile.
     display: none;
-}
-
-@media (min-width: #{$standard-breakpoint}) {
-    /* Make the sidebar be hidden and show the icon.  */
-    #sidebar {
-        display: block;
-
-        // Will have a zindex that allowes the sidebar to preceede all but the nav.
-        z-index: $sidebar-zindex;
-
-        // Will not scroll with window.
-        position: fixed;
-        top: 0;
-
-        // Position the sidebar to allow the dispaly of the border.
-        right: -$sidebar-width;
-        width: $sidebar-width;
-
-        // Make sure the sidebar takes up the apropriate space.
-        height: 100vh;
-
-        overflow-y: scroll;
-        overflow-x: hidden;
-
-        padding-top: 10px;
-    }
-
-    /* Perform all animations for the display of the sidebar. */
-    body.sidebar-visible {
-
-        #page, #site-navigation, #sidebar {
-            @include transform(translateX(-$sidebar-width));
-        }
-
-    }
+  }
 }

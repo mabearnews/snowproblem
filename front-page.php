@@ -12,74 +12,161 @@
  * @package snowproblem
  */
 
+/// Determines what id's are already loaded on the page (note!) this does
+/// not, by default, include featured, thus the following loop is perfrmed.
+$exclude_ids = array();
+
+// Note, this query is exactly the same as that used in
+// js/front/components/featured.jsx and should be kept in synch with that
+// query
+query_posts( array(
+    'category_name'  => 'featured',
+    'orderby'        => 'date',
+    'order'          => 'DESC',
+    'numberposts' => 5,
+) );
+
+while ( have_posts() ) {
+    the_post();
+    $exclude_ids[] = get_the_ID();
+}
+
+wp_reset_query();
+
+
+
 /**
- * Sets up an array of id's to be ignored as they are already loaded...
+ * Shows a top story that will be shown in a manner even more prominint than
+ * a feature. This function loads one of these and displays it in proper format
+ * after performing a wordpress query. No more than 10 of these should be
+ * displayed.
+ *
+ * @see template-parts/content-most-viewed
  */
-$loaded_posts = array();
+function snoproblem_display_popular() {
+    global $exclude_ids;
+
+    query_posts( array(
+        'meta_key'    => 'snowproblem_views_count',
+        'orderby'     => 'meta_value_num',
+        'numberposts' => 20,
+    ) );
+
+    while ( have_posts() ) {
+        the_post();
+
+        // Check condiftions of post, to see whether it meets proper criteria
+        if ( has_post_thumbnail() && ! in_array( get_the_ID(), $exclude_ids ) ) {
+            get_template_part( 'template-parts/content', 'popular' );
+            $exclude_ids[] = get_the_ID();
+        }
+    }
+
+    wp_reset_query();
+}
+
+
+/**
+ * Create a title for a category. This is used often for the division of
+ * sectons of content.
+ *
+ * It allows for some newer/better containment of reduntnat logic.
+ *
+ * -- I'm kinda sick, so if you can't understand that, my bad
+ *
+ * @param string $cat_name
+ */
+function snowproblem_section_title( $cat_name ) {
+    $cat   = term_exists('Uncategorized', 'category') ? get_category_by_slug( $cat_name ) : 0;
+    $title = $cat ? get_cat_name( $cat->term_id ) : $cat_name;
+    $url   = $cat ? esc_url( get_category_link( $cat->term_id ) ) : "#$cat_name";
+
+    ?>
+        <div class="section-title-container">
+            <section class="section-title">
+                <div class="title-size">
+                    <span><?php print $title; ?></span>
+                </div>
+                <div class="title-first angled">
+                    <a class="title" href="<?php print $url; ?>"><?php print $title; ?></a>
+                </div>
+                <div class="title-second angled">
+                    <a class="title" href="<?php print $url; ?>"><?php print $title; ?></a>
+                </div>
+            </section>
+        </div>
+    <?php
+}
 
 get_header(); ?>
-	<?php query_posts('post_type=breaking_news_ticker&orderby=date&order=DESC'); /* Query all posts of 'breaking_news' type.*/ ?>
-	<?php if ( have_posts() ) : ?>
 
-		<section id="breaking-news-ticker">
+<div id="front-container">
 
-			<section id="breaking-news-items">
-					<?php /* Start the Loop */ ?>
-					<?php while ( have_posts() ) : the_post(); ?>
+    <?php snowproblem_section_title( 'top-stories'); ?>
 
-						<?php
-						/**
-						 * Include content speciffically of the 'featured' type.
-						 */
-						get_template_part( 'template-parts/breaking' );
-						?>
+    <section id="top-stories" class="post-container snowgrid" snowgrid-columnGap="10" snowgrid-animationDuration="1">
+        <?php
+        snowproblem_excluded_query( array(
+            'orderby'        => 'DATE',
+            'order'          => 'DESC',
+            'numberposts'    => '6',
+            'meta_key'       => '_thumbnail_id',
+            'category_name'  => 'top-stories',
+        ), function() {
+            get_template_part( 'template-parts/content', 'newscard' );
+        } ); ?>
 
-					<?php endwhile; ?>
-				<?php wp_reset_query(); /* Reset for all posts. */ ?>
-			</section> <!-- #breaking-news-items -->
+    </section>
 
-		</section> <!-- #breaking-news-ticker -->
+    <?php snoproblem_display_popular(); ?>
 
-	<?php endif; ?>
+    <?php snowproblem_section_title( 'categories' ); ?>
 
+    <section id="categories"
+             class="snowgrid"
+             snowgrid-columnGap="10"
+             snowground-minWidth="120"
+             snowground-maxWidth="260">
 
-	<?php query_posts('posts_per_page=4&category_name=featured&orderby=date&order=DESC'); /* Query all posts with 'featured' category. Maximum of 5. */ ?>
-	<?php if ( have_posts() ): ?>
+        <?php
+        $cats = get_categories( array(
+            'orderby'      => 'count',
+            'order'        => 'DESC',
+            'hierarchical' => 0,
+        ) );
 
-		<section id="featured">
-			<section id="featured-image"></section>
-			<section id="featured-posts">
-					<?php /* Start the Loop */ ?>
-					<?php while ( have_posts() ) : the_post(); ?>
+        foreach ( $cats  as $cat ) : if ( $cat->count < 5 || $cat->slug == 'uncategorized' ) { continue; } ?>
 
-						<?php
-						/**
-						 * Include content speciffically of the 'featured' type.
-						 */
-						get_template_part( 'template-parts/content', 'featured');
+            <div class="column cat" style="height: <?php print rand( 50, 150 ); ?>px;">
 
-						// Ensure the item is loaded with an id.
-						$loaded_posts[]= get_the_ID();
-						?>
+                <a href="<?php print esc_url( get_category_link( $cat->term_id ) ); ?>">
+                    <?php print $cat->cat_name; ?>
+                </a>
 
-					<?php endwhile; ?>
+            </div> <!-- .cat -->
 
-				<?php wp_reset_query(); /* Reset for all posts. */ ?>
-			</section> <!-- #featured-posts -->
-		</section> <!-- #featured -->
+        <?php endforeach; ?>
 
-	<?php endif; ?>
+    </section> <!-- #categories -->
 
-	<?php
-		/**
-		 * Define the paramaters for the recent posts query.
-		 */
-		 $params = array(
-			 'orderby'    => 'data',
-			 'order'      => 'DESC',
-			 'postFormat' => 'front',
-			 'excludeIDS' => $loaded_posts,
-		 );
-	?>
-	<section id="recent-posts" class="snowgrid" ajax-load-posts='<?php echo json_encode( $params ); ?>' first-large="2"></section>
-<?php get_footer(); ?>
+    <?php snowproblem_section_title( 'Recent Posts' ); ?>
+
+    <section id="recent-posts" class="post-container snowgrid" snowgrid-columnGap="10" snowgrid-animationDuration="1">
+
+        <?php
+        snowproblem_excluded_query( array(
+            'orderby'        => 'DATE',
+            'order'          => 'DESC',
+            'numberposts' => '6',
+            'meta_key'       => '_thumbnail_id',
+        ), function() {
+            get_template_part( 'template-parts/content', 'newscard' );
+        } ); ?>
+
+    </section>
+
+    <?php snoproblem_display_popular(); ?>
+
+    <?php get_footer(); ?>
+
+</div>

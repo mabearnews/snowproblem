@@ -16,6 +16,8 @@ wp-content/plugins/hello.php
 .sass-cache
 .sass-cache/*
 
+sassdoc
+
 node_modules
 
 /readme.html

@@ -22,11 +22,12 @@
 
 <body <?php body_class(); ?>>
 
-<!-- #sidebar -->
-<?php get_sidebar(); ?>
-
 <!-- Primary Submenu Navigation -->
 <section id="site-navigation-more"></section>
+
+<?php if ( is_home() ) : ?>
+	<div id="react-container"></div>
+<?php endif; ?>
 
 <nav id="site-navigation" class="main-navigation" role="navigation">
 	<div class="wrapper">
@@ -42,34 +43,24 @@
 
 		<!-- Site Name -->
 		<section id="site-title-wrapper" class="container">
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+					<?php bloginfo( 'name' ); ?>
+				</a>
 		</section>
 
 		<!-- Social Menu -->
 		<?php snowproblem_social_menu(); ?>
 
-		<!-- Sidebar Toggle -->
-		<div class="center-vertical-child-flex">
-			<section id="sidebar-toggle">
-				<div class="toggle container">
-					<div class="row">
-						<div class="dot"></div>
-						<div class="dash"></div>
-					</div>
-					<div class="row">
-						<div class="dot"></div>
-						<div class="dash"></div>
-					</div>
-					<div class="row">
-						<div class="dot"></div>
-						<div class="dash"></div>
-					</div>
-				</div> <!-- .toggle.container -->
-			</section> <!-- #sidebar-toggle -->
+
+		<section id="search-toggle">
+			<span class="fa fa-search"></span>
+		</section>
 		</div> <!-- .center-vertical-child-flex -->
 	</div> <!-- .wrapper -->
 
 </nav><!-- #site-navigation -->
+
+<?php get_search_form( true ); ?>
 
 <div id="page" class="hfeed site">
 	<div class="content-container container">

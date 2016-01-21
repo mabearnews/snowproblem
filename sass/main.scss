@@ -1,8 +1,96 @@
-@import "compass";
+/**
+sass/
+|
+|– base/
+|   |– _base.scss        # Base Styles
+|   |– _reset.scss       # Reset/normalize
+|   |– _typography.scss  # Typography rules
+|   |- _links.scss       # Link rules
+|
+|– components/
+|   |– _buttons.scss     # Buttons
+|   |– _comments.scss    # Comments
+|   |– _featured.scss    # Featuerd Posts
+|   |– _widgets.scss     # Widgets
+|   |– _loading.scss     # Ajax Loading Progress
+|   |– _blockquote.scss  # Blockquotes
+|   |– _entry-meta.scss  # About a post
+|   |– _tables.scss      # Tables in posts
+|   |– _widgets.scss     # Widgets
+|   |- _post.scss        # Basic styling for a post
+|   |- _search.scss      # Search form
+|   |- _related-posts.scss  # Related posts
+|
+|– layout/
+|   |– _navigation.scss  # Navigation
+|   |– _content.scss     # Main Content
+|   |– _header.scss      # Header
+|   |– _footer.scss      # Footer
+|   |– _sidebar.scss     # Sidebar
+|   |– _page.scss        # Page
+|   |– _hex-grid.scss    # A hexagonal grid system
+|
+|– pages/
+|   |– _front-page.scss  # Main splashpage
+|   |– _page.scss        # Default page style
+|   |- _staff.scss       # Contact and page style.
+|   |- _author.scss      # About author page.
+|   |- _multiple.scss    # For search results and the like.
+|
+|– utils/
+|   |– _variables.scss   # Sass Variables
+|   |– _functions.scss   # Sass Functions
+|   |– _mixins.scss      # Sass Mixins
+|   |– _helpers.scss     # Class & placeholders helpers
+|
+|– vendors/
+|   |– _normalize.scss   # Normalize to maintain consistant behavior.
+`– main.scss             # Main Sass file
 
-@import "additions/all";
-@import "mixins/all";
-@import "base/all";
-@import "layout/all";
-@import "components/all";
-@import "pages/all";
+
+*/
+@charset 'utf-8';
+
+@import 'compass';
+
+@import
+  'utils/variables',
+  'utils/functions',
+  'utils/mixins',
+  'utils/helpers';
+
+@import 'vendors/normalize';
+
+@import
+  'base/reset',
+  'base/typography',
+  'base/links';
+
+@import
+  'layout/navigation',
+  'layout/content',
+  'layout/header',
+  'layout/sidebar',
+  'layout/footer',
+  'layout/page';
+
+@import
+  'components/related-posts',
+  'components/search',
+  'components/buttons',
+  'components/comments',
+  'components/featured',
+  'components/widgets',
+  'components/loading',
+  'components/blockquote',
+  'components/entry-meta',
+  'components/tables',
+  'components/widgets',
+  'components/post';
+
+@import
+  'pages/front-page',
+  'pages/page',
+  'pages/staff',
+  'pages/author',
+  'pages/multiple';

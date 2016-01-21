@@ -1,194 +1,1600 @@
 @charset "UTF-8";
 /**
- * @file.
- * This file contians information about the colors for this websites. All
- * these colors are specified in two phases, the first is the colorscheme
- * and the second is the individual colors of indiviudal items, this also
- * applies to text though typically with the -text- modifier in the varaible
- * name.
- */
-/*============= COLOR SCHEME =============*/
-/*============= General =============*/
-/*============= Page =============*/
-/*============= Navigation Bar =============*/
-/* Relates to the allways visual side of the site */
-/* Relates to the revealable side of the site. */
-/* Relates to the submenu displayed in the revealable navigation bar. */
-/* Relates to the more burger menu icon. */
-/* Relates to the menu on mobile devices and the colors for these devices. */
-/*============= Sidebar =============*/
-/*============= Widgets =============*/
-/*============= Gallery =============*/
-/*============= Blockquote =============*/
-/*============= Table =============*/
-/*============= Multiple Posts =============*/
-/*============= Single Post =============*/
-/*============= Footer =============*/
-/*============= Featured =============*/
-/*============= General =============*/
-/*============= Comments =============*/
-/*============= Categories =============*/
-/*============= Front Page =============*/
-/*============= S-Button =============*/
+sass/
+|
+|– base/
+|   |– _base.scss        # Base Styles
+|   |– _reset.scss       # Reset/normalize
+|   |– _typography.scss  # Typography rules
+|   |- _links.scss       # Link rules
+|
+|– components/
+|   |– _buttons.scss     # Buttons
+|   |– _comments.scss    # Comments
+|   |– _featured.scss    # Featuerd Posts
+|   |– _widgets.scss     # Widgets
+|   |– _loading.scss     # Ajax Loading Progress
+|   |– _blockquote.scss  # Blockquotes
+|   |– _entry-meta.scss  # About a post
+|   |– _tables.scss      # Tables in posts
+|   |– _widgets.scss     # Widgets
+|   |- _post.scss        # Basic styling for a post
+|   |- _search.scss      # Search form
+|   |- _related-posts.scss  # Related posts
+|
+|– layout/
+|   |– _navigation.scss  # Navigation
+|   |– _content.scss     # Main Content
+|   |– _header.scss      # Header
+|   |– _footer.scss      # Footer
+|   |– _sidebar.scss     # Sidebar
+|   |– _page.scss        # Page
+|   |– _hex-grid.scss    # A hexagonal grid system
+|
+|– pages/
+|   |– _front-page.scss  # Main splashpage
+|   |– _page.scss        # Default page style
+|   |- _staff.scss       # Contact and page style.
+|   |- _author.scss      # About author page.
+|   |- _multiple.scss    # For search results and the like.
+|
+|– utils/
+|   |– _variables.scss   # Sass Variables
+|   |– _functions.scss   # Sass Functions
+|   |– _mixins.scss      # Sass Mixins
+|   |– _helpers.scss     # Class & placeholders helpers
+|
+|– vendors/
+|   |– _normalize.scss   # Normalize to maintain consistant behavior.
+`– main.scss             # Main Sass file
+
+
+*/
 /**
- * @file.
- * Defines two variables which are used to determine fonts across the site.
- * Headings is used for anything that is not a large block of text. Casual
- * is used for anything else.
+ * Vertically centers the content of the child elements. Only is intended for
+ * one child.
  */
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic);
 @import url(https://fonts.googleapis.com/css?family=Cutive);
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Montserrat", sans-serif;
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
+@import url(https://fonts.googleapis.com/css?family=EB+Garamond);
+@import url(https://fonts.googleapis.com/css?family=Cousine:400,700);
+#site-title-wrapper, #search-toggle, #searchform, #featured-container .featured-post, #categories .cat {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+a {
+  background-color: transparent;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
   font-weight: bold;
 }
 
-/*============= Navigation bar =============*/
-/* Allow for responseve design. */
-/*============= Social Menu =============*/
-/*============= Widgets =============*/
-/*============= Gallery =============*/
-/*============= Blockquote =============*/
-/*============= Table =============*/
-/*============= Single Post =============*/
-/*============= Featured =============*/
-/*============= General =============*/
-/*============= Footer =============*/
-/*============= Posts =============*/
-/*============= S-Button =============*/
 /**
- * @file.
- * This file relates to the general elements of appearence that do not conform
- * to other parts of the site.
+ * Address styling not present in Safari and Chrome.
  */
-/*============= Navigation =============*/
-/*============= Sidebar =============*/
-/*============= Widgets =============*/
-/*============= Images =============*/
-/*============= Table =============*/
-/*============= Posts =============*/
-/*============= Footer =============*/
-/*============= Featured =============*/
-/*============= Comments =============*/
-/*============= Categories =============*/
-/**
- * @file.
- * This file concnerns the layout of various elements on the page. It should be
- * noted that not all of these variables should be changed, if the variables are
- * relative then include that definition in the definition of the variable.
- */
-/*============= Navigation bar =============*/
-/*============= Sidebar =============*/
-/*============= Widgets =============*/
-/*============= Gallery =============*/
-/*============= Content =============*/
-/*============= Posts =============*/
-/*============= Single Post =============*/
-/*============= Multiple Posts =============*/
-/*============= Breakpoints =============*/
-/*============= Front Page Grid =============*/
-/*============= News ticker =============*/
-/*============= Footer =============*/
-/*============= Footer =============*/
-/*============= Featured =============*/
-/*============= Comments =============*/
-/*============= S-Button =============*/
-/**
- * @file.
- * Relates to all the various timing that is essential to the flow of the
- * sites animations and other features.
- */
-/*============= Standards =============*/
-/*============= Navigation =============*/
-/*============= Gallery =============*/
-/*============= Table =============*/
-/*============= Animated =============*/
-/*============= Multiple Posts =============*/
-/*============= Posts =============*/
-/*============= Featured =============*/
-/*============= Button =============*/
-/**
- * @file.
- * Relates to various elements conncerning miscelanious styling for things
- */
-/*============= Navigation bar =============*/
-/*============= Featured =============*/
-/**
- * @file.
- * Relates to all the z-index's of the site, complete, can be used to change
- * z-index problems in scope
- */
-/*============= Navigation =============*/
-/*============= Sidevar =============*/
-/*============= Multiple Posts =============*/
-.column-container {
-  width: 100%;
-  width: 95%;
-  margin-left: 2.5%;
-  margin-right: 2.5%;
-  float: right;
-  -moz-column-count: auto;
-  -webkit-column-count: auto;
-  column-count: auto;
-  -moz-column-gap: 20px;
-  -webkit-column-gap: 20px;
-  column-gap: 20px;
-  -moz-column-width: 300px;
-  -webkit-column-width: 300px;
-  column-width: 300px;
-  -moz-page-break-inside: avoid;
-  -webkit-column-break-inside: avoid;
-  break-inside: avoid;
-  padding: 0;
-}
-.column-container article.post, .column-container article.widget {
-  display: inline-block;
-  background-color: white;
-  margin-bottom: 20px;
-  padding: 10px;
-  overflow: hidden;
-  position: relative;
-}
-.column-container * {
-  display: block;
-}
-.column-container .entry-meta {
-  width: 100%;
-}
-.column-container .entry-meta * {
-  display: inline-block;
+dfn {
+  font-style: italic;
 }
 
 /**
- * Makes content inside of a post show with full width.
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
  */
 /**
- * Makes a background image fill a container...
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+/**
+ * Provide the basic styling for the anchor tag. Specificly, it targets the
+ * responsive nature of the link in cases of hover or focus.
+ * 1. Responsive color change on hover.
+ * 2. Heading font to indicate difference from content.
+ */
+a {
+  -moz-transition: color 0.3s ease-in;
+  -o-transition: color 0.3s ease-in;
+  -webkit-transition: color 0.3s ease-in;
+  transition: color 0.3s ease-in;
+  font-size: 16px;
+  font-size: 1rem;
+  font-family: "Montserrat", "Helvetica", "Avenir", sans-serif;
+  color: black;
+  /* 1 */
+  cursor: pointer;
+  text-decoration: none;
+}
+a:visited {
+  color: black;
+}
+a:active, a:focus, a:hover {
+  color: #95a5a6;
+  /* 1 */
+}
+
+/**
+ * Show the background of the page with the navigation bars color.
+ * 1. Ovverride any background image that wordpress might attempt to impose.
+ */
+body {
+  background-color: #e67e22;
+  background-image: none !important;
+  /* 1 */
+}
+
+/**
+ * Navigation bar defined to be above and fixed at the top of the page.
+ * 1. Position the navigation bar to the top.
+ * 2. Ensure that the navigation bar is above other elements.
+ * 3. Style the color and appearence of the navigation bar.
+ * 4. Verticly center the navigation bar's children.
+ * 5. Include padding for those children in the x and y direction.
+ * 6. Change the amount of padding on a bigger sized screen.
+ * 7. Shrink the navigation bar size on a smaller screen.
+ * 8. Allow for synched up transformation of movment on mobile with the page.
+ * 9. Ensure stanrd font size throught the navigation, exceptions may follow.
+ */
+#site-navigation {
+  -moz-transition: -moz-transform 0.8s;
+  -o-transition: -o-transform 0.8s;
+  -webkit-transition: -webkit-transform 0.8s;
+  transition: transform 0.8s;
+  /* 8 */
+  display: -webkit-flex;
+  display: flex;
+  /* 4 */
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  /* 4 */
+  -webkit-justify-content: center;
+  justify-content: center;
+  /* 4 */
+  font-size: 16px;
+  font-size: 1rem;
+  /* 9 */
+  position: fixed;
+  /* 1 */
+  left: 0;
+  /* 1 */
+  right: 0;
+  /* 1 */
+  top: 0;
+  /* 1 */
+  width: 100vw;
+  /* 2 */
+  max-width: 100vw;
+  height: 60px;
+  /* 2 */
+  background-color: white;
+  /* 3 */
+  border-bottom: 1px solid #d8dbdd;
+  /* 3 */
+  z-index: 100;
+  padding: 20px;
+  /* 5 */
+}
+@media (max-width: 1000px) {
+  #site-navigation a {
+    font-size: 13px;
+    font-size: 0.8125rem;
+  }
+}
+@media (max-width: 800px) {
+  #site-navigation {
+    padding: 8px;
+    /* 6 */
+  }
+  body.nav-visible #site-navigation {
+    -moz-transform: translateX(300px);
+    -ms-transform: translateX(300px);
+    -webkit-transform: translateX(300px);
+    transform: translateX(300px);
+    /* 8 */
+  }
+  body.nav-visible #site-navigation {
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+/**
+ * Ensures content is always pushed below the navigation bar, which is
+ * positioned relative to the window not the document.
+ * 1. Ensure no elements overlap the current one.
+ */
+#content-nav-bar-padding {
+  width: 100%;
+  clear: both;
+  /* 1 */
+  height: 60px;
+}
+
+/**
+ * Style the navigation elements to display in a row using flexbox. This could
+ * also be accomplished with inline-block.
+ *
+ * The use of flex-direction: row is not required but helps ensure proper
+ * behavior.
+ *
+ * The wrapper also dictates the maximum width of the navigation bar, this is
+ * 1150px in this case.
+ */
+#site-navigation > .wrapper {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/**
+ * Ensure that the unordered lists and list elements within the navigation
+ * menu are not affected by base styles.
+ */
+#site-navigation ul, li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/**
+ * Show as a flexbox with direction in place of inline block as would
+ * else be the standard.
+ */
+#site-navigation ul.menu-items {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+/**
+ * Hide all elements of the navigation bar that are automatically taken by the
+ * mobile site expanded navigation.
+ */
+@media (max-width: 800px) {
+  #primary-menu, #social-menu, #sidebar-toggle {
+    display: none;
+  }
+}
+/**
+ * Styles the menu toggle which is a classic three bar burger menu with
+ * animating style when clicked.
+ * 1. Adjust to ensure the centering of the menu.
+ * 2. Indicate that this is a clickable button to users and mobile.
+ * 3. Keep the menu toggle
+ *
+ */
+#menu-toggle {
+  display: -webkit-flex;
+  display: flex;
+  /* 1 */
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  /* 1 */
+  -webkit-justify-content: center;
+  justify-content: center;
+  /* 1 */
+  cursor: pointer;
+  /* 2 */
+  width: 26px;
+  height: 20px;
+  margin-left: 0;
+  padding-left: 0;
+  position: relative;
+}
+
+/**
+ * Style the bar of the navigation toggle.
+ *
+ * 1. Include the animation time.
+ * 2. Allow for the pattern to emeerge via margins.
+ *
+ * Also position the transform origion and top properties in order to have
+ */
+#menu-toggle .row {
+  -moz-transition: -moz-transform 0.8s ease;
+  -o-transition: -o-transform 0.8s ease;
+  -webkit-transition: -webkit-transform 0.8s ease;
+  transition: transform 0.8s ease;
+  /* 1 */
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: black;
+  left: 0;
+  right: 0;
+}
+#menu-toggle .row:first-child {
+  -moz-transform-origin: 0 -4px;
+  -ms-transform-origin: 0 -4px;
+  -webkit-transform-origin: 0 -4px;
+  transform-origin: 0 -4px;
+  top: 0;
+}
+#menu-toggle .row:nth-child(2) {
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  top: 7px;
+}
+#menu-toggle .row:last-child {
+  -moz-transform-origin: 0 6px;
+  -ms-transform-origin: 0 6px;
+  -webkit-transform-origin: 0 6px;
+  transform-origin: 0 6px;
+  top: 15px;
+}
+
+/**
+ * On click show as an exit button by twisting the rows into format of an X.
+ * 1. Adjust the transformation origon for this alteration.
+ * 2. Rotate the bars to form the x.
+ * 3. Move the thrid unnecessary bar away.
+ * 4. Hide the finnal third bar.
+ */
+body.nav-visible #menu-toggle .row:first-child {
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  /* 2 */
+}
+body.nav-visible #menu-toggle .row:last-child {
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  /* 2 */
+}
+body.nav-visible #menu-toggle .row:nth-child(2) {
+  -moz-transform: translateX(200%);
+  -ms-transform: translateX(200%);
+  -webkit-transform: translateX(200%);
+  transform: translateX(200%);
+  /* 3 */
+  opacity: 0;
+  /* 4 */
+}
+
+/**
+ * Show all the site navigation menu behind the page, only revelaed when
+ * the menu toggle is clicked. This allowes for the expansion of the menu
+ * when the toggle is presseed.
+ * 1. Move from bottom to top on mobile screens.
+ */
+#site-navigation-more {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  padding: 20px;
+  max-width: 220px;
+  background-color: white;
+}
+@media (max-width: 800px) {
+  #site-navigation-more {
+    top: 20px;
+    bottom: auto;
+  }
+}
+
+/**
+ * Remove all list styles for the liks of the site navigation.
+ */
+#site-navigation-more ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/**
+ * The page which contains all of the content can rotate in order for the
+ * hidden menu to be seen. This is done through the rotation on the top
+ * left axis.
+ * 1. Rotate the page when the extended navigation menu is visible.
+ * 2. Show the page as larger to avoid the possibility of cut off.
+ * 3. Move the page in case of navigation mroe is visible.
+ */
+#page {
+  -moz-transition: -moz-transform 0.8s;
+  -o-transition: -o-transform 0.8s;
+  -webkit-transition: -webkit-transform 0.8s;
+  transition: transform 0.8s;
+  -moz-transform-origin: top left;
+  -ms-transform-origin: top left;
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
+}
+body.nav-visible #page {
+  -moz-transform: rotate(-35deg);
+  -ms-transform: rotate(-35deg);
+  -webkit-transform: rotate(-35deg);
+  transform: rotate(-35deg);
+  /* 1 */
+  height: 200vh;
+  /* 2 */
+}
+body.nav-ending-visible #page {
+  height: 200vh;
+  /* 2 */
+}
+@media (max-width: 800px) {
+  body.nav-visible #page {
+    -moz-transform: translateX(300px);
+    -ms-transform: translateX(300px);
+    -webkit-transform: translateX(300px);
+    transform: translateX(300px);
+    /* 3 */
+  }
+}
+
+/**
+ * Display the primary menu items in a row with space between them.
+ * 1. Hide all menu items below the depth of 1.
+ */
+#primary-menu-items li {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+#primary-menu-items li li {
+  display: none;
+  /* 1 */
+}
+
+/**
+ * The menu items are replaced with font awesome icons. This allowes the
+ * transference of the name to an icon as specified in $social-icons.
+ */
+#social-menu-items a[href*="facebook"] span {
+  display: none;
+}
+#social-menu-items a[href*="facebook"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="github"] span {
+  display: none;
+}
+#social-menu-items a[href*="github"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="tumblr"] span {
+  display: none;
+}
+#social-menu-items a[href*="tumblr"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="vine"] span {
+  display: none;
+}
+#social-menu-items a[href*="vine"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="yelp"] span {
+  display: none;
+}
+#social-menu-items a[href*="yelp"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="youtube"] span {
+  display: none;
+}
+#social-menu-items a[href*="youtube"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="twitter"] span {
+  display: none;
+}
+#social-menu-items a[href*="twitter"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="vimeo"] span {
+  display: none;
+}
+#social-menu-items a[href*="vimeo"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="slack"] span {
+  display: none;
+}
+#social-menu-items a[href*="slack"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="rebel"] span {
+  display: none;
+}
+#social-menu-items a[href*="rebel"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="pinterest"] span {
+  display: none;
+}
+#social-menu-items a[href*="pinterest"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="linkedin"] span {
+  display: none;
+}
+#social-menu-items a[href*="linkedin"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="google"] span {
+  display: none;
+}
+#social-menu-items a[href*="google"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+#social-menu-items a[href*="instagram"] span {
+  display: none;
+}
+#social-menu-items a[href*="instagram"]::before {
+  font-family: "fontawesome";
+  content: "";
+  font-size: 18.2px;
+}
+
+/**
+ * Display the social menu icons with space between them.
+ */
+#social-menu li {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/**
+ * Ensure that the site title is in the middle of the screen and centered
+ * properly
  */
 /**
- * @file.
- * Contains information about the various fonts and font types that are to
- * be imported into the given site.
+ * Style the site title to display the various sizes dependent on the size of
+ * the page using media queries. Also centers the title.
  */
+#site-title-wrapper .site-title {
+  font-size: 34px;
+  font-size: 2.125rem;
+  display: block;
+  margin-top: -17px;
+}
+@media (max-width: 1000px) {
+  #site-title-wrapper .site-title {
+    font-size: 24px;
+    font-size: 1.5rem;
+    margin-top: -6px;
+  }
+}
+
 /**
- * @file.
- * All styles relating to all images.
+ * The sidebar toggle in the navigation. It resembels in dimensions the
+ * navigation toggle.
+ * 1. Hide for mobile displays.
  */
-/* CSS arrows in various direction. */
+#sidebar-toggle .container {
+  position: relative;
+  width: 26px;
+  height: 20px;
+  cursor: pointer;
+}
+@media (max-width: 800px) {
+  #sidebar-toggle .container {
+    display: none;
+    /* 1 */
+  }
+}
+
+/**
+ * Style each row from the container.
+ */
+#sidebar-toggle .container .row {
+  -moz-transition: all 0.8s;
+  -o-transition: all 0.8s;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+}
+#sidebar-toggle .container .row:nth-child(1) {
+  top: 0%;
+}
+#sidebar-toggle .container .row:nth-child(2) {
+  top: 33.33333%;
+}
+#sidebar-toggle .container .row:nth-child(3) {
+  top: 66.66667%;
+}
+
+/**
+ * The sidebar dots indicative of the variety of widgets found in the
+ * sidebar.
+ */
+#sidebar-toggle .row .dot {
+  position: absolute;
+  height: 100%;
+  width: 3px;
+  background-color: black;
+  left: 0;
+  top: 0;
+}
+
+/**
+ * Style the dashes for the sidebar toggle, the longer parts following the
+ * dots.
+ */
+#sidebar-toggle .row .dash {
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  background-color: black;
+  left: 6px;
+  top: 0;
+}
+
+/**
+ * Make the middle dash shorter to make the symbol.
+ */
+#sidebar-toggle .row:nth-child(2) .dash {
+  width: 16px;
+}
+
+/**
+ * Style the layout between the left and the right side of the page.
+ */
+#content {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+@media (max-width: 800px) {
+  #content {
+    width: 100%;
+    float: left;
+  }
+}
+
+/**
+ * Allow for positioning of the primary content before the footer.
+ */
+#primary {
+  -webkit-flex: 1;
+  flex: 1;
+  order: 0;
+  overflow: hidden;
+}
+
+/**
+ * Sets up the sidebar, its notable this does not work on mobile and is thus
+ * removed for that sake.
+ *
+ * In order for the sidebar to extend beyond the frame it has to move, this is
+ * done by placing it off screen and moving it in using a tranform for gpu
+ * acceleration.
+ */
+#sidebar {
+  -moz-transition: -moz-transform 8s;
+  -o-transition: -o-transform 8s;
+  -webkit-transition: -webkit-transform 8s;
+  transition: transform 8s;
+  display: block;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  right: -200px;
+  width: 200px;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 20px;
+  background-color: #e74c3c;
+}
+#sidebar, #sidebar {
+  color: white;
+}
+.sidebar-visible #sidebar {
+  -moz-transform: translateX(-200px);
+  -ms-transform: translateX(-200px);
+  -webkit-transform: translateX(-200px);
+  transform: translateX(-200px);
+}
+@media (max-width: 800px) {
+  #sidebar {
+    overflow: visible;
+    display: none;
+  }
+}
+
+/**
+ * The styling for the footer of the page, the footer is currently not used as
+ * a widget area and styling for widget use in that area is currently not used.
+ */
+#primary-footer {
+  border-top: 1px solid #d8dbdd;
+  padding-top: 15px;
+  background-color: white;
+  width: 100%;
+}
+
+/**
+ * Style the footer credits to give some love to the people who wrote this file.
+ *
+ * This involves displaying credits as a flexbox in order to center content.
+ */
+#primary-footer .credits {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  width: 100%;
+  margin: 0;
+  padding: 40px;
+}
+
+/**
+ * Style individual credit to reflect qualities of a standard heading.
+ */
+#primary-footer .credit {
+  font-size: 16px;
+  font-size: 1rem;
+  font-family: "Montserrat", "Helvetica", "Avenir", sans-serif;
+  color: black;
+  text-align: center;
+  margin: 16px 0;
+}
+
+/**
+ * Allow for page to be the primamry insighter of scrolling in place of html
+ * elements.
+ */
+body, html {
+  overflow: hidden;
+}
+
+/**
+ * Give page basic positioning and styling as well as allowing for the page
+ * itself to scroll normally on mobile devices.
+ */
+#page {
+  background-color: whitesmoke;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+}
+#page::-webkit-scrollbar {
+  display: none;
+}
+
+/**
+ * Style the icon to look clickable and feel so as well.
+ */
+#search-toggle {
+  font-size: 22px;
+  font-size: 1.375rem;
+  height: 100%;
+  cursor: pointer;
+}
+
+/**
+ * The searchform has a very high z-index as it takes up the entire
+ * site using some trickery we know to be fixed positioning (shh).
+ *
+ * It is not displayed by default unless the class search-visilbe is added
+ * to the body, in the interm it is left with no display value and an opaque
+ * view. The first is handled by javascript very carefully.
+ */
+#searchform {
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  opacity: 0;
+  z-index: -100;
+}
+body.search-visible #searchform {
+  opacity: 1;
+  z-index: 100;
+}
+
+/**
+ * Style the button to exit the searchfrom, arguably the most important
+ *
+ * This button is simply an x made of before and after components that are to
+ * smart for their own good.
+ */
+#search-exit {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+#search-exit::before, #search-exit::after {
+  content: '';
+  background-color: black;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+#search-exit::before {
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+#search-exit::after {
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+/**
+ * Style the search container to properly contain the search field.
+ *
+ * This includes mostly centering and an icon.
+ */
+#searchform .search-container {
+  font-size: 26px;
+  font-size: 1.625rem;
+  text-align: center;
+  font-family: "EB Garamond", Georgia, serif;
+}
+#searchform .search-container::after {
+  content: '';
+  margin: 5px;
+  font-family: "FontAwesome";
+  content: '\f002';
+}
+
+/**
+ * Style the actual input to simply be a line with soem text on it, no outline
+ * not fancy fuss.
+ *
+ * Also add in the search icon in case some idiot didn't already onow what was
+ * happening.
+ */
+#searchform input {
+  width: 40vw;
+  min-width: 240px;
+  max-width: 500px;
+  margin: auto;
+  border: none;
+  outline: none !important;
+  border-radius: 0;
+  border-bottom: 1px solid black;
+  text-align: right;
+}
+
+/**
+ * Styles all the widgets in the site and does so with base styles as well as
+ * more specific styles dictated in the widgets/ directory.
+ */
+.widget {
+  width: 100%;
+}
+
+.widget-title {
+  border-bottom: 1px solid black;
+}
+
+/**
+ * Allow a search icon for a search widget.
+ *
+ * The search widget is without border with no bottom border and is then shown
+ * with the icon beforehand.
+ */
+.widget_search {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+}
+.widget_search::before {
+  content: "\f002";
+  margin-left: 2px;
+  font-family: "fontawesome";
+  font-size: 1em;
+  color: black;
+}
+
+/**
+ * Show the input search field to display the seach field properly.
+ */
+.widget_search input.search-field {
+  border-radius: 0;
+  width: auto;
+  border: none;
+}
+.widget_search input.search-field:focus {
+  outline: none;
+}
+
+/**
+ * Show recent icons from widget icons and thereby allow for list item
+ * procession.
+ */
+.widget.widget_recent_comments ul li {
+  margin-bottom: 20px;
+}
+.widget.widget_recent_comments ul li::before {
+  content: "\f075";
+  margin-left: 2px;
+  font-family: "fontawesome";
+  font-size: 1em;
+  color: black;
+}
+
+/**
+ * Display archive with proceeding icon as well. Similar to recent comments.
+ */
+.widget.widget_archive ul li {
+  margin-bottom: 20px;
+}
+.widget.widget_archive ul li::before {
+  content: "\f187";
+  margin-left: 2px;
+  font-family: "fontawesome";
+  font-size: 1em;
+  color: black;
+}
+
+/**
+ * Ensure the loading animation takes
+ */
+.ajax-loading {
+  width: 100%;
+}
+
+/**
+ * Spinner rotating animation that allowes for infinite rotation.
+ */
+@-moz-keyframes rotate-spinner {
+  0% {
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate-spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate-spinner {
+  0% {
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/**
+ * Create a display for a loading animation that appears when featured posts
+ * are being considered.
+ * 1. Include spinning animation
+ * 2. Display the border shape
+ * 3. Position in the center of the contianer
+ * 4. Style to be centered in the page
+ */
+.ajax-loading .spinner {
+  -moz-animation: rotate-spinner 0.8s infinite linear;
+  -webkit-animation: rotate-spinner 0.8s infinite linear;
+  animation: rotate-spinner 0.8s infinite linear;
+  /* 1 */
+  border: 14px solid #e74c3c;
+  /* 2 */
+  border-right-color: transparent;
+  /* 2 */
+  border-radius: 50%;
+  /* 2 */
+  width: 150px;
+  /* 3 */
+  height: 150px;
+  /* 3 */
+  margin: 20px auto;
+  /* 4 */
+}
+
+/**
+ * Style the entry meta to a simple distraction free standard.
+ * 1. Adjust the font size and color.
+ * 2. Ensure everything stated remains on one line.
+ */
+.entry-meta {
+  font-size: 12px;
+  font-size: 0.75rem;
+  /* 1 */
+  color: #bdc3c7;
+  /* 1 */
+}
+.entry-meta * {
+  display: inline-block;
+  /* 2 */
+}
+
+/**
+ * Adjused the reference of the author name.
+ * 1. Prefix the author with a dash.
+ * 2. Padd the dash for appropriate spacing based off of font size set for
+ * entry meta.
+ */
+.entry-meta .author::before {
+  content: '–';
+  /* 1 */
+  padding: 0 12px;
+  /* 2 */
+}
+
+/**
+ * Styles all the widgets in the site and does so with base styles as well as
+ * more specific styles dictated in the widgets/ directory.
+ */
+.widget {
+  width: 100%;
+}
+
+.widget-title {
+  border-bottom: 1px solid black;
+}
+
+/**
+ * Allow a search icon for a search widget.
+ *
+ * The search widget is without border with no bottom border and is then shown
+ * with the icon beforehand.
+ */
+.widget_search {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+}
+.widget_search::before {
+  content: "\f002";
+  margin-left: 2px;
+  font-family: "fontawesome";
+  font-size: 1em;
+  color: black;
+}
+
+/**
+ * Show the input search field to display the seach field properly.
+ */
+.widget_search input.search-field {
+  border-radius: 0;
+  width: auto;
+  border: none;
+}
+.widget_search input.search-field:focus {
+  outline: none;
+}
+
+/**
+ * Show recent icons from widget icons and thereby allow for list item
+ * procession.
+ */
+.widget.widget_recent_comments ul li {
+  margin-bottom: 20px;
+}
+.widget.widget_recent_comments ul li::before {
+  content: "\f075";
+  margin-left: 2px;
+  font-family: "fontawesome";
+  font-size: 1em;
+  color: black;
+}
+
+/**
+ * Display archive with proceeding icon as well. Similar to recent comments.
+ */
+.widget.widget_archive ul li {
+  margin-bottom: 20px;
+}
+.widget.widget_archive ul li::before {
+  content: "\f187";
+  margin-left: 2px;
+  font-family: "fontawesome";
+  font-size: 1em;
+  color: black;
+}
+
+/**
+ * Basic styling for the post font.
+ */
 .post {
-  font-size: 0.9em;
+  font-size: 14px;
+  font-size: 0.875rem;
   font-family: "PT Serif", serif;
 }
 
+/**
+ * Allow some padding for the actual content of the post.
+ */
+.post-content {
+  padding: 20px;
+}
+
+/**
+ * Allow the entry image to expand on hover.
+ * 1. Allow for an increase in size without expanding beyond borders.
+ * 2. Ensure the lack of space for the picture.
+ * 3. Scale the image to a larger size.
+ */
 .post .entry-image {
   width: 100%;
   overflow: hidden;
+  /* 1 */
 }
 .post .entry-image, .post .entry-image * {
   padding: 0;
+  /* 2 */
   margin: 0;
+  /* 2 */
   display: block;
+  /* 2 */
 }
 .post .entry-image img {
   -moz-transition: all 0.8s;
@@ -201,1690 +1607,66 @@ h1, h2, h3, h4, h5, h6 {
   -ms-transform: scale(1.2);
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
+  /* 3 */
 }
 
 /**
- * @file.
- * Defines some basic ovverride styles for parts of the page to improve the
- * overall design and normalize appearences.
+ * Defines the simple styling for a post on the front page of the site.
+ *
+ * This post will traditionaly have a simple color scheme and provide links
+ * for more reading, a image and an excerpt.
+ *
+ * @see content/content-front.php
  */
-body {
-  font-family: "PT Serif", serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: inherit;
-  cursor: pointer;
-  font-family: "Montserrat", sans-serif;
-}
-a:visited {
-  color: inherit;
-}
-a:hover {
-  color: inherit;
-}
-
-.post .entry-content a {
-  text-decoration: underline;
-}
-
-/* Styling to change the color of the currently selected element. */
-*[class*="current"] {
-  color: #bdc3c7;
-}
-
-input {
-  background-color: transparent;
-}
-
-a {
-  color: black;
-  -moz-transition: color 0.4s;
-  -o-transition: color 0.4s;
-  -webkit-transition: color 0.4s;
-  transition: color 0.4s;
-  cursor: pointer;
-}
-a:active, a:focus, a:hover {
-  color: #95a5a6;
-}
-
-.center-vertical-child-flex, #site-navigation, nav#site-navigation #menu-toggle, #social-menu, #site-title-wrapper, #primary-menu, .ajax-loading, #breaking-news-ticker {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  -webkit-justify-content: center;
-  justify-content: center;
-}
-
-.center-horizontal-single-margin, body.search-results .loaded-posts, body.archive .loaded-posts, body.category .loaded-posts {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.center-horizontal-child-align {
-  text-align: center;
-}
-
-.center-horizontal-child-flex {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  -webkit-justify-content: center;
-  justify-content: center;
-}
-
-/* Shows the content in the center of the screen for most posts and such. */
-.center-element, .content-container {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  -webkit-justify-content: center;
-  justify-content: center;
-}
-
-.element-content, body.single article.post section.post-content,
-body.single article.page section.post-content,
-body.single-post article.post section.post-content,
-body.single-post article.page section.post-content,
-body.page article.post section.post-content,
-body.page article.page section.post-content, .content-element {
-  width: 700px;
-  padding: 0 20px;
-}
-
-.full-width-container {
-  width: 100vw;
-}
-@media screen and (min-width: 700px) {
-  .full-width-container {
-    margin-left: calc(-50vw + 350px);
-  }
-}
-
-/* Style the layout between the left and the right side of the page.*/
-#content {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  width: 100%;
-}
-
-#primary {
-  -webkit-flex: 1;
-  flex: 1;
-  order: 0;
-  overflow: hidden;
-}
-
-@media (min-width: 420px) {
-  /* The content should scale to show the sidebar border. */
-  #content {
-    width: 100%;
-    float: left;
-  }
-}
-body, html {
-  overflow: hidden;
-}
-
-#page {
-  background-color: #F5F5F5;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  top: 0;
-  left: 0;
-}
-#page::-webkit-scrollbar {
-  display: none;
-}
-
-/* Set up the content to allow for lack of overlap of the content. */
-#content-nav-bar-padding {
-  width: 100%;
-  height: 100px;
-  margin: 0;
-  padding: 0;
-}
-
-/* The base wrapper encomapasses the entire site, it is the element directly after the body element. */
-#base-wrapper {
-  -moz-transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -moz-transition: -moz-transform 0.8s ease-out;
-  -o-transition: -o-transform 0.8s ease-out;
-  -webkit-transition: -webkit-transform 0.8s ease-out;
-  transition: transform 0.8s ease-out;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  position: fixed;
-}
-
 /**
- * @file.
- * Creates the sidebar and also dicates its layout in terms of the
- * page content and the sidebar.
+ * Allow the content to be contained in a 1160px sized container, this allowes
+ * for easier reading.
  */
-/* Sets up the sidebar to allow toggling. */
-#sidebar {
-  overflow: visible;
-  display: none;
-}
-
-@media (min-width: 740px) {
-  /* Make the sidebar be hidden and show the icon.  */
-  #sidebar {
-    display: block;
-    z-index: 20;
-    position: fixed;
-    top: 0;
-    right: -320px;
-    width: 320px;
-    height: 100vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    padding-top: 10px;
-  }
-
-  /* Perform all animations for the display of the sidebar. */
-  body.sidebar-visible #page, body.sidebar-visible #site-navigation, body.sidebar-visible #sidebar {
-    -moz-transform: translateX(-320px);
-    -ms-transform: translateX(-320px);
-    -webkit-transform: translateX(-320px);
-    transform: translateX(-320px);
-  }
-}
-#page, #site-navigation, #sidebar {
-  -moz-transition: -moz-transform 0.8s ease-out;
-  -o-transition: -o-transform 0.8s ease-out;
-  -webkit-transition: -webkit-transform 0.8s ease-out;
-  transition: transform 0.8s ease-out;
-}
-
-body.home .snowgrid.loaded .post {
-  -moz-transition: left 1.2s, right 1.2s, top 1.2s, bottom 1.2s;
-  -o-transition: left 1.2s, right 1.2s, top 1.2s, bottom 1.2s;
-  -webkit-transition: left 1.2s, right 1.2s, top 1.2s, bottom 1.2s;
-  transition: left 1.2s, right 1.2s, top 1.2s, bottom 1.2s;
-}
-
-body.home .snowgrid .post {
-  position: absolute;
-}
-body.home .snowgrid .post .entry-image {
-  width: 100%;
-}
-body.home .snowgrid .post .entry-image img {
-  width: 100%;
-  height: auto;
-  margin: 0;
-  padding: 0;
-}
-body.home .snowgrid .post .entry-content {
-  margin: 0;
-  padding: 15px;
-}
-
-/* Animates text when visible, works primarily off of the .animated class. */
-@-moz-keyframes draw-text {
-  100% {
-    stroke-dashoffset: 0;
-    fill-opacity: 1;
-  }
-}
-@-webkit-keyframes draw-text {
-  100% {
-    stroke-dashoffset: 0;
-    fill-opacity: 1;
-  }
-}
-@keyframes draw-text {
-  100% {
-    stroke-dashoffset: 0;
-    fill-opacity: 1;
-  }
-}
-@-moz-keyframes fill-text {
-  0% {
-    fill-opacity: 0;
-  }
-  100% {
-    fill-opacity: 1;
-  }
-}
-@-webkit-keyframes fill-text {
-  0% {
-    fill-opacity: 0;
-  }
-  100% {
-    fill-opacity: 1;
-  }
-}
-@keyframes fill-text {
-  0% {
-    fill-opacity: 0;
-  }
-  100% {
-    fill-opacity: 1;
-  }
-}
-svg.draw-text {
-  width: 100%;
-}
-svg.draw-text text {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  fill-opacity: 0;
-}
-
-svg.draw-text.animated text, .animated svg.draw-text text {
-  -moz-animation: draw-text 5.4s forwards;
-  -webkit-animation: draw-text 5.4s forwards;
-  animation: draw-text 5.4s forwards;
-}
-
-blockquote {
-  font-family: Georgia, serif;
-  font-size: 16px;
-  font-style: italic;
-  margin: 0.25em 0;
-  padding: 0.25em 40px;
-  line-height: 1.45;
-  position: relative;
-  color: #333333;
-}
-
-blockquote::before {
-  display: block;
-  content: "\201C";
-  font-size: 80px;
-  position: absolute;
-  left: 3px;
-  top: -20px;
-  color: #ccc;
-}
-
-cite {
-  font-family: "Montserrat", sans-serif;
-  color: #999999;
-  font-size: 12px;
-  display: block;
-  margin-top: 5px;
-  margin-left: 30px;
-}
-
-cite:before {
-  content: "\2014 \2009";
-}
-
-/**
- * Style the entry meta, somewhat basically for the entire site.
- */
-.entry-meta {
-  font-size: 0.8em;
-  color: #95a5a6;
-}
-.entry-meta .author::before {
-  content: '–';
-  padding: 0 0.8em;
-}
-.entry-meta * {
-  display: inline-block;
-}
-
-/**
- * Shows a masonry element as position relative in order to allow children
- * to be postioned absolutly by javascript.
- */
-.masonry-grid {
-  position: relative;
-}
-
-.post-content .read-more {
-  color: #f39c12;
-  opacity: 0;
-  -moz-transform: translateX(-2em);
-  -ms-transform: translateX(-2em);
-  -webkit-transform: translateX(-2em);
-  transform: translateX(-2em);
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-}
-
-/* Show the read more link on hover. */
-.post-content:hover .read-more {
-  -moz-transform: translateX(0);
-  -ms-transform: translateX(0);
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
-  opacity: 1;
-}
-
-/* Show the read more link by default on mobile. */
-@media only screen and (max-width: 420px) {
-  .post-content .read-more {
-    -moz-transform: translateX(0);
-    -ms-transform: translateX(0);
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-table {
-  border-collapse: collapse;
-  width: 100%;
-  text-align: left;
-  display: block;
-  font-size: 0.9em;
-}
-table *, table *::before, table *::after {
-  -moz-transition: all 1.2s;
-  -o-transition: all 1.2s;
-  -webkit-transition: all 1.2s;
-  transition: all 1.2s;
-}
-table thead {
-  display: block;
-  width: 100%;
-  margin-bottom: 8px;
-}
-table thead::after {
-  content: '';
-  height: 1px;
-  background-color: black;
-  margin-left: 0;
-  margin-right: 0;
-  display: block;
-  width: 0;
-}
-table tr {
-  height: 2.25em;
-}
-table tr > * {
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
-table.animated thead::after {
-  width: 100%;
-}
-
-.s-button, #respond #reply-title {
-  -moz-transition: all 1.2s;
-  -o-transition: all 1.2s;
-  -webkit-transition: all 1.2s;
-  transition: all 1.2s;
-  -moz-border-radius: 25.2px;
-  -webkit-border-radius: 25.2px;
-  border-radius: 25.2px;
-  margin: 15px 0;
-  padding: 15px;
-  display: inline-block;
-  text-transform: uppercase;
-  text-align: center;
-  letter-spacing: 7px;
-  cursor: pointer;
-  font-family: "Montserrat", sans-serif;
-  font-weight: bold;
-  font-size: 12px;
-  background-color: transparent;
-  border: 1px solid white;
-  color: white;
-}
-.s-button:hover, #respond #reply-title:hover {
-  padding-left: 30px;
-  padding-right: 30px;
-}
-.s-button:hover, #respond #reply-title:hover {
-  color: black;
-  background-color: white;
-}
-.s-button.color-white, #respond .color-white#reply-title {
-  border: 1px solid white;
-  color: white;
-}
-.s-button.color-white:hover, #respond .color-white#reply-title:hover {
-  color: black;
-  background-color: white;
-}
-.s-button.color-lightgrey, #respond .color-lightgrey#reply-title {
-  border: 1px solid #bdc3c7;
-  color: #bdc3c7;
-}
-.s-button.color-lightgrey:hover, #respond .color-lightgrey#reply-title:hover {
-  color: black;
-  background-color: #bdc3c7;
-}
-.s-button.color-grey, #respond .color-grey#reply-title {
-  border: 1px solid #95a5a6;
-  color: #95a5a6;
-}
-.s-button.color-grey:hover, #respond .color-grey#reply-title:hover {
-  color: black;
-  background-color: #95a5a6;
-}
-.s-button.color-darkgrey, #respond .color-darkgrey#reply-title {
-  border: 1px solid #7f8c8d;
-  color: #7f8c8d;
-}
-.s-button.color-darkgrey:hover, #respond .color-darkgrey#reply-title:hover {
-  color: black;
-  background-color: #7f8c8d;
-}
-.s-button.color-lightyellow, #respond .color-lightyellow#reply-title {
-  border: 1px solid #f1c40f;
-  color: #f1c40f;
-}
-.s-button.color-lightyellow:hover, #respond .color-lightyellow#reply-title:hover {
-  color: black;
-  background-color: #f1c40f;
-}
-.s-button.color-yellow, #respond .color-yellow#reply-title {
-  border: 1px solid #f1c40f;
-  color: #f1c40f;
-}
-.s-button.color-yellow:hover, #respond .color-yellow#reply-title:hover {
-  color: black;
-  background-color: #f1c40f;
-}
-.s-button.color-darkyellow, #respond .color-darkyellow#reply-title {
-  border: 1px solid #f1c40f;
-  color: #f1c40f;
-}
-.s-button.color-darkyellow:hover, #respond .color-darkyellow#reply-title:hover {
-  color: black;
-  background-color: #f1c40f;
-}
-.s-button.color-lightorange, #respond .color-lightorange#reply-title {
-  border: 1px solid #f39c12;
-  color: #f39c12;
-}
-.s-button.color-lightorange:hover, #respond .color-lightorange#reply-title:hover {
-  color: black;
-  background-color: #f39c12;
-}
-.s-button.color-orange, #respond .color-orange#reply-title {
-  border: 1px solid #e67e22;
-  color: #e67e22;
-}
-.s-button.color-orange:hover, #respond .color-orange#reply-title:hover {
-  color: black;
-  background-color: #e67e22;
-}
-.s-button.color-darkorange, #respond .color-darkorange#reply-title {
-  border: 1px solid #d35400;
-  color: #d35400;
-}
-.s-button.color-darkorange:hover, #respond .color-darkorange#reply-title:hover {
-  color: black;
-  background-color: #d35400;
-}
-.s-button.color-lightblue, #respond .color-lightblue#reply-title {
-  border: 1px solid #1abc9c;
-  color: #1abc9c;
-}
-.s-button.color-lightblue:hover, #respond .color-lightblue#reply-title:hover {
-  color: black;
-  background-color: #1abc9c;
-}
-.s-button.color-blue, #respond .color-blue#reply-title {
-  border: 1px solid #3498db;
-  color: #3498db;
-}
-.s-button.color-blue:hover, #respond .color-blue#reply-title:hover {
-  color: black;
-  background-color: #3498db;
-}
-.s-button.color-darkblue, #respond .color-darkblue#reply-title {
-  border: 1px solid #2980b9;
-  color: #2980b9;
-}
-.s-button.color-darkblue:hover, #respond .color-darkblue#reply-title:hover {
-  color: black;
-  background-color: #2980b9;
-}
-.s-button.color-lightred, #respond .color-lightred#reply-title {
-  border: 1px solid #e74c3c;
-  color: #e74c3c;
-}
-.s-button.color-lightred:hover, #respond .color-lightred#reply-title:hover {
-  color: black;
-  background-color: #e74c3c;
-}
-.s-button.color-red, #respond .color-red#reply-title {
-  border: 1px solid #e74c3c;
-  color: #e74c3c;
-}
-.s-button.color-red:hover, #respond .color-red#reply-title:hover {
-  color: black;
-  background-color: #e74c3c;
-}
-.s-button.color-darkred, #respond .color-darkred#reply-title {
-  border: 1px solid #c0392b;
-  color: #c0392b;
-}
-.s-button.color-darkred:hover, #respond .color-darkred#reply-title:hover {
-  color: black;
-  background-color: #c0392b;
-}
-.s-button.color-lightpurple, #respond .color-lightpurple#reply-title {
-  border: 1px solid #9b59b6;
-  color: #9b59b6;
-}
-.s-button.color-lightpurple:hover, #respond .color-lightpurple#reply-title:hover {
-  color: black;
-  background-color: #9b59b6;
-}
-.s-button.color-purple, #respond .color-purple#reply-title {
-  border: 1px solid #9b59b6;
-  color: #9b59b6;
-}
-.s-button.color-purple:hover, #respond .color-purple#reply-title:hover {
-  color: black;
-  background-color: #9b59b6;
-}
-.s-button.color-darkpurple, #respond .color-darkpurple#reply-title {
-  border: 1px solid #8e44ad;
-  color: #8e44ad;
-}
-.s-button.color-darkpurple:hover, #respond .color-darkpurple#reply-title:hover {
-  color: black;
-  background-color: #8e44ad;
-}
-.s-button.color-lightgreen, #respond .color-lightgreen#reply-title {
-  border: 1px solid #2ecc71;
-  color: #2ecc71;
-}
-.s-button.color-lightgreen:hover, #respond .color-lightgreen#reply-title:hover {
-  color: black;
-  background-color: #2ecc71;
-}
-.s-button.color-green, #respond .color-green#reply-title {
-  border: 1px solid #27ae60;
-  color: #27ae60;
-}
-.s-button.color-green:hover, #respond .color-green#reply-title:hover {
-  color: black;
-  background-color: #27ae60;
-}
-.s-button.color-darkgreen, #respond .color-darkgreen#reply-title {
-  border: 1px solid #16a085;
-  color: #16a085;
-}
-.s-button.color-darkgreen:hover, #respond .color-darkgreen#reply-title:hover {
-  color: black;
-  background-color: #16a085;
-}
-.s-button.color-black, #respond .color-black#reply-title {
-  border: 1px solid black;
-  color: black;
-}
-.s-button.color-black:hover, #respond .color-black#reply-title:hover {
-  color: black;
-  background-color: black;
-}
-
-#breaking {
-  width: 100%;
-  float: left;
-  background-color: #f4f5f6;
-  padding-top: 20px;
-}
-
-body.home #breaking-posts {
-  width: 95%;
-  margin-left: 2.5%;
-  margin-right: 2.5%;
-  float: right;
-  -moz-column-count: auto;
-  -webkit-column-count: auto;
-  column-count: auto;
-  -moz-column-gap: 20px;
-  -webkit-column-gap: 20px;
-  column-gap: 20px;
-  -moz-column-width: 300px;
-  -webkit-column-width: 300px;
-  column-width: 300px;
-  -moz-page-break-inside: avoid;
-  -webkit-column-break-inside: avoid;
-  break-inside: avoid;
-  padding: 0;
-}
-body.home #breaking-posts article.post, body.home #breaking-posts article.widget {
-  display: inline-block;
-  background-color: white;
-  margin-bottom: 20px;
-  padding: 10px;
-  overflow: hidden;
-  position: relative;
-}
-body.home #breaking-posts * {
-  display: block;
-}
-body.home #breaking-posts .entry-meta {
-  width: 100%;
-}
-body.home #breaking-posts .entry-meta * {
-  display: inline-block;
-}
-
-/**
- * @file.
- * The editing of comments to display in the proper format and to show with
- * the right pazazz.
- */
-#respond #reply-title {
-  border: 1px solid #e67e22;
-  color: #e67e22;
-}
-#respond #reply-title:hover {
-  color: black;
-  background-color: #e67e22;
-}
-
-#featured {
-  width: 100%;
-  position: relative;
-}
-
-#featured #featured-image {
-  margin: 0;
-  position: relative;
-  width: 100%;
-  height: 80vh;
-  min-height: 320px;
-  max-height: calc(100vh - 100px);
-  /* Show the background image to take up the entire site. */
-  /* Show the entry content above the image. */
-}
-#featured #featured-image .background-image {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  -webkit-background-size: cover;
-  background-size: cover;
-}
-#featured #featured-image .entry-content {
-  width: 50%;
-  height: 100%;
-  position: absolute;
-  left: calc(50% - 25%);
-  top: 0;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  -webkit-justify-content: center;
-  justify-content: center;
-}
-#featured #featured-image .entry-content * {
-  color: white;
-  font-size: 1.05em;
-}
-#featured #featured-image .entry-content a {
-  z-index: -1;
-}
-#featured #featured-image .entry-content .entry-content-wrapper {
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 10px;
-  border-radius: 0;
-}
-
-#featured-posts {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 250px;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-  border-left: 0 solid transparent;
-  border-right: 0 solid transparent;
-}
-#featured-posts .post {
+#front-container {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  -moz-transition: all 1s;
-  -o-transition: all 1s;
-  -webkit-transition: all 1s;
-  transition: all 1s;
-  position: relative;
-  width: 250px;
-  min-height: 80px;
-  background-color: rgba(0, 0, 0, 0.4);
-  border-bottom: 0 solid transparent;
-  margin: 0;
-  padding: 0 10px;
-  padding-bottom: 1.6em;
-}
-#featured-posts .post .post-featured-image {
-  display: none;
-}
-#featured-posts .post, #featured-posts .post * {
-  color: white;
-}
-#featured-posts .post:first-child {
-  border-top: 0 solid transparent;
-}
-#featured-posts .post .entry-header .entry-title {
-  font-size: 1.3em;
-  text-align: center;
-  width: 100%;
-}
-#featured-posts .post .entry-meta {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-}
-
-/* Relates to the currently selected post and the change that entails */
-#featured-posts .post.selected {
-  background-color: rgba(0, 0, 0, 0.67);
-}
-
-#featured-image .post-featured-image {
-  -moz-transition: all 2s;
-  -o-transition: all 2s;
-  -webkit-transition: all 2s;
-  transition: all 2s;
-}
-
-#featured-image .post-featured-image.selected {
-  z-index: 2;
-  opacity: 1;
-}
-#featured-image .post-featured-image.selected a {
-  z-index: 10 !important;
-}
-
-#featured-image .post-featured-image:not(.selected) {
-  opacity: 0;
-  z-index: 1;
-}
-
-/* Media query to change appearence based off of screen size. */
-@media screen and (max-width: 740px) {
-  #featured #featured-image {
-    display: none;
-  }
-
-  #featured-posts {
-    position: relative;
-    width: 100%;
-    margin: 0;
-  }
-  #featured-posts .post {
-    width: 100%;
-    height: 120px;
-    color: white;
-  }
-  #featured-posts .post .entry-meta {
-    width: 100%;
-    text-align: center;
-  }
-
-  /* Add the background colors to be more colorful for the mobile site. */
-  #featured-posts .post:nth-child(1) {
-    background-color: #e74c3c;
-  }
-
-  #featured-posts .post:nth-child(2) {
-    background-color: #e67e22;
-  }
-
-  #featured-posts .post:nth-child(3) {
-    background-color: #f1c40f;
-  }
-
-  #featured-posts .post:nth-child(4) {
-    background-color: #3498db;
-  }
-
-  #featured-posts .post:nth-child(5) {
-    background-color: #34495e;
-  }
-
-  #featured-posts .post:nth-child(6) {
-    background-color: #27ae60;
-  }
-}
-/**
- * @file.
- * Relates to all the visual elements of hte sidebar, the layout not included
- * in this file but is ../layout/_sidebar.scss.
- */
-#sidebar {
-  padding: 0 30px;
-  padding-top: 40px;
-  background-color: #e74c3c;
-}
-#sidebar, #sidebar * {
-  color: white;
-}
-
-#sidebar ul {
-  list-style-type: none;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-  margin: 0;
-  padding: 0;
-}
-
-#sidebar ul li {
-  width: 100%;
-  text-align: left;
+  width: 1160px;
+  margin: 0 auto;
 }
 
 /**
- * @file.
- * Styles all the widgets in the site and does so with base styles as well as
- * more specific styles dictated in the widgets/ directory.
+ * Style the react container, which contains the featured section to take up
+ * the proper amount of space.
  */
-.widget {
+#react-container {
   width: 100%;
-}
-.widget .widget-title {
-  border-bottom: 1px solid #34495e;
-}
-
-/* Adds styling for an icon to precede some text. */
-/* Including the specialized widgets is done in main.scss. */
-/**
- * @file.
- * The styling for the footer of the page, the footer being a widget area.
- * Overlapping widget styles from widgets should be overwrittern.
- */
-footer#primary-footer {
-  border-top: 1px solid rgba(189, 195, 199, 0.6);
-  padding-top: 15px;
-  background-color: white;
-  width: 100%;
-  float: right;
-}
-footer#primary-footer .widget-container {
-  width: 95%;
-  margin-left: 2.5%;
-  margin-right: 2.5%;
-  float: right;
-  -moz-column-count: auto;
-  -webkit-column-count: auto;
-  column-count: auto;
-  -moz-column-gap: 20px;
-  -webkit-column-gap: 20px;
-  column-gap: 20px;
-  -moz-column-width: 300px;
-  -webkit-column-width: 300px;
-  column-width: 300px;
-  -moz-page-break-inside: avoid;
-  -webkit-column-break-inside: avoid;
-  break-inside: avoid;
-  padding: 0;
-}
-footer#primary-footer .widget-container article.post, footer#primary-footer .widget-container article.widget {
-  display: inline-block;
-  background-color: white;
-  margin-bottom: 20px;
-  padding: 10px;
-  overflow: hidden;
   position: relative;
 }
-footer#primary-footer .widget-container * {
-  display: block;
-}
-footer#primary-footer .widget-container .entry-meta {
-  width: 100%;
-}
-footer#primary-footer .widget-container .entry-meta * {
-  display: inline-block;
-}
 
-/* Show the credits as properly displaying */
-#primary-footer .credits {
-  width: 100%;
-  margin: 0;
-  padding: 40px;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  -webkit-justify-content: space-around;
-  justify-content: space-around;
-  background-color: white;
-}
-#primary-footer .credits .credit {
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.8em;
-  font-weight: bold;
-  color: #4e5758;
-  text-align: center;
-  margin: 0.8em 0;
+/**
+ * Ensure all links bely default styling for the featured section.
+ */
+body.home a, body.home a:active, body.home a:focus, body.home a:hover {
+  color: inherit;
 }
 
 /**
- * _navigation.scss
- *
- * Base file for the definition of some default navigation constructs.
- *
- * Also sets some default styles for the creation of said constructs.
+ * Style the container of the featured elemtns to allow for overlay layers
+ * which are absolutly positioned.
  */
-#site-navigation {
-  width: 100vw;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 100px;
-  background-color: white;
-  border-bottom: 1px solid rgba(189, 195, 199, 0.6);
-  z-index: 30;
-  padding: 0 60px;
-}
-
-#site-navigation > .wrapper {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-}
-
-#site-navigation > .wrapper > * {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-#site-navigation ul, li {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-#site-navigation ul.menu-items {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-}
-
-@media screen and (max-width: 1000px) {
-  #site-navigation {
-    padding: 8px;
-  }
-}
-@media screen and (max-width: 700px) {
-  #primary-menu, #social-menu {
-    display: none;
-  }
-}
-@media screen and (max-width: 700px) and (max-height: 700px) {
-  #site-navigation, #content-nav-bar-padding {
-    height: 50px;
-  }
-}
-/* Styles the toggle of the navigation bar. */
-nav#site-navigation #menu-toggle {
-  cursor: pointer;
-  width: 20px;
-  /* Show default 3 bar state. */
-}
-nav#site-navigation #menu-toggle, nav#site-navigation #menu-toggle * {
-  padding: 0;
-  margin: 0;
-}
-nav#site-navigation #menu-toggle .toggle {
-  width: 100%;
-  height: 20px;
+#featured-container {
   position: relative;
-}
-nav#site-navigation #menu-toggle .row {
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  position: absolute;
-  width: 100%;
-  height: 3px;
-  background-color: #34495e;
-}
-nav#site-navigation #menu-toggle .row:nth-child(1) {
-  top: 0%;
-}
-nav#site-navigation #menu-toggle .row:nth-child(2) {
-  top: 33.33333%;
-}
-nav#site-navigation #menu-toggle .row:nth-child(3) {
-  top: 66.66667%;
-}
-
-/* On click show as an exit button */
-body.nav-visible nav#site-navigation #menu-toggle > .toggle .row:first-child {
-  -moz-transform-origin: 0 top;
-  -ms-transform-origin: 0 top;
-  -webkit-transform-origin: 0 top;
-  transform-origin: 0 top;
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-body.nav-visible nav#site-navigation #menu-toggle > .toggle .row:last-child {
-  -moz-transform-origin: 0 bottom;
-  -ms-transform-origin: 0 bottom;
-  -webkit-transform-origin: 0 bottom;
-  transform-origin: 0 bottom;
-  -moz-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-}
-body.nav-visible nav#site-navigation #menu-toggle > .toggle .row:nth-child(2) {
-  left: 150%;
-  opacity: 0;
-}
-
-/* The sidebar toggle in the navigation. It resembels in dimensions the navigation. */
-#sidebar-toggle .container {
-  position: relative;
-  width: 22px;
-  height: 20px;
-  cursor: pointer;
-  /* Show default 3 bar state. */
-}
-#sidebar-toggle .container .row {
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  position: absolute;
-  width: 100%;
-  height: 3px;
-}
-#sidebar-toggle .container .row .dot,
-#sidebar-toggle .container .row .dash {
-  position: absolute;
-}
-#sidebar-toggle .container .row:nth-child(1) {
-  top: 0%;
-}
-#sidebar-toggle .container .row:nth-child(2) {
-  top: 33.33333%;
-}
-#sidebar-toggle .container .row:nth-child(3) {
-  top: 66.66667%;
-}
-#sidebar-toggle .container .row .dot {
-  height: 3px;
-  width: 3px;
-  background-color: #34495e;
-  left: 0;
-  top: 0;
-}
-#sidebar-toggle .container .row .dash {
-  width: 19px;
-  height: 3px;
-  background-color: #34495e;
-  left: 6px;
-  top: 0;
-}
-#sidebar-toggle .container .row:nth-child(2) .dash {
-  width: 16px;
-}
-
-#sidebar-toggle .container {
-  display: none;
-}
-
-@media (min-width: 740px) {
-  #sidebar-toggle .container {
-    display: block;
-  }
-}
-body {
-  background-color: #e67e22;
-}
-
-#site-navigation-more {
-  position: fixed;
-  left: 20px;
-  bottom: 20px;
-  padding: 20px;
-  background-color: white;
-}
-#site-navigation-more ul, #site-navigation-more li {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-@media screen and (min-width: 701px) {
-  #page {
-    -moz-transform-origin: top left;
-    -ms-transform-origin: top left;
-    -webkit-transform-origin: top left;
-    transform-origin: top left;
-  }
-
-  body.nav-visible #page {
-    -moz-transform: rotate(-30deg);
-    -ms-transform: rotate(-30deg);
-    -webkit-transform: rotate(-30deg);
-    transform: rotate(-30deg);
-  }
-
-  body.nav-visible #page, body.nav-ending-visible #page {
-    height: 200vh;
-  }
-}
-@media screen and (max-width: 700px) {
-  body.nav-visible #page, body.nav-visible #site-navigation {
-    -moz-transform: translateX(200px);
-    -ms-transform: translateX(200px);
-    -webkit-transform: translateX(200px);
-    transform: translateX(200px);
-  }
-
-  #site-navigation-more {
-    position: fixed;
-    left: 20px;
-    top: 20px;
-    bottom: 20px;
-    height: 80vh;
-    height: calc( 100vh - 40px );
-    width: 160px;
-    background-color: transparent;
-    padding-top: 60px;
-    padding-bottom: 60px;
-  }
-  #site-navigation-more .more-nav-wrapper {
-    height: 100%;
-  }
-  #site-navigation-more #primary-menu-items {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    -webkit-justify-content: space-between;
-    justify-content: space-between;
-  }
-}
-/**
- * @file.
- * Defines the styling for the social menu, including the display, through sass
- * of social media icons.
- */
-#social-menu-items a[href*="facebook"] span {
-  display: none;
-}
-#social-menu-items a[href*="facebook"]::before {
-  font-family: "fontawesome";
-  content: "";
-  font-size: 1.2em;
-}
-
-#social-menu-items a[href*="github"] span {
-  display: none;
-}
-#social-menu-items a[href*="github"]::before {
-  font-family: "fontawesome";
-  content: "";
-  font-size: 1.2em;
-}
-
-#social-menu-items a[href*="tumblr"] span {
-  display: none;
-}
-#social-menu-items a[href*="tumblr"]::before {
-  font-family: "fontawesome";
-  content: "";
-  font-size: 1.2em;
-}
-
-#social-menu-items a[href*="vine"] span {
-  display: none;
-}
-#social-menu-items a[href*="vine"]::before {
-  font-family: "fontawesome";
-  content: "";
-  font-size: 1.2em;
-}
-
-#social-menu-items a[href*="yelp"] span {
-  display: none;
-}
-#social-menu-items a[href*="yelp"]::before {
-  font-family: "fontawesome";
-  content: "";
-  font-size: 1.2em;
-}
-
-#social-menu-items a[href*="youtube"] span {
-  display: none;
-}
-#social-menu-items a[href*="youtube"]::before {
-  font-family: "fontawesome";
-  content: "";
-  font-size: 1.2em;
-}
-
-#social-menu-items a[href*="twitter"] span {
-  display: none;
-}
-#social-menu-items a[href*="twitter"]::before {
-  font-family: "fontawesome";
-  content: "";
-  font-size: 1.2em;
-}
-
-#social-menu-items a[href*="vimeo"] span {
-  display: none;
-}
-#social-menu-items a[href*="vimeo"]::before {
-  font-family: "fontawesome";
-  content: "";
-  font-size: 1.2em;
-}
-
-#social-menu-items a[href*="slack"] span {
-  display: none;
-}
-#social-menu-items a[href*="slack"]::before {
-  font-family: "fontawesome";
-  content: "";
-  font-size: 1.2em;
-}
-
-#social-menu-items a[href*="rebel"] span {
-  display: none;
-}
-#social-menu-items a[href*="rebel"]::before {
-  font-family: "fontawesome";
-  content: "";
-  font-size: 1.2em;
-}
-
-#social-menu-items a[href*="pinterest"] span {
-  display: none;
-}
-#social-menu-items a[href*="pinterest"]::before {
-  font-family: "fontawesome";
-  content: "";
-  font-size: 1.2em;
-}
-
-#social-menu-items a[href*="linkedin"] span {
-  display: none;
-}
-#social-menu-items a[href*="linkedin"]::before {
-  font-family: "fontawesome";
-  content: "";
-  font-size: 1.2em;
-}
-
-#social-menu-items a[href*="google"] span {
-  display: none;
-}
-#social-menu-items a[href*="google"]::before {
-  font-family: "fontawesome";
-  content: "";
-  font-size: 1.2em;
-}
-
-#social-menu-items a[href*="instagram"] span {
-  display: none;
-}
-#social-menu-items a[href*="instagram"]::before {
-  font-family: "fontawesome";
-  content: "";
-  font-size: 1.2em;
-}
-
-#social-menu li {
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
-#site-title-wrapper, #site-title-wrapper * {
-  margin: 0;
-  padding: 0;
-}
-
-#site-title-wrapper .site-title {
-  font-size: 1.3rem;
-}
-
-/* Changes the font size of the title on shrinking */
-@media (min-width: 500px) {
-  #site-title-wrapper .site-title {
-    font-size: 1.5rem;
-  }
-}
-@media (min-width: 1120px) {
-  #site-title-wrapper .site-title {
-    font-size: 1.7rem;
-  }
-}
-@media only screen and (max-width: 420px) {
-  #site-title-wrapper .site-title {
-    font-size: 1.2rem;
-  }
-}
-#primary-menu-items li {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-#primary-menu-items li {
-  display: none;
-}
-
-ul#primary-menu-items > li {
-  display: block;
 }
 
 /**
- * Character loading idea comes from codepen...
- *
- * http://codepen.io/Vampireos/pen/yijwL?editors=110
+ * Style the featured container with an overlay that allows the contained
+ * text of images to become more readable... This also allowes for some
+ * interesting looking picutres :-]
  */
-.ajax-loading {
-  width: 100%;
-  background-color: #F5F5F5;
-  height: 20vw;
-  color: transparent;
-}
-
-.ajax-loading .letters {
-  width: 100%;
-  position: relative;
-  padding: 0;
-  margin: 0;
-  text-align: center;
-  font-family: 'Nunito', sans-serif;
-  letter-spacing: .5em;
-}
-
-@-moz-keyframes character-animate {
-  100% {
-    text-shadow: 0 0 2px rgba(204, 208, 212, 0.2), 0 0 3px rgba(0, 0, 0, 0.02), 0 0 0 transparent, 0 0 0 rgba(255, 255, 255, 0), 0 0 0 transparent, 0 0 0 rgba(255, 255, 255, 0), 0 0 0 rgba(255, 255, 255, 0);
-  }
-}
-@-webkit-keyframes character-animate {
-  100% {
-    text-shadow: 0 0 2px rgba(204, 208, 212, 0.2), 0 0 3px rgba(0, 0, 0, 0.02), 0 0 0 transparent, 0 0 0 rgba(255, 255, 255, 0), 0 0 0 transparent, 0 0 0 rgba(255, 255, 255, 0), 0 0 0 rgba(255, 255, 255, 0);
-  }
-}
-@keyframes character-animate {
-  100% {
-    text-shadow: 0 0 2px rgba(204, 208, 212, 0.2), 0 0 3px rgba(0, 0, 0, 0.02), 0 0 0 transparent, 0 0 0 rgba(255, 255, 255, 0), 0 0 0 transparent, 0 0 0 rgba(255, 255, 255, 0), 0 0 0 rgba(255, 255, 255, 0);
-  }
-}
-.ajax-loading .letter {
-  font-size: 4.5em;
-  text-shadow: 0 0 2px rgba(204, 208, 212, 0.9), 0 15px 25px rgba(0, 0, 0, 0.3), 0 -2px 3px rgba(0, 0, 0, 0.1), 0 -5px 10px rgba(255, 255, 255, 0.5), 0 5px 10px rgba(0, 0, 0, 0.3), 0 3px 4px rgba(255, 255, 255, 0.2), 0 0 20px rgba(255, 255, 255, 0.45);
-}
-
-.ajax-loading.inview .letter {
-  -moz-animation: character-animate 1.2s ease-in-out infinite alternate;
-  -webkit-animation: character-animate 1.2s ease-in-out infinite alternate;
-  animation: character-animate 1.2s ease-in-out infinite alternate;
-}
-
-.ajax-loading .letter:nth-child(1) {
-  -moz-animation-delay: 0.15s;
-  -webkit-animation-delay: 0.15s;
-  animation-delay: 0.15s;
-}
-
-.ajax-loading .letter:nth-child(2) {
-  -moz-animation-delay: 0.3s;
-  -webkit-animation-delay: 0.3s;
-  animation-delay: 0.3s;
-}
-
-.ajax-loading .letter:nth-child(3) {
-  -moz-animation-delay: 0.45s;
-  -webkit-animation-delay: 0.45s;
-  animation-delay: 0.45s;
-}
-
-.ajax-loading .letter:nth-child(4) {
-  -moz-animation-delay: 0.6s;
-  -webkit-animation-delay: 0.6s;
-  animation-delay: 0.6s;
-}
-
-.ajax-loading .letter:nth-child(5) {
-  -moz-animation-delay: 0.75s;
-  -webkit-animation-delay: 0.75s;
-  animation-delay: 0.75s;
-}
-
-.ajax-loading .letter:nth-child(6) {
-  -moz-animation-delay: 0.9s;
-  -webkit-animation-delay: 0.9s;
-  animation-delay: 0.9s;
-}
-
-.ajax-loading .letter:nth-child(7) {
-  -moz-animation-delay: 1.05s;
-  -webkit-animation-delay: 1.05s;
-  animation-delay: 1.05s;
-}
-
-.ajax-loading .letter:nth-child(8) {
-  -moz-animation-delay: 1.2s;
-  -webkit-animation-delay: 1.2s;
-  animation-delay: 1.2s;
-}
-
-.ajax-loading .letter:nth-child(9) {
-  -moz-animation-delay: 1.35s;
-  -webkit-animation-delay: 1.35s;
-  animation-delay: 1.35s;
-}
-
-.ajax-loading .letter:nth-child(10) {
-  -moz-animation-delay: 1.5s;
-  -webkit-animation-delay: 1.5s;
-  animation-delay: 1.5s;
-}
-
-body.search-results, body.archive, body.category {
-  /**
-   * The current page is displaying the result of a search, thus the multi column
-   * layout for a page with multiple posts, applies
-   */
-}
-body.search-results .loaded-posts, body.archive .loaded-posts, body.category .loaded-posts {
-  width: 100%;
-  max-width: 700px;
-  padding: 20px;
-}
-body.search-results .loaded-posts article.post, body.archive .loaded-posts article.post, body.category .loaded-posts article.post {
-  margin-bottom: 20px;
-  background-color: white;
-  width: 100%;
-  padding: 0;
-}
-body.search-results .loaded-posts article.post .entry-image, body.search-results .loaded-posts article.post .entry-image img, body.archive .loaded-posts article.post .entry-image, body.archive .loaded-posts article.post .entry-image img, body.category .loaded-posts article.post .entry-image, body.category .loaded-posts article.post .entry-image img {
-  width: 100%;
-  height: auto;
-  margin: 0;
-  padding: 0;
-}
-body.search-results .loaded-posts article.post .post-content, body.archive .loaded-posts article.post .post-content, body.category .loaded-posts article.post .post-content {
-  padding: 20px;
-}
-body.search-results header.page-header, body.archive header.page-header, body.category header.page-header {
-  width: 100%;
-  text-align: center;
-}
-
-/**
- * @file.
- * Styles an image gallery and allows for an image to show properly.
- */
-.gallery {
-  padding: 0;
-  margin-left: 0;
-  margin-right: 0;
-  line-height: 0;
-  width: 100vw;
-  -moz-column-width: 350px;
-  -webkit-column-width: 350px;
-  column-width: 350px;
-  -moz-column-gap: 0;
-  -webkit-column-gap: 0;
-  column-gap: 0;
-}
-@media screen and (min-width: 700px) {
-  .gallery {
-    margin-left: calc(-50vw + 350px);
-  }
-}
-
-.gallery figure.gallery-item {
-  width: 100%;
-  display: block;
-  position: relative;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-.gallery figure.gallery-item * {
-  margin: 0;
-  padding: 0;
-}
-.gallery figure.gallery-item img {
-  width: 100%;
-  height: auto;
-}
-.gallery figure.gallery-item figcaption {
-  -moz-transition: all 0.6s;
-  -o-transition: all 0.6s;
-  -webkit-transition: all 0.6s;
-  transition: all 0.6s;
-  background-color: rgba(255, 255, 255, 0.7);
-  height: 100px;
-  line-height: 1em;
-  padding: 8px;
-  text-align: left;
-  font-size: 0.8em;
-  font-family: "Montserrat", sans-serif;
-  font-weight: bold;
-  position: absolute;
-  top: 120%;
-  width: 100%;
-}
-.gallery figure.gallery-item figcaption::before {
+#featured-container::after {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuMCIgeDI9IjEuMCIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSI1JSIgc3RvcC1jb2xvcj0iIzJmMjUzZCIvPjxzdG9wIG9mZnNldD0iMzAlIiBzdG9wLWNvbG9yPSIjNWUwMmM5Ii8+PHN0b3Agb2Zmc2V0PSI1OCUiIHN0b3AtY29sb3I9IiNiMzAwYjYiLz48c3RvcCBvZmZzZXQ9IjY5JSIgc3RvcC1jb2xvcj0iI2IzMDBiNiIvPjxzdG9wIG9mZnNldD0iOTQlIiBzdG9wLWNvbG9yPSIjMDAwMDAwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(5%, #2f253d), color-stop(30%, #5e02c9), color-stop(58%, #b300b6), color-stop(69%, #b300b6), color-stop(94%, #000000));
+  background-image: -moz-linear-gradient(top left, #2f253d 5%, #5e02c9 30%, #b300b6 58%, #b300b6 69%, #000000 94%);
+  background-image: -webkit-linear-gradient(top left, #2f253d 5%, #5e02c9 30%, #b300b6 58%, #b300b6 69%, #000000 94%);
+  background-image: linear-gradient(to bottom right, #2f253d 5%, #5e02c9 30%, #b300b6 58%, #b300b6 69%, #000000 94%);
   content: '';
-  width: 0;
-  height: 0;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  border-bottom: 25px solid rgba(255, 255, 255, 0.7);
-  position: absolute;
-  top: -25px;
-}
-.gallery figure.gallery-item:hover figcaption {
-  top: calc(100% - 100px);
-  bottom: 0;
-}
-
-/**
- * @file.
- * Sets up a grid class meant to interact with some javscript that will ensure
- * the grids functionality. It is bassed lossly off of the grid displayed in the
- * loading of the TV show last week tonight.
- */
-.direction-column {
-  -webkit-flex-direction: column;
-  flex-direction: column;
-}
-
-.direction-row {
-  -webkit-flex-direction: row;
-  flex-direction: row;
-}
-
-.size-small {
-  width: 200px;
-}
-
-.size-medium {
-  width: 400px;
-}
-
-.size-large {
-  width: 600px;
-}
-
-/**
- * @file.
- * Styles for a single post of the website as bassed on the site navigation.
- */
-body.single,
-body.single-post,
-body.page {
-  /*============= Image =============*/
-  /*============= Post =============*/
-  /*============= Post Navigation =============*/
-  /* Show the navigation for mobile browsers as typical links. */
-}
-body.single .featured-image,
-body.single-post .featured-image,
-body.page .featured-image {
-  position: relative;
-  margin: 0;
-  width: 100%;
-  min-height: 200px;
-  max-height: 800px;
-  height: 60vh;
-}
-@media screen and (min-height: 800px) {
-  body.single .featured-image,
-  body.single-post .featured-image,
-  body.page .featured-image {
-    max-height: 70vh;
-  }
-}
-body.single .featured-image .background-image,
-body.single-post .featured-image .background-image,
-body.page .featured-image .background-image {
   position: absolute;
   left: 0;
   right: 0;
@@ -1892,283 +1674,797 @@ body.page .featured-image .background-image {
   bottom: 0;
   width: 100%;
   height: 100%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+/**
+ * Allows the featured post to be differing colors if not background image
+ * is provided. A background image will override the background color. To
+ * ensure this there should be a background: ... property specifed by react.
+ *
+ *
+ * The featured post also contains the title and this is centered using the
+ * center-vertical helper. All other elements are absolutly positioned and thus
+ * not affected by this.
+ */
+#featured-container .featured-post {
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
   background-size: cover;
-}
-body.single article.post,
-body.single article.page,
-body.single-post article.post,
-body.single-post article.page,
-body.page article.post,
-body.page article.page {
-  padding: 0;
-  font-size: 1.1em;
-  position: relative;
-  /* Show the the header inforamation to the side if possible. */
-  /* Show the title as a big item on the top page. */
-}
-body.single article.post section.post-content .entry-section,
-body.single article.page section.post-content .entry-section,
-body.single-post article.post section.post-content .entry-section,
-body.single-post article.page section.post-content .entry-section,
-body.page article.post section.post-content .entry-section,
-body.page article.page section.post-content .entry-section {
-  padding: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  background-color: white;
-}
-body.single article.post header.entry-header,
-body.single article.page header.entry-header,
-body.single-post article.post header.entry-header,
-body.single-post article.page header.entry-header,
-body.page article.post header.entry-header,
-body.page article.page header.entry-header {
+  background-repeat: no-repeat;
+  background-position: center center;
   width: 100%;
-  text-align: center;
-}
-body.single article.post header.entry-header .entry-title,
-body.single article.page header.entry-header .entry-title,
-body.single-post article.post header.entry-header .entry-title,
-body.single-post article.page header.entry-header .entry-title,
-body.page article.post header.entry-header .entry-title,
-body.page article.page header.entry-header .entry-title {
+  height: 100%;
   position: relative;
-  width: auto;
-  display: inline-block;
-}
-body.single .post-navigation,
-body.single-post .post-navigation,
-body.page .post-navigation {
-  display: none;
-}
-@media (min-width: 1300px) {
-  body.single .post-navigation .nav-links > *,
-  body.single-post .post-navigation .nav-links > *,
-  body.page .post-navigation .nav-links > * {
-    position: absolute;
-    top: 45vh;
-    top: calc(50vh - 100px);
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    display: table;
-    /* Show the icon for the next post.  */
-    /* Show everything in as a more visible style. */
-  }
-  body.single .post-navigation .nav-links > *::before,
-  body.single-post .post-navigation .nav-links > *::before,
-  body.page .post-navigation .nav-links > *::before {
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-size: 240px;
-    line-height: 200px;
-    font-family: 'fontawesome';
-    content: '\f0a9';
-    color: rgba(189, 195, 199, 0.4);
-    z-index: -1;
-    -moz-transition: color 0.2s ease;
-    -o-transition: color 0.2s ease;
-    -webkit-transition: color 0.2s ease;
-    transition: color 0.2s ease;
-  }
-  body.single .post-navigation .nav-links > *:hover::before,
-  body.single-post .post-navigation .nav-links > *:hover::before,
-  body.page .post-navigation .nav-links > *:hover::before {
-    color: rgba(84, 94, 100, 0.4);
-  }
-  body.single .post-navigation .nav-links > *.nav-previous::before,
-  body.single-post .post-navigation .nav-links > *.nav-previous::before,
-  body.page .post-navigation .nav-links > *.nav-previous::before {
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
-  body.single .post-navigation .nav-links > * > a,
-  body.single-post .post-navigation .nav-links > * > a,
-  body.page .post-navigation .nav-links > * > a {
-    display: table-cell;
-    vertical-align: middle;
-    width: 100%;
-    text-align: center;
-    padding: 0 10%;
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-    font-size: 1.2em;
-    z-index: 2;
-  }
-  body.single .post-navigation .nav-links > *.nav-previous,
-  body.single-post .post-navigation .nav-links > *.nav-previous,
-  body.page .post-navigation .nav-links > *.nav-previous {
-    left: 20px;
-  }
-  body.single .post-navigation .nav-links > *.nav-next,
-  body.single-post .post-navigation .nav-links > *.nav-next,
-  body.page .post-navigation .nav-links > *.nav-next {
-    right: 20px;
-  }
-}
-
-.post {
-  padding: 0 30px;
 }
 
 /**
- * Themes all pages displaying a multitude of posts for a specific author.
- *
- * These posts will be shown to the left, the author to the right.
- *
+ * So the featured container categories with proper clickable potential.
  */
-body.author #main {
+#featured-container .categories {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+/**
+ * Differnetiate between the categories.
+ * Add a border and a differing color to indicate differneces.
+ */
+div.category {
+  padding: 5px;
+  background-color: #e74c3c;
+  border-left: 1px solid white;
+  color: white;
+}
+div.category:first-child {
+  border-left: none;
+}
+
+/**
+ * Ensure the distinct view of an actual category and its information.
+ */
+div.category a {
+  font-size: 14px;
+  font-size: 0.875rem;
+  color: white;
+}
+
+/**
+ * Show the header of a featured post as centered with an obvious title.
+ *
+ * Also, include an obvious border that will heighten of display on colors.
+ */
+#featured-container .featured-post header {
+  -moz-transition: all 0.8s ease;
+  -o-transition: all 0.8s ease;
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+  margin: auto;
+  text-align: center;
+  max-width: 70%;
+  padding: 10px;
+  border-radius: 400px;
+  border: 1px solid white;
+  z-index: 2;
+  color: white;
+}
+
+/**
+ * Style the featured container in order to create the flexbox layout of three
+ * columns.
+ */
+#featured-container {
+  padding: 0;
+  margin: 0;
+  height: 33.33333vw;
+  width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row;
+  flex-flow: row;
+}
+@media (max-width: 33.33333vw) {
+  #featured-container {
+    width: 100vw;
+    height: 100vw;
+  }
+}
+@media (max-width: 800px) {
+  #featured-container {
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    height: auto;
+  }
+}
+
+/**
+ * Style the flex characteristics of the top block, which is the highest order
+ * element in the column layout. Taking one third of the componetns.
+ */
+#featured-container .top-block {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  width: 33.33333vw;
+  height: 33.33333vw;
+}
+@media (max-width: 100vw) {
+  #featured-container .top-block {
+    width: 33.33333vw;
+    height: 33.33333vw;
+  }
+}
+@media (max-width: 800px) {
+  #featured-container .top-block {
+    width: 100vw;
+    height: 100vw;
+  }
+}
+
+/**
+ * Allows for vertiacl splits of a container by changing the top block
+ * container or other contianer to vertically divide.
+ */
+#featured-container .split-vertical {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+#featured-container .split-vertical > * {
+  height: 50%;
+  width: 100%;
+}
+
+/**
+ * Allowes for the change in the horizontal components to create a more
+ * elemental display.
+ */
+#featured-container .split-horizontal {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+#featured-container .split-horizontal > * {
+  height: 100%;
+  width: 50%;
+}
+
+/**
+ * Position newscards for the posts container.
+ */
+.post-container {
+  position: relative;
+  max-width: 100%;
+  width: 100vw;
+  background: #f2f2f2;
+}
+
+/**
+ * Allow the image to scale overflow (1).
+ *
+ * Define paramaters for increased visibility and flat layout. Show box shadow
+ * on hover (2)
+ */
+.newscard {
+  -moz-transition: all 0.7s ease;
+  -o-transition: all 0.7s ease;
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  width: 300px;
+  height: 450px;
+  overflow: hidden;
+  /* 1 */
+  background-color: white;
+  position: relative;
+}
+.newscard:hover {
+  -moz-box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.3);
+  /* 2 */
+}
+@media (max-width: 800px) {
+  .newscard {
+    -moz-box-shadow: "none";
+    -webkit-box-shadow: "none";
+    box-shadow: "none";
+    height: 600px;
+    width: 100%;
+    margin: 0;
+  }
+}
+
+/**
+ * Darken the newscard image on hover. This allowes for a more unique
+ * experience.
+ */
+.newscard::before {
+  -moz-transition: all 0.7s ease;
+  -o-transition: all 0.7s ease;
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0;
+}
+
+/**
+ * Shows the newscard image more concretly.
+ */
+.newscard:hover::before {
+  opacity: 0.5;
+}
+
+/**
+ * Show the post to be a cohesive unit with standard padding and margins.
+ *
+ * This section contains all textual elemnents and thus allowes for more
+ * absolutly positioned children.
+ */
+.newscard .post {
+  -moz-transition: all 0.7s ease;
+  -o-transition: all 0.7s ease;
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+  width: 100%;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  z-index: 2;
+}
+
+/**
+ * Show the categories as a flex list displayed above the actual post.
+ */
+.newscard .post .categories {
+  display: -webkit-flex;
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: -34px;
+  height: 34px;
+  max-width: 100%;
+  overflow-y: scroll;
+}
+
+/**
+ * Scale the entry image to permit optimal sizing. (2)
+ *
+ * Destroy all margins and padding that would affect borders. (3)
+ *
+ * Allow for the scale of the image on hover through a transition. (1)
+ */
+.newscard .entry-image img {
+  -moz-transition: all 0.7s ease;
+  -o-transition: all 0.7s ease;
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+  /* 1 */
+  width: 100%;
+  /* 2 */
+  height: auto;
+  /* 2 */
+  padding: 0;
+  /* 3 */
+  margin: 0;
+  /* 3 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+/**
+ * Scale the entry image on hover (1) and fade the entry image (2).
+ */
+.newscard:hover img {
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  /* 1 */
+  opacity: 0.6;
+  /* 2 */
+}
+
+/**
+ * Remove default padding of post contnet, which is used throught the site
+ * for other purposes.
+ */
+.newscard .post-content {
+  padding: 0;
+}
+
+/**
+ * Format the entry content in accordance to flat ui standards. Determine the
+ * padding for the content (1).
+ */
+.newscard .post-content p {
+  -moz-transition: all 0.7s ease;
+  -o-transition: all 0.7s ease;
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+  width: 100%;
+  margin: 10px;
+  max-height: 0;
+  overflow: hidden;
+}
+@media (max-width: 800px) {
+  .newscard .post-content p {
+    max-height: 340px !important;
+  }
+}
+
+/**
+ * Show the post content on hover of the newscard, else, continue with
+ * zero heigth.
+ */
+.newscard:hover .post-content p {
+  max-height: 260px;
+}
+
+/**
+ * Style the date to show properly over the actual image it presents.
+ */
+.newscard .post-date {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  font-family: "Montserrat", "Helvetica", "Avenir", sans-serif;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 60px;
+  width: 60px;
+  z-index: 3;
+  border-radius: 50%;
+  background-color: #e74c3c;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+/**
+ * Style each componetn of the date to appear as required.
+ */
+.newscard .post-date span {
+  display: block;
+}
+
+/**
+ * Year is not so important, one can assume.
+ */
+.newscard .post-date .year {
+  display: none;
+}
+
+/**
+ * Change author color.
+ */
+.newscard footer a {
+  color: #c8c8c8;
+}
+
+/**
+ * In order to differentiate the admitidily similiar view of the post name and
+ * the author, the author is shown with a proceeding icon.
+ */
+.newscard footer a::before {
+  content: '\f007';
+  font-family: "FontAwesome";
+  padding-right: 4px;
+}
+
+/**
+ * Ensure that there is sufficient delimination between both the header and
+ * the footer through the use of margins.
+ */
+.newscard footer, .newscard header {
+  padding: 4px 0;
+}
+
+/**
+ * Further seperating author from post name is a line deliniting the two.
+ */
+.newscard footer {
+  border-top: 1px solid #d8dbdd;
+  padding-top: 10px;
+}
+
+/**
+ * Display using centering tactic to align the content centrally.
+ */
+#breaking-news-ticker {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: row;
   flex-direction: row;
   -webkit-justify-content: center;
   justify-content: center;
-}
-body.author #author-info {
-  margin-top: 20px;
-  margin-right: 20px;
-  width: 350px;
-  order: 2;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-}
-body.author #author-info .author-content {
-  background-color: white;
-}
-body.author #main .loaded-posts {
-  margin: 0;
-  order: 1;
-}
-@media screen and (max-width: 770px) {
-  body.author #main {
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-  }
-  body.author #main .loaded-posts, body.author #author-info {
-    width: 100%;
-    max-width: 100%;
-  }
-  body.author #main .loaded-posts {
-    order: 2;
-  }
-  body.author #author-info {
-    order: 1;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-}
-
-body.home {
-  /* Remove extra space from header */
-  /* Hide Category bar for featured */
-}
-body.home #recent-posts {
-  width: 100%;
-}
-body.home #recent-posts .post {
-  padding: 0;
-  background-color: white;
-}
-body.home #recent-posts .post .post-content {
-  margin-top: 0;
-  padding: 20px;
-  /* Show the categories the current post is linked to. */
-  border-left-width: 5px;
-  border-left-style: solid;
-  border-left-color: #bdc3c7;
-}
-body.home #recent-posts .post[class*="category-entertainment"] .post-content {
-  border-color: #1abc9c;
-}
-body.home #recent-posts .post[class*="category-markup"] .post-content {
-  border-color: #f1c40f;
-}
-body.home #recent-posts .post[class*="category-movie-reviews"] .post-content {
-  border-color: #16a085;
-}
-body.home #recent-posts .post[class*="category-music-reviews"] .post-content {
-  border-color: #27ae60;
-}
-body.home #recent-posts .post[class*="category-theater-reviews"] .post-content {
-  border-color: #2ecc71;
-}
-body.home #recent-posts .post[class*="category-extra-point"] .post-content {
-  border-color: #f1c40f;
-}
-body.home #recent-posts .post[class*="category-ma-events"] .post-content {
-  border-color: #c0392b;
-}
-body.home #recent-posts .post[class*="category-opinion"] .post-content {
-  border-color: #95a5a6;
-}
-body.home #recent-posts .post[class*="category-science"] .post-content {
-  border-color: #2980b9;
-}
-body.home #recent-posts .post[class*="category-sports"] .post-content {
-  border-color: #f1c40f;
-}
-body.home #recent-posts .post[class*="category-blogs"] .post-content {
-  border-color: #3498db;
-}
-body.home #recent-posts .post[class*="category-blogscat"] .post-content {
-  border-color: #3498db;
-}
-body.home #recent-posts .post[class*="category-question-of-the-day"] .post-content {
-  border-color: #e74c3c;
-}
-body.home #recent-posts .post[class*="category-the-stew"] .post-content {
-  border-color: #e74c3c;
-}
-body.home #recent-posts .post[class*="category-top-stories"] .post-content {
-  border-color: #8e44ad;
-}
-body.home #recent-posts .post[class*="category-satire"] .post-content {
-  border-color: #9b59b6;
-}
-body.home #recent-posts .post[class*="category-featured"] .post-content {
-  border-color: #8e44ad;
-}
-body.home #recent-posts .post[class*="category-news"] .post-content {
-  border-color: #9b59b6;
-}
-body.home #recent-posts .post[class*="category-uncategorized"] .post-content {
-  border-color: #bdc3c7;
-}
-body.home #recent-posts .post .entry-image, body.home #recent-posts .post img {
-  display: block;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-body.home .post img {
-  width: 100%;
-}
-body.home .post header * {
-  margin-top: 0;
-}
-body.home #featured .post {
-  border-left: none;
-}
-
-#breaking-news-ticker {
   width: 100%;
   height: 100px;
   font-family: 'Cutive', serif;
   text-align: center;
+}
+
+/**
+ * Properly set up a display of all the categories available throught the site.
+ */
+#categories {
+  width: 100%;
+  max-width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+
+/**
+ * Override default list behavior.
+ */
+#categories .cat {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/**
+ * Style each individual category as a box with a certain color which allows
+ * for more unique category depictions.
+ *
+ * Also adjust the widths of the categories based off of page size.
+ *
+ * Also vertically center and style the text for each category.
+ */
+#categories .cat {
+  -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+}
+#categories .cat:nth-child(1n) {
+  background-color: #e74c3c;
+}
+#categories .cat:nth-child(2n) {
+  background-color: #f1c40f;
+}
+#categories .cat:nth-child(3n) {
+  background-color: #bdc3c7;
+}
+#categories .cat:nth-child(4n) {
+  background-color: #d35400;
+}
+#categories .cat:nth-child(5n) {
+  background-color: #d35400;
+}
+#categories .cat:nth-child(6n) {
+  background-color: #f39c12;
+}
+#categories .cat:nth-child(7n) {
+  background-color: #c0392b;
+}
+#categories .cat:nth-child(8n) {
+  background-color: white;
+}
+#categories .cat:nth-child(9n) {
+  background-color: #e67e22;
+}
+
+/**
+ * Include link styling for each category on the front page to make the
+ * intended purpose more obvious.
+ */
+#categories a {
+  font-size: 25px;
+  font-size: 1.5625rem;
+  font-family: "Montserrat", "Helvetica", "Avenir", sans-serif;
+}
+
+/**
+ * Styles a section title. A section title is used to display information
+ * concerning the nature of the following seciton, such as featured or
+ * top stories.
+ *
+ * The design spec for this is a shadow'd offset content that is apparently
+ * broken using some clever skewing trickery.
+ */
+.section-title {
+  height: 102px;
+  position: relative;
+  margin: 10px auto;
+  margin-top: 20px;
+  padding: 10px;
+  text-transform: uppercase;
+  overflow: hidden;
+  display: inline-block;
+}
+.section-title, .section-title * {
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  font-size: 85px;
+  font-size: 5.3125rem;
+  color: white;
+  line-height: 102px;
+  white-space: nowrap;
+}
+@media (max-width: 800px) {
+  .section-title, .section-title * {
+    font-size: 60px;
+    font-size: 3.75rem;
+  }
+}
+
+/**
+ * Center the section title to a certian size.
+ */
+.section-title-container {
+  text-align: center;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/**
+ * Create the scewed sections that contain the title, these use the technique
+ * of being skewed and having their children skewed to maintain a cool effect.
+ *
+ * These are also absolutly positioned.
+ */
+.section-title .angled {
+  -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -moz-transform: skew(-25deg);
+  -ms-transform: skew(-25deg);
+  -webkit-transform: skew(-25deg);
+  transform: skew(-25deg);
+  position: absolute;
+  background-color: black;
+  overflow: hidden;
+  height: inherit;
+}
+.section-title .angled.title-first {
+  width: 55%;
+  top: 0;
+  left: 0;
+  padding-left: 100px;
+  margin-left: -100px;
+}
+.section-title .angled.title-first a {
+  left: 110px;
+  text-align: left;
+}
+.section-title .angled.title-second {
+  width: 45%;
+  top: 5px;
+  right: 0;
+  padding-right: 100px;
+  margin-right: -100px;
+}
+.section-title .angled.title-second a {
+  right: 103px;
+  text-align: right;
+}
+
+/**
+ * Transform the sizing of the skewed elements for furhter effect on hover.
+ */
+.section-title:hover .angled.title-first {
+  width: 98%;
+}
+.section-title:hover .angled.title-second {
+  width: 2%;
+}
+
+/**
+ * Reverse children skew to make them appear normal.
+ */
+.section-title .angled a {
+  -moz-transform: skew(25deg);
+  -ms-transform: skew(25deg);
+  -webkit-transform: skew(25deg);
+  transform: skew(25deg);
+  position: absolute;
+  top: 0;
+}
+
+/**
+ * Styles a popular post, these appear as 'featured' on the front page and also
+ * are a pretty cool achievement. Only about two or three will be shown, but
+ * when they are, the're shown with style.
+ *
+ * That style is a pretty background and a simple post-content region, really
+ * simplistic, and thats the beaty of it.
+ *
+ * Check out inc/post-views for more inforamtion on how these are chosen.
+ */
+.post-popular {
+  -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  height: 386.66667px;
+  max-height: 50vh;
+  position: realtive;
+  margin: 20px auto;
+}
+@media (max-width: 800px) {
+  .post-popular {
+    max-height: 100vh;
+  }
+}
+
+/**
+ * Style the post content to stand out from the background.
+ */
+.post-popular .post-content {
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+/**
+ * Make the title a bit more visible, and also make it stad out from the
+ * entry meta boring stuff. Not to diss any author here, just saying, what
+ * do you really care about.
+ */
+.post-popular .title {
+  margin-bottom: 14px;
+}
+.post-popular .title a {
+  font-size: 20px;
+  font-size: 1.25rem;
+}
+.post-popular .title:hover a {
+  color: #e74c3c;
+}
+
+/**
+ * A post is shown with a parallax style image. The container of that image
+ * lends the size of the image to consideration.
+ */
+.featured-image {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 500px;
+}
+
+/**
+ * The background image is shown as a fixed attachement background. This allows
+ * for parallax scrolling.
+ */
+.featured-image .background-image {
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/**
+ * Standard post padding that centers the content within to allow for a smaller
+ * post width.
+ */
+article.post,
+article.page {
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-family: "PT Serif", serif;
+  padding: 0;
+  position: relative;
+}
+
+/**
+ * Styling for the post content which mirrors element content and has a width
+ * that is defined as the typical size for text content.
+ */
+.post-content {
+  margin: auto;
+  padding: 20px;
+}
+body.single .post-content, body.single-post .post-content, body.page .post-content {
+  width: 800px;
+}
+
+/**
+ * Center the entry section for the content using margin: auto for vertical
+ * centering.
+ */
+.entry-section {
+  padding: 20px;
+  margin: 20px auto;
+  background-color: white;
+}
+
+/**
+ * Show the title as a big item on the top page.
+ */
+header.entry-header {
+  width: 100%;
+  text-align: center;
+  background-color: white;
+}
+
+/**
+ * Allows the entry content to be relativly positioned.
+ */
+.entry-title {
+  position: relative;
+  width: auto;
+  display: inline-block;
+}
+
+/**
+ * Ensure no post navigation is present.
+ */
+.post-navigation {
+  display: none !important;
 }
 
 /**
@@ -2188,33 +2484,118 @@ body.home #featured .post {
  * apropriatly styled with darker colors so as to maintain the decour of the
  * page.
  */
-body.page-staff {
-  /**
-   * Change the navigation to more accuratly describe the colors of this page.
-   */
+/**
+ * Themes all pages displaying a multitude of posts for a specific author.
+ *
+ * These posts will be shown to the left, the author to the right.
+ */
+body.author #main {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
-body.page-staff nav#site-navigation {
-  background-color: #010D0D;
-  border-color: white;
+@media (max-width: 800px) {
+  body.author #main {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
 }
-body.page-staff nav#site-navigation, body.page-staff nav#site-navigation * {
-  color: white;
+
+/**
+ * Describe information concerning the author with the image on top and the
+ * description following. This technique employs the standard flexbox within
+ * a flexbox technique.
+ */
+#author-info {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-left: 0;
+  margin-bottom: 0;
+  width: 300px;
+  height: 0%;
+  order: 2;
 }
-body.page-staff nav#site-navigation .toggle .row, body.page-staff nav#site-navigation .toggle .row * {
-  background-color: white !important;
+@media (max-width: 800px) {
+  #author-info {
+    width: 100%;
+    max-width: 100%;
+    order: 1;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
-body.page-staff {
-  background-color: gainsboro;
+
+/**
+ * Show content as content.
+ */
+#author-info .author-content {
+  background-color: white;
 }
-body.page-staff footer#primary-footer, body.page-staff footer#primary-footer * {
-  border-color: white;
-  background-color: #010D0D;
-  color: white;
+
+/**
+ * Order the loaded posts to proceded the author information
+ */
+body.author #main .loaded-posts {
+  margin: 0;
+  order: 1;
 }
-body.page-staff #page, body.page-staff #content, body.page-staff #main {
-  background-color: #010D0D;
-  color: white;
+@media (max-width: 800px) {
+  body.author #main .loaded-posts {
+    width: 100%;
+    max-width: 100%;
+    order: 1;
+  }
 }
-body.page-staff article.post .entry-section, body.page-staff article.page .entry-section {
-  background-color: tomato !important;
+
+/**
+ * Style the loaded posts container with certain content containment ability.
+ */
+.loaded-posts {
+  margin: 20px auto;
+  width: 100%;
+  max-width: 700px;
+  padding: 20px;
+}
+
+/**
+ * Style the loaded post to be a certain size with a given background and
+ * padding to allow for the full extent of the image.
+ */
+.loaded-posts article.post {
+  margin-bottom: 20px;
+  background-color: white;
+  width: 100%;
+  padding: 0;
+}
+
+/**
+ * Confirm the styling of the entry image for the loaded post.
+ */
+.loaded-posts .entry-image, .loaded-posts .entry-image img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Ensure post title displays properly and with sufficient pzazz.
+ */
+header.page-header {
+  font-size: 24px;
+  font-size: 1.5rem;
+  font-family: "Montserrat", "Helvetica", "Avenir", sans-serif;
+  background-color: white;
+  width: 700px;
+  margin: 10px auto;
+  text-align: center;
 }

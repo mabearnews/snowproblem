@@ -1,11 +1,23 @@
+/**
+ * Provide the basic styling for the anchor tag. Specificly, it targets the
+ * responsive nature of the link in cases of hover or focus.
+ * 1. Responsive color change on hover.
+ * 2. Heading font to indicate difference from content.
+ */
 a {
-    color: $color__text-default;
-    @include transition( color $time__short );
-    cursor: pointer;
+  @include transition(color 0.3s ease-in);
+  @include heading-font;
+  color: $primary-text-color; /* 1 */
+  cursor: pointer;
+  text-decoration: none;
 
-    &:active,
-    &:focus,
-    &:hover {
-        color: $color__link-active;
-    }
+  &:visited {
+    color: $primary-text-color;
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: color('grey'); /* 1 */
+  }
 }

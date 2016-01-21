@@ -42,5 +42,12 @@
 
 <?php wp_footer(); ?>
 
+<?php if (is_front_page()) {?>
+
+	<script type="text/javascript" src="<?php print get_template_directory_uri(); ?>/dist/js/front.js"></script>
+
+<?php }?>
+
+
 </body>
 </html>

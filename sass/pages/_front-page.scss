@@ -1,51 +1,667 @@
-body.home {
+/**
+ * Defines the simple styling for a post on the front page of the site.
+ *
+ * This post will traditionaly have a simple color scheme and provide links
+ * for more reading, a image and an excerpt.
+ *
+ * @see content/content-front.php
+ */
 
-#recent-posts  {
+ /**
+  * Allow the content to be contained in a 1160px sized container, this allowes
+  * for easier reading.
+  */
+#front-container {
+  @include box-sizing(border-box);
+  width: $max-page-width;
+  margin: 0 auto;
+}
+
+/**
+ * Style the react container, which contains the featured section to take up
+ * the proper amount of space.
+ */
+#react-container {
+  width: 100%;
+  position: relative;
+}
+
+/**
+ * Ensure all links bely default styling for the featured section.
+ */
+body.home a {
+  &,
+  &:active,
+  &:focus,
+  &:hover {
+    color: inherit;
+  }
+}
+
+/**
+ * Style the container of the featured elemtns to allow for overlay layers
+ * which are absolutly positioned.
+ */
+#featured-container {
+  position: relative;
+}
+
+/**
+ * Style the featured container with an overlay that allows the contained
+ * text of images to become more readable... This also allowes for some
+ * interesting looking picutres :-]
+ */
+#featured-container::after {
+  @include background-image(linear-gradient(top left, #2f253d 5%, #5e02c9 30%, #b300b6 58%, #b300b6 69%, black 94%));
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+/**
+ * Allows the featured post to be differing colors if not background image
+ * is provided. A background image will override the background color. To
+ * ensure this there should be a background: ... property specifed by react.
+ *
+ *
+ * The featured post also contains the title and this is centered using the
+ * center-vertical helper. All other elements are absolutly positioned and thus
+ * not affected by this.
+ */
+#featured-container .featured-post {
+  @extend %center-vertical;
+  @include centered-background;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/**
+ * So the featured container categories with proper clickable potential.
+ */
+#featured-container .categories {
+  @include display-flex;
+  @include justify-content(flex-start);
+  @include flex-direction(row);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+/**
+ * Differnetiate between the categories.
+ * Add a border and a differing color to indicate differneces.
+ */
+div.category {
+  padding: 5px;
+  background-color: color('red');
+  border-left: 1px solid color('white');
+  color: color('white');
+
+  &:first-child {
+    border-left: none;
+  }
+}
+
+/**
+ * Ensure the distinct view of an actual category and its information.
+ */
+div.category a {
+  @include font-size(14px);
+  color: color('white');
+}
+
+/**
+ * Show the header of a featured post as centered with an obvious title.
+ *
+ * Also, include an obvious border that will heighten of display on colors.
+ */
+#featured-container .featured-post header {
+  @include transition(all 0.8s ease);
+  margin: auto;
+  text-align: center;
+  max-width: 70%;
+  padding: 10px;
+  border-radius: 400px;
+  border: 1px solid color('white');
+  z-index: 2;
+  color: color('white');
+}
+
+
+/// The size of a featured block that is centrally located on the front page.
+$featured-block-size: 100vw / 3;
+
+/**
+ * Style the featured container in order to create the flexbox layout of three
+ * columns.
+ */
+#featured-container {
+  padding: 0;
+  margin: 0;
+  height: $featured-block-size;
+  width: 100%;
+  @include display-flex;
+  @include flex-flow(row);
+
+  @include respond-to((max-width: $featured-block-size)) {
+    width: 100vw;
+    height: 100vw;
+  }
+
+  @include respond-to('medium') {
+    @include flex-flow(row wrap);
+    height: auto;
+  }
+}
+
+/**
+ * Style the flex characteristics of the top block, which is the highest order
+ * element in the column layout. Taking one third of the componetns.
+ */
+#featured-container .top-block {
+  @include display-flex;
+  @include flex-direction(column);
+  width: $featured-block-size;
+  height: $featured-block-size;
+
+  @include respond-to((max-width: $featured-block-size * 3)) {
+    width: (100vw / 3);
+    height: (100vw / 3);
+  }
+
+  @include respond-to('medium') {
+    width: 100vw;
+    height: 100vw;
+  }
+}
+
+/**
+ * Allows for vertiacl splits of a container by changing the top block
+ * container or other contianer to vertically divide.
+ */
+#featured-container .split-vertical {
+  @include display-flex;
+  @include flex-direction(column);
+
+  > * {
+    height: 50%;
     width: 100%;
+  }
 }
 
-#recent-posts .post {
-    padding: 0;
-    background-color: $content-bgcolor;
+/**
+ * Allowes for the change in the horizontal components to create a more
+ * elemental display.
+ */
+#featured-container .split-horizontal {
+  @include display-flex;
+  @include flex-direction(row);
 
-    .post-content {
-        margin-top: 0;
-        padding: $grid-gap;
-
-        /* Show the categories the current post is linked to. */
-
-        border-left-width: $front-page-category-border-width;
-        border-left-style: solid;
-        border-left-color: $category-color-default;
-    }
-
-    @each $category, $color in $category-colors {
-        &[class*="category-#{$category}"] .post-content {
-            border-color: $color;
-        }
-    }
-
-    .entry-image, img {
-        display: block;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
+  > * {
+    height: 100%;
+    width: 50%;
+  }
 }
 
 
-.post img {
+/**
+ * Position newscards for the posts container.
+ */
+.post-container {
+  position: relative;
+  max-width: 100%;
+  width: 100vw;
+  background: darken(white, 5%);
+}
+
+ /**
+  * Allow the image to scale overflow (1).
+  *
+  * Define paramaters for increased visibility and flat layout. Show box shadow
+  * on hover (2)
+  */
+.newscard {
+  @include transition(all 0.7s ease);
+  @include box-sizing(border-box);
+  @include centered-background;
+  @include content-shadow;
+  width: 300px;
+  height: 450px;
+  overflow: hidden; /* 1 */
+  background-color: color('white');
+  position: relative;
+
+  &:hover {
+    @include box-shadow(0px 1px 35px 0px rgba(0, 0, 0, 0.3)); /* 2 */
+  }
+
+  @include respond-to('medium') {
+    @include box-shadow('none');
+    height: 600px;
     width: 100%;
+    margin: 0;
+  }
+}
+
+/**
+ * Darken the newscard image on hover. This allowes for a more unique
+ * experience.
+ */
+.newscard::before {
+  @include transition(all 0.7s ease);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  opacity: 0;
+}
+
+/**
+ * Shows the newscard image more concretly.
+ */
+.newscard:hover::before {
+  opacity: 0.5;
+}
+
+/**
+ * Show the post to be a cohesive unit with standard padding and margins.
+ *
+ * This section contains all textual elemnents and thus allowes for more
+ * absolutly positioned children.
+ */
+.newscard .post {
+  @include transition(all 0.7s ease);
+  width: 100%;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: color('white');
+  z-index: 2;
+}
+
+/**
+ * Show the categories as a flex list displayed above the actual post.
+ */
+.newscard .post .categories {
+  @include display-flex;
+  position: absolute;
+  left: 0;
+  top: -34px;
+  height: 34px;
+  max-width: 100%;
+  overflow-y: scroll;
+}
+
+/**
+ * Scale the entry image to permit optimal sizing. (2)
+ *
+ * Destroy all margins and padding that would affect borders. (3)
+ *
+ * Allow for the scale of the image on hover through a transition. (1)
+ */
+.newscard .entry-image img {
+  @include transition(all 0.7s ease); /* 1 */
+  width: 100%; /* 2 */
+  height: auto; /* 2 */
+  padding: 0; /* 3 */
+  margin: 0; /* 3 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+/**
+ * Scale the entry image on hover (1) and fade the entry image (2).
+ */
+ .newscard:hover img {
+   @include transform(scale(1.1)); /* 1 */
+   opacity: 0.6; /* 2 */
+ }
+
+/**
+ * Remove default padding of post contnet, which is used throught the site
+ * for other purposes.
+ */
+.newscard .post-content {
+  padding: 0;
+}
+
+/**
+ * Format the entry content in accordance to flat ui standards. Determine the
+ * padding for the content (1).
+ */
+.newscard .post-content p {
+  @include transition(all 0.7s ease);
+  width: 100%;
+  margin: 10px;
+  max-height: 0;
+  overflow: hidden;
+
+  @include respond-to('medium') {
+    max-height: 340px !important;
+  }
+}
+
+/**
+ * Show the post content on hover of the newscard, else, continue with
+ * zero heigth.
+ */
+.newscard:hover .post-content p {
+  max-height: 260px;
+}
+
+/**
+ * Style the date to show properly over the actual image it presents.
+ */
+.newscard .post-date {
+  @include display-flex;
+  @include flex-direction(column);
+  @include justify-content(center);
+  font-family: $heading-font;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 60px;
+  width: 60px;
+  z-index: 3;
+  border-radius: 50%;
+  background-color: color('red');
+  color: color('white');
+  font-weight: bold;
+  text-align: center;
+}
+
+/**
+ * Style each componetn of the date to appear as required.
+ */
+.newscard .post-date span {
+  display: block;
+}
+
+/**
+ * Year is not so important, one can assume.
+ */
+.newscard .post-date .year { display: none; }
+
+/**
+ * Change author color.
+ */
+.newscard footer a {
+  color: rgb(200, 200, 200);
+}
+
+/**
+ * In order to differentiate the admitidily similiar view of the post name and
+ * the author, the author is shown with a proceeding icon.
+ */
+.newscard footer a::before {
+  content: '\f007';
+  font-family: "FontAwesome";
+  padding-right: 4px;
+}
+
+/**
+ * Ensure that there is sufficient delimination between both the header and
+ * the footer through the use of margins.
+ */
+.newscard footer, .newscard header {
+  padding: 4px 0;
+}
+
+/**
+ * Further seperating author from post name is a line deliniting the two.
+ */
+.newscard footer {
+  border-top: 1px solid $border-color;
+  padding-top: 10px;
 }
 
 
+/**
+ * Display using centering tactic to align the content centrally.
+ */
+#breaking-news-ticker {
+  @include display-flex;
+  @include flex-direction(row);
+  @include justify-content(center);
+  width: 100%;
+  height: 100px;
+  font-family: 'Cutive', serif;
+  text-align: center;
+}
 
-/* Remove extra space from header */
-.post header * { margin-top: 0; }
+/**
+ * Properly set up a display of all the categories available throught the site.
+ */
+#categories {
+  width: 100%;
+  max-width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+
+/**
+ * Override default list behavior.
+ */
+#categories .cat {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/**
+ * Style each individual category as a box with a certain color which allows
+ * for more unique category depictions.
+ *
+ * Also adjust the widths of the categories based off of page size.
+ *
+ * Also vertically center and style the text for each category.
+ */
+#categories .cat {
+  $cat-colors: (
+    color('red'),
+    color('yellow'),
+    color('lightgrey'),
+    color('darkorange'),
+    color('darkorange'),
+    color('lightorange'),
+    color('darkred'),
+    color('white'),
+    color('orange'),
+  );
+
+  @extend %center-vertical;
+
+  @include content-shadow;
+  @include box-sizing(border-box);
+  text-align: center;
+
+  @for $index from 1 through length($cat-colors) {
+    &:nth-child(#{$index}n) {
+      background-color: nth($cat-colors, $index);
+    }
+  }
+}
+
+/**
+ * Include link styling for each category on the front page to make the
+ * intended purpose more obvious.
+ */
+#categories a {
+  @include font-size(25px);
+  font-family: $heading-font;
+}
 
 
+/**
+ * Styles a section title. A section title is used to display information
+ * concerning the nature of the following seciton, such as featured or
+ * top stories.
+ *
+ * The design spec for this is a shadow'd offset content that is apparently
+ * broken using some clever skewing trickery.
+ */
+.section-title {
+  height: 102px;
+  position: relative;
+  margin: 10px auto;
+  margin-top: 20px;
+  padding: 10px;
+  text-transform: uppercase;
+  overflow: hidden;
+  display: inline-block;
 
-/* Hide Category bar for featured */
-#featured .post { border-left: none; }
+  &, * {
+    @include box-sizing(content-box);
+    @include font-size(85px);
+    color: color('white');
+    line-height: 102px;
+    white-space: nowrap;
+  }
 
+  @include respond-to('medium') {
+    &, * { @include font-size(60px); }
+  }
+}
+
+/**
+ * Center the section title to a certian size.
+ */
+.section-title-container {
+  text-align: center;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/**
+ * Create the scewed sections that contain the title, these use the technique
+ * of being skewed and having their children skewed to maintain a cool effect.
+ *
+ * These are also absolutly positioned.
+ */
+.section-title .angled {
+  @include content-shadow;
+  @include transition(all 0.5s ease);
+  @include transform(skew(-25deg));
+  position: absolute;
+  background-color: color('black');
+  overflow: hidden;
+  height: inherit;
+
+  &.title-first {
+    width: 55%;
+    top: 0;
+    left: 0;
+    padding-left: 100px;
+    margin-left: -100px;
+
+    a {
+      left: 110px;
+      text-align: left;
+    }
+  }
+
+  &.title-second {
+    width: 45%;
+    top: 5px;
+    right: 0;
+    padding-right: 100px;
+    margin-right: -100px;
+
+    a {
+      right: 103px;
+      text-align: right;
+    }
+  }
+}
+
+/**
+ * Transform the sizing of the skewed elements for furhter effect on hover.
+ */
+.section-title:hover .angled {
+  &.title-first  { width: 98%; }
+  &.title-second { width: 2%; }
+}
+
+/**
+ * Reverse children skew to make them appear normal.
+ */
+.section-title .angled a {
+  @include transform(skew(25deg));
+  position: absolute;
+  top: 0;
+}
+
+/**
+ * Styles a popular post, these appear as 'featured' on the front page and also
+ * are a pretty cool achievement. Only about two or three will be shown, but
+ * when they are, the're shown with style.
+ *
+ * That style is a pretty background and a simple post-content region, really
+ * simplistic, and thats the beaty of it.
+ *
+ * Check out inc/post-views for more inforamtion on how these are chosen.
+ */
+.post-popular {
+  @include content-shadow;
+  @include centered-background;
+  width: 100%;
+  height: $max-page-width / 3;
+  max-height: 50vh;
+  position: realtive;
+  margin: 20px auto;
+
+  @include respond-to('medium') {
+    max-height: 100vh;
+  }
+}
+
+/**
+ * Style the post content to stand out from the background.
+ */
+.post-popular .post-content {
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: color('white');
+}
+
+/**
+ * Make the title a bit more visible, and also make it stad out from the
+ * entry meta boring stuff. Not to diss any author here, just saying, what
+ * do you really care about.
+ */
+.post-popular .title {
+  margin-bottom: 14px;
+
+  a {
+    @include font-size(20px);
+  }
+
+  &:hover a {
+    color: color('red');
+  }
 }

@@ -1,0 +1,108 @@
+/**
+ * Style the icon to look clickable and feel so as well.
+ */
+#search-toggle {
+  @extend %center-vertical;
+  @include font-size(22px);
+  height: 100%;
+  cursor: pointer;
+}
+
+/**
+ * The searchform has a very high z-index as it takes up the entire
+ * site using some trickery we know to be fixed positioning (shh).
+ *
+ * It is not displayed by default unless the class search-visilbe is added
+ * to the body, in the interm it is left with no display value and an opaque
+ * view. The first is handled by javascript very carefully.
+ */
+#searchform {
+  @extend %center-vertical;
+
+  @include transition(all 0.4s ease);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: color('white');
+  opacity: 0;
+  z-index: -100;
+
+  body.search-visible & {
+    opacity: 1;
+    z-index: 100;
+  }
+}
+
+/**
+ * Style the button to exit the searchfrom, arguably the most important
+ *
+ * This button is simply an x made of before and after components that are to
+ * smart for their own good.
+ */
+#search-exit {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+
+  &::before, &::after {
+    content: '';
+    background-color: color('black');
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+  }
+
+  &::before {
+    @include transform(rotate(45deg));
+  }
+
+  &::after {
+    @include transform(rotate(-45deg));
+  }
+}
+
+/**
+ * Style the search container to properly contain the search field.
+ *
+ * This includes mostly centering and an icon.
+ */
+#searchform .search-container {
+  @include font-size(26px);
+  text-align: center;
+  font-family: $alternate-font;
+
+  &::after {
+    content: '';
+    margin: 5px;
+    font-family: "FontAwesome";
+    content: '\f002';
+  }
+}
+
+
+/**
+ * Style the actual input to simply be a line with soem text on it, no outline
+ * not fancy fuss.
+ *
+ * Also add in the search icon in case some idiot didn't already onow what was
+ * happening.
+ */
+#searchform input {
+  width: 40vw;
+  min-width: 240px;
+  max-width: 500px;
+  margin: auto;
+  border: none;
+  outline: none !important;
+  border-radius: 0;
+  border-bottom: 1px solid color('black');
+  text-align: right;
+}

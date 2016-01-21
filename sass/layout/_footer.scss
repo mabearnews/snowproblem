@@ -1,0 +1,34 @@
+/**
+ * The styling for the footer of the page, the footer is currently not used as
+ * a widget area and styling for widget use in that area is currently not used.
+ */
+#primary-footer {
+  border-top: 1px solid $border-color;
+  padding-top: 15px;
+  background-color: $content-bgcolor;
+  width: 100%;
+}
+
+/**
+ * Style the footer credits to give some love to the people who wrote this file.
+ *
+ * This involves displaying credits as a flexbox in order to center content.
+ */
+#primary-footer .credits {
+  @include display-flex;
+  @include flex-direction(row);
+  @include justify-content(space-around);
+  width: 100%;
+  margin: 0;
+  padding: 40px;
+}
+
+/**
+ * Style individual credit to reflect qualities of a standard heading.
+ */
+#primary-footer .credit {
+  @include heading-font;
+  color: $primary-text-color;
+  text-align: center;
+  margin: 16px 0;
+}
