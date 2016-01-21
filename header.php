@@ -17,12 +17,12 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-        <?php wp_head(); ?>
+    <?php wp_head(); ?>
 
-        <?php 
-          // Google analytics
-          include_once("analyticstracking.php");
-        ?>
+    <?php
+      // Google analytics
+      include_once("analyticstracking.php");
+    ?>
 
 </head>
 
