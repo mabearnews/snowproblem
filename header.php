@@ -31,10 +31,6 @@
 <!-- Primary Submenu Navigation -->
 <section id="site-navigation-more"></section>
 
-<?php if ( is_home() ) : ?>
-	<div id="react-container"></div>
-<?php endif; ?>
-
 <nav id="site-navigation" class="main-navigation" role="navigation">
 	<div class="wrapper">
 		<section id="menu-toggle"  class="menu-toggle recieves-toggles">

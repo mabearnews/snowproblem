@@ -99,27 +99,66 @@ function snowproblem_section_title( $cat_name ) {
     <?php
 }
 
-get_header(); ?>
+/**
+ * Creates a section with an id and with an assortmant of cards based off of
+ *  a category.
+ *
+ * @param string $category
+ * @param int $numb
+ */
+function snowproblem_display_category( $category, $numb = 6 ) {
+    if ( ! get_posts( "category_name=$category" ) ) { return; }
 
-<div id="front-container">
+    snowproblem_section_title( $category );
 
-    <?php snowproblem_section_title( 'top-stories' ); ?>
+    ?>
+    <section id="<?php print $category ?>"
+             class="post-container snowgrid"
+             snowgrid-columnGap="10"
+             snowgrid-animationDuration="1">
 
-    <section id="top-stories" class="post-container snowgrid" snowgrid-columnGap="10" snowgrid-animationDuration="1">
         <?php
         snowproblem_excluded_query( array(
             'orderby'        => 'DATE',
             'order'          => 'DESC',
-            'numberposts'    => '6',
+            'numberposts'    => $numb,
             'meta_key'       => '_thumbnail_id',
-            'category_name'  => 'top-stories',
+            'category_name'  => $category,
         ), function() {
             get_template_part( 'template-parts/content', 'newscard' );
         } ); ?>
 
     </section>
+    <?php
+}
+
+get_header(); ?>
+
+<div id="react-container"></div>
+
+<div id="front-container">
+
+    <?php snowproblem_display_category( 'top-stories', 3 ); ?>
 
     <?php snoproblem_display_popular(); ?>
+
+    <?php snowproblem_display_category( 'news' ); ?>
+
+    <?php snoproblem_display_popular(); ?>
+
+    <?php snowproblem_display_category( 'opinion', 3 ); ?>
+
+    <?php snoproblem_display_popular(); ?>
+
+    <?php snowproblem_display_category( 'culture', 3 ); ?>
+
+    <?php snoproblem_display_popular(); ?>
+
+    <?php snowproblem_display_category( 'blogs', 3 ); ?>
+
+    <?php snoproblem_display_popular(); ?>
+
+    <?php /*
 
     <?php snowproblem_section_title( 'categories' ); ?>
 
@@ -150,19 +189,30 @@ get_header(); ?>
 
     </section> <!-- #categories -->
 
+    */ ?>
+
     <?php snowproblem_section_title( 'Recent Posts' ); ?>
 
-    <section id="recent-posts" class="post-container snowgrid" snowgrid-columnGap="10" snowgrid-animationDuration="1">
+    <section id="recent-posts"
+             class="post-container snowgrid"
+             snowgrid-columnGap="10"
+             ajax-load-posts='<?php print json_encode( array(
+                 'orderby'    => 'data',
+    			 'order'      => 'DESC',
+    			 'postFormat' => 'newscard',
+                 'meta_key'       => '_thumbnail_id',
+    			 'excludeIDS' => $exclude_ids,
+             ) ); ?>'>
 
         <?php
-        snowproblem_excluded_query( array(
-            'orderby'        => 'DATE',
-            'order'          => 'DESC',
-            'numberposts' => '6',
-            'meta_key'       => '_thumbnail_id',
-        ), function() {
-            get_template_part( 'template-parts/content', 'newscard' );
-        } ); ?>
+        // snowproblem_excluded_query( array(
+        //     'orderby'        => 'DATE',
+        //     'order'          => 'DESC',
+        //     'numberposts' => '6',
+        //     'meta_key'       => '_thumbnail_id',
+        // ), function() {
+        //     get_template_part( 'template-parts/content', 'newscard' );
+        // } ); ?>
 
     </section>
 

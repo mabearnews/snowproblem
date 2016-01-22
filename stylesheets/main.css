@@ -552,8 +552,6 @@ body {
   border-bottom: 1px solid #d8dbdd;
   /* 3 */
   z-index: 100;
-  padding: 20px;
-  /* 5 */
 }
 @media (max-width: 1000px) {
   #site-navigation a {
@@ -562,22 +560,12 @@ body {
   }
 }
 @media (max-width: 800px) {
-  #site-navigation {
-    padding: 8px;
-    /* 6 */
-  }
   body.nav-visible #site-navigation {
     -moz-transform: translateX(300px);
     -ms-transform: translateX(300px);
     -webkit-transform: translateX(300px);
     transform: translateX(300px);
     /* 8 */
-  }
-  body.nav-visible #site-navigation {
-    -moz-transform: translateX(0);
-    -ms-transform: translateX(0);
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
   }
 }
 
@@ -610,8 +598,14 @@ body {
   flex-direction: row;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-  max-width: 1160px;
+  width: 1160px;
   margin: 0 auto;
+  padding: 20px;
+}
+@media (max-width: 1160px) {
+  #site-navigation > .wrapper {
+    width: 100%;
+  }
 }
 
 /**
@@ -1726,6 +1720,7 @@ div.category {
   background-color: #e74c3c;
   border-left: 1px solid white;
   color: white;
+  overflow: hidden;
 }
 div.category:first-child {
   border-left: none;
@@ -1791,6 +1786,9 @@ div.category a {
 /**
  * Style the flex characteristics of the top block, which is the highest order
  * element in the column layout. Taking one third of the componetns.
+ *
+ * 1. Make the middle block the same size as all the other ones, its no longer
+ * sepcial
  */
 #featured-container .top-block {
   display: -webkit-flex;
@@ -1810,6 +1808,10 @@ div.category a {
   #featured-container .top-block {
     width: 100vw;
     height: 100vw;
+  }
+  #featured-container .top-block:nth-child(2) {
+    height: 50vw;
+    /* 2 */
   }
 }
 
@@ -2239,8 +2241,8 @@ div.category a {
  * Make invisible the spacing title, its not supposed to be seen, and this
  * way werer sure of it.
  */
-.section-title .title-size {
-  color: rgba(255, 255, 255, 0);
+.section-title .title-size * {
+  color: transparent !important;
 }
 
 /**
@@ -2257,6 +2259,8 @@ div.category a {
  * of being skewed and having their children skewed to maintain a cool effect.
  *
  * These are also absolutly positioned.
+ *
+ * 1. Fix a bug in chrome where overflow: hidden didn't work.
  */
 .section-title .angled {
   -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
@@ -2270,6 +2274,10 @@ div.category a {
   -ms-transform: skew(-25deg);
   -webkit-transform: skew(-25deg);
   transform: skew(-25deg);
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  /* 1 */
   position: absolute;
   background-color: black;
   overflow: hidden;
@@ -2281,12 +2289,14 @@ div.category a {
   left: 0;
   padding-left: 100px;
   margin-left: -100px;
+  z-index: 2;
 }
 .section-title .angled.title-first a {
   left: 110px;
   text-align: left;
 }
 .section-title .angled.title-second {
+  z-index: 1;
   width: 45%;
   top: 5px;
   right: 0;

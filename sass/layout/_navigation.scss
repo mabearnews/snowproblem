@@ -35,21 +35,14 @@ body {
   background-color: $content-bgcolor;  /* 3 */
   border-bottom: 1px solid $border-color;  /* 3 */
   z-index: 100;
-  padding: 20px; /* 5 */
 
   @include respond-to('large') {
     a { @include font-size(13px); }
   }
 
   @include respond-to('medium') {
-    padding: 8px; /* 6 */
-
     body.nav-visible & {
       @include transform(translateX(300px)); /* 8 */
-    }
-
-    body.nav-visible &{
-      @include transform(translateX(0));
     }
   }
 }
@@ -79,8 +72,13 @@ body {
   @include display-flex;
   @include flex-direction( row );
   @include justify-content( space-between );
-  max-width: $max-page-width;
+  width: $max-page-width;
   margin: 0 auto;
+  padding: 20px;
+
+  @include respond-to((max-width: $max-page-width)) {
+    width: 100%;
+  }
 }
 
 /**

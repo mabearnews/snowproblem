@@ -78,51 +78,51 @@ jQuery(document).ready(function($) {
         });
     } );
 
-    // Implement the news ticker if it is available
-    if ( $( '#breaking-news-ticker' ).length ) {
-        $( '#breaking-news-items' ).breakingNewsTicker( '.ticker-item' );
-    }
-
-    // Add the navigation bar below the react container. Make it relativly
-    // postiioned and attach a window scroll event to change this status.
-    if ( $('#react-container').length ) {
-        // Detatch and reattache the react container and the page navigaiton
-        // to the page.
-        $( '#page' ).prepend( $( '#site-navigation' ).detach() );
-        $( '#page' ).prepend( $( '#react-container' ).detach() );
-        $( '#content-nav-bar-padding' ).height(0);
-
-        var navIsRel = true;
-        $( '#site-navigation' ).css('position', 'relative');
-
-        $( '#page' ).on('scroll', function() {
-            var nt = $( '#site-navigation' ).offset().top;
-            var ft = $( '#react-container' ).offset().top;
-            var fh = $( '#react-container' ).height();
-
-            // Check if there should be a change.
-            if ( ( nt > 0 || (fh + ft) > 0 ) && ! navIsRel ) {
-                $( '#site-navigation' ).css('position', 'relative');
-                $( '#content-nav-bar-padding' ).height( 0 );
-                navIsRel = true;
-            } else if ( nt <= 0 && navIsRel ) {
-                $( '#site-navigation' ).css('position', 'fixed');
-                $( '#content-nav-bar-padding' ).height( 60 );
-                navIsRel = false;
-            }
-        });
-
-        console.log(PrimaryNav);
-
-        // Allow for navigation transformations because there is some weird
-        // stuff that goes on when the parent is a fixed positiond element.
-        PrimaryNav.props.callbackStateOn = function() {
-           $( '#site-navigation' ).css('top', $('#page').scrollTop() + 'px');
-        };
-
-        PrimaryNav.props.callbackStateOff = function() {
-            $( '#site-navigation' ).css('top', '0');
-        };
-
-    }
+    // // Implement the news ticker if it is available
+    // if ( $( '#breaking-news-ticker' ).length ) {
+    //     $( '#breaking-news-items' ).breakingNewsTicker( '.ticker-item' );
+    // }
+    //
+    // // Add the navigation bar below the react container. Make it relativly
+    // // postiioned and attach a window scroll event to change this status.
+    // if ( $('#react-container').length ) {
+    //     // Detatch and reattache the react container and the page navigaiton
+    //     // to the page.
+    //     $( '#page' ).prepend( $( '#site-navigation' ).detach() );
+    //     $( '#page' ).prepend( $( '#react-container' ).detach() );
+    //     $( '#content-nav-bar-padding' ).height(0);
+    //
+    //     var navIsRel = true;
+    //     $( '#site-navigation' ).css('position', 'relative');
+    //
+    //     $( '#page' ).on('scroll', function() {
+    //         var nt = $( '#site-navigation' ).offset().top;
+    //         var ft = $( '#react-container' ).offset().top;
+    //         var fh = $( '#react-container' ).height();
+    //
+    //         // Check if there should be a change.
+    //         if ( ( nt > 0 || (fh + ft) > 0 ) && ! navIsRel ) {
+    //             $( '#site-navigation' ).css('position', 'relative');
+    //             $( '#content-nav-bar-padding' ).height( 0 );
+    //             navIsRel = true;
+    //         } else if ( nt <= 0 && navIsRel ) {
+    //             $( '#site-navigation' ).css('position', 'fixed');
+    //             $( '#content-nav-bar-padding' ).height( 60 );
+    //             navIsRel = false;
+    //         }
+    //     });
+    //
+    //     console.log(PrimaryNav);
+    //
+    //     // Allow for navigation transformations because there is some weird
+    //     // stuff that goes on when the parent is a fixed positiond element.
+    //     PrimaryNav.props.callbackStateOn = function() {
+    //        $( '#site-navigation' ).css('top', $('#page').scrollTop() + 'px');
+    //     };
+    //
+    //     PrimaryNav.props.callbackStateOff = function() {
+    //         $( '#site-navigation' ).css('top', '0');
+    //     };
+    //
+    // }
 });
