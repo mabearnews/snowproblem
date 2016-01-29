@@ -49,6 +49,19 @@
 			<footer class="entry-footer entry-section">
 				<?php snowproblem_entry_footer(); ?>
 			</footer><!-- .entry-footer -->
-		</section>
-	</div>
+
+
+			<?php if ( ( comments_open() || get_comments_number() ) && defined( 'SNOWPROBLEM_COMMENTS_ALLOWED' ) ) : ?>
+
+				<div class="comments-section entry-section">
+
+					<div class="comments-toggle">
+						<i class="fa fa-comments-o"></i>
+					</div>
+
+				</div>
+
+			<?php endif; ?>
+		</section> <!-- .post-content -->
+	</div> <!-- .center-element -->
 </article><!-- #post-## -->

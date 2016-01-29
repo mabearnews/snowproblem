@@ -36,7 +36,8 @@ header.page-header {
   @include font-size('large');
   font-family: $heading-font;
   background-color: $content-bgcolor;
-  width: 700px;
+  width: 100%;
+  max-width: 700px;
   margin: 10px auto;
   text-align: center;
 }

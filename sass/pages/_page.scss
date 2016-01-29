@@ -44,7 +44,8 @@ article.page {
   padding: $padding-val;
 
   @include single-post {
-    width: 800px;
+    max-width: 800px;
+    width: 100%;
   }
 }
 
@@ -53,6 +54,7 @@ article.page {
  * centering.
  */
 .entry-section {
+  @include content-shadow;
   padding: $padding-val;
   margin: $padding-val auto;
   background-color: $content-bgcolor;

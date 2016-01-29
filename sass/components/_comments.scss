@@ -1,1 +1,126 @@
-// Implement me...
+/**
+ * Style comment section to display with some crazy pzzaz... Ok, its a circle
+ * with some some lines before and after, but sill. Basically offset like crazy.
+ *
+ * This sextion will probalby default to some crazy stuff we don't need and
+ * show up as content. Away with that notion!
+ */
+.comments-section {
+  @include box-shadow(none !important);
+  background-color: transparent !important;
+  text-align: center;
+}
+
+/**
+ * Alright, the icon container, this is where it gets intersting.
+ * Show this as a circle with a large icon in the middle. Also make it clickable.
+ */
+.comments-section .comments-toggle {
+  @include font-size(100px);
+  @include content-shadow;
+  width: 140px;
+  height: 140px;
+  background-color: $content-bgcolor;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/**
+ * Move the coments section, by default, fixed off to the side and very much
+ * hidden.
+ *
+ * It can shift using a transition when it becomes visible.
+ */
+#comments-container {
+  @include transition(all 0.4s ease-in);
+  @include content-shadow;
+  background-color: $content-bgcolor;
+  border-left: 1px solid $border-color;
+  position: fixed;
+  top: 60px;
+  height: 100vh;
+  height: calc(100vh - 60px);
+  overflow-y: scroll;
+  width: 500px;
+  right: -500px;
+  padding: 40px;
+
+  body.comments-visible & {
+    right: 0;
+  }
+}
+
+/**
+ * Show the comments template properly with the expected styling.
+ */
+
+
+/**
+ * Show the before content of the author as nothing to remode confusion from
+ * date - author foramt.
+ */
+#comments .author::before {
+  display: none;
+}
+
+/**
+ * Show the author as visualy distinct from the date that acompanies it.
+ */
+#comments .author {
+  font-weight: bold;
+}
+
+/**
+ * Make the reply button as insignificant as the date, yeah I said it, the
+ * date is insignificant.
+ */
+#comments .reply a {
+  @include font-size('tiny');
+  color: color('lightgrey');
+}
+
+/**
+ * Show a comment as a distinct element with its own depth and its own border.
+ * The border differentitates from other comments, the depth shows heiarchy.
+ */
+#comments .comment {
+  width: 100%;
+  border-top: 1px solid $border-color;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  @for $i from 1 through 4 {
+    &.depth-#{$i + 1} {
+      padding-left: 20px * $i;
+    }
+  }
+}
+
+/**
+ * Style the comment body to be distinct from the typical header font and to
+ * have less extreeme margins than it would have by default.
+ */
+#comments .comment-body p {
+  @include font-size(13px);
+  font-family: $content-font;
+  margin: 6px auto;
+}
+
+/**
+ * Display the dot between the author and the date.
+ *
+ * Its just a plane black dot guys, nothing special here.
+ */
+// #comments .author::after {
+//   border-radius: 1.5px;
+//   background-color: #ccc;
+//   width: 3px;
+//   height: 3px;
+//   position: relative;
+//   content: '';
+//   display: inline-block;
+//   top: -3px;
+//   left: -5px
+// }

@@ -205,11 +205,12 @@ function snowproblem_comment($comment, $args, $depth) {
 		<?php endif; ?>
 
 		<section class="entry-meta">
-			<span class="posted-on">
-				<?php printf( __('%1$s: %2$s'), get_comment_date(),  get_comment_time() ); ?>
-			</span>
 			<span class="byline">
 				<?php printf( __( '<span class="author">%s</span>' ), get_comment_author_link() ); ?>
+			</span>
+
+			<span class="posted-on">
+				<?php printf( __('%1$s: %2$s'), get_comment_date(),  get_comment_time() ); ?>
 			</span>
 		</section> <!-- .comment-meta -->
 
@@ -220,8 +221,6 @@ function snowproblem_comment($comment, $args, $depth) {
 		<div class="reply">
 			<?php comment_reply_link( array_merge( $args, array( 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
 		</div>
-
-		<div class="background"></div>
 
 	</article> <!-- #comment-? -->
 <?php

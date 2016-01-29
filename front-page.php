@@ -150,71 +150,15 @@ get_header(); ?>
 
     <?php snoproblem_display_popular(); ?>
 
+    <?php snowproblem_display_category( 'sports', 3 ); ?>
+
+    <?php snoproblem_display_popular(); ?>
+
     <?php snowproblem_display_category( 'culture', 3 ); ?>
 
     <?php snoproblem_display_popular(); ?>
 
     <?php snowproblem_display_category( 'blogs', 3 ); ?>
-
-    <?php snoproblem_display_popular(); ?>
-
-    <?php /*
-
-    <?php snowproblem_section_title( 'categories' ); ?>
-
-    <section id="categories"
-             class="snowgrid"
-             snowgrid-columnGap="10"
-             snowground-minWidth="120"
-             snowground-maxWidth="260">
-
-        <?php
-        $cats = get_categories( array(
-            'orderby'      => 'count',
-            'order'        => 'DESC',
-            'hierarchical' => 0,
-        ) );
-
-        foreach ( $cats  as $cat ) : if ( $cat->count < 5 || $cat->slug == 'uncategorized' ) { continue; } ?>
-
-            <div class="column cat" style="height: <?php print rand( 50, 150 ); ?>px;">
-
-                <a href="<?php print esc_url( get_category_link( $cat->term_id ) ); ?>">
-                    <?php print $cat->cat_name; ?>
-                </a>
-
-            </div> <!-- .cat -->
-
-        <?php endforeach; ?>
-
-    </section> <!-- #categories -->
-
-    */ ?>
-
-    <?php snowproblem_section_title( 'Recent Posts' ); ?>
-
-    <section id="recent-posts"
-             class="post-container snowgrid"
-             snowgrid-columnGap="10"
-             ajax-load-posts='<?php print json_encode( array(
-                 'orderby'    => 'data',
-    			 'order'      => 'DESC',
-    			 'postFormat' => 'newscard',
-                 'meta_key'       => '_thumbnail_id',
-    			 'excludeIDS' => $exclude_ids,
-             ) ); ?>'>
-
-        <?php
-        // snowproblem_excluded_query( array(
-        //     'orderby'        => 'DATE',
-        //     'order'          => 'DESC',
-        //     'numberposts' => '6',
-        //     'meta_key'       => '_thumbnail_id',
-        // ), function() {
-        //     get_template_part( 'template-parts/content', 'newscard' );
-        // } ); ?>
-
-    </section>
 
     <?php snoproblem_display_popular(); ?>
 

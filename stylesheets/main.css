@@ -1215,11 +1215,14 @@ body, html {
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
   position: fixed;
-  top: 0;
+  top: 60px;
+  /* Nav height */
   left: 0;
   right: 0;
   width: 100vw;
   height: 100vh;
+  height: calc(100vh - 60px);
+  /* Nav height */
   background-color: white;
   opacity: 0;
   z-index: -100;
@@ -1302,6 +1305,136 @@ body.search-visible #searchform {
   text-align: right;
 }
 
+/**
+ * Style comment section to display with some crazy pzzaz... Ok, its a circle
+ * with some some lines before and after, but sill. Basically offset like crazy.
+ *
+ * This sextion will probalby default to some crazy stuff we don't need and
+ * show up as content. Away with that notion!
+ */
+.comments-section {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  text-align: center;
+}
+
+/**
+ * Alright, the icon container, this is where it gets intersting.
+ * Show this as a circle with a large icon in the middle. Also make it clickable.
+ */
+.comments-section .comments-toggle {
+  font-size: 100px;
+  font-size: 6.25rem;
+  -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  width: 140px;
+  height: 140px;
+  background-color: white;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/**
+ * Move the coments section, by default, fixed off to the side and very much
+ * hidden.
+ *
+ * It can shift using a transition when it becomes visible.
+ */
+#comments-container {
+  -moz-transition: all 0.4s ease-in;
+  -o-transition: all 0.4s ease-in;
+  -webkit-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+  -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  background-color: white;
+  border-left: 1px solid #d8dbdd;
+  position: fixed;
+  top: 60px;
+  height: 100vh;
+  height: calc(100vh - 60px);
+  overflow-y: scroll;
+  width: 500px;
+  right: -500px;
+  padding: 40px;
+}
+body.comments-visible #comments-container {
+  right: 0;
+}
+
+/**
+ * Show the comments template properly with the expected styling.
+ */
+/**
+ * Show the before content of the author as nothing to remode confusion from
+ * date - author foramt.
+ */
+#comments .author::before {
+  display: none;
+}
+
+/**
+ * Show the author as visualy distinct from the date that acompanies it.
+ */
+#comments .author {
+  font-weight: bold;
+}
+
+/**
+ * Make the reply button as insignificant as the date, yeah I said it, the
+ * date is insignificant.
+ */
+#comments .reply a {
+  font-size: 12px;
+  font-size: 0.75rem;
+  color: #bdc3c7;
+}
+
+/**
+ * Show a comment as a distinct element with its own depth and its own border.
+ * The border differentitates from other comments, the depth shows heiarchy.
+ */
+#comments .comment {
+  width: 100%;
+  border-top: 1px solid #d8dbdd;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#comments .comment.depth-2 {
+  padding-left: 20px;
+}
+#comments .comment.depth-3 {
+  padding-left: 40px;
+}
+#comments .comment.depth-4 {
+  padding-left: 60px;
+}
+#comments .comment.depth-5 {
+  padding-left: 80px;
+}
+
+/**
+ * Style the comment body to be distinct from the typical header font and to
+ * have less extreeme margins than it would have by default.
+ */
+#comments .comment-body p {
+  font-size: 13px;
+  font-size: 0.8125rem;
+  font-family: "PT Serif", serif;
+  margin: 6px auto;
+}
+
+/**
+ * Display the dot between the author and the date.
+ *
+ * Its just a plane black dot guys, nothing special here.
+ */
 /**
  * Styles all the widgets in the site and does so with base styles as well as
  * more specific styles dictated in the widgets/ directory.
@@ -2449,7 +2582,8 @@ article.page {
   padding: 20px;
 }
 body.single .post-content, body.single-post .post-content, body.page .post-content {
-  width: 800px;
+  max-width: 800px;
+  width: 100%;
 }
 
 /**
@@ -2457,6 +2591,9 @@ body.single .post-content, body.single-post .post-content, body.page .post-conte
  * centering.
  */
 .entry-section {
+  -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
   padding: 20px;
   margin: 20px auto;
   background-color: white;
@@ -2615,7 +2752,8 @@ header.page-header {
   font-size: 1.5rem;
   font-family: "Montserrat", "Helvetica", "Avenir", sans-serif;
   background-color: white;
-  width: 700px;
+  width: 100%;
+  max-width: 700px;
   margin: 10px auto;
   text-align: center;
 }

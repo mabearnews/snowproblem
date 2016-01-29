@@ -9,6 +9,9 @@
  * @package snowproblem
  */
 
+ // Add comments js if need be.
+if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); 
+
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>

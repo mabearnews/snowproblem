@@ -21,11 +21,12 @@
 
   @include transition(all 0.4s ease);
   position: fixed;
-  top: 0;
+  top: 60px; /* Nav height */
   left: 0;
   right: 0;
   width: 100vw;
   height: 100vh;
+  height: calc(100vh - 60px); /* Nav height */
   background-color: color('white');
   opacity: 0;
   z-index: -100;
