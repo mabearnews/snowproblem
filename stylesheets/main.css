@@ -1787,12 +1787,12 @@ body.home a, body.home a:active, body.home a:focus, body.home a:hover {
  * interesting looking picutres :-]
  */
 #featured-container::after {
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuMCIgeDI9IjEuMCIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSI1JSIgc3RvcC1jb2xvcj0iIzJmMjUzZCIvPjxzdG9wIG9mZnNldD0iMzAlIiBzdG9wLWNvbG9yPSIjNWUwMmM5Ii8+PHN0b3Agb2Zmc2V0PSI1OCUiIHN0b3AtY29sb3I9IiNiMzAwYjYiLz48c3RvcCBvZmZzZXQ9IjY5JSIgc3RvcC1jb2xvcj0iI2IzMDBiNiIvPjxzdG9wIG9mZnNldD0iOTQlIiBzdG9wLWNvbG9yPSIjMDAwMDAwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuMCIgeDI9IjEuMCIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSI1JSIgc3RvcC1jb2xvcj0iIzk2OTY5NiIvPjxzdG9wIG9mZnNldD0iMzAlIiBzdG9wLWNvbG9yPSIjNjQ2NDY0Ii8+PHN0b3Agb2Zmc2V0PSI1OCUiIHN0b3AtY29sb3I9IiM1MDUwNTAiLz48c3RvcCBvZmZzZXQ9IjY5JSIgc3RvcC1jb2xvcj0iIzI4MjgyOCIvPjxzdG9wIG9mZnNldD0iOTQlIiBzdG9wLWNvbG9yPSIjMDAwMDAwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
   background-size: 100%;
-  background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(5%, #2f253d), color-stop(30%, #5e02c9), color-stop(58%, #b300b6), color-stop(69%, #b300b6), color-stop(94%, #000000));
-  background-image: -moz-linear-gradient(top left, #2f253d 5%, #5e02c9 30%, #b300b6 58%, #b300b6 69%, #000000 94%);
-  background-image: -webkit-linear-gradient(top left, #2f253d 5%, #5e02c9 30%, #b300b6 58%, #b300b6 69%, #000000 94%);
-  background-image: linear-gradient(to bottom right, #2f253d 5%, #5e02c9 30%, #b300b6 58%, #b300b6 69%, #000000 94%);
+  background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(5%, #969696), color-stop(30%, #646464), color-stop(58%, #505050), color-stop(69%, #282828), color-stop(94%, #000000));
+  background-image: -moz-linear-gradient(top left, #969696 5%, #646464 30%, #505050 58%, #282828 69%, #000000 94%);
+  background-image: -webkit-linear-gradient(top left, #969696 5%, #646464 30%, #505050 58%, #282828 69%, #000000 94%);
+  background-image: linear-gradient(to bottom right, #969696 5%, #646464 30%, #505050 58%, #282828 69%, #000000 94%);
   content: '';
   position: absolute;
   left: 0;

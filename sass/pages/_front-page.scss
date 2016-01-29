@@ -52,7 +52,7 @@ body.home a {
  * interesting looking picutres :-]
  */
 #featured-container::after {
-  @include background-image(linear-gradient(top left, #2f253d 5%, #5e02c9 30%, #b300b6 58%, #b300b6 69%, black 94%));
+  @include background-image(linear-gradient(top left, rgb(150, 150, 150) 5%, rgb(100, 100, 100) 30%, rgb(80, 80, 80) 58%, rgb(40, 40, 40) 69%, black 94%));
   content: '';
   position: absolute;
   left: 0;
