@@ -31,22 +31,21 @@ if ( post_password_required() ) {
 <div id="comments" class="comments-area">
 	<section class="comments-content">
 		<?php if ( have_comments() ) : ?>
+
 			<h2 class="comments-number">
 				<span class="num"><?php print get_comments_number(); ?></span> Comments
 			</h2>
 
 			<section class="comment-list">
 				<?php
-					wp_list_comments( array(
-						'style'		  => 'div',
-						'type'        => 'comment',
-						'callback'    => 'snowproblem_comment',
-						'avatar_size' => 0,
-						'format'      => 'html5',
-					) );
-				?>
+				wp_list_comments( array(
+					'style'		  => 'div',
+					'type'        => 'comment',
+					'callback'    => 'snowproblem_comment',
+					'avatar_size' => 0,
+					'format'      => 'html5',
+				) ); ?>
 			</section><!-- .comment-list -->
-
 
 		<?php endif; // Check for have_comments(). ?>
 
@@ -56,6 +55,16 @@ if ( post_password_required() ) {
 			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'snowproblem' ); ?></p>
 		<?php endif; ?>
 
-		<?php comment_form(); ?>
-	</section> <!-- .content-element -->
+		<?php comment_form( array(
+			'comment_notes_before' => '',
+			'comment_notes_after'  => '',
+			'fields' => apply_filters( 'comment_form_default_fields', array(
+	            'author' => '<input id="author" name="author" type="text" value="' .
+            				esc_attr( $commenter['comment_author'] ) . '" placeholder="' . __('Your Name') . '" ' .$aria_req . ' />',
+	            'email'  => '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" placeholder="' . __('Your Name') . '"' . $aria_req . ' />',
+	            'url'    => '',
+			) ),
+            'comment_field' => '<textarea id="comment" name="comment" aria-required="true"></textarea>',
+		) ); ?>
+	</section> <!-- .comments-element -->
 </div><!-- #comments -->

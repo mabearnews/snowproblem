@@ -7,6 +7,11 @@
  * @package snowproblem
  */
 
+/**
+ * Include all definitions that setup the theme.
+ */
+require 'inc/config.php';
+
 if ( ! function_exists( 'snowproblem_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -177,10 +182,6 @@ function snowproblem_scripts() {
 
 	wp_enqueue_script( 'snowproblem-main-js', get_template_directory_uri() . '/dist/js/main.js' );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-
 	// Add support for ajax-loading
 	wp_enqueue_script( 'snowproblem-ajax-loading', get_template_directory_uri() .'/dist/js/ajax.js' );
 
@@ -197,6 +198,7 @@ function snowproblem_comment($comment, $args, $depth) {
 	$GLOBALS['comment'] = $comment;
 	extract($args, EXTR_SKIP);
 ?>
+	<div>
 	<article <?php comment_class(); ?> id="comment-<?php comment_ID() ?>">
 		<?php if ( $args['avatar_size'] != '0' ) : ?>
 			<div class="author-image-container">
@@ -248,6 +250,7 @@ function snowproblem_add_slug_body_class( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'snowproblem_add_slug_body_class' );
+
 
 /**
  * Implement ajax laoding.

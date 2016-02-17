@@ -20,3 +20,11 @@
    order: 0;
    overflow: hidden;
 }
+
+
+/**
+ * Ensure the footer never leaves the bottom of the page.
+ */
+#page > .content-container {
+  min-height: calc(100vh - 112px);
+}

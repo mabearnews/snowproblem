@@ -6,6 +6,7 @@ jQuery(document).ready(function($) {
 
         if ( state ) {
             $( 'body' ).addClass( 'search-visible' );
+            $( '#searchform .search-field' ).focus();
         } else {
             $( 'body' ).removeClass( 'search-visible' );
         }
@@ -23,6 +24,15 @@ jQuery(document).ready(function($) {
             $('#searchform').submit();
             return false; // Ensure default is prevented.
         }
+
+        // Clear the fields.
+        $('#searchform .search-results').empty();
+
+        // Load some posts form the field.
+        $('#searchform .search-results').ajaxLoadPosts({
+            s: $(this).val(),
+            postNumber: 3
+        });
     });
 
 });

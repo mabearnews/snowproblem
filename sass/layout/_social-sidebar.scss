@@ -1,0 +1,32 @@
+#social-menu-sidear {
+  position: fixed;
+  z-index: 5;
+  right: 0;
+  top: 30vh;
+}
+
+/**
+ * Make the list vertical, this uses flexbox to ovverride the default
+ * behavior of the list.
+ */
+#social-menu-sidear ul {
+  @include display-flex;
+  @include flex-direction(column);
+  list-style-type: none;
+}
+
+/**
+ * Change the sizes of the social menu icons.
+ */
+#social-menu-sidear a::before {
+  @include font-size(24px);
+}
+
+/**
+ * Change the size and nature of the icon container.
+ */
+#social-menu-sidear a {
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid color('black');
+}

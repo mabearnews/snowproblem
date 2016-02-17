@@ -27,7 +27,7 @@
   width: 100vw;
   height: 100vh;
   height: calc(100vh - 60px); /* Nav height */
-  background-color: color('white');
+  background-color: darken(color('white'), 2);
   opacity: 0;
   z-index: -100;
 
@@ -79,13 +79,16 @@
   @include font-size(26px);
   text-align: center;
   font-family: $alternate-font;
+}
 
-  &::after {
-    content: '';
-    margin: 5px;
-    font-family: "FontAwesome";
-    content: '\f002';
-  }
+/**
+ * Keep the icon behind the search container.
+ */
+#searchform .field-container::after {
+  content: '';
+  margin: 5px;
+  font-family: "FontAwesome";
+  content: '\f002';
 }
 
 
@@ -106,4 +109,72 @@
   border-radius: 0;
   border-bottom: 1px solid color('black');
   text-align: right;
+  background-color: transparent;
+}
+
+/**
+ * Style the posts that are being loaded using ajax in the searchfield.
+ */
+#searchform .search-results {
+  max-width: 700px;
+  width: 90vw;
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+/**
+ * In casses where nothing was found for a given search, display an apropriate
+ * message to the user.
+ */
+#nothing-result {
+  @include display-flex;
+  @include flex-flow(row wrap);
+  @include justify-content(center);
+  margin: 0;
+  width: 100%;
+  padding: 60px auto;
+}
+
+/**
+ * Show the actual nothing text.
+ */
+#nothing-result blockquote {
+  @include font-size(40px);
+  font-family: $alternate-font;
+  max-width: 600px;
+  color: color('darkgrey');
+  font-style: italic;
+}
+
+/**
+ * Show that nothing quote as a quote
+ */
+#nothing-result blockquote::before {
+  @include font-size(160px);
+  margin-top: -60px;
+  content: '\201C';
+  float: left;
+  color: color('grey');
+}
+
+/**
+ * Remove the spacing around the p tag.
+ */
+#nothing-result p {
+  margin-bottom: 0;
+}
+
+/**
+ * Style the blockquote citation for proper impact.
+ */
+#nothing-result cite {
+  @include font-size(30px);
+  margin-left: 15%;
+  margin-top: -100px;
+  font-style: normal;
+
+  &::before {
+    content: '–';
+    margin: 0 2px;
+  }
 }

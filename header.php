@@ -9,9 +9,6 @@
  * @package snowproblem
  */
 
- // Add comments js if need be.
-if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); 
-
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -43,19 +40,20 @@ if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
 				<div class="row"></div>
 			</div>
 		</section>
-		<!-- Primary Menu  -->
-		<?php snowproblem_primary_menu(); ?>
 
 		<!-- Site Name -->
 		<section id="site-title-wrapper" class="container">
 				<a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-					<?php bloginfo( 'name' ); ?>
+					<!-- <img src="<?php print get_template_directory_uri(); ?>/images/logo-full.svg" /> -->
+					<?php print bloginfo('name'); ?>
 				</a>
 		</section>
 
+		<!-- Primary Menu  -->
+		<?php snowproblem_primary_menu(); ?>
+
 		<!-- Social Menu -->
 		<?php snowproblem_social_menu(); ?>
-
 
 		<section id="search-toggle">
 			<span class="fa fa-search"></span>
@@ -66,6 +64,18 @@ if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
 </nav><!-- #site-navigation -->
 
 <?php get_search_form( true ); ?>
+
+<?php
+// Shows the social menu sidebar on most pages.
+if ( 0 && ! is_home() ) : ?>
+
+	<div id="social-menu-sidear">
+
+		<?php snowproblem_social_menu(); ?>
+
+	</div>
+
+<?php endif; ?>
 
 <div id="page" class="hfeed site">
 	<div class="content-container container">

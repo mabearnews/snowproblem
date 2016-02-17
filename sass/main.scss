@@ -27,6 +27,7 @@ sass/
 |   |– _header.scss      # Header
 |   |– _footer.scss      # Footer
 |   |– _sidebar.scss     # Sidebar
+|   |- _social-sidebar.scss # sSocial sidebar
 |   |– _page.scss        # Page
 |   |– _hex-grid.scss    # A hexagonal grid system
 |
@@ -72,7 +73,8 @@ sass/
   'layout/header',
   'layout/sidebar',
   'layout/footer',
-  'layout/page';
+  'layout/page',
+  'layout/social-sidebar';
 
 @import
   'components/related-posts',

@@ -3,7 +3,7 @@
  * 1. Ovverride any background image that wordpress might attempt to impose.
  */
 body {
-  background-color: color('orange');
+  background-color: rgb(103, 6, 16);
   background-image: none !important; /* 1 */
 }
 
@@ -249,12 +249,12 @@ body.nav-visible #menu-toggle  .row {
  * 1. Hide all menu items below the depth of 1.
  */
 #primary-menu-items li {
-    margin-left: 10px;
-    margin-right: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 
-    & li {
-      display: none; /* 1 */
-    }
+  & li {
+    display: none; /* 1 */
+  }
 }
 
 /**
@@ -262,23 +262,29 @@ body.nav-visible #menu-toggle  .row {
  * transference of the name to an icon as specified in $social-icons.
  */
 @each $name, $character in $social-icons {
-    #social-menu-items a[href*="#{$name}"] {
-        span { display: none; }
+  #social-menu-items a[href*="#{$name}"] {
+    span { display: none; }
 
-        &::before {
-            font-family: "fontawesome";
-            content: $character;
-            font-size: $content-font-size * 1.3;
-        }
+    &::before {
+      font-family: "fontawesome";
+      content: $character;
     }
+  }
+}
+
+/**
+ * Allow the font size to be overriden later on.
+ */
+#social-menu-items a::before {
+  font-size: $content-font-size * 1.3;
 }
 
 /**
  * Display the social menu icons with space between them.
  */
 #social-menu li {
-    margin-left: 5px;
-    margin-right: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 /**
@@ -301,6 +307,24 @@ body.nav-visible #menu-toggle  .row {
     @include respond-to('large') {
       @include font-size('large');
       margin-top: (headingSize('large') / -4);
+    }
+}
+
+/**
+ * Display with the svg logo from the site in black and white to keep with the
+ * theme.
+ */
+#site-title-wrapper .site-title img {
+    width: auto;
+    height: 80px;
+    display: block;
+
+    @include respond-to('large') {
+      height: 65px;
+    }
+
+    @include respond-to('medium') {
+      height: 50px;
     }
 }
 

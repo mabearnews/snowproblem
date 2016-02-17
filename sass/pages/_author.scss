@@ -47,6 +47,13 @@ body.author #main {
 }
 
 /**
+ * Properly size the author bio.
+ */
+#author-info .author-bio {
+  @include font-size(12px);
+}
+
+/**
  * Order the loaded posts to proceded the author information
  */
 body.author #main .loaded-posts {

@@ -6,25 +6,73 @@
  * show up as content. Away with that notion!
  */
 .comments-section {
-  @include box-shadow(none !important);
-  background-color: transparent !important;
+  @include transition(all 0.5s);
+  @include content-shadow;
+  @include box-sizing(border-box);
   text-align: center;
+  background-color: $content-bgcolor;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: '';
+    background-color: $border-color;
+    height: 1px;
+    width: calc(40% - 70px);
+    position: absolute;
+    top: 50%;
+  }
+
+  &::before {
+    left: 10%;
+  }
+
+  &::after {
+    right: 10%;
+  }
 }
 
 /**
  * Alright, the icon container, this is where it gets intersting.
  * Show this as a circle with a large icon in the middle. Also make it clickable.
+ *
+ * Don't show on mobile.
  */
 .comments-section .comments-toggle {
+  @extend %center-vertical;
   @include font-size(100px);
-  @include content-shadow;
   width: 140px;
   height: 140px;
-  background-color: $content-bgcolor;
   display: inline-block;
   text-align: center;
   border-radius: 50%;
+  border: 1px solid $border-color;
   cursor: pointer;
+
+  @include respond-to('medium') {
+    display: none;
+  }
+}
+
+/**
+ * Vertically center the icon.
+ */
+.comments-section .fa {
+  display: block;
+  margin: auto;
+  padding-top: 15px;
+}
+
+/**
+ * When the comments section is hovered over, invert the colors in order to
+ * provide a type of shock and awe to the realization that this is in fact a
+ * button.
+ */
+.comments-section:hover {
+  background-color: color('black');
+  color: $light-text-color;
 }
 
 /**
@@ -32,6 +80,9 @@
  * hidden.
  *
  * It can shift using a transition when it becomes visible.
+ *
+ * For mobile this container will simply be shown as already present and
+ * at the bottom of the post.
  */
 #comments-container {
   @include transition(all 0.4s ease-in);
@@ -45,10 +96,19 @@
   overflow-y: scroll;
   width: 500px;
   right: -500px;
-  padding: 40px;
+  padding: 5px 40px;
 
   body.comments-visible & {
     right: 0;
+  }
+
+  @include respond-to('medium') {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    top: auto;
+    right: auto;
   }
 }
 
@@ -124,3 +184,85 @@
 //   top: -3px;
 //   left: -5px
 // }
+
+/**
+ * Style the form as a flexbox to contain the commetns.
+ *
+ * This uses the wrapping property to allow the textarea to retain full size.
+ */
+#respond form {
+  @include display-flex;
+  @include flex-flow(row wrap);
+  @include justify-content(space-between);
+}
+
+/**
+ * Display the coment form inputs without the default blue border as more
+ * accurate and usefull instrumenets.
+ */
+#respond input,
+#respond textarea {
+  @include transition(all 0.3s);
+  @include box-sizing(border-box);
+  @include font-size(12px);
+  border: 1px solid $border-color;
+  padding: 8px;
+  font-family: $content-font;
+  margin: 10px;
+
+  &:focus {
+    outline: none;
+    border: 1px solid darken($border-color, 20);
+  }
+}
+
+/**
+ * Ensure the textarea has the correct width and also that it shall not grow
+ * to large or to small.
+ */
+#respond textarea {
+  width: 100%;
+  min-height: 70px;
+  max-height: 200px;
+}
+
+/**
+ * Set the sizes of the first input areas to be equal and sidebyside.
+ */
+#respond input {
+  width: 45%;
+  width: calc(50% - 20px); // take into account the margin
+}
+
+/**
+ * Style the submission button of the form, this overrides default styling.
+ */
+#respond input[type="submit"] {
+  @include transition(all 0.56s);
+  font-family: $heading-font;
+  width: auto;
+  background-color: transparent;
+  border: 1px solid black;
+  color: $primary-text-color;
+
+  &:hover {
+    background-color: rgb(4, 4, 4);
+    color: $light-text-color;
+  }
+}
+
+/**
+ * Make the reply title stand out a bit less than the heading would make it.
+ */
+#reply-title {
+  @include font-size(15px);
+}
+
+/**
+ * Make visually distinct the cancel reply option.
+ */
+#reply-title a::before {
+  color: $primary-text-color !important;
+  content: '-';
+  margin: 0 4px;
+}

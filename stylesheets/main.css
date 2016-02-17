@@ -28,6 +28,7 @@ sass/
 |   |– _header.scss      # Header
 |   |– _footer.scss      # Footer
 |   |– _sidebar.scss     # Sidebar
+|   |- _social-sidebar.scss # sSocial sidebar
 |   |– _page.scss        # Page
 |   |– _hex-grid.scss    # A hexagonal grid system
 |
@@ -60,7 +61,7 @@ sass/
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
 @import url(https://fonts.googleapis.com/css?family=EB+Garamond);
 @import url(https://fonts.googleapis.com/css?family=Cousine:400,700);
-#site-title-wrapper, #search-toggle, #searchform, #featured-container .featured-post, #categories .cat {
+#site-title-wrapper, #search-toggle, #searchform, .comments-section .comments-toggle, #featured-container .featured-post, #categories .cat {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: column;
@@ -499,7 +500,7 @@ a:active, a:focus, a:hover {
  * 1. Ovverride any background image that wordpress might attempt to impose.
  */
 body {
-  background-color: #e67e22;
+  background-color: #670610;
   background-image: none !important;
   /* 1 */
 }
@@ -833,7 +834,6 @@ body.nav-ending-visible #page {
 #social-menu-items a[href*="facebook"]::before {
   font-family: "fontawesome";
   content: "";
-  font-size: 18.2px;
 }
 
 #social-menu-items a[href*="github"] span {
@@ -842,7 +842,6 @@ body.nav-ending-visible #page {
 #social-menu-items a[href*="github"]::before {
   font-family: "fontawesome";
   content: "";
-  font-size: 18.2px;
 }
 
 #social-menu-items a[href*="tumblr"] span {
@@ -851,7 +850,6 @@ body.nav-ending-visible #page {
 #social-menu-items a[href*="tumblr"]::before {
   font-family: "fontawesome";
   content: "";
-  font-size: 18.2px;
 }
 
 #social-menu-items a[href*="vine"] span {
@@ -860,7 +858,6 @@ body.nav-ending-visible #page {
 #social-menu-items a[href*="vine"]::before {
   font-family: "fontawesome";
   content: "";
-  font-size: 18.2px;
 }
 
 #social-menu-items a[href*="yelp"] span {
@@ -869,7 +866,6 @@ body.nav-ending-visible #page {
 #social-menu-items a[href*="yelp"]::before {
   font-family: "fontawesome";
   content: "";
-  font-size: 18.2px;
 }
 
 #social-menu-items a[href*="youtube"] span {
@@ -878,7 +874,6 @@ body.nav-ending-visible #page {
 #social-menu-items a[href*="youtube"]::before {
   font-family: "fontawesome";
   content: "";
-  font-size: 18.2px;
 }
 
 #social-menu-items a[href*="twitter"] span {
@@ -887,7 +882,6 @@ body.nav-ending-visible #page {
 #social-menu-items a[href*="twitter"]::before {
   font-family: "fontawesome";
   content: "";
-  font-size: 18.2px;
 }
 
 #social-menu-items a[href*="vimeo"] span {
@@ -896,7 +890,6 @@ body.nav-ending-visible #page {
 #social-menu-items a[href*="vimeo"]::before {
   font-family: "fontawesome";
   content: "";
-  font-size: 18.2px;
 }
 
 #social-menu-items a[href*="slack"] span {
@@ -905,7 +898,6 @@ body.nav-ending-visible #page {
 #social-menu-items a[href*="slack"]::before {
   font-family: "fontawesome";
   content: "";
-  font-size: 18.2px;
 }
 
 #social-menu-items a[href*="rebel"] span {
@@ -914,7 +906,6 @@ body.nav-ending-visible #page {
 #social-menu-items a[href*="rebel"]::before {
   font-family: "fontawesome";
   content: "";
-  font-size: 18.2px;
 }
 
 #social-menu-items a[href*="pinterest"] span {
@@ -923,7 +914,6 @@ body.nav-ending-visible #page {
 #social-menu-items a[href*="pinterest"]::before {
   font-family: "fontawesome";
   content: "";
-  font-size: 18.2px;
 }
 
 #social-menu-items a[href*="linkedin"] span {
@@ -932,7 +922,6 @@ body.nav-ending-visible #page {
 #social-menu-items a[href*="linkedin"]::before {
   font-family: "fontawesome";
   content: "";
-  font-size: 18.2px;
 }
 
 #social-menu-items a[href*="google"] span {
@@ -941,7 +930,6 @@ body.nav-ending-visible #page {
 #social-menu-items a[href*="google"]::before {
   font-family: "fontawesome";
   content: "";
-  font-size: 18.2px;
 }
 
 #social-menu-items a[href*="instagram"] span {
@@ -950,6 +938,12 @@ body.nav-ending-visible #page {
 #social-menu-items a[href*="instagram"]::before {
   font-family: "fontawesome";
   content: "";
+}
+
+/**
+ * Allow the font size to be overriden later on.
+ */
+#social-menu-items a::before {
   font-size: 18.2px;
 }
 
@@ -980,6 +974,26 @@ body.nav-ending-visible #page {
     font-size: 24px;
     font-size: 1.5rem;
     margin-top: -6px;
+  }
+}
+
+/**
+ * Display with the svg logo from the site in black and white to keep with the
+ * theme.
+ */
+#site-title-wrapper .site-title img {
+  width: auto;
+  height: 80px;
+  display: block;
+}
+@media (max-width: 1000px) {
+  #site-title-wrapper .site-title img {
+    height: 65px;
+  }
+}
+@media (max-width: 800px) {
+  #site-title-wrapper .site-title img {
+    height: 50px;
   }
 }
 
@@ -1084,6 +1098,13 @@ body.nav-ending-visible #page {
 }
 
 /**
+ * Ensure the footer never leaves the bottom of the page.
+ */
+#page > .content-container {
+  min-height: calc(100vh - 112px);
+}
+
+/**
  * Sets up the sidebar, its notable this does not work on mobile and is thus
  * removed for that sake.
  *
@@ -1129,10 +1150,14 @@ body.nav-ending-visible #page {
  * a widget area and styling for widget use in that area is currently not used.
  */
 #primary-footer {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   border-top: 1px solid #d8dbdd;
   padding-top: 15px;
   background-color: white;
   width: 100%;
+  height: 112px;
 }
 
 /**
@@ -1149,7 +1174,7 @@ body.nav-ending-visible #page {
   justify-content: space-around;
   width: 100%;
   margin: 0;
-  padding: 40px;
+  padding: 20px;
 }
 
 /**
@@ -1191,6 +1216,42 @@ body, html {
   display: none;
 }
 
+#social-menu-sidear {
+  position: fixed;
+  z-index: 5;
+  right: 0;
+  top: 30vh;
+}
+
+/**
+ * Make the list vertical, this uses flexbox to ovverride the default
+ * behavior of the list.
+ */
+#social-menu-sidear ul {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  list-style-type: none;
+}
+
+/**
+ * Change the sizes of the social menu icons.
+ */
+#social-menu-sidear a::before {
+  font-size: 24px;
+  font-size: 1.5rem;
+}
+
+/**
+ * Change the size and nature of the icon container.
+ */
+#social-menu-sidear a {
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+
 /**
  * Style the icon to look clickable and feel so as well.
  */
@@ -1223,7 +1284,7 @@ body, html {
   height: 100vh;
   height: calc(100vh - 60px);
   /* Nav height */
-  background-color: white;
+  background-color: #fafafa;
   opacity: 0;
   z-index: -100;
 }
@@ -1279,7 +1340,11 @@ body.search-visible #searchform {
   text-align: center;
   font-family: "EB Garamond", Georgia, serif;
 }
-#searchform .search-container::after {
+
+/**
+ * Keep the icon behind the search container.
+ */
+#searchform .field-container::after {
   content: '';
   margin: 5px;
   font-family: "FontAwesome";
@@ -1303,6 +1368,79 @@ body.search-visible #searchform {
   border-radius: 0;
   border-bottom: 1px solid black;
   text-align: right;
+  background-color: transparent;
+}
+
+/**
+ * Style the posts that are being loaded using ajax in the searchfield.
+ */
+#searchform .search-results {
+  max-width: 700px;
+  width: 90vw;
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+/**
+ * In casses where nothing was found for a given search, display an apropriate
+ * message to the user.
+ */
+#nothing-result {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+  padding: 60px auto;
+}
+
+/**
+ * Show the actual nothing text.
+ */
+#nothing-result blockquote {
+  font-size: 40px;
+  font-size: 2.5rem;
+  font-family: "EB Garamond", Georgia, serif;
+  max-width: 600px;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+/**
+ * Show that nothing quote as a quote
+ */
+#nothing-result blockquote::before {
+  font-size: 160px;
+  font-size: 10rem;
+  margin-top: -60px;
+  content: '\201C';
+  float: left;
+  color: #95a5a6;
+}
+
+/**
+ * Remove the spacing around the p tag.
+ */
+#nothing-result p {
+  margin-bottom: 0;
+}
+
+/**
+ * Style the blockquote citation for proper impact.
+ */
+#nothing-result cite {
+  font-size: 30px;
+  font-size: 1.875rem;
+  margin-left: 15%;
+  margin-top: -100px;
+  font-style: normal;
+}
+#nothing-result cite::before {
+  content: '–';
+  margin: 0 2px;
 }
 
 /**
@@ -1313,30 +1451,77 @@ body.search-visible #searchform {
  * show up as content. Away with that notion!
  */
 .comments-section {
-  -moz-box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-  background-color: transparent !important;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   text-align: center;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.comments-section::before, .comments-section::after {
+  content: '';
+  background-color: #d8dbdd;
+  height: 1px;
+  width: calc(40% - 70px);
+  position: absolute;
+  top: 50%;
+}
+.comments-section::before {
+  left: 10%;
+}
+.comments-section::after {
+  right: 10%;
 }
 
 /**
  * Alright, the icon container, this is where it gets intersting.
  * Show this as a circle with a large icon in the middle. Also make it clickable.
+ *
+ * Don't show on mobile.
  */
 .comments-section .comments-toggle {
   font-size: 100px;
   font-size: 6.25rem;
-  -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
   width: 140px;
   height: 140px;
-  background-color: white;
   display: inline-block;
   text-align: center;
   border-radius: 50%;
+  border: 1px solid #d8dbdd;
   cursor: pointer;
+}
+@media (max-width: 800px) {
+  .comments-section .comments-toggle {
+    display: none;
+  }
+}
+
+/**
+ * Vertically center the icon.
+ */
+.comments-section .fa {
+  display: block;
+  margin: auto;
+  padding-top: 15px;
+}
+
+/**
+ * When the comments section is hovered over, invert the colors in order to
+ * provide a type of shock and awe to the realization that this is in fact a
+ * button.
+ */
+.comments-section:hover {
+  background-color: black;
+  color: white;
 }
 
 /**
@@ -1344,6 +1529,9 @@ body.search-visible #searchform {
  * hidden.
  *
  * It can shift using a transition when it becomes visible.
+ *
+ * For mobile this container will simply be shown as already present and
+ * at the bottom of the post.
  */
 #comments-container {
   -moz-transition: all 0.4s ease-in;
@@ -1362,10 +1550,20 @@ body.search-visible #searchform {
   overflow-y: scroll;
   width: 500px;
   right: -500px;
-  padding: 40px;
+  padding: 5px 40px;
 }
 body.comments-visible #comments-container {
   right: 0;
+}
+@media (max-width: 800px) {
+  #comments-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    top: auto;
+    right: auto;
+  }
 }
 
 /**
@@ -1435,6 +1633,100 @@ body.comments-visible #comments-container {
  *
  * Its just a plane black dot guys, nothing special here.
  */
+/**
+ * Style the form as a flexbox to contain the commetns.
+ *
+ * This uses the wrapping property to allow the textarea to retain full size.
+ */
+#respond form {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+/**
+ * Display the coment form inputs without the default blue border as more
+ * accurate and usefull instrumenets.
+ */
+#respond input,
+#respond textarea {
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 12px;
+  font-size: 0.75rem;
+  border: 1px solid #d8dbdd;
+  padding: 8px;
+  font-family: "PT Serif", serif;
+  margin: 10px;
+}
+#respond input:focus,
+#respond textarea:focus {
+  outline: none;
+  border: 1px solid #a2a9ad;
+}
+
+/**
+ * Ensure the textarea has the correct width and also that it shall not grow
+ * to large or to small.
+ */
+#respond textarea {
+  width: 100%;
+  min-height: 70px;
+  max-height: 200px;
+}
+
+/**
+ * Set the sizes of the first input areas to be equal and sidebyside.
+ */
+#respond input {
+  width: 45%;
+  width: calc(50% - 20px);
+}
+
+/**
+ * Style the submission button of the form, this overrides default styling.
+ */
+#respond input[type="submit"] {
+  -moz-transition: all 0.56s;
+  -o-transition: all 0.56s;
+  -webkit-transition: all 0.56s;
+  transition: all 0.56s;
+  font-family: "Montserrat", "Helvetica", "Avenir", sans-serif;
+  width: auto;
+  background-color: transparent;
+  border: 1px solid black;
+  color: black;
+}
+#respond input[type="submit"]:hover {
+  background-color: #040404;
+  color: white;
+}
+
+/**
+ * Make the reply title stand out a bit less than the heading would make it.
+ */
+#reply-title {
+  font-size: 15px;
+  font-size: 0.9375rem;
+}
+
+/**
+ * Make visually distinct the cancel reply option.
+ */
+#reply-title a::before {
+  color: black !important;
+  content: '-';
+  margin: 0 4px;
+}
+
 /**
  * Styles all the widgets in the site and does so with base styles as well as
  * more specific styles dictated in the widgets/ directory.
@@ -2696,6 +2988,14 @@ body.author #main {
  */
 #author-info .author-content {
   background-color: white;
+}
+
+/**
+ * Properly size the author bio.
+ */
+#author-info .author-bio {
+  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 /**
