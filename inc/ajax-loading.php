@@ -34,9 +34,9 @@ function snowproblem_ajax_post_loading() {
 
     // If the query is an array parse that, else parse as a whole
     if ( is_array( $data ) ) {
-        $data['numberposts'] = $numberposts;
+        $data['posts_per_page'] = $numberposts;
     } else {
-        $data .= '&numberposts=' . $numberposts;
+        $data .= '&posts_per_page=' . $numberposts;
     }
 
     // Perform the mysql query and return each post
@@ -63,7 +63,6 @@ function snowproblem_ajax_post_loading() {
 	endif;
 
 	wp_reset_query();
-
 
 	// Avoid the die 0 command which prints a rather inconveniant 0.
 	die();
@@ -106,9 +105,9 @@ function snowproblem_ajax_data_get() {
 
     // Find out how many posts per page by using the exclude ids and skip to
     // in order to formulate a number.
-    $postsPerPage = $skipTo + $numbPosts + count( $excludeIds ) + 1;
+    $postsPerPage = $skipTo + $numbPosts + count( $excludeIds ) + 2;
 
-    $queryData['numberposts'] = $postsPerPage;
+    $queryData['posts_per_page'] = $postsPerPage;
 
     // Perform the actual wordpress query.
     $query = new WP_Query( $queryData );
