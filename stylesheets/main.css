@@ -634,15 +634,6 @@ body {
 }
 
 /**
- * Hide all elements of the navigation bar that are automatically taken by the
- * mobile site expanded navigation.
- */
-@media (max-width: 800px) {
-  #primary-menu, #social-menu, #sidebar-toggle {
-    display: none;
-  }
-}
-/**
  * Styles the menu toggle which is a classic three bar burger menu with
  * animating style when clicked.
  * 1. Adjust to ensure the centering of the menu.
@@ -1075,6 +1066,15 @@ body.nav-ending-visible #page {
   width: 16px;
 }
 
+/**
+ * Hide all elements of the navigation bar that are automatically taken by the
+ * mobile site expanded navigation.
+ */
+@media (max-width: 800px) {
+  #primary-menu, #social-menu, #sidebar-toggle {
+    display: none !important;
+  }
+}
 /**
  * Style the layout between the left and the right side of the page.
  */

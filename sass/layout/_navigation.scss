@@ -108,16 +108,6 @@ body {
 }
 
 /**
- * Hide all elements of the navigation bar that are automatically taken by the
- * mobile site expanded navigation.
- */
-@include respond-to('medium') {
-  #primary-menu, #social-menu, #sidebar-toggle {
-      display: none;
-  }
-}
-
-/**
  * Styles the menu toggle which is a classic three bar burger menu with
  * animating style when clicked.
  * 1. Adjust to ensure the centering of the menu.
@@ -400,4 +390,14 @@ body.nav-visible #menu-toggle  .row {
  */
 #sidebar-toggle .row:nth-child(2) .dash {
   width: 26px - 10px;
+}
+
+/**
+ * Hide all elements of the navigation bar that are automatically taken by the
+ * mobile site expanded navigation.
+ */
+@include respond-to('medium') {
+  #primary-menu, #social-menu, #sidebar-toggle {
+      display: none !important;
+  }
 }
