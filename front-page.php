@@ -48,7 +48,7 @@ function snowproblem_display_popular( $cat = 0, $numb = 1 ) {
 
     $postsQuery = array(
         'meta_key'    => 'snowproblem_views_count',
-        'orderby'     => 'meta_value_num',
+        'orderby'     => 'date',
         'numberposts' => 30,
     );
 
