@@ -8,6 +8,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
 @import url(https://fonts.googleapis.com/css?family=EB+Garamond);
 @import url(https://fonts.googleapis.com/css?family=Cousine:400,700);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,500,600);
 /**
  * Provide the basic styling for the anchor tag. Specificly, it targets the
  * responsive nature of the link in cases of hover or focus.
@@ -21,7 +22,7 @@ a {
   transition: color 0.3s ease-in;
   font-size: 16px;
   font-size: 1rem;
-  font-family: "Montserrat", "Helvetica", "Avenir", sans-serif;
+  font-family: "Raleway", "Montserrat", "Helvetica", "Avenir", sans-serif;
   color: black;
   /* 1 */
   cursor: pointer;
@@ -249,7 +250,7 @@ a:active, a:focus, a:hover {
 #message .go-home * {
   font-size: 16px;
   font-size: 1rem;
-  font-family: "Montserrat", "Helvetica", "Avenir", sans-serif;
+  font-family: "Raleway", "Montserrat", "Helvetica", "Avenir", sans-serif;
   cursor: pointer;
   -moz-animation: pulse 16s infinite linear;
   -webkit-animation: pulse 16s infinite linear;

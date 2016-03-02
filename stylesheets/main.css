@@ -61,7 +61,8 @@ sass/
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
 @import url(https://fonts.googleapis.com/css?family=EB+Garamond);
 @import url(https://fonts.googleapis.com/css?family=Cousine:400,700);
-#site-title-wrapper, #search-toggle, #searchform, .comments-section .comments-toggle, #featured-container .featured-post, #categories .cat {
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,500,600);
+#site-navigation > .wrapper > *, #search-toggle, #searchform, .comments-section .comments-toggle, #featured-container .featured-post, #categories .cat, .post-popular {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: column;
@@ -481,7 +482,7 @@ a {
   transition: color 0.3s ease-in;
   font-size: 16px;
   font-size: 1rem;
-  font-family: "Montserrat", "Helvetica", "Avenir", sans-serif;
+  font-family: "Raleway", "Montserrat", "Helvetica", "Avenir", sans-serif;
   color: black;
   /* 1 */
   cursor: pointer;
@@ -518,10 +519,10 @@ body {
  * 9. Ensure stanrd font size throught the navigation, exceptions may follow.
  */
 #site-navigation {
-  -moz-transition: -moz-transform 0.8s;
-  -o-transition: -o-transform 0.8s;
-  -webkit-transition: -webkit-transform 0.8s;
-  transition: transform 0.8s;
+  -moz-transition: all 0.8s;
+  -o-transition: all 0.8s;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
   /* 8 */
   display: -webkit-flex;
   display: flex;
@@ -548,11 +549,14 @@ body {
   max-width: 100vw;
   height: 60px;
   /* 2 */
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.75);
   /* 3 */
   border-bottom: 1px solid #d8dbdd;
   /* 3 */
   z-index: 100;
+}
+#site-navigation:hover {
+  background-color: white;
 }
 @media (max-width: 1000px) {
   #site-navigation a {
@@ -601,7 +605,6 @@ body {
   justify-content: space-between;
   width: 1160px;
   margin: 0 auto;
-  padding: 20px;
 }
 @media (max-width: 1160px) {
   #site-navigation > .wrapper {
@@ -659,10 +662,12 @@ body {
   /* 1 */
   cursor: pointer;
   /* 2 */
-  width: 26px;
-  height: 20px;
   margin-left: 0;
   padding-left: 0;
+}
+#menu-toggle > * {
+  width: 26px;
+  height: 20px;
   position: relative;
 }
 
@@ -675,10 +680,10 @@ body {
  * Also position the transform origion and top properties in order to have
  */
 #menu-toggle .row {
-  -moz-transition: -moz-transform 0.8s ease;
-  -o-transition: -o-transform 0.8s ease;
-  -webkit-transition: -webkit-transform 0.8s ease;
-  transition: transform 0.8s ease;
+  -moz-transition: all 0.8s ease;
+  -o-transition: all 0.8s ease;
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
   /* 1 */
   position: absolute;
   height: 3px;
@@ -789,10 +794,10 @@ body.nav-visible #menu-toggle .row:nth-child(2) {
   transform-origin: top left;
 }
 body.nav-visible #page {
-  -moz-transform: rotate(-35deg);
-  -ms-transform: rotate(-35deg);
-  -webkit-transform: rotate(-35deg);
-  transform: rotate(-35deg);
+  -moz-transform: rotate(-25deg);
+  -ms-transform: rotate(-25deg);
+  -webkit-transform: rotate(-25deg);
+  transform: rotate(-25deg);
   /* 1 */
   height: 200vh;
   /* 2 */
@@ -964,10 +969,10 @@ body.nav-ending-visible #page {
  * the page using media queries. Also centers the title.
  */
 #site-title-wrapper .site-title {
+  overflow: hidden;
+  *zoom: 1;
   font-size: 34px;
   font-size: 2.125rem;
-  display: block;
-  margin-top: -17px;
 }
 @media (max-width: 1000px) {
   #site-title-wrapper .site-title {
@@ -1183,7 +1188,7 @@ body.nav-ending-visible #page {
 #primary-footer .credit {
   font-size: 16px;
   font-size: 1rem;
-  font-family: "Montserrat", "Helvetica", "Avenir", sans-serif;
+  font-family: "Raleway", "Montserrat", "Helvetica", "Avenir", sans-serif;
   color: black;
   text-align: center;
   margin: 16px 0;
@@ -1255,11 +1260,11 @@ body, html {
 /**
  * Style the icon to look clickable and feel so as well.
  */
-#search-toggle {
+#search-toggle .fa {
   font-size: 22px;
   font-size: 1.375rem;
-  height: 100%;
   cursor: pointer;
+  display: block;
 }
 
 /**
@@ -1349,6 +1354,7 @@ body.search-visible #searchform {
   margin: 5px;
   font-family: "FontAwesome";
   content: '\f002';
+  display: none;
 }
 
 /**
@@ -1359,15 +1365,18 @@ body.search-visible #searchform {
  * happening.
  */
 #searchform input {
+  font-size: 80px;
+  font-size: 5rem;
+  font-weight: bold;
+  font-family: "Raleway", "Montserrat", "Helvetica", "Avenir", sans-serif;
   width: 40vw;
   min-width: 240px;
-  max-width: 500px;
+  max-width: 100vw;
   margin: auto;
   border: none;
   outline: none !important;
   border-radius: 0;
-  border-bottom: 1px solid black;
-  text-align: right;
+  text-align: center;
   background-color: transparent;
 }
 
@@ -1699,7 +1708,7 @@ body.comments-visible #comments-container {
   -o-transition: all 0.56s;
   -webkit-transition: all 0.56s;
   transition: all 0.56s;
-  font-family: "Montserrat", "Helvetica", "Avenir", sans-serif;
+  font-family: "Raleway", "Montserrat", "Helvetica", "Avenir", sans-serif;
   width: auto;
   background-color: transparent;
   border: 1px solid black;
@@ -2046,7 +2055,7 @@ body.comments-visible #comments-container {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   width: 1160px;
-  margin: 0 auto;
+  margin: 15px auto;
 }
 
 /**
@@ -2066,6 +2075,13 @@ body.home a, body.home a:active, body.home a:focus, body.home a:hover {
 }
 
 /**
+ * Change the background color of the front page.
+ */
+body.home #page {
+  background-color: white;
+}
+
+/**
  * Style the container of the featured elemtns to allow for overlay layers
  * which are absolutly positioned.
  */
@@ -2074,27 +2090,15 @@ body.home a, body.home a:active, body.home a:focus, body.home a:hover {
 }
 
 /**
- * Style the featured container with an overlay that allows the contained
- * text of images to become more readable... This also allowes for some
- * interesting looking picutres :-]
+ * Allow for the border around the featured posts in teh featured containers.
  */
-#featured-container::after {
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuMCIgeDI9IjEuMCIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSI1JSIgc3RvcC1jb2xvcj0iIzk2OTY5NiIvPjxzdG9wIG9mZnNldD0iMzAlIiBzdG9wLWNvbG9yPSIjNjQ2NDY0Ii8+PHN0b3Agb2Zmc2V0PSI1OCUiIHN0b3AtY29sb3I9IiM1MDUwNTAiLz48c3RvcCBvZmZzZXQ9IjY5JSIgc3RvcC1jb2xvcj0iIzI4MjgyOCIvPjxzdG9wIG9mZnNldD0iOTQlIiBzdG9wLWNvbG9yPSIjMDAwMDAwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
-  background-size: 100%;
-  background-image: -webkit-gradient(linear, 0% 0%, 100% 100%, color-stop(5%, #969696), color-stop(30%, #646464), color-stop(58%, #505050), color-stop(69%, #282828), color-stop(94%, #000000));
-  background-image: -moz-linear-gradient(top left, #969696 5%, #646464 30%, #505050 58%, #282828 69%, #000000 94%);
-  background-image: -webkit-linear-gradient(top left, #969696 5%, #646464 30%, #505050 58%, #282828 69%, #000000 94%);
-  background-image: linear-gradient(to bottom right, #969696 5%, #646464 30%, #505050 58%, #282828 69%, #000000 94%);
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 100%;
+#featured-container .featured-post-contianer {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 3px;
   height: 100%;
-  opacity: 0.6;
-  z-index: 1;
+  width: 100%;
 }
 
 /**
@@ -2108,6 +2112,9 @@ body.home a, body.home a:active, body.home a:focus, body.home a:hover {
  * not affected by this.
  */
 #featured-container .featured-post {
+  -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
@@ -2162,22 +2169,30 @@ div.category a {
 
 /**
  * Show the header of a featured post as centered with an obvious title.
- *
- * Also, include an obvious border that will heighten of display on colors.
  */
-#featured-container .featured-post header {
+#featured-container .featured-post .title {
   -moz-transition: all 0.8s ease;
   -o-transition: all 0.8s ease;
   -webkit-transition: all 0.8s ease;
   transition: all 0.8s ease;
-  margin: auto;
-  text-align: center;
-  max-width: 70%;
+  text-align: left;
   padding: 10px;
-  border-radius: 400px;
-  border: 1px solid white;
   z-index: 2;
   color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/**
+ * Make the title of this featured post more distinctly visible.
+ */
+#featured-container .featured-post .title span {
+  font-size: 20px;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 /**
@@ -2186,15 +2201,16 @@ div.category a {
  */
 #featured-container {
   padding: 0;
-  margin: 0;
-  height: 33.33333vw;
+  margin: 15px auto;
+  height: 600px;
   width: 100%;
+  max-width: 1160px;
   display: -webkit-flex;
   display: flex;
   -webkit-flex-flow: row;
   flex-flow: row;
 }
-@media (max-width: 33.33333vw) {
+@media (max-width: 1160px) {
   #featured-container {
     width: 100vw;
     height: 100vw;
@@ -2220,24 +2236,28 @@ div.category a {
   display: flex;
   -webkit-flex-direction: column;
   flex-direction: column;
-  width: 33.33333vw;
-  height: 33.33333vw;
+  width: 773.33333px;
+  height: 100%;
 }
-@media (max-width: 100vw) {
+@media (max-width: 1160px) {
   #featured-container .top-block {
-    width: 33.33333vw;
-    height: 33.33333vw;
+    width: 66.66667vw;
   }
 }
 @media (max-width: 800px) {
   #featured-container .top-block {
     width: 100vw;
-    height: 100vw;
-  }
-  #featured-container .top-block:nth-child(2) {
     height: 50vw;
-    /* 2 */
   }
+}
+
+/**
+ * Make the font of the larger picutre larger to indicate a supremeacy of
+ * importance.
+ */
+#featured-container .top-block .featured-post span {
+  font-size: 32px;
+  font-size: 2rem;
 }
 
 /**
@@ -2249,10 +2269,23 @@ div.category a {
   display: flex;
   -webkit-flex-direction: column;
   flex-direction: column;
+  width: 386.66667px;
+  height: 100%;
 }
-#featured-container .split-vertical > * {
-  height: 50%;
+@media (max-width: 1160px) {
+  #featured-container .split-vertical {
+    width: 33.33333vw;
+  }
+}
+@media (max-width: 800px) {
+  #featured-container .split-vertical {
+    width: 100vw;
+    height: 100vw;
+  }
+}
+#featured-container .split-vertical .featured-post-contianer {
   width: 100%;
+  height: 50%;
 }
 
 /**
@@ -2277,7 +2310,6 @@ div.category a {
   position: relative;
   max-width: 100%;
   width: 100vw;
-  background: #f2f2f2;
 }
 
 /**
@@ -2476,7 +2508,7 @@ div.category a {
   flex-direction: column;
   -webkit-justify-content: center;
   justify-content: center;
-  font-family: "Montserrat", "Helvetica", "Avenir", sans-serif;
+  font-family: "Raleway", "Montserrat", "Helvetica", "Avenir", sans-serif;
   position: absolute;
   top: 10px;
   right: 10px;
@@ -2535,22 +2567,6 @@ div.category a {
 .newscard footer {
   border-top: 1px solid #d8dbdd;
   padding-top: 10px;
-}
-
-/**
- * Display using centering tactic to align the content centrally.
- */
-#breaking-news-ticker {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  -webkit-justify-content: center;
-  justify-content: center;
-  width: 100%;
-  height: 100px;
-  font-family: 'Cutive', serif;
-  text-align: center;
 }
 
 /**
@@ -2624,7 +2640,7 @@ div.category a {
 #categories a {
   font-size: 25px;
   font-size: 1.5625rem;
-  font-family: "Montserrat", "Helvetica", "Avenir", sans-serif;
+  font-family: "Raleway", "Montserrat", "Helvetica", "Avenir", sans-serif;
 }
 
 /**
@@ -2636,29 +2652,32 @@ div.category a {
  * broken using some clever skewing trickery.
  */
 .section-title {
-  height: 102px;
+  height: 80px;
   position: relative;
-  margin: 10px auto;
-  margin-top: 20px;
+  margin: 0 auto;
   padding: 10px;
   text-transform: uppercase;
   overflow: hidden;
   display: inline-block;
+  z-index: 4;
 }
 .section-title, .section-title * {
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
-  font-size: 85px;
-  font-size: 5.3125rem;
-  color: white;
-  line-height: 102px;
+  font-size: 65px;
+  font-size: 4.0625rem;
+  color: black;
+  line-height: 80px;
   white-space: nowrap;
+}
+.section-title * {
+  z-index: 3;
 }
 @media (max-width: 800px) {
   .section-title, .section-title * {
-    font-size: 45px;
-    font-size: 2.8125rem;
+    font-size: 40px;
+    font-size: 2.5rem;
   }
 }
 
@@ -2672,11 +2691,32 @@ div.category a {
 
 /**
  * Center the section title to a certian size.
+ *
+ * Style the section title container to contain a backdrop for the section
+ * title.
  */
 .section-title-container {
   text-align: center;
   width: 100%;
   max-width: 100vw;
+  position: relative;
+}
+.section-title-container::before, .section-title-container::after {
+  content: '';
+  background-color: black;
+  z-index: 2;
+  width: 50%;
+  height: 5px;
+  display: block;
+  position: absolute;
+}
+.section-title-container::before {
+  right: 0;
+  top: 51%;
+}
+.section-title-container::after {
+  left: 0;
+  top: 40%;
 }
 
 /**
@@ -2704,7 +2744,7 @@ div.category a {
   backface-visibility: hidden;
   /* 1 */
   position: absolute;
-  background-color: black;
+  background-color: white;
   overflow: hidden;
   height: inherit;
 }
@@ -2717,7 +2757,7 @@ div.category a {
   z-index: 2;
 }
 .section-title .angled.title-first a {
-  left: 110px;
+  left: 115px;
   text-align: left;
 }
 .section-title .angled.title-second {
@@ -2729,7 +2769,7 @@ div.category a {
   margin-right: -100px;
 }
 .section-title .angled.title-second a {
-  right: 103px;
+  right: 115px;
   text-align: right;
 }
 
@@ -2756,7 +2796,7 @@ div.category a {
 }
 
 /**
- * Styles a popular post, these appear as 'featured' on the front page and also
+ * Styles a  post, these appear as 'featured' on the front page and also
  * are a pretty cool achievement. Only about two or three will be shown, but
  * when they are, the're shown with style.
  *
@@ -2766,21 +2806,22 @@ div.category a {
  * Check out inc/post-views for more inforamtion on how these are chosen.
  */
 .post-popular {
-  -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  -moz-transition: all 0.8s linear;
+  -o-transition: all 0.8s linear;
+  -webkit-transition: all 0.8s linear;
+  transition: all 0.8s linear;
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  width: 100%;
-  max-width: 100vw;
-  height: 386.66667px;
-  max-height: 50vh;
-  position: realtive;
-  margin: 20px 0;
+  width: 100vw;
+  min-width: 100vw;
+  position: absolute !important;
+  top: 0;
+  margin: 0;
+  height: 100%;
 }
 @media (max-width: 800px) {
   .post-popular {
@@ -2788,20 +2829,54 @@ div.category a {
     margin: 0;
   }
 }
+.post-popular:nth-child(1) {
+  left: 0vw;
+}
+.post-popular:nth-child(2) {
+  left: 100vw;
+}
+.post-popular:nth-child(3) {
+  left: 200vw;
+}
+.post-popular:nth-child(4) {
+  left: 300vw;
+}
+.post-popular:nth-child(5) {
+  left: 400vw;
+}
+.post-popular:nth-child(6) {
+  left: 500vw;
+}
+.post-popular:nth-child(7) {
+  left: 600vw;
+}
+.post-popular:nth-child(8) {
+  left: 700vw;
+}
+.post-popular:nth-child(9) {
+  left: 800vw;
+}
+.post-popular:nth-child(10) {
+  left: 900vw;
+}
 
 /**
  * Style the post content to stand out from the background.
  */
 .post-popular .post-content {
-  padding: 20px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  padding: 30px;
   height: auto;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  margin: auto;
+  text-align: center;
   color: white;
+}
+
+/**
+ * Hide entry meta to give more impact to the title.
+ */
+.post-popular .entry-meta {
+  display: none;
 }
 
 /**
@@ -2809,15 +2884,158 @@ div.category a {
  * entry meta boring stuff. Not to diss any author here, just saying, what
  * do you really care about.
  */
-.post-popular .title {
-  margin-bottom: 14px;
-}
 .post-popular .title a {
-  font-size: 20px;
-  font-size: 1.25rem;
+  font-size: 54px;
+  font-size: 3.375rem;
+  letter-spacing: 3px;
+  line-height: 60px;
+  line-height: 3.75rem;
 }
-.post-popular .title:hover a {
-  color: #e74c3c;
+
+/**
+ * Show the top stories contianer to contain contents as a horizontal list of
+ * stories.
+ */
+#top-stories-container {
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 50vw;
+  min-height: 450px;
+  max-height: 80vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/**
+ * Show the indicator of the type of story for top stories.
+ */
+#top-stories-container::after {
+  font-size: 32px;
+  font-size: 2rem;
+  font-family: "Raleway", "Montserrat", "Helvetica", "Avenir", sans-serif;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 2px;
+  z-index: 10;
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  text-transform: uppercase;
+  content: 'Top Stories';
+}
+
+/**
+ * Contains all top stories in a block.
+ */
+#top-stories-container > .top-stories {
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/**
+ * Allow popular posts to rotoate based off of their index in the contianer.
+ *
+ * This moves all the popular posts using some css tricks.
+ */
+#top-stories-container.active-0 > .top-stories {
+  left: 0vw;
+}
+
+#top-stories-container.active-1 > .top-stories {
+  left: -100vw;
+}
+
+#top-stories-container.active-2 > .top-stories {
+  left: -200vw;
+}
+
+#top-stories-container.active-3 > .top-stories {
+  left: -300vw;
+}
+
+#top-stories-container.active-4 > .top-stories {
+  left: -400vw;
+}
+
+#top-stories-container.active-5 > .top-stories {
+  left: -500vw;
+}
+
+#top-stories-container.active-6 > .top-stories {
+  left: -600vw;
+}
+
+#top-stories-container.active-7 > .top-stories {
+  left: -700vw;
+}
+
+#top-stories-container.active-8 > .top-stories {
+  left: -800vw;
+}
+
+#top-stories-container.active-9 > .top-stories {
+  left: -900vw;
+}
+
+#top-stories-container.active-10 > .top-stories {
+  left: -1000vw;
+}
+
+/**
+ * Show the controller with a higher z index and than its bakground.
+ */
+#top-stories-controller {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+}
+
+/**
+ * Show the options as active circles of whiteness, see apple.com.
+ */
+#top-stories-controller .option {
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  border: 2px solid white;
+  border-radius: 50%;
+  height: 13px;
+  width: 13px;
+  margin: 8px;
+  background-color: transparent;
+  cursor: pointer;
+}
+#top-stories-controller .option.active {
+  -moz-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+  background-color: white;
 }
 
 /**
@@ -3050,7 +3268,7 @@ body.author #main .loaded-posts {
 header.page-header {
   font-size: 24px;
   font-size: 1.5rem;
-  font-family: "Montserrat", "Helvetica", "Avenir", sans-serif;
+  font-family: "Raleway", "Montserrat", "Helvetica", "Avenir", sans-serif;
   background-color: white;
   width: 100%;
   max-width: 700px;

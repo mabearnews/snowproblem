@@ -14,7 +14,7 @@
 #front-container {
   @include box-sizing(border-box);
   width: $max-page-width;
-  margin: 0 auto;
+  margin: 15px auto;
 }
 
 /**
@@ -39,6 +39,13 @@ body.home a {
 }
 
 /**
+ * Change the background color of the front page.
+ */
+body.home #page {
+  background-color: rgb(255, 255, 255);
+}
+
+/**
  * Style the container of the featured elemtns to allow for overlay layers
  * which are absolutly positioned.
  */
@@ -47,26 +54,13 @@ body.home a {
 }
 
 /**
- * Style the featured container with an overlay that allows the contained
- * text of images to become more readable... This also allowes for some
- * interesting looking picutres :-]
+ * Allow for the border around the featured posts in teh featured containers.
  */
-#featured-container::after {
-  @include background-image(linear-gradient(top left, rgb(150, 150, 150) 5%,
-                                                      rgb(100, 100, 100) 30%,
-                                                      rgb(80, 80, 80) 58%,
-                                                      rgb(40, 40, 40) 69%,
-                                                      rgb(0, 0, 0) 94%));
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 100%;
+#featured-container .featured-post-contianer {
+  @include box-sizing(border-box);
+  padding: 3px;
   height: 100%;
-  opacity: 0.6;
-  z-index: 1;
+  width: 100%;
 }
 
 /**
@@ -81,6 +75,7 @@ body.home a {
  */
 #featured-container .featured-post {
   @extend %center-vertical;
+  @include content-shadow;
   @include centered-background;
   width: 100%;
   height: 100%;
@@ -127,24 +122,31 @@ div.category a {
 
 /**
  * Show the header of a featured post as centered with an obvious title.
- *
- * Also, include an obvious border that will heighten of display on colors.
  */
-#featured-container .featured-post header {
+#featured-container .featured-post .title {
   @include transition(all 0.8s ease);
-  margin: auto;
-  text-align: center;
-  max-width: 70%;
+  text-align: left;
   padding: 10px;
-  border-radius: 400px;
-  border: 1px solid color('white');
   z-index: 2;
   color: color('white');
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/**
+ * Make the title of this featured post more distinctly visible.
+ */
+#featured-container .featured-post .title span {
+  @include font-size(20px);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 
 /// The size of a featured block that is centrally located on the front page.
-$featured-block-size: 100vw / 3;
+$featured-block-size: $max-page-width;
 
 /**
  * Style the featured container in order to create the flexbox layout of three
@@ -152,9 +154,10 @@ $featured-block-size: 100vw / 3;
  */
 #featured-container {
   padding: 0;
-  margin: 0;
-  height: $featured-block-size;
+  margin: 15px auto;
+  height: 600px;
   width: 100%;
+  max-width: $max-page-width;
   @include display-flex;
   @include flex-flow(row);
 
@@ -179,22 +182,25 @@ $featured-block-size: 100vw / 3;
 #featured-container .top-block {
   @include display-flex;
   @include flex-direction(column);
-  width: $featured-block-size;
-  height: $featured-block-size;
+  width: $featured-block-size * 2 / 3;
+  height: 100%;
 
-  @include respond-to((max-width: $featured-block-size * 3)) {
-    width: (100vw / 3);
-    height: (100vw / 3);
+  @include respond-to((max-width: $featured-block-size)) {
+    width: (100vw * 2 / 3);
   }
 
   @include respond-to('medium') {
     width: 100vw;
-    height: 100vw;
-
-    &:nth-child(2) {
-      height: 50vw; /* 2 */
-    }
+    height: 50vw;
   }
+}
+
+/**
+ * Make the font of the larger picutre larger to indicate a supremeacy of
+ * importance.
+ */
+#featured-container .top-block .featured-post span {
+  @include font-size(32px);
 }
 
 /**
@@ -204,10 +210,21 @@ $featured-block-size: 100vw / 3;
 #featured-container .split-vertical {
   @include display-flex;
   @include flex-direction(column);
+  width: $featured-block-size / 3;
+  height: 100%;
 
-  > * {
-    height: 50%;
+  @include respond-to((max-width: $featured-block-size)) {
+    width: (100vw / 3);
+  }
+
+  @include respond-to('medium') {
+    width: 100vw;
+    height: 100vw;
+  }
+
+  .featured-post-contianer {
     width: 100%;
+    height: 50%;
   }
 }
 
@@ -225,7 +242,6 @@ $featured-block-size: 100vw / 3;
   }
 }
 
-
 /**
  * Position newscards for the posts container.
  */
@@ -233,7 +249,6 @@ $featured-block-size: 100vw / 3;
   position: relative;
   max-width: 100%;
   width: 100vw;
-  background: darken(white, 5%);
 }
 
  /**
@@ -446,20 +461,6 @@ $featured-block-size: 100vw / 3;
   padding-top: 10px;
 }
 
-
-/**
- * Display using centering tactic to align the content centrally.
- */
-#breaking-news-ticker {
-  @include display-flex;
-  @include flex-direction(row);
-  @include justify-content(center);
-  width: 100%;
-  height: 100px;
-  font-family: 'Cutive', serif;
-  text-align: center;
-}
-
 /**
  * Properly set up a display of all the categories available throught the site.
  */
@@ -522,7 +523,6 @@ $featured-block-size: 100vw / 3;
   font-family: $heading-font;
 }
 
-
 /**
  * Styles a section title. A section title is used to display information
  * concerning the nature of the following seciton, such as featured or
@@ -532,25 +532,27 @@ $featured-block-size: 100vw / 3;
  * broken using some clever skewing trickery.
  */
 .section-title {
-  height: 102px;
+  height: 80px;
   position: relative;
-  margin: 10px auto;
-  margin-top: 20px;
+  margin: 0 auto;
   padding: 10px;
   text-transform: uppercase;
   overflow: hidden;
   display: inline-block;
+  z-index: 4;
 
   &, * {
     @include box-sizing(content-box);
-    @include font-size(85px);
-    color: color('white');
-    line-height: 102px;
+    @include font-size(65px);
+    color: color('black');
+    line-height: 80px;
     white-space: nowrap;
   }
 
+  * { z-index: 3; }
+
   @include respond-to('medium') {
-    &, * { @include font-size(45px); }
+    &, * { @include font-size(40px); }
   }
 }
 
@@ -564,11 +566,35 @@ $featured-block-size: 100vw / 3;
 
 /**
  * Center the section title to a certian size.
+ *
+ * Style the section title container to contain a backdrop for the section
+ * title.
  */
 .section-title-container {
   text-align: center;
   width: 100%;
   max-width: 100vw;
+  position: relative;
+
+  &::before, &::after {
+    content: '';
+    background-color: black;
+    z-index: 2;
+    width: 50%;
+    height: 5px;
+    display: block;
+    position: absolute;
+  }
+
+  &::before {
+    right: 0;
+    top: 51%;
+  }
+
+  &::after {
+    left: 0;
+    top: 40%;
+  }
 }
 
 /**
@@ -585,7 +611,7 @@ $featured-block-size: 100vw / 3;
   @include transform(skew(-25deg));
   @include backface-visibility(hidden); /* 1 */
   position: absolute;
-  background-color: color('black');
+  background-color: color('white');
   overflow: hidden;
   height: inherit;
 
@@ -598,7 +624,7 @@ $featured-block-size: 100vw / 3;
     z-index: 2;
 
     a {
-      left: 110px;
+      left: 115px;
       text-align: left;
     }
   }
@@ -612,7 +638,7 @@ $featured-block-size: 100vw / 3;
     margin-right: -100px;
 
     a {
-      right: 103px;
+      right: 115px;
       text-align: right;
     }
   }
@@ -635,8 +661,9 @@ $featured-block-size: 100vw / 3;
   top: 0;
 }
 
+
 /**
- * Styles a popular post, these appear as 'featured' on the front page and also
+ * Styles a  post, these appear as 'featured' on the front page and also
  * are a pretty cool achievement. Only about two or three will be shown, but
  * when they are, the're shown with style.
  *
@@ -646,18 +673,25 @@ $featured-block-size: 100vw / 3;
  * Check out inc/post-views for more inforamtion on how these are chosen.
  */
 .post-popular {
-  @include content-shadow;
+  @extend %center-vertical;
+  @include transition(all 0.8s linear);
   @include centered-background;
-  width: 100%;
-  max-width: 100vw;
-  height: $max-page-width / 3;
-  max-height: 50vh;
-  position: realtive;
-  margin: 20px 0;
+  width: 100vw;
+  min-width: 100vw;
+  position: absolute !important;
+  top: 0;
+  margin: 0;
+  height: 100%;
 
   @include respond-to('medium') {
     max-height: 100vh;
     margin: 0;
+  }
+
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      left: ($i - 1) * 100vw;
+    }
   }
 }
 
@@ -665,15 +699,19 @@ $featured-block-size: 100vw / 3;
  * Style the post content to stand out from the background.
  */
 .post-popular .post-content {
-  padding: 20px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  padding: 30px;
   height: auto;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  margin: auto;
+  text-align: center;
   color: color('white');
+}
+
+/**
+ * Hide entry meta to give more impact to the title.
+ */
+.post-popular .entry-meta {
+  display: none;
 }
 
 /**
@@ -681,14 +719,100 @@ $featured-block-size: 100vw / 3;
  * entry meta boring stuff. Not to diss any author here, just saying, what
  * do you really care about.
  */
-.post-popular .title {
-  margin-bottom: 14px;
+.post-popular .title a {
+  @include font-size(54px);
+  letter-spacing: 3px;
+  line-height: 60px;
+  line-height: calculateRem(60px);
+}
 
-  a {
-    @include font-size(20px);
-  }
+/**
+ * Show the top stories contianer to contain contents as a horizontal list of
+ * stories.
+ */
+#top-stories-container {
+  @include transition(all 1s);
+  @include flex-direction(row);
+  @include justify-content(flex-start);
+  width: 100%;
+  height: 50vw;
+  min-height: 450px;
+  max-height: 80vh;
+  overflow: hidden;
+  position: relative;
+}
 
-  &:hover a {
-    color: color('red');
+/**
+ * Show the indicator of the type of story for top stories.
+ */
+#top-stories-container::after {
+  @include font-size(32px);
+  font-family: $heading-font;
+  font-weight: 600;
+  color: color('white');
+  letter-spacing: 2px;
+  z-index: 10;
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  text-transform: uppercase;
+  content: 'Top Stories';
+}
+
+/**
+ * Contains all top stories in a block.
+ */
+#top-stories-container > .top-stories {
+  @include transition(all 1s);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/**
+ * Allow popular posts to rotoate based off of their index in the contianer.
+ *
+ * This moves all the popular posts using some css tricks.
+ */
+@for $i from 0 through 10 {
+    #top-stories-container.active-#{$i} > .top-stories {
+      left: $i * -100vw;
+    }
+}
+
+/**
+ * Show the controller with a higher z index and than its bakground.
+ */
+#top-stories-controller {
+  @include display-flex;
+  @include flex-direction(row);
+  @include justify-content(center);
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+}
+
+/**
+ * Show the options as active circles of whiteness, see apple.com.
+ */
+#top-stories-controller .option {
+  @include transition(all 1s);
+  border: 2px solid color('white');
+  border-radius: 50%;
+  height: 13px;
+  width: 13px;
+  margin: 8px;
+  background-color: transparent;
+  cursor: pointer;
+
+  &.active {
+    @include transform(scale(1.3));
+    background-color: color('white');
   }
 }

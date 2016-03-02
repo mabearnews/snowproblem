@@ -15,7 +15,7 @@ var Featured = React.createClass({
             category_name: 'featured',
             orderby: 'date',
             order: 'DESC',
-            post_number: 5,
+            post_number: 3,
             what: {
                 'categories': 'categories',
                 'post_title': 'title',
@@ -23,7 +23,7 @@ var Featured = React.createClass({
                 'featured_image': 'background'
             }
         }, function(posts) {
-            
+
             if (this.isMounted()) {
                 this.setState({
                   posts: posts
@@ -39,21 +39,15 @@ var Featured = React.createClass({
         return (
             <section id="featured-container">
 
-                <div className="top-block split-vertical">
-
-                    <Feature {...posts[1]} />
-                    <Feature {...posts[3]} />
-
-                </div>
                 <div className="top-block">
 
                     <Feature {...posts[0]} />
 
                 </div>
-                <div className="top-block split-vertical">
+                <div className="split-vertical">
 
+                    <Feature {...posts[1]} />
                     <Feature {...posts[2]} />
-                    <Feature {...posts[4]} />
 
                 </div>
 

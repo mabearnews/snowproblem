@@ -43,14 +43,22 @@ wp_reset_query();
  *
  * @see template-parts/content-most-viewed
  */
-function snoproblem_display_popular() {
+function snowproblem_display_popular( $cat = 0, $numb = 1 ) {
     global $exclude_ids;
 
-    query_posts( array(
+    $postsQuery = array(
         'meta_key'    => 'snowproblem_views_count',
         'orderby'     => 'meta_value_num',
-        'numberposts' => 20,
-    ) );
+        'numberposts' => 30,
+    );
+
+    if ( $cat ) {
+        $postsQuery['category_name'] = $cat;
+    }
+
+    if ( $cat )
+
+    query_posts( $postsQuery );
 
     while ( have_posts() ) {
         the_post();
@@ -59,7 +67,7 @@ function snoproblem_display_popular() {
         if ( has_post_thumbnail() && ! in_array( get_the_ID(), $exclude_ids ) ) {
             get_template_part( 'template-parts/content', 'popular' );
             $exclude_ids[] = get_the_ID();
-            break;
+            if ( ! --$numb ) break;
         }
     }
 
@@ -106,7 +114,7 @@ function snowproblem_section_title( $cat_name ) {
  * @param string $category
  * @param int $numb
  */
-function snowproblem_display_category( $category, $numb = 6 ) {
+function snowproblem_display_category( $category, $numb = 3 ) {
     if ( ! get_posts( "category_name=$category" ) ) { return; }
 
     snowproblem_section_title( $category );
@@ -136,31 +144,35 @@ get_header(); ?>
 
 <div id="react-container"></div>
 
+<div id="top-stories-container">
+
+    <div class="top-stories">
+
+        <?php snowproblem_display_popular( 'top-stories', 4 ); ?>
+
+    </div> <!-- .top-stories -->
+
+    <div id="top-stories-controller">
+
+            <?php foreach ( range(0, 3) as $a ) : ?>
+                <div class="option"></div>
+            <?php endforeach; ?>
+
+    </div> <!-- #top-stories-controller -->
+
+</div> <!-- #top-stories-controller -->
+
 <div id="front-container">
-
-    <?php snowproblem_display_category( 'top-stories', 3 ); ?>
-
-    <?php snoproblem_display_popular(); ?>
 
     <?php snowproblem_display_category( 'news' ); ?>
 
-    <?php snoproblem_display_popular(); ?>
+    <?php snowproblem_display_category( 'opinion' ); ?>
 
-    <?php snowproblem_display_category( 'opinion', 3 ); ?>
+    <?php snowproblem_display_category( 'sports' ); ?>
 
-    <?php snoproblem_display_popular(); ?>
+    <?php snowproblem_display_category( 'culture' ); ?>
 
-    <?php snowproblem_display_category( 'sports', 3 ); ?>
-
-    <?php snoproblem_display_popular(); ?>
-
-    <?php snowproblem_display_category( 'culture', 3 ); ?>
-
-    <?php snoproblem_display_popular(); ?>
-
-    <?php snowproblem_display_category( 'blogs', 3 ); ?>
-
-    <?php snoproblem_display_popular(); ?>
+    <?php snowproblem_display_category( 'blogs' ); ?>
 
     <?php get_footer(); ?>
 

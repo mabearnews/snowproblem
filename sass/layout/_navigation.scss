@@ -20,7 +20,7 @@ body {
  * 9. Ensure stanrd font size throught the navigation, exceptions may follow.
  */
 #site-navigation {
-  @include transition(transform 0.8s); /* 8 */
+  @include transition(all 0.8s); /* 8 */
   @include display-flex;  /* 4 */
   @include flex-direction(column);  /* 4 */
   @include justify-content(center); /* 4 */
@@ -32,9 +32,13 @@ body {
   width: 100vw; /* 2 */
   max-width: 100vw;
   height: 60px; /* 2 */
-  background-color: $content-bgcolor;  /* 3 */
+  background-color: rgba($content-bgcolor, 0.75);  /* 3 */
   border-bottom: 1px solid $border-color;  /* 3 */
   z-index: 100;
+
+  &:hover {
+    background-color: rgba($content-bgcolor, 1);
+  }
 
   @include respond-to('large') {
     a { @include font-size(13px); }
@@ -74,10 +78,13 @@ body {
   @include justify-content( space-between );
   width: $max-page-width;
   margin: 0 auto;
-  padding: 20px;
 
   @include respond-to((max-width: $max-page-width)) {
     width: 100%;
+  }
+
+  > * {
+    @extend %center-vertical;
   }
 }
 
@@ -123,11 +130,14 @@ body {
   @include flex-direction(column); /* 1 */
   @include justify-content(center); /* 1 */
   cursor: pointer; /* 2 */
-  width: 26px;
-  height: 20px;
   margin-left: 0;
   padding-left: 0;
-  position: relative;
+
+  > * {
+    width: 26px;
+    height: 20px;
+    position: relative;
+  }
 }
 
 /**
@@ -141,7 +151,7 @@ body {
 #menu-toggle .row {
   $menu-toggle-size: 20px;
 
-  @include transition(transform 0.8s ease); /* 1 */
+  @include transition(all 0.8s ease); /* 1 */
   position: absolute;
   height: 3px;
   width: 100%;
@@ -229,7 +239,7 @@ body.nav-visible #menu-toggle  .row {
   @include transform-origin( top, left );
 
   body.nav-visible & {
-    @include transform(rotate(-35deg )); /* 1 */
+    @include transform(rotate(-25deg )); /* 1 */
     height: 200vh; /* 2 */
   }
 
@@ -292,7 +302,7 @@ body.nav-visible #menu-toggle  .row {
  * properly
  */
 #site-title-wrapper {
-  @extend %center-vertical;
+
 }
 
 /**
@@ -300,14 +310,13 @@ body.nav-visible #menu-toggle  .row {
  * the page using media queries. Also centers the title.
  */
 #site-title-wrapper .site-title  {
-    @include font-size('huge');
-    display: block;
-    margin-top: (headingSize('huge') / -2);
+  @include clearfix;
+  @include font-size('huge');
 
-    @include respond-to('large') {
-      @include font-size('large');
-      margin-top: (headingSize('large') / -4);
-    }
+  @include respond-to('large') {
+    @include font-size('large');
+    margin-top: (headingSize('large') / -4);
+  }
 }
 
 /**

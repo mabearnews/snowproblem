@@ -3,9 +3,12 @@
  */
 #search-toggle {
   @extend %center-vertical;
-  @include font-size(22px);
-  height: 100%;
-  cursor: pointer;
+
+  .fa {
+    @include font-size(22px);
+    cursor: pointer;
+    display: block;
+  }
 }
 
 /**
@@ -89,6 +92,7 @@
   margin: 5px;
   font-family: "FontAwesome";
   content: '\f002';
+  display: none;
 }
 
 
@@ -100,15 +104,17 @@
  * happening.
  */
 #searchform input {
+  @include font-size(80px);
+  font-weight: bold;
+  font-family: $heading-font;
   width: 40vw;
   min-width: 240px;
-  max-width: 500px;
+  max-width: 100vw;
   margin: auto;
   border: none;
   outline: none !important;
   border-radius: 0;
-  border-bottom: 1px solid color('black');
-  text-align: right;
+  text-align: center;
   background-color: transparent;
 }
 
