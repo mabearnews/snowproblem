@@ -2,10 +2,10 @@ jQuery(document).ready(function($) {
     function removeStyles(el) {
         if ( el.className == 'yuzo-img' ) {
             var imageUrl = (function(style) {
-                var matches = style.match(/background(?:\-image)?\s*:url\('(.+)'\)/);
+                var matches = style.match(/background(?:\-image)?\s*:url\('(.+)-\d+x\d+\.(.+)'\)/);
 
                 if ( matches && matches.length > 1 ) {
-                    return matches[1];
+                    return matches[1] + '.' + matches[2]
                 }
                 return '';
             })($(el).attr('style'));
