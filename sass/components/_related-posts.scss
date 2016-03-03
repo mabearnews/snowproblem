@@ -35,7 +35,8 @@
 .yuzo_related_post .yuzo_wraps {
   @include display-flex;
   @include flex-flow(row wrap);
-  @include justify-content(space-around);
+  @include justify-content(center);
+  text-align: center;
   max-width: 100vw;
   width: 100vw;
   margin-left: calc(50% - 50vw);
@@ -44,7 +45,6 @@
     width: 100%;
     max-width: 100%;
     margin-left: 0;
-    @include justify-content(center);
   }
 }
 
@@ -54,7 +54,7 @@
   position: relative;
 
   @include respond-to('medium') {
-    width: 90vw;
+    width: 100%;
     margin: 4px auto;
   }
 }

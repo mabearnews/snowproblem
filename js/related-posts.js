@@ -31,8 +31,6 @@ jQuery(document).ready(function($) {
         $( '.yuzo_related_post style' ).remove();
 
         // On resize, yuzo does some stuff, cause its evil, so remove styles.
-        $( '.yuzo_related_post' ).equalizer();
-        $( '.yuzo_related_post .yuzo_wraps' ).equalizer();
         $( '.yuzo_related_post' ).unbind('equalizer');
         $( '.yuzo_related_post .yuzo_wraps' ).unbind('equalizer');
 

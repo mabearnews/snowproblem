@@ -1297,8 +1297,9 @@ body, html {
   display: flex;
   -webkit-flex-flow: row wrap;
   flex-flow: row wrap;
-  -webkit-justify-content: space-around;
-  justify-content: space-around;
+  -webkit-justify-content: center;
+  justify-content: center;
+  text-align: center;
   max-width: 100vw;
   width: 100vw;
   margin-left: calc(50% - 50vw);
@@ -1308,8 +1309,6 @@ body, html {
     width: 100%;
     max-width: 100%;
     margin-left: 0;
-    -webkit-justify-content: center;
-    justify-content: center;
   }
 }
 
@@ -1320,7 +1319,7 @@ body, html {
 }
 @media (max-width: 800px) {
   .yuzo_related_post .relatedthumb {
-    width: 90vw;
+    width: 100%;
     margin: 4px auto;
   }
 }
