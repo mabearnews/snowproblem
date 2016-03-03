@@ -1,1 +1,61 @@
-// Related posts is ugly and will be fixed.
+// Related posts is no longer ugly and is fixed.
+
+.yuzo_related_post {
+  width: 100%;
+  text-align: center;
+
+}
+
+
+.yuzo_related_post .yuzo__title {
+  @include font-size(22px);
+  font-family: $heading-font;
+  font-weight: bold;
+  color: color('black');
+  margin: 10px auto;
+  text-align: center;
+  position: relative;
+  height: auto !important;
+
+  &::before, &::after {
+    content: '';
+    width: 30%;
+    top: 50%;
+    top: calc(50% - 1px);
+    height: 2px;
+    background-color: color('black');
+    position: absolute;
+    display: block;
+  }
+
+  &::before { left: 0; }
+  &::after { right: 0; }
+}
+
+.yuzo_related_post .yuzo_wraps {
+  @include display-flex;
+  @include flex-flow(row wrap);
+  @include justify-content(space-around);
+  width: 100%;
+}
+
+.yuzo_related_post .relatedthumb {
+  width: 220px;
+  margin: 4px 10px;
+  position: relative;
+}
+
+.yuzo_related_post .yuzo-img {
+  @include centered-background;
+  width: 100%;
+  height: 140px;
+}
+
+.yuzo_related_post .relatedthumb .yuzo__text--title {
+  @include font-size(14px);
+  text-align: center;
+  padding: 0 25px;
+  color: rgb(0, 0, 0);
+  display: block;
+  font-weight: bold;
+}

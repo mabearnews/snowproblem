@@ -70,3 +70,44 @@
     @include transform( scale( 1.2) ); /* 3 */
   }
 }
+
+/**
+ * Show the post categories list as a flexbox of categories, this allows more
+ * flexibility in display of these items.
+ */
+.post .entry-footer ul.post-categories {
+  @include display-flex;
+  @include flex-flow(row wrap);
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.post .entry-footer ul.post-categories li {
+  padding: 5px;
+  margin: 4px;
+  border-radius: 4px;
+  background-color: color('white');
+  border: 1px solid color('black');
+
+  a, &, &::before {
+    @include transition(all 0.3s);
+  }
+
+  a { color: color('black'); }
+
+  &::before {
+    content: '\f02b';
+    font-family: "FontAwesome";
+    margin-right: 4px;
+    color: color('black');
+  }
+
+  &:hover {
+    background-color: color('black');
+
+    a { color: color('white'); }
+
+    &::before { color: color('white'); }
+  }
+}
