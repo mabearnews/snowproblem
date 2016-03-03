@@ -21,20 +21,37 @@
 
 			<?php unset($image); /* Remove $image in case it interferes with later wordpress functionality. */ ?>
 
+			<?php if ( has_post_format( 'image' ) ) : ?>
+
+				<div class="entry-header entry-section">
+					<?php the_title( '<h1 class="entry-title add-animated">', '</h1>' ); ?>
+
+					<div class="entry-meta">
+						<?php snowproblem_posted_on(); ?>
+					</div><!-- .entry-meta -->
+				</div><!-- .entry-header -->
+
+			<?php endif; ?>
+			
 		</section>
 
 	<?php endif; ?>
 
+
 	<div class="center-element">
 
 		<section class="post-content">
-			<header class="entry-header entry-section">
-				<?php the_title( '<h1 class="entry-title add-animated">', '</h1>' ); ?>
+			<?php if ( ! has_post_format( 'image' ) ) : ?>
 
-				<div class="entry-meta">
-					<?php snowproblem_posted_on(); ?>
-				</div><!-- .entry-meta -->
-			</header><!-- .entry-header -->
+				<header class="entry-header entry-section">
+					<?php the_title( '<h1 class="entry-title add-animated">', '</h1>' ); ?>
+
+					<div class="entry-meta">
+						<?php snowproblem_posted_on(); ?>
+					</div><!-- .entry-meta -->
+				</header><!-- .entry-header -->
+
+			<?php endif; ?>
 
 			<div class="entry-content entry-section">
 				<?php the_content(); ?>

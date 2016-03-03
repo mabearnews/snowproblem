@@ -17,3 +17,75 @@
   margin-left: calc(50% - 50vw);
   height: auto;
 }
+
+/**
+ * Remove the nav bar padding to allow a more fullscreen image.
+ */
+body.single-format-image #content-nav-bar-padding {
+  display: none;
+}
+
+/**
+ * Create the background parallax effect.
+ *
+ * @see http://keithclark.co.uk/articles/pure-css-parallax-websites/
+ */
+body.single-format-image #page {
+  @include perspective(1px);
+  overflow-x: hidden;
+}
+
+.post.format-image {
+  position: static;
+}
+
+.post.format-image .featured-image {
+  position: static;
+  height: 100vh;
+  width: 100%;
+}
+
+.post.format-image .featured-image .background-image {
+  @include transform(translateZ(-1px) scale(2));
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+.post.format-image .center-element {
+  @include transform(translateZ(0));
+  background-color: $theme-bgcolor;
+}
+
+/**
+ * Create the text on top of the background parallax effect.
+ */
+.post.format-image .featured-image {
+  @extend %center-vertical;
+}
+
+.post.format-image .entry-header {
+  width: 100%;
+  text-align: center;
+  color: color('white');
+  background-color: transparent;
+}
+
+.post.format-image .entry-title {
+  @include font-size(65px);
+  letter-spacing: 2px;
+}
+
+.post.format-image .entry-meta * {
+  @include transform(translateZ(0));
+  @include font-size(18px);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: color('white');
+}

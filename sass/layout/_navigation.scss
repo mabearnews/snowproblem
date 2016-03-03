@@ -46,7 +46,7 @@ body {
 
   @include respond-to('medium') {
     body.nav-visible & {
-      @include transform(translateX(300px)); /* 8 */
+      @include transform(translateX(230px)); /* 8 */
     }
   }
 }
@@ -240,7 +240,7 @@ body.nav-visible #menu-toggle  .row {
 
   @include respond-to('medium') {
     body.nav-visible & {
-      @include transform(translateX(300px)); /* 3 */
+      @include transform(translateX(230px)); /* 3 */
     }
   }
 }

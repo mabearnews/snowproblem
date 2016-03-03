@@ -62,7 +62,7 @@ sass/
 @import url(https://fonts.googleapis.com/css?family=EB+Garamond);
 @import url(https://fonts.googleapis.com/css?family=Cousine:400,700);
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,100,500,600);
-#site-navigation > .wrapper > *, #search-toggle, #searchform, .comments-section .comments-toggle, #featured-container .featured-post, #categories .cat, .post-popular {
+#site-navigation > .wrapper > *, #search-toggle, #searchform, .comments-section .comments-toggle, #featured-container .featured-post, #categories .cat, .post-popular, .post.format-image .featured-image {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: column;
@@ -566,10 +566,10 @@ body {
 }
 @media (max-width: 800px) {
   body.nav-visible #site-navigation {
-    -moz-transform: translateX(300px);
-    -ms-transform: translateX(300px);
-    -webkit-transform: translateX(300px);
-    transform: translateX(300px);
+    -moz-transform: translateX(230px);
+    -ms-transform: translateX(230px);
+    -webkit-transform: translateX(230px);
+    transform: translateX(230px);
     /* 8 */
   }
 }
@@ -800,10 +800,10 @@ body.nav-ending-visible #page {
 }
 @media (max-width: 800px) {
   body.nav-visible #page {
-    -moz-transform: translateX(300px);
-    -ms-transform: translateX(300px);
-    -webkit-transform: translateX(300px);
-    transform: translateX(300px);
+    -moz-transform: translateX(230px);
+    -ms-transform: translateX(230px);
+    -webkit-transform: translateX(230px);
+    transform: translateX(230px);
     /* 3 */
   }
 }
@@ -3335,4 +3335,84 @@ header.page-header {
   width: 100vw;
   margin-left: calc(50% - 50vw);
   height: auto;
+}
+
+/**
+ * Remove the nav bar padding to allow a more fullscreen image.
+ */
+body.single-format-image #content-nav-bar-padding {
+  display: none;
+}
+
+/**
+ * Create the background parallax effect.
+ *
+ * @see http://keithclark.co.uk/articles/pure-css-parallax-websites/
+ */
+body.single-format-image #page {
+  -moz-perspective: 1px;
+  -webkit-perspective: 1px;
+  perspective: 1px;
+  overflow-x: hidden;
+}
+
+.post.format-image {
+  position: static;
+}
+
+.post.format-image .featured-image {
+  position: static;
+  height: 100vh;
+  width: 100%;
+}
+
+.post.format-image .featured-image .background-image {
+  -moz-transform: translateZ(-1px) scale(2);
+  -ms-transform: translateZ(-1px) scale(2);
+  -webkit-transform: translateZ(-1px) scale(2);
+  transform: translateZ(-1px) scale(2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.post.format-image .center-element {
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  background-color: white;
+}
+
+/**
+ * Create the text on top of the background parallax effect.
+ */
+.post.format-image .entry-header {
+  width: 100%;
+  text-align: center;
+  color: white;
+  background-color: transparent;
+}
+
+.post.format-image .entry-title {
+  font-size: 65px;
+  font-size: 4.0625rem;
+  letter-spacing: 2px;
+}
+
+.post.format-image .entry-meta * {
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  font-size: 18px;
+  font-size: 1.125rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: white;
 }
