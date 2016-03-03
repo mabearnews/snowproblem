@@ -70,7 +70,7 @@ $highlight-bgcolor: $light-text-color;
 $focus-text-color: color('lightgrey');
 
 /// The color of the background of the site.
-$theme-bgcolor: rgb(245, 245, 245);
+$theme-bgcolor: rgb(255, 255, 255);
 
 /// The color for site content, where text or other elements are concerned.
 $content-bgcolor: color('white');
@@ -94,7 +94,7 @@ $breakpoints: (
 );
 
 /// The standard font used for typical content.
-$content-font: ('PT Serif', serif);
+$content-font: ('Raleway', 'Montserrat', 'Helvetica', 'Avenir', sans-serif);
 
 /// The standard font for all headings .
 $heading-font: ('Raleway', 'Montserrat', 'Helvetica', 'Avenir', sans-serif);
@@ -149,3 +149,14 @@ $padding-val: 20px;
 /// Show the maximum width of the page in order to set a standard for larger
 /// screens.
 $max-page-width: 1160px;
+
+/// The width of a post, this carries weight for a large number of posts,
+/// specificly single page normally formated posts.
+$post-width: 650px;
+
+/// Post width for more featured posts, or rather posts of the image format.
+$image-post-width: 720px;
+
+/// The margin by which images and quotes that are left or right alines will
+/// set out from a posts content.
+$embed-out-distance: 150px;

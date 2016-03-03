@@ -3,13 +3,47 @@
  */
 .post {
   @include content-font;
+  @include box-sizing(border-box);
 }
 
 /**
- * Allow some padding for the actual content of the post.
+ * Allow some padding for the actual content of the post. Also give some
+ * increased line height
  */
 .post-content {
   padding: $padding-val;
+  line-height: 1.8;
+}
+
+
+/**
+ * Give all post content a bit more distinction from the remainder through
+ * images with increased margins.
+ */
+.post-content img {
+  margin: 25px;
+}
+
+/**
+ * Style images in the post content in order to be slightly offset
+ * based on alignment.
+ */
+.post-content img.alignright,
+.post-content .wp-caption.alignright {
+  margin-right: -$embed-out-distance;
+
+  @include respond-to('medium') {
+    margin-right: 0;
+  }
+}
+
+.post-content img.alignleft,
+.post-content .wp-caption.alignleft {
+  margin-left: -$embed-out-distance;
+
+  @include respond-to('medium') {
+    margin-left: 0;
+  }
 }
 
 /**

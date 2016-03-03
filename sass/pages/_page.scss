@@ -54,7 +54,6 @@ article.page {
  * centering.
  */
 .entry-section {
-  @include content-shadow;
   padding: $padding-val;
   margin: $padding-val auto;
   background-color: $content-bgcolor;

@@ -1,0 +1,19 @@
+/**
+ * When a post has an image class, make it more visually appealing using a few
+ * simple ticks relating largelly to the images of that post. However, the
+ * text and the width of said text is also changed.
+ */
+.post.format-image .post-content {
+  max-width: $image-post-width;
+}
+
+/**
+ * Give centered images a bit more pull.
+ */
+.post.format-image img.aligncenter,
+.post.format-image .wp-caption.aligncenter {
+  max-width: 100vw;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  height: auto;
+}

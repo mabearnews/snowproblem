@@ -6,8 +6,6 @@
  * show up as content. Away with that notion!
  */
 .comments-section {
-  @include transition(all 0.5s);
-  @include content-shadow;
   @include box-sizing(border-box);
   text-align: center;
   background-color: $content-bgcolor;
@@ -17,6 +15,7 @@
 
   &::before,
   &::after {
+    @include transition(all 0.5s);
     content: '';
     background-color: $border-color;
     height: 1px;
@@ -32,6 +31,11 @@
   &::after {
     right: 10%;
   }
+
+
+  &:hover::after, &:hover::before {
+    background-color: rgb(4, 4, 4);
+  }
 }
 
 /**
@@ -42,6 +46,7 @@
  */
 .comments-section .comments-toggle {
   @extend %center-vertical;
+  @include transition(all 0.5s);
   @include font-size(100px);
   width: 140px;
   height: 140px;
@@ -70,9 +75,9 @@
  * provide a type of shock and awe to the realization that this is in fact a
  * button.
  */
-.comments-section:hover {
-  background-color: color('black');
+.comments-toggle:hover {
   color: $light-text-color;
+  background-color: color('black');
 }
 
 /**
