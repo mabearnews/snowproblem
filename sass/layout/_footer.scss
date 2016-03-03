@@ -49,9 +49,9 @@
 }
 
 /**
- * Give a bit of a suscribe button that one can be proud of.
+ * Give a bit of a subscribe button that one can be proud of.
  */
-#suscribe {
+#subscribe {
   width: 100%;
   padding: 20px;
   background-color: rgb(53, 55, 58);
@@ -73,13 +73,13 @@
 /**
  * Align inputs in line.
  */
-#suscribe form {
+#subscribe form {
   @include display-flex;
   @include flex-flow(row wrap);
   @include justify-content(center);
 }
 
-#suscribe input {
+#subscribe input {
   @include font-size(20px);
   font-family: $heading-font;
   border: 1px solid color('white');
@@ -90,7 +90,7 @@
   color: color('white');
 }
 
-#suscribe input[type="email"] {
+#subscribe input[type="email"] {
   border-color: rgb(155, 155, 155);
   background-color: color('white');
   width: 400px;
@@ -101,7 +101,7 @@
   }
 }
 
-#suscribe input[type="submit"] {
+#subscribe input[type="submit"] {
   @include transition(all 0.5s);
   width: 200px;
   background-color: transparent;

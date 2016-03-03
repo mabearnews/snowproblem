@@ -1203,9 +1203,9 @@ body.single-format-image .footer-content {
 }
 
 /**
- * Give a bit of a suscribe button that one can be proud of.
+ * Give a bit of a subscribe button that one can be proud of.
  */
-#suscribe {
+#subscribe {
   width: 100%;
   padding: 20px;
   background-color: #35373a;
@@ -1227,7 +1227,7 @@ body.single-format-image .footer-content {
 /**
  * Align inputs in line.
  */
-#suscribe form {
+#subscribe form {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-flow: row wrap;
@@ -1236,7 +1236,7 @@ body.single-format-image .footer-content {
   justify-content: center;
 }
 
-#suscribe input {
+#subscribe input {
   font-size: 20px;
   font-size: 1.25rem;
   font-family: "Raleway", "Montserrat", "Helvetica", "Avenir", sans-serif;
@@ -1248,19 +1248,19 @@ body.single-format-image .footer-content {
   color: white;
 }
 
-#suscribe input[type="email"] {
+#subscribe input[type="email"] {
   border-color: #9b9b9b;
   background-color: white;
   width: 400px;
   color: black;
 }
 @media (max-width: 800px) {
-  #suscribe input[type="email"] {
+  #subscribe input[type="email"] {
     width: 100%;
   }
 }
 
-#suscribe input[type="submit"] {
+#subscribe input[type="submit"] {
   -moz-transition: all 0.5s;
   -o-transition: all 0.5s;
   -webkit-transition: all 0.5s;
@@ -1268,13 +1268,13 @@ body.single-format-image .footer-content {
   width: 200px;
   background-color: transparent;
 }
-#suscribe input[type="submit"]:hover {
+#subscribe input[type="submit"]:hover {
   background-color: black;
   border-color: black;
   color: white;
 }
 @media (max-width: 800px) {
-  #suscribe input[type="submit"] {
+  #subscribe input[type="submit"] {
     display: none;
   }
 }

@@ -17,18 +17,18 @@
 
 	<footer id="primary-footer">
 
-			<section id="suscribe">
+			<section id="subscribe">
 				<section class="footer-content">
 					<!-- Begin MailChimp Signup Form -->
 					<div id="mailchimp-signup">
 						<form action="//machronicle.us12.list-manage.com/subscribe/post?u=451c6f9fe64374a773f510241&amp;id=efcd75d79e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 
 							<div class="field-container">
-								<input type="email" placeholder="Suscribe" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+								<input type="email" placeholder="Subscribe" value="" name="EMAIL" class="required email" id="mce-EMAIL">
 							</div>
 
 							<div class="field-container">
-								<input type="submit" id="submit-suscribe" name="submit" value="Suscribe" />
+								<input type="submit" id="submit-subscribe" name="submit" value="Subscribe" />
 							</div>
 
 						</form>
