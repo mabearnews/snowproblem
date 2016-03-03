@@ -16,25 +16,39 @@
 
 
 	<footer id="primary-footer">
-		<?php if ( is_active_sidebar( 'footer' ) ): ?>
 
-			<section class="widget-container masonry-grid">
-				<?php dynamic_sidebar( 'footer' ); ?>
+			<section id="suscribe">
+				<section class="footer-content">
+					<!-- Begin MailChimp Signup Form -->
+					<div id="mailchimp-signup">
+						<form action="//machronicle.us12.list-manage.com/subscribe/post?u=451c6f9fe64374a773f510241&amp;id=efcd75d79e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+
+							<div class="field-container">
+								<input type="email" placeholder="Suscribe" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+							</div>
+
+							<div class="field-container">
+								<input type="submit" id="submit-suscribe" name="submit" value="Suscribe" />
+							</div>
+
+						</form>
+					</div>
+				</section>
+
+				<!--End mc_embed_signup-->
+				</section>
+
+			<section id="footer-location">
+
+				<span class="location-text">555 Middlefield Road, Atherton, CA 94027</span>
+
 			</section>
 
-		<?php endif; ?>
-
-		<section class="contact">
-			<div class="column">
-				<div class="location">
-
-				</div>
-			</div>
-		</section>
-
-		<section class="credits">
-			<div class="credit"><span><a href="mailto:sequoia@sequoiasnow.com">Site Design by Sequoia Snow</a></span></div>
-		</section>
+			<section id="credits">
+				<section class="footer-content">
+					<div class="credit"><span><a href="mailto:sequoia@sequoiasnow.com">Site Design by Sequoia Snow</a></span></div>
+				</section>
+			</section>
 
 	</footer>
 

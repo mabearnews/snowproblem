@@ -4,11 +4,23 @@
  */
 #primary-footer {
   @include box-sizing(border-box);
-  border-top: 1px solid $border-color;
-  padding-top: 15px;
-  background-color: $content-bgcolor;
+  padding: 0;
   width: 100%;
-  height: 112px;
+  height: 250px;
+  background-color: rgb(31, 33, 37);
+}
+
+/**
+ * footer content to be the size of post width
+ */
+.footer-content {
+  margin: 0 auto;
+  width: 100%;
+  max-width: $post-width;
+
+  body.single-format-image & {
+    max-width: $image-post-width;
+  }
 }
 
 /**
@@ -16,13 +28,14 @@
  *
  * This involves displaying credits as a flexbox in order to center content.
  */
-#primary-footer .credits {
+#primary-footer #credits {
   @include display-flex;
   @include flex-direction(row);
   @include justify-content(space-around);
   width: 100%;
   margin: 0;
-  padding: 20px;
+  padding: 10px;
+  color: rgb(200, 200, 200);
 }
 
 /**
@@ -30,7 +43,76 @@
  */
 #primary-footer .credit {
   @include heading-font;
-  color: $primary-text-color;
   text-align: center;
-  margin: 16px 0;
+
+  a { color: rgb(200, 200, 200); }
+}
+
+/**
+ * Give a bit of a suscribe button that one can be proud of.
+ */
+#suscribe {
+  width: 100%;
+  padding: 20px;
+  background-color: rgb(53, 55, 58);
+}
+
+/**
+ * Show the locations were at.
+ */
+#footer-location {
+  font-weight: 300;
+  padding: 15px;
+  padding-top: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgb(220, 220, 220);
+}
+
+/**
+ * Align inputs in line.
+ */
+#suscribe form {
+  @include display-flex;
+  @include flex-flow(row wrap);
+  @include justify-content(center);
+}
+
+#suscribe input {
+  @include font-size(20px);
+  font-family: $heading-font;
+  border: 1px solid color('white');
+  border-radius: 4px;
+  outline: none;
+  margin: 10px;
+  padding: 10px;
+  color: color('white');
+}
+
+#suscribe input[type="email"] {
+  border-color: rgb(155, 155, 155);
+  background-color: color('white');
+  width: 400px;
+  color: color('black');
+
+  @include respond-to('medium') {
+    width: 100%;
+  }
+}
+
+#suscribe input[type="submit"] {
+  @include transition(all 0.5s);
+  width: 200px;
+  background-color: transparent;
+
+  &:hover {
+    background-color: rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0);
+    color: color('white');
+  }
+
+  @include respond-to('medium') {
+    display: none;
+  }
 }

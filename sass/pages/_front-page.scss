@@ -201,6 +201,10 @@ $featured-block-size: $max-page-width;
  */
 #featured-container .top-block .featured-post span {
   @include font-size(32px);
+
+  @include respond-to('medium') {
+    @include font-size(20px);
+  }
 }
 
 /**
@@ -724,6 +728,10 @@ $featured-block-size: $max-page-width;
   letter-spacing: 3px;
   line-height: 60px;
   line-height: calculateRem(60px);
+
+  @include respond-to('medium') {
+    @include font-size(35px);
+  }
 }
 
 /**
@@ -740,6 +748,10 @@ $featured-block-size: $max-page-width;
   max-height: 80vh;
   overflow: hidden;
   position: relative;
+
+  @include respond-to('medium') {
+    margin: 15px 0;
+  }
 }
 
 /**

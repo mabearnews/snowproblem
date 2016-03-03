@@ -79,6 +79,10 @@ body.single-format-image #page {
 .post.format-image .entry-title {
   @include font-size(65px);
   letter-spacing: 2px;
+
+  @include respond-to('medium') {
+    @include font-size(40px);
+  }
 }
 
 .post.format-image .entry-meta * {

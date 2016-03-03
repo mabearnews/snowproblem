@@ -44,7 +44,7 @@ article.page {
   padding: $padding-val;
 
   @include single-post {
-    max-width: 800px;
+    max-width: $post-width;
     width: 100%;
   }
 }
