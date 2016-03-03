@@ -37,18 +37,31 @@
   @include flex-flow(row wrap);
   @include justify-content(space-around);
   width: 100%;
+
+  @include respond-to('medium') {
+    @include justify-content(center);
+  }
 }
 
 .yuzo_related_post .relatedthumb {
   width: 220px;
   margin: 4px 10px;
   position: relative;
+
+  @include respond-to('medium') {
+    width: 90vw;
+    margin: 4px auto;
+  }
 }
 
 .yuzo_related_post .yuzo-img {
   @include centered-background;
   width: 100%;
   height: 140px;
+
+  @include respond-to('medium') {
+    height: 50vw;
+  }
 }
 
 .yuzo_related_post .relatedthumb .yuzo__text--title {
