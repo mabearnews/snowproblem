@@ -40,7 +40,7 @@ jQuery(document).ready(function($) {
     });
 
     $( '#top-stories-arrows .left' ).on('click', function() {
-        currentIndex = currentIndex - 1 < 0 ? numbPosts : currentIndex - 1;
+        currentIndex = currentIndex - 1 < 0 ? numbPosts - 1: currentIndex - 1;
         showPost(currentIndex);
         resetInterval();
     });
