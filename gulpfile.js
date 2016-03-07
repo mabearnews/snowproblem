@@ -21,6 +21,7 @@ function swallowError( error ) {
 gulp.task('compass', function() {
     gulp.src('./sass/*.scss')
         .pipe(compass({
+            config_file: 'config.rb',
             images: 'images',
             css: 'stylesheets',
             sass: 'sass'
