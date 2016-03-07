@@ -160,6 +160,13 @@ get_header(); ?>
 
     </div> <!-- #top-stories-controller -->
 
+    <div id="top-stories-arrows">
+
+        <div class="arrow left"></div>
+        <div class="arrow right"></div>
+
+    </div> <!-- #top-stories-arrows -->
+
 </div> <!-- #top-stories-controller -->
 
 <div id="front-container">

@@ -1,7 +1,9 @@
 <article <?php post_class( 'column post newscard' ); ?> style="background-image: url(<?php print snowproblem_get_thumbnail_url(); ?>);">
 
     <?php if ( has_post_thumbnail() ) : ?>
-        <section className="entry-image-placeholder"></section>
+        <a href="<?php print get_permalink(); ?>">
+            <section class="entry-image-placeholder"></section>
+        </a>
     <?php endif; ?>
 
     <div class="post-date">

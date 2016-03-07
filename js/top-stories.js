@@ -38,4 +38,16 @@ jQuery(document).ready(function($) {
         showPost($(this).index());
         resetInterval();
     });
+
+    $( '#top-stories-arrows .left' ).on('click', function() {
+        currentIndex = currentIndex - 1 < 0 ? numbPosts : currentIndex - 1;
+        showPost(currentIndex);
+        resetInterval();
+    });
+
+    $( '#top-stories-arrows .right' ).on('click', function() {
+        currentIndex = currentIndex + 1 >= numbPosts ? 0 : currentIndex + 1;
+        showPost(currentIndex);
+        resetInterval();
+    });
 });
