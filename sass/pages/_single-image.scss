@@ -83,6 +83,10 @@ body.single-format-image #page {
   @include respond-to('medium') {
     @include font-size(40px);
   }
+
+  @include multiple-post {
+    font-size: 2em;
+  }
 }
 
 .post.format-image .entry-meta * {

@@ -10,6 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> data-post-type="<?php print get_post_type(); ?>">
+
 	<?php if ( has_post_thumbnail() ) : ?>
 
 		<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
@@ -32,7 +33,7 @@
 				</div><!-- .entry-header -->
 
 			<?php endif; ?>
-			
+
 		</section>
 
 	<?php endif; ?>
@@ -67,6 +68,8 @@
 				<?php snowproblem_entry_footer(); ?>
 			</footer><!-- .entry-footer -->
 
+			<?php get_template_part('template-parts/content', 'social-share' ); ?>
+
 
 			<?php if ( ( comments_open() || get_comments_number() ) && defined( 'SNOWPROBLEM_COMMENTS_ALLOWED' ) ) : ?>
 
@@ -79,6 +82,7 @@
 				</div>
 
 			<?php endif; ?>
+
 		</section> <!-- .post-content -->
 	</div> <!-- .center-element -->
 </article><!-- #post-## -->

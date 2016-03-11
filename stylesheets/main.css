@@ -21,6 +21,8 @@ sass/
 |   |- _post.scss        # Basic styling for a post
 |   |- _search.scss      # Search form
 |   |- _related-posts.scss  # Related posts
+|   |- _social-share.scss   # Social Media sharing.
+|   |- _section-title.scss  # Post Section Title Helper.
 |
 |– layout/
 |   |– _navigation.scss  # Navigation
@@ -62,7 +64,7 @@ sass/
 @import url(https://fonts.googleapis.com/css?family=EB+Garamond);
 @import url(https://fonts.googleapis.com/css?family=Cousine:400,700);
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,100,500,600);
-#site-navigation > .wrapper > *, #search-toggle, #searchform, .comments-section .comments-toggle, #featured-container .featured-post, #categories .cat, .post-popular, #top-stories-arrows .arrow, .post.format-image .featured-image {
+#site-navigation > .wrapper > *, #search-toggle, #searchform, .comments-section .comments-toggle, #social-share a, #featured-container .featured-post, #categories .cat, .post-popular, #top-stories-arrows .arrow, .post.format-image .featured-image {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: column;
@@ -1342,13 +1344,12 @@ body, html {
   border: 1px solid black;
 }
 
-.yuzo_related_post {
-  width: 100%;
-  text-align: center;
-  overflow: visible;
-}
-
-.yuzo_related_post .yuzo__title {
+/**
+ * The pose section title shows a visually distinct section of
+ * content from the remainder of a posts text. The use of this
+ * title allows for a more easily identifiable section.
+ */
+.post-section-title, .yuzo_related_post .yuzo__title {
   font-size: 22px;
   font-size: 1.375rem;
   font-family: "Raleway", "Montserrat", "Helvetica", "Avenir", sans-serif;
@@ -1359,7 +1360,7 @@ body, html {
   position: relative;
   height: auto !important;
 }
-.yuzo_related_post .yuzo__title::before, .yuzo_related_post .yuzo__title::after {
+.post-section-title::before, .yuzo_related_post .yuzo__title::before, .post-section-title::after, .yuzo_related_post .yuzo__title::after {
   content: '';
   width: 30%;
   top: 50%;
@@ -1369,11 +1370,17 @@ body, html {
   position: absolute;
   display: block;
 }
-.yuzo_related_post .yuzo__title::before {
+.post-section-title::before, .yuzo_related_post .yuzo__title::before {
   left: 0;
 }
-.yuzo_related_post .yuzo__title::after {
+.post-section-title::after, .yuzo_related_post .yuzo__title::after {
   right: 0;
+}
+
+.yuzo_related_post {
+  width: 100%;
+  text-align: center;
+  overflow: visible;
 }
 
 .yuzo_related_post .yuzo_wraps {
@@ -2137,6 +2144,7 @@ body.comments-visible #comments-container {
 .post-content {
   padding: 20px;
   line-height: 1.8;
+  position: relative;
 }
 
 /**
@@ -2250,6 +2258,327 @@ body.comments-visible #comments-container {
 }
 .post .entry-footer ul.post-categories li:hover::before {
   color: white;
+}
+
+#social-share {
+  position: absolute;
+  left: -255px;
+  top: 90px;
+  z-index: 20;
+}
+@media (max-width: 1160px) {
+  #social-share {
+    left: -200px;
+    left: calc(50% - 50vw + 10px);
+  }
+}
+@media (max-width: 1000px) {
+  #social-share {
+    position: relative;
+    width: 100%;
+    top: auto !important;
+    left: auto !important;
+  }
+}
+.format-image #social-share {
+  position: relative;
+  width: 100%;
+  top: auto !important;
+  left: auto !important;
+}
+
+/**
+ * Show each of the links as icons using the same method as the social
+ * media navigation bar.
+ */
+#social-share a[href*="facebook"] span {
+  display: none;
+}
+#social-share a[href*="facebook"]::before {
+  font-family: "fontawesome";
+  content: "";
+}
+
+#social-share a[href*="github"] span {
+  display: none;
+}
+#social-share a[href*="github"]::before {
+  font-family: "fontawesome";
+  content: "";
+}
+
+#social-share a[href*="tumblr"] span {
+  display: none;
+}
+#social-share a[href*="tumblr"]::before {
+  font-family: "fontawesome";
+  content: "";
+}
+
+#social-share a[href*="vine"] span {
+  display: none;
+}
+#social-share a[href*="vine"]::before {
+  font-family: "fontawesome";
+  content: "";
+}
+
+#social-share a[href*="yelp"] span {
+  display: none;
+}
+#social-share a[href*="yelp"]::before {
+  font-family: "fontawesome";
+  content: "";
+}
+
+#social-share a[href*="youtube"] span {
+  display: none;
+}
+#social-share a[href*="youtube"]::before {
+  font-family: "fontawesome";
+  content: "";
+}
+
+#social-share a[href*="twitter"] span {
+  display: none;
+}
+#social-share a[href*="twitter"]::before {
+  font-family: "fontawesome";
+  content: "";
+}
+
+#social-share a[href*="vimeo"] span {
+  display: none;
+}
+#social-share a[href*="vimeo"]::before {
+  font-family: "fontawesome";
+  content: "";
+}
+
+#social-share a[href*="slack"] span {
+  display: none;
+}
+#social-share a[href*="slack"]::before {
+  font-family: "fontawesome";
+  content: "";
+}
+
+#social-share a[href*="rebel"] span {
+  display: none;
+}
+#social-share a[href*="rebel"]::before {
+  font-family: "fontawesome";
+  content: "";
+}
+
+#social-share a[href*="pinterest"] span {
+  display: none;
+}
+#social-share a[href*="pinterest"]::before {
+  font-family: "fontawesome";
+  content: "";
+}
+
+#social-share a[href*="linkedin"] span {
+  display: none;
+}
+#social-share a[href*="linkedin"]::before {
+  font-family: "fontawesome";
+  content: "";
+}
+
+#social-share a[href*="google"] span {
+  display: none;
+}
+#social-share a[href*="google"]::before {
+  font-family: "fontawesome";
+  content: "";
+}
+
+#social-share a[href*="instagram"] span {
+  display: none;
+}
+#social-share a[href*="instagram"]::before {
+  font-family: "fontawesome";
+  content: "";
+}
+
+#social-share a[href*="reddit"] span {
+  display: none;
+}
+#social-share a[href*="reddit"]::before {
+  font-family: "fontawesome";
+  content: "";
+}
+
+/**
+ * Alter the style of each social icon, with transitions as well.
+ */
+#social-share a {
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  margin: 6px 0;
+  position: relative;
+}
+@media (max-width: 1000px) {
+  #social-share a {
+    font-size: 30px;
+    font-size: 1.875rem;
+    margin: 6px;
+    width: 80px;
+    height: 80px;
+  }
+}
+.format-image #social-share a {
+  font-size: 30px;
+  font-size: 1.875rem;
+  margin: 6px;
+  width: 80px;
+  height: 80px;
+}
+#social-share a::before {
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  color: black;
+}
+#social-share a::after {
+  display: block;
+  content: '';
+  position: absolute;
+  top: -13px;
+  height: 13px;
+  left: 50%;
+  width: 1px;
+  background-color: black;
+}
+@media (max-width: 1000px) {
+  #social-share a::after {
+    display: none;
+  }
+}
+.format-image #social-share a::after {
+  display: none;
+}
+#social-share a:hover {
+  background-color: black;
+}
+#social-share a:hover::before {
+  color: white;
+}
+
+/**
+ * Style the flexbox to ovverride list styling.
+ */
+#social-share ul {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+}
+@media (max-width: 1000px) {
+  #social-share ul {
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+  }
+}
+.format-image #social-share ul {
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+/**
+ * The title to be displayed over the links to share. Center it, as with all
+ * else.
+ */
+#social-share .title {
+  text-align: center;
+  margin: 0;
+}
+@media (max-width: 1000px) {
+  #social-share .title {
+    font-size: 22px;
+    font-size: 1.375rem;
+    font-family: "Raleway", "Montserrat", "Helvetica", "Avenir", sans-serif;
+    font-weight: bold;
+    color: black;
+    margin: 10px auto;
+    text-align: center;
+    position: relative;
+    height: auto !important;
+    width: 100%;
+  }
+  #social-share .title::before, #social-share .title::after {
+    content: '';
+    width: 30%;
+    top: 50%;
+    top: calc(50% - 1px);
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    display: block;
+  }
+  #social-share .title::before {
+    left: 0;
+  }
+  #social-share .title::after {
+    right: 0;
+  }
+}
+.format-image #social-share .title {
+  font-size: 22px;
+  font-size: 1.375rem;
+  font-family: "Raleway", "Montserrat", "Helvetica", "Avenir", sans-serif;
+  font-weight: bold;
+  color: black;
+  margin: 10px auto;
+  text-align: center;
+  position: relative;
+  height: auto !important;
+  width: 100%;
+}
+.format-image #social-share .title::before, .format-image #social-share .title::after {
+  content: '';
+  width: 30%;
+  top: 50%;
+  top: calc(50% - 1px);
+  height: 2px;
+  background-color: black;
+  position: absolute;
+  display: block;
+}
+.format-image #social-share .title::before {
+  left: 0;
+}
+.format-image #social-share .title::after {
+  right: 0;
+}
+
+#social-share .title span {
+  font-size: 24px;
+  font-size: 1.5rem;
+  color: black;
+  font-family: "Raleway", "Montserrat", "Helvetica", "Avenir", sans-serif;
+  border-bottom: 1px solid black;
 }
 
 /**
@@ -3659,6 +3988,9 @@ body.single-format-image #page {
     font-size: 40px;
     font-size: 2.5rem;
   }
+}
+body.search-results .post.format-image .entry-title, body.archive .post.format-image .entry-title, body.category .post.format-image .entry-title {
+  font-size: 2em;
 }
 
 .post.format-image .entry-meta * {

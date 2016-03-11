@@ -21,6 +21,8 @@ sass/
 |   |- _post.scss        # Basic styling for a post
 |   |- _search.scss      # Search form
 |   |- _related-posts.scss  # Related posts
+|   |- _social-share.scss   # Social Media sharing.
+|   |- _section-title.scss  # Post Section Title Helper.
 |
 |– layout/
 |   |– _navigation.scss  # Navigation
@@ -77,6 +79,7 @@ sass/
   'layout/social-sidebar';
 
 @import
+  'components/section-title',
   'components/related-posts',
   'components/search',
   'components/buttons',
@@ -88,7 +91,8 @@ sass/
   'components/entry-meta',
   'components/tables',
   'components/widgets',
-  'components/post';
+  'components/post',
+  'components/social-share';
 
 @import
   'pages/front-page',

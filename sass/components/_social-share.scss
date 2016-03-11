@@ -1,0 +1,164 @@
+/// The distance whre the social share must respond to smaller screen width
+/// and display as mobile.
+$social-switch-medium: $embed-out-distance * 2 + 50px + $post-width;
+
+#social-share {
+  position: absolute;
+  left: ($max-page-width - $post-width) / -2;
+  top: 90px;
+  z-index: 20;
+
+  @include respond-to((max-width: #{$max-page-width})) {
+    left: -$embed-out-distance - 50px;
+    left: calc(50% - 50vw + 10px);
+  }
+
+  @include respond-to((max-width: $social-switch-medium), '.format-image') {
+    position: relative;
+    width: 100%;
+    top: auto !important;
+    left: auto !important;
+  }
+}
+
+/// A hash containing all the icons needed for social sharing in the social
+/// share component of the post. These differ from those in the navigation menu
+/// due to there clear backgrounds.
+$social-share-icons: (
+  'facebook' : '\f09a',
+  'github'   : '\f092',
+  'tumblr'   : '\f173',
+  'vine'     : '\f1ca',
+  'yelp'     : '\f1e9',
+  'youtube'  : '\f166',
+  'twitter'  : '\f099',
+  'vimeo'    : '\f194',
+  'slack'    : '\f198',
+  'rebel'    : '\f1d0',
+  'pinterest': '\f231',
+  'linkedin' : '\f08c',
+  'google'   : '\f0d5',
+  'instagram': '\f16d',
+  'reddit'   : '\f281',
+);
+
+/**
+ * Show each of the links as icons using the same method as the social
+ * media navigation bar.
+ */
+ @each $name, $character in $social-share-icons {
+   #social-share a[href*="#{$name}"] {
+     span { display: none; }
+
+     &::before {
+       font-family: "fontawesome";
+       content: $character;
+     }
+   }
+ }
+
+ /**
+  * Alter the style of each social icon, with transitions as well.
+  */
+#social-share a {
+  @extend %center-vertical;
+  @include transition(all 1s);
+  border: 1px solid color('black');
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  margin: 6px 0;
+  position: relative;
+
+  @include respond-to((max-width: $social-switch-medium), '.format-image') {
+    @include font-size(30px);
+    margin: 6px;
+    width: 80px;
+    height: 80px;
+  }
+
+
+  &::before {
+    @include transition(all 1s);
+    color: color('black');
+  }
+
+  &::after {
+    display: block;
+    content: '';
+    position: absolute;
+    top: -13px;
+    height: 13px;
+    left: 50%;
+    width: 1px;
+    background-color: color('black');
+
+    @include respond-to((max-width: $social-switch-medium), '.format-image') {
+      display: none;
+    }
+  }
+
+  &:hover { background-color: color('black'); }
+
+  &:hover::before { color: color('white'); }
+}
+
+/**
+ * Style the flexbox to ovverride list styling.
+ */
+#social-share ul {
+  @include display-flex;
+  @include flex-direction(column);
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+
+  @include respond-to((max-width: $social-switch-medium), '.format-image') {
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
+    @include justify-content(center);
+  }
+}
+
+/**
+ * The title to be displayed over the links to share. Center it, as with all
+ * else.
+ */
+#social-share .title {
+  text-align: center;
+  margin: 0;
+
+  @include respond-to((max-width: $social-switch-medium), '.format-image') {
+    @include font-size(22px);
+    font-family: $heading-font;
+    font-weight: bold;
+    color: color('black');
+    margin: 10px auto;
+    text-align: center;
+    position: relative;
+    height: auto !important;
+    width: 100%;
+
+    &::before, &::after {
+      content: '';
+      width: 30%;
+      top: 50%;
+      top: calc(50% - 1px);
+      height: 2px;
+      background-color: color('black');
+      position: absolute;
+      display: block;
+    }
+
+    &::before { left: 0; }
+    &::after { right: 0; }
+  }
+}
+
+#social-share .title span {
+  @include font-size(24px);
+  color: color('black');
+  font-family: $heading-font;
+  border-bottom: 1px solid color('black');
+}

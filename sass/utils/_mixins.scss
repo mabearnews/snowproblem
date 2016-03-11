@@ -1,7 +1,8 @@
 /// Allowes response to breakpoints site wide for easier use.
 /// @param {String} $breakpoint - Breakpoint name
+/// @param {String} $selector - Optional selector for displaying conent as well.
 /// @require $breakpoints
-@mixin respond-to($breakpoint) {
+@mixin respond-to($breakpoint, $selector: false) {
   $raw-query: $breakpoint;
   @if ( map-has-key($breakpoints, $breakpoint) ) {
     $raw-query: map-get($breakpoints, $breakpoint);
@@ -16,6 +17,12 @@
   } @else {
     @error 'No value found for `#{$breakpoint}`. '
          + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+
+  @if $selector {
+    #{$selector} & {
+      @content;
+    }
   }
 }
 
@@ -77,8 +84,10 @@
 /// Responds to multiple posts as identified by wordpress.
 /// @content
 /// @require $multiple-post
-@mixin multiple-posts {
-  #{$multiple-post} & {
+@mixin multiple-post {
+  body.search-results &,
+  body.archive &,
+  body.category & {
     @content;
   }
 }

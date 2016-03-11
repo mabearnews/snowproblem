@@ -164,7 +164,7 @@ add_action( 'widgets_init', 'snowproblem_widgets_init' );
 function snowproblem_scripts() {
 
 	// Include the fontawesome stylesheet.
-	wp_enqueue_style( 'snowproblem-fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
+	wp_enqueue_style( 'snowproblem-fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
 
 	wp_enqueue_style( 'snowproblem-style', get_stylesheet_uri() );
 

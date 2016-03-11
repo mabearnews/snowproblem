@@ -1,0 +1,29 @@
+/**
+ * The pose section title shows a visually distinct section of
+ * content from the remainder of a posts text. The use of this
+ * title allows for a more easily identifiable section.
+ */
+.post-section-title {
+  @include font-size(22px);
+  font-family: $heading-font;
+  font-weight: bold;
+  color: color('black');
+  margin: 10px auto;
+  text-align: center;
+  position: relative;
+  height: auto !important;
+
+  &::before, &::after {
+    content: '';
+    width: 30%;
+    top: 50%;
+    top: calc(50% - 1px);
+    height: 2px;
+    background-color: color('black');
+    position: absolute;
+    display: block;
+  }
+
+  &::before { left: 0; }
+  &::after { right: 0; }
+}

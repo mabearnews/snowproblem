@@ -8,28 +8,7 @@
 
 
 .yuzo_related_post .yuzo__title {
-  @include font-size(22px);
-  font-family: $heading-font;
-  font-weight: bold;
-  color: color('black');
-  margin: 10px auto;
-  text-align: center;
-  position: relative;
-  height: auto !important;
-
-  &::before, &::after {
-    content: '';
-    width: 30%;
-    top: 50%;
-    top: calc(50% - 1px);
-    height: 2px;
-    background-color: color('black');
-    position: absolute;
-    display: block;
-  }
-
-  &::before { left: 0; }
-  &::after { right: 0; }
+  @extend .post-section-title;
 }
 
 .yuzo_related_post .yuzo_wraps {
