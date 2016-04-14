@@ -1,4 +1,5 @@
 jQuery(document).ready(function($) {
+    // Ensure the social share functionality exists.
     if ( ! $( '#social-share' ).length ) {
         return;
     }
@@ -16,9 +17,11 @@ jQuery(document).ready(function($) {
     });
 
 
-    var socialShare = $('#social-share');
-
+    var socialShare   = $('#social-share');
+    var postHeight    = $( '.post-content' ).height();
     var offsetInitial = socialShare.offset().top - $( '.post-content' ).offset().top;
+    var initialLeft   = socialShare.css('left');
+    var socialHeight  = socialShare.height();
 
     /**
      * Adjusts the height of the social share based off of its position in
@@ -28,13 +31,36 @@ jQuery(document).ready(function($) {
         var o = $('.post-content').offset().top;
         var s = $(this).scrollTop();
 
-        var d =  o < 0 ? -o + offsetInitial : offsetInitial;
+        if ( s > postHeight - socialHeight - offsetInitial ) {
+            return socialShare.css({
+                'top': ( postHeight - socialHeight - offsetInitial ) + 'px',
+                'left': initialLeft,
+                'position': absolute
+            });
+        }
 
-        var maxDist = $( '.post-content' ).height() - offsetInitial * 2;
+        if ( o < 0 ) {
+            return socialShare.css({
+                'top': offsetInitial + 'px',
+                'position': 'fixed',
+                left: $('#site-navigation > .wrapper').offset().left + 'px'
+            });
+        }
 
-        if ( d > maxDist ) d = maxDist;
+        return socialShare.css({
+            'top': offsetInitial + 'px',
+            'position': 'absolute',
+            'left': initialLeft
+        });
 
-        socialShare.css('top', d + 'px');
+         var d =  o < 0 ? offsetInitial - o : offsetInitial;
+        //
+        // var maxDist = $( '.post-content' ).height() - offsetInitial * 2;
+        //
+        // if ( d > maxDist ) {
+        //     d = maxDist;
+        //     socialShare.css({'top', d + 'px');
+        // }
     };
 
     $('#page').scroll(adjustSocialShare);

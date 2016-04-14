@@ -2096,6 +2096,54 @@ body.comments-visible #comments-container {
 }
 
 /**
+ * Add pullquote functionality which resembles functionality found for images on posts.
+ *
+ * Pullquotes are only implemented on text that is aligned left or right.
+ */
+blockquote {
+  font-size: 18px;
+  font-size: 1.125rem;
+  font-family: "EB Garamond", Georgia, serif;
+  font-style: italic;
+  position: relative;
+  margin: 5px 35px;
+  line-height: 2;
+}
+blockquote.pull-right {
+  margin-right: -150px;
+  text-align: left;
+  float: right;
+  width: 300px;
+}
+blockquote.pull-left {
+  margin-left: -150px;
+  float: left;
+  width: 300px;
+}
+@media (max-width: 800px) {
+  blockquote {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    width: 90% !important;
+    float: none !important;
+  }
+}
+
+/**
+ * Implement the quote symbol for the blockquote
+ */
+blockquote::before {
+  font-size: 70px;
+  font-size: 4.375rem;
+  font-family: "EB Garamond", Georgia, serif;
+  content: '\201C';
+  top: -45px;
+  left: -40px;
+  position: absolute;
+}
+
+/**
  * Style the entry meta to a simple distraction free standard.
  * 1. Adjust the font size and color.
  * 2. Ensure everything stated remains on one line.
@@ -2166,7 +2214,9 @@ body.comments-visible #comments-container {
 @media (max-width: 800px) {
   .post-content img.alignright,
   .post-content .wp-caption.alignright {
-    margin-right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
   }
 }
 
@@ -2177,7 +2227,9 @@ body.comments-visible #comments-container {
 @media (max-width: 800px) {
   .post-content img.alignleft,
   .post-content .wp-caption.alignleft {
-    margin-left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
   }
 }
 

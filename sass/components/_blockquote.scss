@@ -1,1 +1,46 @@
-// Implement me...
+/**
+ * Add pullquote functionality which resembles functionality found for images on posts.
+ *
+ * Pullquotes are only implemented on text that is aligned left or right.
+ */
+blockquote {
+  @include font-size(18px);
+  font-family: $alternate-font;
+  font-style: italic;
+  position: relative;
+  margin: 5px 35px;
+  line-height: 2;
+
+&.pull-right {
+    margin-right: -$embed-out-distance;
+    text-align: left;
+    float: right;
+    width: 2 * $embed-out-distance;
+  }
+
+  &.pull-left {
+    margin-left: -$embed-out-distance;
+    float: left;
+    width: 2 * $embed-out-distance;
+  }
+
+  @include respond-to('medium') {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    width: 90% !important;
+    float: none !important;
+  }
+}
+
+/**
+ * Implement the quote symbol for the blockquote
+ */
+blockquote::before {
+  @include font-size(70px);
+  font-family: $alternate-font;
+  content: '\201C';
+  top: -45px;
+  left: -40px;
+  position: absolute;
+}

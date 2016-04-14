@@ -47,6 +47,15 @@ function snowproblem_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
+	/**
+	 * Some standard image sizes to show image sizes.
+	 */
+	add_image_size( 'singlepost-background', 2000, 9999 );
+
+	add_image_size( 'newscard-background', 800, 9999 );
+
+	add_image_size( 'mobile-background', 800, 9999 );
+
 	// This theme uses wp_nav_menu() in three locations.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary Menu', 'snowproblem' ),
