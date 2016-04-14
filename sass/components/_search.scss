@@ -117,7 +117,8 @@
  * Make the searchform field container large enough to contain proper searches.
  */
 #searchform .field-container {
-  width: $max-page-width;
+  width: 95%;
+  max-width: $max-page-width;
   margin: 0 auto;
   position: relative;
 }

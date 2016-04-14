@@ -35,7 +35,7 @@ jQuery(document).ready(function($) {
             return socialShare.css({
                 'top': ( postHeight - socialHeight - offsetInitial ) + 'px',
                 'left': initialLeft,
-                'position': absolute
+                'position': 'absolute'
             });
         }
 
@@ -53,14 +53,6 @@ jQuery(document).ready(function($) {
             'left': initialLeft
         });
 
-         var d =  o < 0 ? offsetInitial - o : offsetInitial;
-        //
-        // var maxDist = $( '.post-content' ).height() - offsetInitial * 2;
-        //
-        // if ( d > maxDist ) {
-        //     d = maxDist;
-        //     socialShare.css({'top', d + 'px');
-        // }
     };
 
     $('#page').scroll(adjustSocialShare);

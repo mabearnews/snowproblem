@@ -27,6 +27,11 @@ jQuery(document).ready(function($) {
             return false; // Ensure default is prevented.
         }
 
+        if ( e.which == 27 ) {
+            // Exit on escape key
+            return toggleState();
+        }
+
         // Load some posts form the field.
         var searchQuery = $(this).val();
 

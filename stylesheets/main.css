@@ -1564,7 +1564,8 @@ body.search-visible #searchform {
  * Make the searchform field container large enough to contain proper searches.
  */
 #searchform .field-container {
-  width: 1160px;
+  width: 95%;
+  max-width: 1160px;
   margin: 0 auto;
   position: relative;
 }
