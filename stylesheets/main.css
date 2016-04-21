@@ -35,11 +35,13 @@ sass/
 |   |– _hex-grid.scss    # A hexagonal grid system
 |
 |– pages/
-|   |– _front-page.scss  # Main splashpage
-|   |– _page.scss        # Default page style
-|   |- _staff.scss       # Contact and page style.
-|   |- _author.scss      # About author page.
-|   |- _multiple.scss    # For search results and the like.
+|   |– _front-page.scss          # Main splashpage
+|   |– _page.scss                # Default page style
+|   |- _staff.scss               # Contact and page style.
+|   |- _author.scss              # About author page.
+|   |- _multiple.scss            # For search results and the like.
+|   |- _standard-sidebar.scss    # Sidebar for standard format.
+|   |- _single-image.scss        # Single featured post format.
 |
 |– utils/
 |   |– _variables.scss   # Sass Variables
@@ -2234,6 +2236,13 @@ blockquote::before {
   }
 }
 
+.post-content img.aligncenter,
+.post-content .wp-caption.aligncenter {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
 /**
  * Allow the entry image to expand on hover.
  * 1. Allow for an increase in size without expanding beyond borders.
@@ -2566,6 +2575,7 @@ blockquote::before {
 #social-share .title {
   text-align: center;
   margin: 0;
+  font-weight: 400;
 }
 @media (max-width: 1000px) {
   #social-share .title {
@@ -4058,3 +4068,11 @@ body.search-results .post.format-image .entry-title, body.archive .post.format-i
   font-weight: 600;
   color: white;
 }
+
+/**
+ * While many posts show more elaborate displays, such as the image post, the
+ * standard should provide links to the top stories.
+ *
+ * To implement this, the centering of the post is changed to include flex
+ * attributes and allow for the addition of a sidebar.
+ */

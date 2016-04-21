@@ -51,6 +51,13 @@
   }
 }
 
+.post-content img.aligncenter,
+.post-content .wp-caption.aligncenter {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
 /**
  * Allow the entry image to expand on hover.
  * 1. Allow for an increase in size without expanding beyond borders.

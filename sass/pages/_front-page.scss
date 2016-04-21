@@ -795,9 +795,9 @@ $featured-block-size: $max-page-width;
  * This moves all the popular posts using some css tricks.
  */
 @for $i from 0 through 10 {
-    #top-stories-container.active-#{$i} > .top-stories {
-      left: $i * -100vw;
-    }
+  #top-stories-container.active-#{$i} > .top-stories {
+    left: $i * -100vw;
+  }
 }
 
 /**

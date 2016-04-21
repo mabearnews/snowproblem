@@ -13,7 +13,7 @@
 	<?php if ( has_post_thumbnail() ) : ?>
 		<a href="<?php print get_permalink(); ?>">
 			<div class="entry-image">
-				<?php the_post_thumbnail( 'large' ); ?>
+				<?php the_post_thumbnail( 'newscard-background' ); ?>
 			</div>
 		</a>
 	<?php endif; ?>

@@ -35,11 +35,13 @@ sass/
 |   |– _hex-grid.scss    # A hexagonal grid system
 |
 |– pages/
-|   |– _front-page.scss  # Main splashpage
-|   |– _page.scss        # Default page style
-|   |- _staff.scss       # Contact and page style.
-|   |- _author.scss      # About author page.
-|   |- _multiple.scss    # For search results and the like.
+|   |– _front-page.scss          # Main splashpage
+|   |– _page.scss                # Default page style
+|   |- _staff.scss               # Contact and page style.
+|   |- _author.scss              # About author page.
+|   |- _multiple.scss            # For search results and the like.
+|   |- _standard-sidebar.scss    # Sidebar for standard format.
+|   |- _single-image.scss        # Single featured post format.
 |
 |– utils/
 |   |– _variables.scss   # Sass Variables
@@ -100,4 +102,5 @@ sass/
   'pages/staff',
   'pages/author',
   'pages/multiple',
-  'pages/single-image';
+  'pages/single-image',
+  'pages/standard-sidebar';

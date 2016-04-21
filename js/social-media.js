@@ -4,6 +4,10 @@ jQuery(document).ready(function($) {
         return;
     }
 
+    // Ensure that this is a standard post that requires this functionality.
+    if ( ! $( 'body.single-format-standard ' ).length ) {
+        return;
+    }
 
     /**
      * Ensures windows open as popups to share a story.
@@ -31,13 +35,13 @@ jQuery(document).ready(function($) {
         var o = $('.post-content').offset().top;
         var s = $(this).scrollTop();
 
-        if ( s > postHeight - socialHeight - offsetInitial ) {
-            return socialShare.css({
-                'top': ( postHeight - socialHeight - offsetInitial ) + 'px',
-                'left': initialLeft,
-                'position': 'absolute'
-            });
-        }
+        // if ( s > postHeight - socialHeight - offsetInitial ) {
+        //     return socialShare.css({
+        //         'top': ( postHeight - socialHeight - offsetInitial ) + 'px',
+        //         'left': initialLeft,
+        //         'position': 'absolute'
+        //     });
+        // }
 
         if ( o < 0 ) {
             return socialShare.css({

@@ -303,10 +303,10 @@ function snowproblem_primary_menu() {
 /**
  * Returns a featured image url if one exists.
  */
-function snowproblem_get_thumbnail_url( $id = null ) {
-	if ( ! $id ) { $id = $post->ID; }
+function snowproblem_get_thumbnail_url( $size = 'single-post-thumbnail' ) {
+	$id = $post->ID;
 	if ( has_post_thumbnail( $id ) ) {
-		return wp_get_attachment_image_src( get_post_thumbnail_id( $id ), 'single-post-thumbnail' )[0];
+		return wp_get_attachment_image_src( get_post_thumbnail_id( $id ), $size )[0];
 	}
 	return '';
 }

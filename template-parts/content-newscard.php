@@ -1,4 +1,4 @@
-<article <?php post_class( 'column post newscard' ); ?> style="background-image: url(<?php print snowproblem_get_thumbnail_url(); ?>);">
+<article <?php post_class( 'column post newscard' ); ?> style="background-image: url(<?php print snowproblem_get_thumbnail_url('newscard-background'); ?>);">
 
     <?php if ( has_post_thumbnail() ) : ?>
         <a href="<?php print get_permalink(); ?>">
