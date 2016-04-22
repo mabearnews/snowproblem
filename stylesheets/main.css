@@ -523,11 +523,6 @@ body {
  * 9. Ensure stanrd font size throught the navigation, exceptions may follow.
  */
 #site-navigation {
-  -moz-transition: all 0.8s;
-  -o-transition: all 0.8s;
-  -webkit-transition: all 0.8s;
-  transition: all 0.8s;
-  /* 8 */
   display: -webkit-flex;
   display: flex;
   /* 4 */
@@ -566,15 +561,6 @@ body {
   #site-navigation a {
     font-size: 13px;
     font-size: 0.8125rem;
-  }
-}
-@media (max-width: 800px) {
-  body.nav-visible #site-navigation {
-    -moz-transform: translateX(230px);
-    -ms-transform: translateX(230px);
-    -webkit-transform: translateX(230px);
-    transform: translateX(230px);
-    /* 8 */
   }
 }
 
@@ -749,17 +735,13 @@ body.nav-visible #menu-toggle .row:nth-child(2) {
  */
 #site-navigation-more {
   position: fixed;
-  left: 20px;
-  bottom: 20px;
+  left: 0;
+  bottom: 0;
+  top: 0;
   padding: 20px;
-  max-width: 220px;
+  width: 100vw;
+  height: 100vh;
   background-color: white;
-}
-@media (max-width: 800px) {
-  #site-navigation-more {
-    top: 20px;
-    bottom: auto;
-  }
 }
 
 /**
@@ -768,7 +750,47 @@ body.nav-visible #menu-toggle .row:nth-child(2) {
 #site-navigation-more ul {
   list-style-type: none;
   padding: 0;
+  padding-bottom: 80px;
   margin: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+/**
+ * Style the transition of the link on hover and space the options easily.
+ *
+ * The bottom list element usefully provides some random fluff to account for
+ * mobile oddnesses in showing the entire page.
+ */
+#site-navigation-more li {
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  padding: 15px;
+  margin: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.6);
+  background-color: white;
+  color: black;
+}
+#site-navigation-more li:hover {
+  background-color: black;
+  color: white;
+}
+#site-navigation-more li:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+}
+#site-navigation-more li li {
+  display: none;
+}
+
+#site-navigation-more a {
+  color: inherit;
+  text-transform: uppercase;
+  text-align: left;
 }
 
 /**
@@ -795,21 +817,11 @@ body.nav-visible #page {
   -webkit-transform: rotate(-25deg);
   transform: rotate(-25deg);
   /* 1 */
+}
+body.nav-ending-visible #page, body.nav-visible #page {
   height: 200vh;
   /* 2 */
-}
-body.nav-ending-visible #page {
-  height: 200vh;
-  /* 2 */
-}
-@media (max-width: 800px) {
-  body.nav-visible #page {
-    -moz-transform: translateX(230px);
-    -ms-transform: translateX(230px);
-    -webkit-transform: translateX(230px);
-    transform: translateX(230px);
-    /* 3 */
-  }
+  border-left: 1px solid black;
 }
 
 /**

@@ -104,13 +104,22 @@ PrimaryNav.malformLinks = function() {
  * Toggle the content of the more nav.
  */
 PrimaryNav.changeContent = function( content ) {
+    // Sort the list items according to size, this makes some allowances for
+    // small screens.
+    var kids = $( content ).children().sort(function(a, b) {
+        var t1 = $( a ).children('a').first().text(),
+            t2 = $( b ).children('a').first().text();
+        return t1.length > t2.length ? 1 : -1;
+    });
+
+    $( content ).append(kids);
 
     this.elems.moreNav.empty();
 
     // Create a content wrapper.
     var w = $( '<div></div>', { class: 'more-nav-wrapper' } );
 
-    w.append( content.clone() );
+    w.append( content.clone().removeAttr('id') );
     this.elems.moreNav.append( w );
 
     var t = this;

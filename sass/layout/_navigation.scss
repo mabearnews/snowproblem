@@ -20,7 +20,6 @@ body {
  * 9. Ensure stanrd font size throught the navigation, exceptions may follow.
  */
 #site-navigation {
-  @include transition(all 0.8s); /* 8 */
   @include display-flex;  /* 4 */
   @include flex-direction(column);  /* 4 */
   @include justify-content(center); /* 4 */
@@ -42,12 +41,6 @@ body {
 
   @include respond-to('large') {
     a { @include font-size(13px); }
-  }
-
-  @include respond-to('medium') {
-    body.nav-visible & {
-      @include transform(translateX(230px)); /* 8 */
-    }
   }
 }
 
@@ -196,16 +189,13 @@ body.nav-visible #menu-toggle  .row {
  */
 #site-navigation-more {
   position: fixed;
-  left: 20px;
-  bottom: 20px;
+  left: 0;
+  bottom: 0;
+  top: 0;
   padding: 20px;
-  max-width: 220px;
+  width: 100vw;
+  height: 100vh;
   background-color: $content-bgcolor;
-
-  @include respond-to('medium') {
-    top: 20px;
-    bottom: auto;
-  }
 }
 
 /**
@@ -214,7 +204,43 @@ body.nav-visible #menu-toggle  .row {
 #site-navigation-more ul {
   list-style-type: none;
   padding: 0;
+  padding-bottom: 80px;
   margin: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+/**
+ * Style the transition of the link on hover and space the options easily.
+ *
+ * The bottom list element usefully provides some random fluff to account for
+ * mobile oddnesses in showing the entire page.
+ */
+#site-navigation-more li {
+  @include transition(all 0.2s);
+  padding: 15px;
+  margin: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.6);
+  background-color: color('white');
+  color: color('black');
+
+  &:hover {
+    background-color: color('black');
+    color: color('white');
+  }
+
+  &:last-child { border-bottom: 1px solid rgba(0, 0, 0, 0.6); }
+
+  li { display: none; }
+}
+
+#site-navigation-more a {
+  color: inherit;
+  text-transform: uppercase;
+  text-align: left;
 }
 
 /**
@@ -231,17 +257,12 @@ body.nav-visible #menu-toggle  .row {
 
   body.nav-visible & {
     @include transform(rotate(-25deg )); /* 1 */
-    height: 200vh; /* 2 */
   }
 
-  body.nav-ending-visible & {
+  body.nav-ending-visible &,
+  body.nav-visible & {
     height: 200vh; /* 2 */
-  }
-
-  @include respond-to('medium') {
-    body.nav-visible & {
-      @include transform(translateX(230px)); /* 3 */
-    }
+    border-left: 1px solid color('black');
   }
 }
 
