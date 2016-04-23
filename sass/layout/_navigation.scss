@@ -235,6 +235,10 @@ body.nav-visible #menu-toggle  .row {
   &:last-child { border-bottom: 1px solid rgba(0, 0, 0, 0.6); }
 
   li { display: none; }
+
+  @include respond-to((max-height: 550px)) {
+    padding: 6px;
+  }
 }
 
 #site-navigation-more a {
@@ -257,6 +261,10 @@ body.nav-visible #menu-toggle  .row {
 
   body.nav-visible & {
     @include transform(rotate(-25deg )); /* 1 */
+
+    @include respond-to((max-height: 550px)) {
+      @include transform(rotate(-30deg )); /* 1 */
+    }
   }
 
   body.nav-ending-visible &,

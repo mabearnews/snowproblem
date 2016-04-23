@@ -786,6 +786,11 @@ body.nav-visible #menu-toggle .row:nth-child(2) {
 #site-navigation-more li li {
   display: none;
 }
+@media (max-height: 550px) {
+  #site-navigation-more li {
+    padding: 6px;
+  }
+}
 
 #site-navigation-more a {
   color: inherit;
@@ -817,6 +822,15 @@ body.nav-visible #page {
   -webkit-transform: rotate(-25deg);
   transform: rotate(-25deg);
   /* 1 */
+}
+@media (max-height: 550px) {
+  body.nav-visible #page {
+    -moz-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    -webkit-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+    /* 1 */
+  }
 }
 body.nav-ending-visible #page, body.nav-visible #page {
   height: 200vh;
