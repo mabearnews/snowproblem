@@ -144,9 +144,9 @@ get_header(); ?>
 
 <div id="react-container"></div>
 
-<div id="top-stories-container">
+<div id="top-stories-container" class="swipe">
 
-    <div class="top-stories">
+    <div class="top-stories swipe-wrap">
 
         <?php snowproblem_display_popular( 'top-stories', 4 ); ?>
 

@@ -677,26 +677,8 @@ $featured-block-size: $max-page-width;
  * Check out inc/post-views for more inforamtion on how these are chosen.
  */
 .post-popular {
-  @extend %center-vertical;
-  @include transition(all 0.8s linear);
   @include centered-background;
-  width: 100vw;
-  min-width: 100vw;
-  position: absolute !important;
-  top: 0;
-  margin: 0;
   height: 100%;
-
-  @include respond-to('medium') {
-    max-height: 100vh;
-    margin: 0;
-  }
-
-  @for $i from 1 through 10 {
-    &:nth-child(#{$i}) {
-      left: ($i - 1) * 100vw;
-    }
-  }
 }
 
 /**
@@ -735,6 +717,22 @@ $featured-block-size: $max-page-width;
 
   @include respond-to('medium') {
     @include font-size(25px);
+    line-height: normal;
+    letter-spacing: normal;
+  }
+}
+
+.post-popular .post-content {
+  @extend %center-vertical;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding: 25px;
+
+  @include respond-to('medium') {
+    padding: 5px;
   }
 }
 
@@ -743,19 +741,13 @@ $featured-block-size: $max-page-width;
  * stories.
  */
 #top-stories-container {
-  @include transition(all 1s);
-  @include flex-direction(row);
-  @include justify-content(flex-start);
   width: 100%;
   height: 50vw;
-  min-height: 450px;
+  min-height: 250px;
   max-height: 80vh;
   overflow: hidden;
+  visibility: hidden;
   position: relative;
-
-  @include respond-to('medium') {
-    margin: 15px 0;
-  }
 }
 
 /**
@@ -781,23 +773,10 @@ $featured-block-size: $max-page-width;
 /**
  * Contains all top stories in a block.
  */
-#top-stories-container > .top-stories {
-  @include transition(all 1s);
+#top-stories-container .swipe-wrap {
+  overflow: hidden;
+  position: relative;
   height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-/**
- * Allow popular posts to rotoate based off of their index in the contianer.
- *
- * This moves all the popular posts using some css tricks.
- */
-@for $i from 0 through 10 {
-  #top-stories-container.active-#{$i} > .top-stories {
-    left: $i * -100vw;
-  }
 }
 
 /**
@@ -830,6 +809,10 @@ $featured-block-size: $max-page-width;
   &.active {
     @include transform(scale(1.3));
     background-color: color('white');
+  }
+
+  @include respond-to('medium') {
+    display: none;
   }
 }
 
@@ -886,5 +869,9 @@ $featured-block-size: $max-page-width;
 
   &.right {
     right: 20px;
+  }
+
+  @include respond-to('medium') {
+    display: none;
   }
 }

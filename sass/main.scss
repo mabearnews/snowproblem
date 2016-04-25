@@ -7,6 +7,7 @@ sass/
 |   |– _reset.scss       # Reset/normalize
 |   |– _typography.scss  # Typography rules
 |   |- _links.scss       # Link rules
+|   |- _plugins.scss     # Plugin additions
 |
 |– components/
 |   |– _buttons.scss     # Buttons
@@ -69,7 +70,8 @@ sass/
 @import
   'base/reset',
   'base/typography',
-  'base/links';
+  'base/links',
+  'base/plugins';
 
 @import
   'layout/navigation',

@@ -44,6 +44,32 @@ body {
   }
 }
 
+
+// /**
+//  * Hide the navigation in some cases, everything but the burger menu.
+//  */
+// #site-navigation.hide-most {
+//     background-color: rgba(255, 255, 255, 0);
+//     border-bottom: none;
+//
+//     .menu,
+//     #search-toggle,
+//     #site-title-wrapper {
+//       opacity: 0;
+//     }
+//
+//     &:hover {
+//       background-color: rgba($content-bgcolor, 0.75);
+//       border-bottom: 1px solid $border-color;
+//
+//       .menu,
+//       #search-toggle,
+//       #site-title-wrapper {
+//         opacity: 1;
+//       }
+//     }
+// }
+
 /**
  * Ensures content is always pushed below the navigation bar, which is
  * positioned relative to the window not the document.

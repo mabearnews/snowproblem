@@ -9,8 +9,8 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>"
-		 <?php post_class( 'post post-popular' ); ?>
+<div id="post-<?php the_ID(); ?>"
+		 <?php post_class( 'post post-popular swipe-elem' ); ?>
 		 style="background-image: url('<?php print snowproblem_get_thumbnail_url('singlepost-background'); ?>')">
 
 	<section class="post-content">
@@ -25,4 +25,4 @@
 
 	</section>
 
-</article><!-- #post-## -->
+</div><!-- #post-## -->
