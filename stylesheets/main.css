@@ -3506,6 +3506,7 @@ div.category a {
   letter-spacing: 3px;
   line-height: 60px;
   line-height: 3.75rem;
+  text-align: center;
 }
 @media (max-width: 800px) {
   .post-popular .title a {

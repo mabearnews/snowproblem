@@ -714,6 +714,7 @@ $featured-block-size: $max-page-width;
   letter-spacing: 3px;
   line-height: 60px;
   line-height: calculateRem(60px);
+  text-align: center;
 
   @include respond-to('medium') {
     @include font-size(25px);
