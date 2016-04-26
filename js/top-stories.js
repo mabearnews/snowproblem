@@ -4,8 +4,8 @@
 jQuery(document).ready(function($) {
     if ( ! $( '#top-stories-container' ).length ) { return; }
 
-    var topSwipe = Swipe( document.getElementById('top-stories-container'), {
-        auto: 3000,
+    window.topStoriesSwipe = new Swipe( document.getElementById('top-stories-container'), {
+        auto: 4000,
         speed: 550,
         callback: function(index) {
             var i = index + 1;
@@ -21,13 +21,5 @@ jQuery(document).ready(function($) {
     // Change the index based off of the options.
     $( '#top-stories-controller .option' ).click(function() {
         topSwipe.slide( $( this ).index() );
-    });
-
-    $( '#top-stories-arrows .left' ).click(function() {
-        topSwipe.prev();
-    });
-
-    $( '#top-stories-arrows .right' ).click(function() {
-        topSwipe.next();
     });
 });

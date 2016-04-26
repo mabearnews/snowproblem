@@ -162,8 +162,8 @@ get_header(); ?>
 
     <div id="top-stories-arrows">
 
-        <div class="arrow left"></div>
-        <div class="arrow right"></div>
+        <div class="arrow left" onclick="topStoriesSwipe.prev();"></div>
+        <div class="arrow right" onclick="topStoriesSwipe.next();"></div>
 
     </div> <!-- #top-stories-arrows -->
 
