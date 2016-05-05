@@ -7,3 +7,9 @@
     @include flex-direction(column);
     @include justify-content(center);
 }
+
+%center-horizontal {
+    @include display-flex;
+    @include flex-direction(horizontal);
+    @include justify-content(center);
+}

@@ -7,31 +7,102 @@
  * acceleration.
  */
 #sidebar {
-  $sidebar-width: 200px;
-
-  @include transition(transform 8s);
-  display: block;
-  z-index: 100;
-  position: fixed;
-  top: 0;
-  right: -$sidebar-width;
+  padding: 20px;
   width: $sidebar-width;
-  height: 100vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  padding: $padding-val;
-  background-color: color('red');
 
-  &, & {
-    color: $light-text-color;
-  }
-
-  .sidebar-visible & {
-    @include transform(translateX(-$sidebar-width));
-  }
-
-  @include respond-to('medium') {
-    overflow: visible;
+  @include respond-to('large') {
     display: none;
   }
+}
+
+
+/**
+ * Show groups to be the proper size, continueing a wireframe like
+ * layout of the items.
+ */
+#sidebar > article {
+  width: 100%;
+}
+
+#sidebar > article .sb-title {
+  @extend %center-horizontal;
+  @include font-size(20px);
+  width: 100%;
+  font-family: $heading-font;
+  font-weight: bold;
+  position: relative;
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: rgb(0, 0, 0);
+    top: 50%;
+    top: calc(50% - 1px);
+    left: 0;
+    position: absolute;
+  }
+
+  > span {
+    background-color: $content-bgcolor;
+    z-index: 1;
+    padding: 4px;
+  }
+}
+
+#sidebar ul.sb-posts {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+/// Sets the height of the sidears article images.
+$sidebar-post-image-size: 80px;
+
+/// Sets the sidebars padding in addition to the images and such.
+$sidebar-post-padding: 12px;
+
+/**
+ * Become a valid container for both the post information and the the image for
+ * to represent the post on the left through margins.
+ */
+#sidebar li.sb-post {
+  width: 100%;
+  height: $sidebar-post-image-size + $sidebar-post-padding * 2;
+  padding: $sidebar-post-padding;
+  padding-right: $sidebar-post-image-size + $sidebar-post-padding * 2;
+  position: relative;
+  margin-bottom: 6px;
+  border-bottom: 1px solid rgb(230, 230, 230);
+
+  &.no-image {
+    padding-right: $sidebar-post-padding;
+  }
+}
+
+/**
+ * Show the image centered on the left.
+ */
+#sidebar .sb-image {
+  @include centered-background;
+  width: $sidebar-post-image-size;
+  height: $sidebar-post-image-size;
+  position: absolute;
+  right: $sidebar-post-padding;
+  bottom: $sidebar-post-padding;
+}
+
+#sidebar .np-image .sb-image { display: none; }
+
+/**
+ * Show the correct sizes of fonts for the recent post image.
+ */
+#sidebar .sb-date {
+  @include font-size(10px);
+}
+
+#sidebar .sb-name {
+  @include font-size(13px);
+  font-weight: bold;
 }

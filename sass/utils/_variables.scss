@@ -160,3 +160,7 @@ $image-post-width: 720px;
 /// The margin by which images and quotes that are left or right alines will
 /// set out from a posts content.
 $embed-out-distance: 150px;
+
+/// The size of the sidebar shown on single page posts. This should corrolate
+/// nearly to the width of newscards.
+$sidebar-width: 300px;

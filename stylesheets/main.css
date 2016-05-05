@@ -76,6 +76,15 @@ sass/
   justify-content: center;
 }
 
+#sidebar > article .sb-title {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: horizontal;
+  flex-direction: horizontal;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -1161,36 +1170,104 @@ body.nav-ending-visible #page, body.nav-visible #page {
  * acceleration.
  */
 #sidebar {
-  -moz-transition: -moz-transform 8s;
-  -o-transition: -o-transform 8s;
-  -webkit-transition: -webkit-transform 8s;
-  transition: transform 8s;
-  display: block;
-  z-index: 100;
-  position: fixed;
-  top: 0;
-  right: -200px;
-  width: 200px;
-  height: 100vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
   padding: 20px;
-  background-color: #e74c3c;
+  width: 300px;
 }
-#sidebar, #sidebar {
-  color: white;
-}
-.sidebar-visible #sidebar {
-  -moz-transform: translateX(-200px);
-  -ms-transform: translateX(-200px);
-  -webkit-transform: translateX(-200px);
-  transform: translateX(-200px);
-}
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   #sidebar {
-    overflow: visible;
     display: none;
   }
+}
+
+/**
+ * Show groups to be the proper size, continueing a wireframe like
+ * layout of the items.
+ */
+#sidebar > article {
+  width: 100%;
+}
+
+#sidebar > article .sb-title {
+  font-size: 20px;
+  font-size: 1.25rem;
+  width: 100%;
+  font-family: "Raleway", "Montserrat", "Helvetica", "Avenir", sans-serif;
+  font-weight: bold;
+  position: relative;
+}
+#sidebar > article .sb-title::before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: black;
+  top: 50%;
+  top: calc(50% - 1px);
+  left: 0;
+  position: absolute;
+}
+#sidebar > article .sb-title > span {
+  background-color: white;
+  z-index: 1;
+  padding: 4px;
+}
+
+#sidebar ul.sb-posts {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+/**
+ * Become a valid container for both the post information and the the image for
+ * to represent the post on the left through margins.
+ */
+#sidebar li.sb-post {
+  width: 100%;
+  height: 104px;
+  padding: 12px;
+  padding-right: 104px;
+  position: relative;
+  margin-bottom: 6px;
+  border-bottom: 1px solid #e6e6e6;
+}
+#sidebar li.sb-post.no-image {
+  padding-right: 12px;
+}
+
+/**
+ * Show the image centered on the left.
+ */
+#sidebar .sb-image {
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+}
+
+#sidebar .np-image .sb-image {
+  display: none;
+}
+
+/**
+ * Show the correct sizes of fonts for the recent post image.
+ */
+#sidebar .sb-date {
+  font-size: 10px;
+  font-size: 0.625rem;
+}
+
+#sidebar .sb-name {
+  font-size: 13px;
+  font-size: 0.8125rem;
+  font-weight: bold;
 }
 
 /**
@@ -1297,7 +1374,6 @@ body.single-format-image .footer-content {
 }
 
 #subscribe input[type="email"] {
-  border-color: #9b9b9b;
   background-color: white;
   width: 400px;
   color: black;
@@ -2239,7 +2315,6 @@ blockquote::before {
 .post-content {
   padding: 20px;
   line-height: 1.8;
-  position: relative;
 }
 
 /**
@@ -2248,6 +2323,9 @@ blockquote::before {
  */
 .post-content img {
   margin: 25px;
+}
+.post-content img.attachment-singlepost-background {
+  margin: 0;
 }
 
 /**
@@ -2285,6 +2363,41 @@ blockquote::before {
   margin-right: auto;
   margin-left: auto;
   text-align: center;
+}
+
+/**
+ * Ovveride the default styling for single format posts which have sidebars.
+ */
+.single-format-standard .alignright {
+  max-width: 100%;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  text-align: center !important;
+  padding: 10px;
+}
+
+.single-format-standard .alignleft {
+  max-width: 100%;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  text-align: center !important;
+  padding: 10px;
+}
+
+.single-format-standard .pull-right {
+  max-width: 100%;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  text-align: center !important;
+  padding: 10px;
+}
+
+.single-format-standard .pull-left {
+  max-width: 100%;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  text-align: center !important;
+  padding: 10px;
 }
 
 /**
@@ -2368,7 +2481,7 @@ blockquote::before {
 
 #social-share {
   position: absolute;
-  left: -255px;
+  left: 10px;
   top: 90px;
   z-index: 20;
 }
@@ -2380,14 +2493,14 @@ blockquote::before {
 }
 @media (max-width: 1000px) {
   #social-share {
-    position: relative;
+    position: relative !important;
     width: 100%;
     top: auto !important;
     left: auto !important;
   }
 }
 .format-image #social-share {
-  position: relative;
+  position: relative !important;
   width: 100%;
   top: auto !important;
   left: auto !important;
@@ -3469,6 +3582,7 @@ div.category a {
   background-repeat: no-repeat;
   background-position: center center;
   height: 100%;
+  margin: 5px;
 }
 
 /**
@@ -3688,7 +3802,7 @@ div.category a {
  * A post is shown with a parallax style image. The container of that image
  * lends the size of the image to consideration.
  */
-.featured-image {
+.single-format-image .featured-image {
   position: relative;
   margin: 0;
   width: 100%;
@@ -3714,6 +3828,13 @@ div.category a {
   bottom: 0;
   width: 100%;
   height: 100%;
+}
+
+/**
+ * For non parallax images, the standard "image regular" is used.
+ */
+.featured-image .image-regular {
+  width: 650px;
 }
 
 /**
@@ -3775,6 +3896,22 @@ header.entry-header {
  */
 .post-navigation {
   display: none !important;
+}
+
+/**
+ * Center the standard post.
+ */
+.post.format-standard .center-element {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row;
+  flex-flow: row;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1160px;
+  margin: auto;
+  position: relative;
 }
 
 /**

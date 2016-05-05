@@ -11,26 +11,34 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> data-post-type="<?php print get_post_type(); ?>">
 
-	<div class="center-element">
+	<?php if ( has_post_thumbnail() ) : ?>
 
-		<section class="post-content">
+		<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'singlepost-background' ); ?>
 
-			<?php if ( has_post_thumbnail() ) : ?>
+		<section class="featured-image" image-url="<?php print $image[0]; ?>">
 
-				<div class="image-regular">
-					<?php the_post_thumbnail( 'singlepost-background' ); ?>
-				</div>
 
-			<?php endif; ?>
+			<div class="background-image" style="background-image: url('<?php print $image[0]; ?>');"></div>
 
-			<header class="entry-header entry-section">
+			<?php unset($image); /* Remove $image in case it interferes with later wordpress functionality. */ ?>
+
+			<div class="entry-header entry-section">
 				<?php the_title( '<h1 class="entry-title add-animated">', '</h1>' ); ?>
 
 				<div class="entry-meta">
 					<?php snowproblem_posted_on(); ?>
 				</div><!-- .entry-meta -->
-			</header><!-- .entry-header -->
+			</div><!-- .entry-header -->
 
+
+		</section>
+
+	<?php endif; ?>
+
+
+	<div class="center-element">
+
+		<section class="post-content">
 
 			<div class="entry-content entry-section">
 				<?php the_content(); ?>
@@ -46,6 +54,8 @@
 				<?php snowproblem_entry_footer(); ?>
 			</footer><!-- .entry-footer -->
 
+			<?php get_template_part('template-parts/content', 'social-share' ); ?>
+
 
 			<?php if ( ( comments_open() || get_comments_number() ) && defined( 'SNOWPROBLEM_COMMENTS_ALLOWED' ) ) : ?>
 
@@ -59,11 +69,6 @@
 
 			<?php endif; ?>
 
-			<?php get_template_part('template-parts/content', 'social-share' ); ?>
-
 		</section> <!-- .post-content -->
-
-		<?php get_sidebar(); ?>
-
 	</div> <!-- .center-element -->
 </article><!-- #post-## -->

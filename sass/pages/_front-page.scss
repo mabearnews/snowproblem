@@ -679,6 +679,7 @@ $featured-block-size: $max-page-width;
 .post-popular {
   @include centered-background;
   height: 100%;
+  margin: 5px;
 }
 
 /**

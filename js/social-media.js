@@ -4,11 +4,6 @@ jQuery(document).ready(function($) {
         return;
     }
 
-    // Ensure that this is a standard post that requires this functionality.
-    if ( ! $( 'body.single-format-standard ' ).length ) {
-        return;
-    }
-
     /**
      * Ensures windows open as popups to share a story.
      *
@@ -20,41 +15,43 @@ jQuery(document).ready(function($) {
         return false;
     });
 
+    // Ensure that this is a standard post that requires this functionality.
+    if ( ! $( 'body.single-format-standard ' ).length ) {
+        return;
+    }
 
     var socialShare   = $('#social-share');
-    var postHeight    = $( '.post-content' ).height();
-    var offsetInitial = socialShare.offset().top - $( '.post-content' ).offset().top;
-    var initialLeft   = socialShare.css('left');
-    var socialHeight  = socialShare.height();
+    var centerElement = $('#main .center-element');
+    var page          = $('#page');
+    var postContent   = $('.post-content');
+    var postHeight    = $('.post-content').height();
+
+    socialShare.css({
+        position: 'absolute',
+        left: '10px'
+    });
 
     /**
      * Adjusts the height of the social share based off of its position in
      * the scroll heirarchy.
      */
     var adjustSocialShare = function() {
-        var o = $('.post-content').offset().top;
+        var o = postContent.offset().top;
         var s = $(this).scrollTop();
 
-        // if ( s > postHeight - socialHeight - offsetInitial ) {
-        //     return socialShare.css({
-        //         'top': ( postHeight - socialHeight - offsetInitial ) + 'px',
-        //         'left': initialLeft,
-        //         'position': 'absolute'
-        //     });
-        // }
-
         if ( o < 0 ) {
+            var left = ( (page.width() - centerElement.width()) / 2 );
+            if ( left < 0 ) left = 10; // for padding
+
             return socialShare.css({
-                'top': offsetInitial + 'px',
-                'position': 'fixed',
-                left: $('#site-navigation > .wrapper').offset().left + 'px'
+                position: 'fixed',
+                left: left + '10px'
             });
-        }
+        }''
 
         return socialShare.css({
-            'top': offsetInitial + 'px',
-            'position': 'absolute',
-            'left': initialLeft
+            position: 'absolute',
+            left: '10px'
         });
 
     };
