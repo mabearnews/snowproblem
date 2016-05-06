@@ -5,7 +5,7 @@ $social-switch-medium: $embed-out-distance * 2 + 50px + $post-width;
 #social-share {
   position: absolute;
   left: 10px;
-  top: 90px;
+  top: 80px;
   z-index: 20;
 
   @include respond-to((max-width: #{$max-page-width})) {

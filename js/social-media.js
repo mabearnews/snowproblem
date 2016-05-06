@@ -45,7 +45,7 @@ jQuery(document).ready(function($) {
 
             return socialShare.css({
                 position: 'fixed',
-                left: left + '10px'
+                left: left + 10 + 'px'
             });
         }''
 

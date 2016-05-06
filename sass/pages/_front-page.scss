@@ -679,14 +679,13 @@ $featured-block-size: $max-page-width;
 .post-popular {
   @include centered-background;
   height: 100%;
-  margin: 5px;
 }
 
 /**
  * Style the post content to stand out from the background.
  */
 .post-popular .post-content {
-  padding: 90px;
+  padding: 110px;
   height: auto;
   width: 100%;
   margin: auto;
